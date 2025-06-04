@@ -1,30 +1,29 @@
 # Jekyll 자동화 블로그 설정
-# Claude MCP 서버와 연동된 완전 자동화 기술 블로그
+# Claude MCP 서버와 연동하여 완전 자동화된 기술 블로그
 
 # 사이트 기본 정보 (개인화 완료)
 title: "재훈의 AI 자동화 블로그"
 email: gkswogns2013@gmail.com
 description: >- 
   서울시립대학교 컴퓨터과학부 2학년 재훈의 AI와 자동화 기술 블로그입니다. 
-  Claude MCP 서버, Jekyll, GitHub Actions를 활용한 완전 자동화 시스템을 구축하고, 
-  기술 창업을 목표로 다양한 개발 경험과 인사이트를 공유합니다.
+  Claude MCP 서버, Jekyll, GitHub Actions를 활용한 완전 자동화 기술 시스템을 구축하였고, 
+  기술 창업을 목표로 다양한 개발과 연구를 진행하는 공간을 제공합니다.
 
 # GitHub Pages 프로젝트 사이트 설정
 baseurl: "/my-jekyll-blog"
 url: "https://elecsonj.github.io"
 
-# 개인 정보 (간단하게 정리)
+# 개인 정보 (간소화하여 정확)
 github_username: elecsonJ
 twitter_username: 
 linkedin_username: 
 
-# 작성자 정보 (UI에 깔끔하게 표시)
-author: 
-  name: "한재훈 (Jaehoon Han)"
-  bio: "서울시립대학교 컴퓨터과학부 2학년 | University of Seoul, Computer Science & Engineering"
-  location: "서울, 대한민국 | Seoul, South Korea"
-  email: "gkswogns2013@gmail.com"
-  github: "elecsonJ"
+# 작성자 정보 (단순 문자열로 변경)
+author: "한재훈 (Jaehoon Han)"
+author_bio: "서울시립대학교 컴퓨터과학부 2학년 | University of Seoul, Computer Science & Engineering"
+author_location: "서울, 대한민국 | Seoul, South Korea"
+author_email: "gkswogns2013@gmail.com"
+author_github: "elecsonJ"
 
 # 대학교 정보
 university:
@@ -53,18 +52,18 @@ paginate_path: "/page:num/"
 show_excerpts: true
 excerpt_separator: <!--more-->
 
-# 소셜 미디어 카드 (간단 정리)
+# 소셜 미디어 링크 (간단 정보)
 social:
   name: "한재훈"
   links:
     - "https://github.com/elecsonJ"
     - "https://elecsonj.github.io/my-jekyll-blog"
 
-# 구글 웹마스터 도구 (곧 추가 예정)
+# 구글 웹마스터 도구 (후에 추가 예정)
 google_site_verification: # Google Search Console 등록 후 추가
 google_analytics: # Google Analytics 설정 후 추가
 
-# 사이트 메타 정보
+# 사이트 키워드 정보
 site_keywords: "AI, 자동화, Jekyll, GitHub Actions, 서울시립대, 컴퓨터과학, 기술창업, Claude MCP"
 
 # 기본 설정
@@ -76,7 +75,7 @@ kramdown:
   syntax_highlighter_opts:
     line_numbers: true
 
-# 퍼머링크 설정
+# 퍼마링크 설정
 permalink: /:categories/:year/:month/:day/:title/
 
 # 빌드 설정
@@ -118,3 +117,38 @@ blog:
   focus: ["AI", "자동화", "Jekyll", "GitHub Actions", "창업"]
   tech_stack: ["Python", "Jekyll", "Claude MCP", "GitHub Actions", "Ruby"]
   target_audience: "개발자, AI 연구자, 기술 창업자"
+
+# 카테고리 시스템 설정
+categories:
+  # 한국어 카테고리
+  korean:
+    tech: "기술"
+    ai: "인공지능"
+    automation: "자동화"
+    study: "학습"
+    project: "프로젝트"
+    startup: "창업"
+  # 영어 카테고리  
+  english:
+    tech: "Technology"
+    ai: "Artificial Intelligence" 
+    automation: "Automation"
+    study: "Study"
+    project: "Project"
+    startup: "Startup"
+
+# 다국어 지원
+languages:
+  korean:
+    name: "한국어"
+    posts_title: "최신 포스트"
+    about_title: "소개"
+    contact_title: "연락처"
+  english:
+    name: "English"
+    posts_title: "Latest Posts"
+    about_title: "About"
+    contact_title: "Contact"
+
+# 기본 언어
+default_language: korean
