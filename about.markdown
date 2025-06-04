@@ -8,7 +8,9 @@ permalink: /about/
 
 ## 🎓 소개
 
-컴퓨터과학부 2학년으로, **AI 자동화 시스템**과 **기술 창업**에 관심이 많습니다. 수학과 과학의 원리를 깊이 이해하고, 이를 실무에 적용하는 것을 좋아합니다.
+**서울시립대학교 컴퓨터과학부 2학년**으로, **AI 자동화 시스템**과 **기술 창업**에 관심이 많습니다. 수학과 과학의 원리를 깊이 이해하고, 이를 실무에 적용하는 것을 좋아합니다.
+
+**University of Seoul, Department of Computer Science & Engineering (2nd year)**
 
 ## 💻 기술 스택
 
@@ -61,6 +63,13 @@ permalink: /about/
 - **여러 접근 방식 비교**를 통한 이해
 - **개념의 본질** 파악을 통한 응용력 확보
 - **실전 활용 사례**와의 연결 중시
+
+## 🏫 학교 정보
+
+- **대학교**: 서울시립대학교 (University of Seoul)
+- **학과**: 컴퓨터과학부 (Computer Science & Engineering)
+- **학년**: 2학년 (2nd year)
+- **위치**: 서울, 대한민국 (Seoul, South Korea)
 
 ## 🎯 미래 계획
 
