@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# 사이트맵 위치
+Sitemap: https://elecsonj.github.io/my-jekyll-blog/sitemap.xml
+
+# 크롤링 제외 (옵션)
+Disallow: /scripts/
+Disallow: /.github/
+Disallow: /vendor/
