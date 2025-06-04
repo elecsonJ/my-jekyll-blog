@@ -5,33 +5,35 @@
 title: "재훈의 AI 자동화 블로그"
 email: gkswogns2013@gmail.com
 description: >- 
-  컴퓨터과학부 2학년 재훈의 AI와 자동화 기술 블로그입니다. 
+  서울시립대학교 컴퓨터과학부 2학년 재훈의 AI와 자동화 기술 블로그입니다. 
   Claude MCP 서버, Jekyll, GitHub Actions를 활용한 완전 자동화 시스템을 구축하고, 
   기술 창업을 목표로 다양한 개발 경험과 인사이트를 공유합니다.
 
-# GitHub Pages 프로젝트 사이트 설정 (404 오류 해결)
-baseurl: "/my-jekyll-blog" # GitHub Pages 프로젝트 사이트용
-url: "https://elecsonj.github.io" # GitHub Pages 도메인
+# GitHub Pages 프로젝트 사이트 설정
+baseurl: "/my-jekyll-blog"
+url: "https://elecsonj.github.io"
 
-# 소셜 미디어 및 개인 정보 (개인화 완료)
+# 개인 정보 (간단하게 정리)
 github_username: elecsonJ
-twitter_username: # 트위터 사용시 추가
-linkedin_username: # 링크드인 사용시 추가
+twitter_username: 
+linkedin_username: 
 
-# 개인 소개
-author:
-  name: "한재훈"
-  bio: "컴퓨터과학부 2학년, AI 자동화 시스템 개발자, 기술 창업 준비중"
-  location: "Seoul, Korea"
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/elecsonJ"
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"  
-      url: "mailto:gkswogns2013@gmail.com"
+# 작성자 정보 (UI에 깔끔하게 표시)
+author: 
+  name: "한재훈 (Jaehoon Han)"
+  bio: "서울시립대학교 컴퓨터과학부 2학년 | University of Seoul, Computer Science & Engineering"
+  location: "서울, 대한민국 | Seoul, South Korea"
+  email: "gkswogns2013@gmail.com"
+  github: "elecsonJ"
 
-# 테마 및 플러그인 설정 (UI 개선)
+# 대학교 정보
+university:
+  korean: "서울시립대학교 컴퓨터과학부"
+  english: "University of Seoul, Department of Computer Science & Engineering"
+  location: "Seoul, South Korea"
+  website: "https://uos.ac.kr"
+
+# 테마 및 플러그인 설정
 theme: minima
 plugins:
   - jekyll-feed
@@ -40,7 +42,7 @@ plugins:
   - jekyll-paginate
 
 # SEO 최적화
-lang: ko
+lang: ko-KR
 timezone: Asia/Seoul
 
 # 페이지네이션 설정
@@ -51,28 +53,19 @@ paginate_path: "/page:num/"
 show_excerpts: true
 excerpt_separator: <!--more-->
 
-# 소셜 미디어 카드
+# 소셜 미디어 카드 (간단 정리)
 social:
-  name: 한재훈
+  name: "한재훈"
   links:
-    - https://github.com/elecsonJ
-    - https://elecsonj.github.io/my-jekyll-blog
+    - "https://github.com/elecsonJ"
+    - "https://elecsonj.github.io/my-jekyll-blog"
 
-# Google Analytics (나중에 추가)
-# google_analytics: G-XXXXXXXXXX
+# 구글 웹마스터 도구 (곧 추가 예정)
+google_site_verification: # Google Search Console 등록 후 추가
+google_analytics: # Google Analytics 설정 후 추가
 
-# Disqus 댓글 (나중에 추가)  
-# disqus:
-#   shortname: my-jekyll-blog
-
-# 카테고리 및 태그 설정
-collections:
-  categories:
-    output: true
-    permalink: /:collection/:name/
-  tags:
-    output: true
-    permalink: /:collection/:name/
+# 사이트 메타 정보
+site_keywords: "AI, 자동화, Jekyll, GitHub Actions, 서울시립대, 컴퓨터과학, 기술창업, Claude MCP"
 
 # 기본 설정
 markdown: kramdown
@@ -80,16 +73,15 @@ highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    line_numbers: true
 
-# 퍼머링크 설정 (포스트 URL 구조)
+# 퍼머링크 설정
 permalink: /:categories/:year/:month/:day/:title/
 
 # 빌드 설정
 safe: true
 incremental: false
-profile: false
-
-# Jekyll 성능 최적화
 liquid:
   error_mode: warn
   strict_filters: false
@@ -103,22 +95,17 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - vendor/
   - scripts/
   - README.md
   - LICENSE
   - .github/
 
-# 사이트 네비게이션
+# 헤더 네비게이션
 header_pages:
-  - about.md
-  - categories.md
-  - tags.md
+  - about.markdown
 
-# 자동화 관련 커스텀 변수
+# 자동화 관련 설정
 automation:
   claude_mcp: true
   github_actions: true
@@ -130,3 +117,4 @@ blog:
   founded: 2025
   focus: ["AI", "자동화", "Jekyll", "GitHub Actions", "창업"]
   tech_stack: ["Python", "Jekyll", "Claude MCP", "GitHub Actions", "Ruby"]
+  target_audience: "개발자, AI 연구자, 기술 창업자"
