@@ -40,9 +40,23 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
 
-# SEO 최적화
+# SEO 최적화 설정
 lang: ko-KR
 timezone: Asia/Seoul
+
+# SEO 메타 정보
+seo:
+  title: "재훈의 AI 자동화 블로그 | Jekyll & GitHub Actions"
+  description: "AI, 자동화, Jekyll, GitHub Actions를 활용한 기술 블로그. 서울시립대 컴퓨터과학부 학생의 기술 창업 여정"
+  image: "/assets/images/blog-cover.jpg"  # 추후 추가
+  author: "한재훈 (Jaehoon Han)"
+
+# 구글 웹마스터 도구 설정
+google_site_verification: # Google Search Console에서 받은 코드 입력
+google_analytics: # Google Analytics 추적 ID (GA4 형식: G-XXXXXXXXXX)
+
+# 사이트 키워드 정보 (SEO용)
+site_keywords: "AI, 자동화, Jekyll, GitHub Actions, 서울시립대, 컴퓨터과학, 기술창업, Claude MCP, Python, 웹개발, 블로그자동화"
 
 # 페이지네이션 설정
 paginate: 5
@@ -59,13 +73,6 @@ social:
     - "https://github.com/elecsonJ"
     - "https://elecsonj.github.io/my-jekyll-blog"
 
-# 구글 웹마스터 도구 (후에 추가 예정)
-google_site_verification: # Google Search Console 등록 후 추가
-google_analytics: # Google Analytics 설정 후 추가
-
-# 사이트 키워드 정보
-site_keywords: "AI, 자동화, Jekyll, GitHub Actions, 서울시립대, 컴퓨터과학, 기술창업, Claude MCP"
-
 # 기본 설정
 markdown: kramdown
 highlighter: rouge
@@ -75,7 +82,7 @@ kramdown:
   syntax_highlighter_opts:
     line_numbers: true
 
-# 퍼마링크 설정
+# 퍼마링크 설정 (SEO 친화적)
 permalink: /:categories/:year/:month/:day/:title/
 
 # 빌드 설정
@@ -153,3 +160,21 @@ languages:
 
 # 기본 언어
 default_language: korean
+
+# Jekyll SEO Tag 플러그인 설정
+title_separator: "|"
+tagline: "AI 자동화 기술 블로그"
+
+# JSON-LD 구조화 데이터
+structured_data:
+  type: "Blog"
+  author:
+    type: "Person"
+    name: "한재훈"
+    url: "https://elecsonj.github.io/my-jekyll-blog"
+  publisher:
+    type: "Person"
+    name: "한재훈"
+    logo:
+      type: "ImageObject"
+      url: "https://elecsonj.github.io/my-jekyll-blog/assets/images/logo.png"
