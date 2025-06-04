@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2025-06-04T03:54:12+00:00</updated><id>/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Jekyll 자동화 블로그 시작 (2025.06.04)</title><link href="/blog/automation/2025/06/04/jekyll-automation-blog-launch.html" rel="alternate" type="text/html" title="Jekyll 자동화 블로그 시작 (2025.06.04)" /><published>2025-06-04T03:45:00+00:00</published><updated>2025-06-04T03:45:00+00:00</updated><id>/blog/automation/2025/06/04/jekyll-automation-blog-launch</id><content type="html" xml:base="/blog/automation/2025/06/04/jekyll-automation-blog-launch.html"><![CDATA[<h2 id="-jekyll-자동화-블로그-런칭">🚀 Jekyll 자동화 블로그 런칭</h2>
+
+<p>안녕하세요! 오늘 Jekyll과 GitHub Actions를 활용한 완전 자동화 블로그 시스템을 구축했습니다.</p>
+
+<h2 id="-구축-목표">🎯 구축 목표</h2>
+
+<ul>
+  <li><strong>자동화</strong>: 콘텐츠 생성부터 배포까지 완전 자동화</li>
+  <li><strong>수익화</strong>: 기술 블로그를 통한 수익 창출 기반 마련</li>
+  <li><strong>확장성</strong>: 향후 SaaS 서비스로 발전 가능한 구조</li>
+</ul>
+
+<h2 id="-기술-스택">🛠 기술 스택</h2>
+
+<ul>
+  <li><strong>정적 사이트 생성기</strong>: Jekyll</li>
+  <li><strong>호스팅</strong>: GitHub Pages</li>
+  <li><strong>자동화</strong>: GitHub Actions</li>
+  <li><strong>콘텐츠 생성</strong>: Python + GitHub API</li>
+  <li><strong>버전 관리</strong>: Git</li>
+</ul>
+
+<h2 id="-자동화-기능">📈 자동화 기능</h2>
+
+<h3 id="1-자동-콘텐츠-생성">1. 자동 콘텐츠 생성</h3>
+<ul>
+  <li>GitHub 트렌딩 프로젝트 분석</li>
+  <li>기술 뉴스 큐레이션</li>
+  <li>개발자 인사이트 제공</li>
+</ul>
+
+<h3 id="2-자동-배포">2. 자동 배포</h3>
+<ul>
+  <li>매일 정해진 시간에 자동 실행</li>
+  <li>새 콘텐츠 감지 시 자동 빌드</li>
+  <li>GitHub Pages 자동 배포</li>
+</ul>
+
+<h3 id="3-seo-최적화">3. SEO 최적화</h3>
+<ul>
+  <li>메타 태그 자동 생성</li>
+  <li>사이트맵 자동 업데이트</li>
+  <li>RSS 피드 자동 관리</li>
+</ul>
+
+<h2 id="-수익화-계획">🎯 수익화 계획</h2>
+
+<h3 id="단기-목표">단기 목표</h3>
+<ol>
+  <li><strong>구글 애드센스</strong> 승인 및 광고 수익</li>
+  <li><strong>제휴 마케팅</strong> 프로그램 참여</li>
+  <li><strong>기술 서적</strong> 리뷰 및 추천</li>
+</ol>
+
+<h3 id="중기-목표">중기 목표</h3>
+<ol>
+  <li><strong>프리미엄 콘텐츠</strong> 구독 서비스</li>
+  <li><strong>기술 컨설팅</strong> 서비스 제공</li>
+  <li><strong>온라인 강의</strong> 플랫폼 연동</li>
+</ol>
+
+<h3 id="장기-목표">장기 목표</h3>
+<ol>
+  <li><strong>SaaS 플랫폼</strong> 개발 (자동화 블로그 서비스)</li>
+  <li><strong>API 서비스</strong> 제공 (콘텐츠 생성 API)</li>
+  <li><strong>B2B 솔루션</strong> 판매</li>
+</ol>
+
+<h2 id="-기술적-인사이트">💡 기술적 인사이트</h2>
+
+<h3 id="jekyll의-장점">Jekyll의 장점</h3>
+<ul>
+  <li><strong>빠른 로딩</strong>: 정적 파일로 인한 빠른 로딩 속도</li>
+  <li><strong>보안</strong>: 서버 사이드 취약점 없음</li>
+  <li><strong>확장성</strong>: GitHub Pages 무료 호스팅</li>
+  <li><strong>SEO 친화적</strong>: 검색 엔진 최적화 용이</li>
+</ul>
+
+<h3 id="자동화의-가치">자동화의 가치</h3>
+<ul>
+  <li><strong>일관성</strong>: 규칙적인 콘텐츠 업데이트</li>
+  <li><strong>효율성</strong>: 수작업 시간 대폭 단축</li>
+  <li><strong>확장성</strong>: 여러 블로그 동시 관리 가능</li>
+</ul>
+
+<h2 id="-향후-계획">🔮 향후 계획</h2>
+
+<h3 id="1주차">1주차</h3>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Jekyll 블로그 구축</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />GitHub Actions 설정</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />자동 콘텐츠 생성 시스템</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Google Analytics 연동</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Google Search Console 등록</li>
+</ul>
+
+<h3 id="1개월">1개월</h3>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />SEO 최적화 완료</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />구글 애드센스 승인</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />첫 수익 달성 ($1+)</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />트래픽 분석 대시보드</li>
+</ul>
+
+<h3 id="3개월">3개월</h3>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />월 방문자 1,000명 달성</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />제휴 마케팅 수익 창출</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />프리미엄 콘텐츠 서비스 런칭</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />구독자 100명 달성</li>
+</ul>
+
+<h2 id="-함께하기">🤝 함께하기</h2>
+
+<p>이 프로젝트는 <strong>오픈소스</strong>로 진행됩니다.</p>
+<ul>
+  <li><strong>GitHub</strong>: <a href="https://github.com/elecsonJ/my-jekyll-blog">my-jekyll-blog</a></li>
+  <li><strong>기여</strong>: 이슈 및 PR 환영</li>
+  <li><strong>피드백</strong>: 댓글로 의견 공유</li>
+</ul>
+
+<hr />
+
+<p><em>이 블로그는 Jekyll과 GitHub Actions를 활용한 완전 자동화 시스템으로 운영됩니다. 기술적 질문이나 협업 제안은 언제든 환영합니다!</em></p>]]></content><author><name></name></author><category term="blog" /><category term="automation" /><category term="jekyll" /><category term="github-pages" /><category term="automation" /><category term="startup" /><summary type="html"><![CDATA[Jekyll과 GitHub Actions를 활용한 자동화 블로그 시스템을 구축했습니다.]]></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2025/06/04/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2025-06-04T03:36:04+00:00</published><updated>2025-06-04T03:36:04+00:00</updated><id>/jekyll/update/2025/06/04/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2025/06/04/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>Jekyll requires blog post files to be named according to the following format:</p>
+
+<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+
+<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry></feed>
