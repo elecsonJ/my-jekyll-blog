@@ -51,8 +51,8 @@ seo:
   image: "/assets/images/blog-cover.jpg"  # 추후 추가
   author: "한재훈 (Jaehoon Han)"
 
-# 구글 웹마스터 도구 설정
-google_site_verification: # Google Search Console에서 받은 코드 입력
+# 구글 웹마스터 도구 설정 (인증 완료)
+google_site_verification: "google52bf202f8d3f7884"
 google_analytics: # Google Analytics 추적 ID (GA4 형식: G-XXXXXXXXXX)
 
 # 사이트 키워드 정보 (SEO용)
