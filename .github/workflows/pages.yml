@@ -8,7 +8,7 @@ on:
     - cron: '0 0 * * *'
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -22,6 +22,35 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pyyaml
+          
+      - name: Run Auto Blog Generator
+        run: |
+          cd scripts
+          python auto_blog_generator.py
+          
+      - name: Commit and push if changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "자동 포스트 생성 - $(date '+%Y-%m-%d %H:%M:%S')"
+            git push
+          else
+            echo "변경사항이 없습니다."
+          fi
         
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
