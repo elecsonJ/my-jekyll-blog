@@ -4,15 +4,100 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# 👋 안녕하세요! 한재훈입니다
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+## 🎓 소개
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+컴퓨터과학부 2학년으로, **AI 자동화 시스템**과 **기술 창업**에 관심이 많습니다. 수학과 과학의 원리를 깊이 이해하고, 이를 실무에 적용하는 것을 좋아합니다.
 
+## 💻 기술 스택
 
-[jekyll-organization]: https://github.com/jekyll
+### 주력 언어
+- **Python** - AI 실습 및 자동화 스크립트 개발
+- **Java** - 현재 수업 중
+- **C** - 여름방학 학습 예정
+
+### 관심 분야
+- **인공지능 & 머신러닝**
+- **통계학 & 선형대수**
+- **정수론 & 알고리즘**
+- **시스템 설계 & 자동화**
+
+### 현재 사용 중인 도구들
+- **Claude MCP 서버** - 자동화 시스템 구축
+- **Jekyll & GitHub Actions** - 블로그 자동 배포
+- **Python 자동화** - 콘텐츠 생성 및 데이터 처리
+
+## 🚀 현재 프로젝트
+
+### 🤖 완전 자동화 블로그 시스템
+- **Claude MCP 서버**와 **Jekyll** 연동
+- **GitHub Actions**를 통한 자동 배포
+- **Python 스크립트**로 콘텐츠 자동 생성
+- **SEO 최적화** 및 **수익화** 준비
+
+### 🎯 목표
+- **기술 창업**을 위한 포트폴리오 구축
+- **SaaS 플랫폼** 개발 (자동화 블로그 서비스)
+- **수익 창출** 및 **비즈니스 모델** 검증
+
+## 🛠 개발 환경
+
+### 하드웨어
+- **MacBook Pro 14인치 M3** / 1TB SSD / 24GB RAM
+- **데스크탑** - Windows, 5600X, RTX 4060Ti, 32GB RAM
+
+### 개발 철학
+- **논리적 일관성** 중시
+- **원리 이해** 우선, 단순 암기 지양
+- **실무 적용** 가능한 솔루션 추구
+- **자동화**를 통한 효율성 극대화
+
+## 📚 학습 방식
+
+> *"설명이 납득되지 않으면 의심하고 재질문하는 성향"*
+
+- 수식은 **처음부터 끝까지 전개**하고 **검산 과정**까지 포함
+- **여러 접근 방식 비교**를 통한 이해
+- **개념의 본질** 파악을 통한 응용력 확보
+- **실전 활용 사례**와의 연결 중시
+
+## 🎯 미래 계획
+
+### 단기 목표 (6개월)
+- [ ] 블로그 **월 1,000명 방문자** 달성
+- [ ] **Google AdSense** 수익 창출
+- [ ] **포트폴리오** 사이트 완성
+- [ ] **기술 스택** 심화 학습
+
+### 중기 목표 (1년)
+- [ ] **SaaS 프로토타입** 개발
+- [ ] **기술 컨설팅** 서비스 시작
+- [ ] **오픈소스 기여** 활동
+- [ ] **기술 커뮤니티** 활동 확대
+
+### 장기 목표 (3년)
+- [ ] **기술 창업** 실행
+- [ ] **수익성 있는 서비스** 런칭
+- [ ] **개발팀** 구성 및 운영
+- [ ] **글로벌 시장** 진출
+
+## 🤝 연락하기
+
+### 💬 협업 및 프로젝트 문의 환영!
+
+- **GitHub**: [@elecsonJ](https://github.com/elecsonJ)
+- **Email**: [gkswogns2013@gmail.com](mailto:gkswogns2013@gmail.com)
+- **블로그**: [재훈의 AI 자동화 블로그](https://elecsonj.github.io/my-jekyll-blog)
+
+### 🔗 관심 있는 협업 분야
+- **AI/ML 프로젝트** 공동 개발
+- **자동화 시스템** 구축 컨설팅
+- **기술 블로그** 운영 노하우 공유
+- **창업 아이디어** 검증 및 개발
+
+---
+
+> *"기술로 세상을 더 편리하게 만들고, 자동화를 통해 인간이 더 창의적인 일에 집중할 수 있도록 돕고 싶습니다."*
+
+**이 블로그는 Claude MCP 서버와 GitHub Actions를 활용한 완전 자동화 시스템으로 운영됩니다.** 🤖✨
