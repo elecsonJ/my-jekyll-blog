@@ -1,10 +1,21 @@
+# robots.txt for Jekyll Blog
+# Allow all web crawlers
+
 User-agent: *
 Allow: /
 
-# 사이트맵 위치
+# Sitemap location
 Sitemap: https://elecsonj.github.io/my-jekyll-blog/sitemap.xml
 
-# 크롤링 제외 (옵션)
+# Disallow specific directories (if any)
+Disallow: /admin/
 Disallow: /scripts/
-Disallow: /.github/
-Disallow: /vendor/
+Disallow: /.git/
+
+# Allow important pages
+Allow: /categories/
+Allow: /about/
+Allow: /_posts/
+
+# Crawl delay (optional)
+Crawl-delay: 1
