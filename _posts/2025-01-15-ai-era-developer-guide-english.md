@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What Skills Should Developers Learn in the AI Era?"
-date: 2025-01-15 09:00:00 +0900
+date: 2025-06-06 09:00:00 +0900
 categories: [english-posts]
 tags: [artificial-intelligence, developer, programming, career, computer-science, undergraduate, startup, job-market, AI, development]
 author: "Jaehoon Han"
