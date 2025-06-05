@@ -1,9 +1,12 @@
 ---
 layout: post
 title: "What Skills Should Developers Learn in the AI Era?"
-date: 2025-01-15
-categories: [Development, AI, Career]
-tags: [artificial-intelligence, developer, programming, career, computer-science, undergraduate, startup, job-market]
+date: 2025-01-15 09:00:00 +0900
+categories: [english-posts]
+tags: [artificial-intelligence, developer, programming, career, computer-science, undergraduate, startup, job-market, AI, development]
+author: "Jaehoon Han"
+lang: en
+excerpt: "A comprehensive analysis of changing developer roles, required competencies, and the philosophy computer science students should develop in the age of AI"
 description: "A comprehensive analysis of changing developer roles, required competencies, and the philosophy computer science students should develop in the age of AI"
 ---
 
@@ -36,7 +39,7 @@ Since there are clearly areas **where AI cannot excel**, future developers will 
 
 ## Human Developer Strengths and Required Competencies in the AI Era
 
-### ① Technical Competencies: **Becoming Engineers with Solid Fundamentals and Integrative Skills**
+### → Technical Competencies: **Becoming Engineers with Solid Fundamentals and Integrative Skills**
 
 #### Strong CS Fundamentals
 Traditional computer science knowledge like data structures, algorithms, and computer architecture remains **absolutely crucial in the AI era**. Even if AI tools can quickly generate code, properly understanding the **time complexity and memory usage** of that code is the developer's responsibility.
@@ -51,7 +54,7 @@ Future developers will increasingly take on **"director" roles that assemble AI-
 #### Testing and Debugging Capabilities
 **Test writing** and **debugging abilities** that ensure software reliability are also core roles of human developers. While AI can generate basic test code, determining **what boundary conditions to additionally verify** and **whether there are logical flaws** remains human work.
 
-Google's Jeff Dean emphasized that *"for AI to truly reach human developer level, it must also be able to **run tests and debug performance issues**."* Ultimately, **tracing root causes of bugs** and **finding performance bottlenecks through profilers** are advanced tasks that depend on developer expertise.
+Google's Jeff Dean emphasized that *for AI to truly reach human developer level, it must also be able to **run tests and debug performance issues***. Ultimately, **tracing root causes of bugs** and **finding performance bottlenecks through profilers** are advanced tasks that depend on developer expertise.
 
 #### AI/Data Utilization Skills
 In the AI era, developers also need **basic understanding of data and machine learning**. Even if not all developers become AI specialists, having knowledge of **fundamental machine learning principles (based on linear algebra and probability/statistics)** and **data processing capabilities (SQL, etc.)** provides significant advantages.
@@ -63,7 +66,7 @@ As software becomes more complex and AI-generated code increases, **Security** a
 
 Therefore, developers who understand **security principles** (e.g., input validation, SQL injection prevention, memory safety) and **software testing techniques** are highly valued in the AI era. For AI-generated code especially, we must thoroughly examine *"Does this code work as intended? Is there potential for abuse?"*
 
-### ② Soft Skills: **Leveraging Human Capabilities in the AI Era**
+### → Soft Skills: **Leveraging Human Capabilities in the AI Era**
 
 #### Creative Problem-Solving
 **Creativity** is one of the greatest strengths of human developers. Programming goes beyond simply implementing given problems in code; it involves **defining problems and devising novel solutions**. AI only suggests code in familiar patterns learned from past data; it cannot **generate completely new ideas or innovative designs**.
@@ -114,12 +117,12 @@ Forms the logical backbone of computer science. Learning propositional logic, se
 For example, knowing graph theory is essential to properly solve **social network path recommendation** or **network optimization** problems. To judge whether AI-proposed solutions are logically sound, such **rigorous thinking** must be the foundation.
 
 #### Linear Algebra and Probability & Statistics
-These are the **mathematical foundations of modern AI algorithms**. Linear algebra is virtually the basic language of **deep learning**, with matrix operations and vector space concepts being the key to understanding neural network operating principles. Probability and statistics help understand how **machine learning** models make probabilistic predictions and inferences.
+These are the **mathematical foundations of modern AI algorithms**. Linear algebra is virtually the basic language of **deep learning**, with matrix operations and vector space concepts being key to understanding neural network operating principles. Probability and statistics help understand how **machine learning** models make probabilistic predictions and inferences.
 
 Studying these subjects diligently allows you to go beyond simply using AI to **understand why it works that way**, and when errors occur, **approach and diagnose mathematically**.
 
 #### Numerical Analysis
-Deals with solving mathematical problems by computer, studying floating-point errors, approximation methods, etc. This knowledge applies directly to **scientific computing** and **simulation**, and also adds depth of understanding when dealing with numerical stability issues like **gradient vanishing/exploding problems** in deep learning.
+Deals with solving mathematical problems by computer, studying floating-point errors, approximation methods, etc. This knowledge applies directly to **scientific computing** and **simulation**, and also adds depth to understanding numerical stability issues like **gradient vanishing/exploding problems** in deep learning.
 
 ### ▶ Programming and Algorithm Courses: **Honing Problem-Solving Skills**
 
@@ -177,7 +180,7 @@ Teaches **efficient data storage/retrieval methods** through SQL usage, normaliz
 AI doesn't magically utilize data. **Humans must design** what data to collect in what structure for meaningful analysis or learning.
 
 #### AI Introduction
-Covers classical search algorithms, knowledge representation, reasoning, and machine learning fundamentals. This helps understand **various approaches to problem-solving** in AI's broad context. Learning state space search or A* algorithms develops **thinking processes for modeling problems** and **finding solution strategies** beyond simple coding.
+Covers classical search algorithms, knowledge representation, reasoning, and machine learning fundamentals. This helps **understand various approaches to problem-solving** in AI's broad context. Learning state space search or A* algorithms develops **thinking processes for modeling problems** and **finding solution strategies** beyond simple coding.
 
 #### Deep Learning Practice
 Literally involves **implementing and applying deep learning models**. You'll likely use Python's **TensorFlow or PyTorch** and work with various deep learning models like CNN/RNN and reinforcement learning. This experience helps **understand how modern AI is actually built and operates**.
@@ -206,7 +209,7 @@ However, recently, demonstrating **AI utilization skills** in addition can be a 
 Also, creating AI-related projects (e.g., adding chatbots to simple web apps) in your **portfolio** helps with differentiation. Companies inevitably prefer candidates who understand AI trends.
 
 ### Entrepreneurship Perspective
-Entrepreneurship is the **ultimate comprehensive art**. Technology is basic, but various abilities like **market research, product planning, fundraising, and marketing** are needed. Fortunately, from a technical perspective, AI has made it possible for **small teams to accomplish much more**.
+Entrepreneurship is the **ultimate comprehensive art**. Technology is basic, but various abilities like **market research, product planning, fundraising, marketing** are needed. Fortunately, from a technical perspective, AI has made it possible for **small teams to accomplish much more**.
 
 For example, prototypes that used to take 10 people 6 months can now potentially be created by 2-3 people in a short time with AI coding assistants. Therefore, if you dream of entrepreneurship, you can adopt **strategies to develop products efficiently by maximally utilizing AI**.
 
