@@ -27,8 +27,8 @@ Jekyll, GitHub Actions, Claude MCP 등 자동화 도구
 ### 🚀 프로젝트 (Project)
 개인 프로젝트와 포트폴리오
 
-### 💼 발전 (Startup)
-기술 발전 관련 인사이트와 경험
+### 💼 창업 (Startup)
+기술 창업 관련 인사이트와 경험
 
 ### 📰 기술뉴스분석 (Tech News Analysis)
 최신 기술 뉴스와 동향 분석
@@ -38,7 +38,7 @@ Jekyll, GitHub Actions, Claude MCP 등 자동화 도구
 ## 📝 최근 한국어 포스트
 
 <div class="korean-posts">
-{% assign korean_posts = site.posts | where_exp: "post", "post.lang == 'ko' or post.categories contains 'korean' or post.categories contains 'tech-news-analysis'" %}
+{% assign korean_posts = site.posts | where_exp: "post", "post.lang == 'ko' or post.categories contains 'korean' or (post.categories contains 'tech-news-analysis' and post.lang != 'en')" %}
 {% if korean_posts.size > 0 %}
   <div class="posts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
     {% for post in korean_posts limit:12 %}
