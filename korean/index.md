@@ -38,7 +38,19 @@ Jekyll, GitHub Actions, Claude MCP 등 자동화 도구
 ## 📝 최근 한국어 포스트
 
 <div class="korean-posts">
-{% assign korean_posts = site.posts | where_exp: "post", "post.lang == 'ko' or post.categories contains 'korean' or (post.categories contains 'tech-news-analysis' and post.lang != 'en')" %}
+{% assign all_posts = site.posts %}
+{% assign korean_posts = "" | split: "" %}
+
+{% for post in all_posts %}
+  {% if post.lang == 'ko' or post.lang == nil and post.categories contains 'tech-news-analysis' %}
+    {% assign korean_posts = korean_posts | push: post %}
+  {% elsif post.lang == nil and post.categories contains 'korean' %}
+    {% assign korean_posts = korean_posts | push: post %}
+  {% elsif post.lang != 'en' and post.categories contains 'tech-news-analysis' %}
+    {% assign korean_posts = korean_posts | push: post %}
+  {% endif %}
+{% endfor %}
+
 {% if korean_posts.size > 0 %}
   <div class="posts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
     {% for post in korean_posts limit:12 %}
