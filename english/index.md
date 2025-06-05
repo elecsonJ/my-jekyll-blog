@@ -38,7 +38,7 @@ Analysis of latest technology news and industry trends
 ## 📝 Latest English Posts
 
 <div class="english-posts">
-{% assign english_posts = site.posts | where_exp: "post", "post.lang == 'en' or post.categories contains 'english' or post.categories contains 'tech-news-analysis'" %}
+{% assign english_posts = site.posts | where_exp: "post", "post.lang == 'en' or post.categories contains 'english' or (post.categories contains 'tech-news-analysis' and post.lang == 'en')" %}
 {% if english_posts.size > 0 %}
   <div class="posts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
     {% for post in english_posts limit:12 %}
