@@ -2,11 +2,12 @@
 layout: post
 title: "Apple Shortcuts' AI Evolution: Eight Years of Innovation Reaches Fruition"
 date: 2025-06-05 14:30:00 +0900
-categories: [english, tech-news-analysis]
-tags: [Apple, Shortcuts, AI, WWDC2025, Automation, AppleIntelligence, TechInnovation, FutureOfWork]
+categories: [ai-news]
+tags: [apple, shortcuts, ai, wwdc2025, automation, apple-intelligence, tech-innovation, future-of-work]
 author: "Jaehoon Han"
 lang: en
 excerpt: "Apple is preparing to unveil an upgraded AI-powered Shortcuts app at WWDC 2025. This enhancement will allow users to automate everyday tasks more intuitively and efficiently, marking Apple's first major step into personalized AI assistance."
+description: "Apple is preparing to unveil an upgraded AI-powered Shortcuts app at WWDC 2025. This enhancement will allow users to automate everyday tasks more intuitively and efficiently."
 ---
 
 # Apple Shortcuts' AI Evolution: Eight Years of Innovation Reaches Fruition
