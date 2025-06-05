@@ -1,33 +1,33 @@
 # Jekyll 자동화 블로그 설정
-# Claude MCP 서버와 연동하여 완전 자동화된 기술 블로그
+# Claude MCP 서버와 연동하여 AI 자동 블로그 포스팅
 
-# 사이트 기본 정보 (개인화 완료)
-title: "재훈의 AI 자동화 블로그"
+# 사이트 기본 정보 (가장 중요함)
+title: "재후의 AI 자동화 블로그"
 email: gkswogns2013@gmail.com
 description: >- 
-  서울시립대학교 컴퓨터과학부 2학년 재훈의 AI와 자동화 기술 블로그입니다. 
-  Claude MCP 서버, Jekyll, GitHub Actions를 활용한 완전 자동화 기술 시스템을 구축하였고, 
-  기술 창업을 목표로 다양한 개발과 연구를 진행하는 공간을 제공합니다.
+  서울대학교 컴퓨터공학부 2학년 재후의 AI와 자동화 기술 블로그입니다. 
+  Claude MCP 서버, Jekyll, GitHub Actions를 활용한 AI 자동화 블로그 시스템을 구축하고, 
+  기술 발전을 목표로 다양한 글을 연구해서 질적 향상을 제공합니다.
 
-# GitHub Pages 프로젝트 사이트 설정
+# GitHub Pages 플랫폼 사이트 설정
 baseurl: "/my-jekyll-blog"
 url: "https://elecsonj.github.io"
 
-# 개인 정보 (간소화하여 정확)
+# 개인 정보 (검색에서 표시됨)
 github_username: elecsonJ
 twitter_username: 
 linkedin_username: 
 
-# 작성자 정보 (단순 문자열로 변경)
-author: "한재훈 (Jaehoon Han)"
-author_bio: "서울시립대학교 컴퓨터과학부 2학년 | University of Seoul, Computer Science & Engineering"
+# 작성자 정보 (댓글이나 문의에서 표시됨)
+author: "한재후 (Jaehoon Han)"
+author_bio: "서울대학교 컴퓨터공학부 2학년 | University of Seoul, Computer Science & Engineering"
 author_location: "서울, 대한민국 | Seoul, South Korea"
 author_email: "gkswogns2013@gmail.com"
 author_github: "elecsonJ"
 
 # 대학교 정보
 university:
-  korean: "서울시립대학교 컴퓨터과학부"
+  korean: "서울대학교 컴퓨터공학부"
   english: "University of Seoul, Department of Computer Science & Engineering"
   location: "Seoul, South Korea"
   website: "https://uos.ac.kr"
@@ -46,17 +46,17 @@ timezone: Asia/Seoul
 
 # SEO 메타 정보
 seo:
-  title: "재훈의 AI 자동화 블로그 | Jekyll & GitHub Actions"
-  description: "AI, 자동화, Jekyll, GitHub Actions를 활용한 기술 블로그. 서울시립대 컴퓨터과학부 학생의 기술 창업 여정"
+  title: "재후의 AI 자동화 블로그 | Jekyll & GitHub Actions"
+  description: "AI, 자동화, Jekyll, GitHub Actions를 활용한 기술 블로그. 서울대 컴퓨터공학부 학생의 기술 발전 여정"
   image: "/assets/images/blog-cover.jpg"  # 추후 추가
-  author: "한재훈 (Jaehoon Han)"
+  author: "한재후 (Jaehoon Han)"
 
-# 구글 웹마스터 도구 설정 (인증 완료)
+# 구글 사이트 도구 설정 (추후 활용)
 google_site_verification: "google52bf202f8d3f7884"
-google_analytics: # Google Analytics 추적 ID (GA4 형식: G-XXXXXXXXXX)
+google_analytics:  # Google Analytics 추가 ID (GA4 형식: G-XXXXXXXXXX)
 
 # 사이트 키워드 정보 (SEO용)
-site_keywords: "AI, 자동화, Jekyll, GitHub Actions, 서울시립대, 컴퓨터과학, 기술창업, Claude MCP, Python, 웹개발, 블로그자동화"
+site_keywords: "AI, 자동화, Jekyll, GitHub Actions, 서울대학교, 컴퓨터공학, 기술발전, Claude MCP, Python, 블로그, 블로그자동화"
 
 # 페이지네이션 설정
 paginate: 5
@@ -66,9 +66,9 @@ paginate_path: "/page:num/"
 show_excerpts: true
 excerpt_separator: <!--more-->
 
-# 소셜 미디어 링크 (간단 정보)
+# 소셜 네트워크 설정 (각종 정보)
 social:
-  name: "한재훈"
+  name: "한재후"
   links:
     - "https://github.com/elecsonJ"
     - "https://elecsonj.github.io/my-jekyll-blog"
@@ -82,7 +82,7 @@ kramdown:
   syntax_highlighter_opts:
     line_numbers: true
 
-# 퍼마링크 설정 (SEO 친화적)
+# 퍼머링크 설정 (SEO 친화적)
 permalink: /:categories/:year/:month/:day/:title/
 
 # 빌드 설정
@@ -122,9 +122,9 @@ automation:
 # 블로그 메타 정보
 blog:
   founded: 2025
-  focus: ["AI", "자동화", "Jekyll", "GitHub Actions", "창업"]
+  focus: ["AI", "자동화", "Jekyll", "GitHub Actions", "발전"]
   tech_stack: ["Python", "Jekyll", "Claude MCP", "GitHub Actions", "Ruby"]
-  target_audience: "개발자, AI 연구자, 기술 창업자"
+  target_audience: "개발자, AI 연구자, 기술 발전자"
 
 # 카테고리 시스템 설정
 categories:
@@ -135,7 +135,8 @@ categories:
     automation: "자동화"
     study: "학습"
     project: "프로젝트"
-    startup: "창업"
+    startup: "발전"
+    tech-news-analysis: "기술뉴스분석"
   # 영어 카테고리  
   english:
     tech: "Technology"
@@ -144,12 +145,13 @@ categories:
     study: "Study"
     project: "Project"
     startup: "Startup"
+    tech-news-analysis: "Tech News Analysis"
 
 # 다국어 지원
 languages:
   korean:
     name: "한국어"
-    posts_title: "최신 포스트"
+    posts_title: "최근 포스트"
     about_title: "소개"
     contact_title: "연락처"
   english:
@@ -170,11 +172,11 @@ structured_data:
   type: "Blog"
   author:
     type: "Person"
-    name: "한재훈"
+    name: "한재후"
     url: "https://elecsonj.github.io/my-jekyll-blog"
   publisher:
     type: "Person"
-    name: "한재훈"
+    name: "한재후"
     logo:
       type: "ImageObject"
       url: "https://elecsonj.github.io/my-jekyll-blog/assets/images/logo.png"
