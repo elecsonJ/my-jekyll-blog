@@ -2,11 +2,12 @@
 layout: post
 title: "Reddit Sues Anthropic Over Unauthorized Data Use: A Pivotal Moment in the AI Training Data Wars"
 date: 2025-06-05 16:00:00 +0900
-categories: [english, tech-news-analysis]
-tags: [Reddit, Anthropic, AILawsuit, DataRights, Copyright, Claude, BigTech, TechLaw, DigitalSovereignty]
+categories: [ai-news]
+tags: [reddit, anthropic, ai-lawsuit, data-rights, copyright, claude, big-tech, tech-law, digital-sovereignty]
 author: "Jaehoon Han"
 lang: en
 excerpt: "Reddit filed a lawsuit against Anthropic on June 4, 2025, in California federal court, alleging that the AI company unlawfully scraped user-generated content without licensing agreements to train its Claude AI models. This marks the first major legal challenge by a Big Tech company against an AI model provider over training data practices."
+description: "Reddit filed a lawsuit against Anthropic alleging unauthorized data scraping for AI training, marking a pivotal moment in the AI data wars."
 ---
 
 # Reddit Sues Anthropic Over Unauthorized Data Use: A Pivotal Moment in the AI Training Data Wars
