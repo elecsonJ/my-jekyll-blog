@@ -2,7 +2,7 @@
 categories:
 - tech
 - github
-date: 2025-06-05 13:41:22 +0900
+date: 2025-06-05 13:41:47 +0900
 description: 이번 주 가장 주목받는 GitHub 오픈소스 프로젝트들을 소개합니다.
 layout: post
 tags:
@@ -18,13 +18,13 @@ title: 이번 주 GitHub 트렌딩 프로젝트 (2025.06.05)
 
 ### 1. [DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1)
 
-**언어:** None | **⭐ Stars:** 89,892
+**언어:** None | **⭐ Stars:** 89,891
 
 None
 
 **주요 특징:**
 - 최근 주목받고 있는 None 프로젝트
-- 89,892개의 스타를 획득하며 빠른 성장세
+- 89,891개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
