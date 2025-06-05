@@ -2,7 +2,7 @@
 categories:
 - tech
 - github
-date: 2025-06-05 03:59:32 +0900
+date: 2025-06-05 04:08:06 +0900
 description: 이번 주 가장 주목받는 GitHub 오픈소스 프로젝트들을 소개합니다.
 layout: post
 tags:
@@ -31,13 +31,13 @@ None
 
 ### 2. [system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools)
 
-**언어:** None | **⭐ Stars:** 55,083
+**언어:** None | **⭐ Stars:** 55,084
 
 FULL v0, Cursor, Manus, Same.dev, Lovable, Devin, Replit Agent, Windsurf Agent, VSCode Agent, Dia Browser & Trae AI (And other Open Sourced) System Prompts, Tools & AI Models.
 
 **주요 특징:**
 - 최근 주목받고 있는 None 프로젝트
-- 55,083개의 스타를 획득하며 빠른 성장세
+- 55,084개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
@@ -70,13 +70,13 @@ No fortress, purely open ground.  OpenManus is Coming.
 
 ### 5. [codex](https://github.com/openai/codex)
 
-**언어:** Rust | **⭐ Stars:** 28,139
+**언어:** Rust | **⭐ Stars:** 28,140
 
 Lightweight coding agent that runs in your terminal
 
 **주요 특징:**
 - 최근 주목받고 있는 Rust 프로젝트
-- 28,139개의 스타를 획득하며 빠른 성장세
+- 28,140개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
