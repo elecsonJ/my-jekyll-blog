@@ -2,7 +2,7 @@
 categories:
 - tech
 - github
-date: 2025-06-05 03:56:39 +0900
+date: 2025-06-05 03:58:45 +0900
 description: 이번 주 가장 주목받는 GitHub 오픈소스 프로젝트들을 소개합니다.
 layout: post
 tags:
