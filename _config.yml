@@ -1,33 +1,33 @@
-# Jekyll 자동화 블로그 설정
-# Claude MCP 서버와 연동하여 AI 자동 블로그 포스팅
+# Jekyll 자동화 블로그 구축 설정
+# Claude MCP 서버와 연동하여 AI 자동화 블로그 구축 테스트
 
-# 사이트 기본 정보 (가장 중요함)
-title: "재후의 AI 자동화 블로그"
+# 사이트 기본 정보 (가독성을 위해 중요함)
+title: "재훈의 AI 자동화 블로그"
 email: gkswogns2013@gmail.com
 description: >- 
-  서울대학교 컴퓨터공학부 2학년 재후의 AI와 자동화 기술 블로그입니다. 
+  서울시립대학교 컴퓨터공학부 2학년 재훈의 AI와 자동화 기술 개발과 
   Claude MCP 서버, Jekyll, GitHub Actions를 활용한 AI 자동화 블로그 시스템을 구축하고, 
-  기술 발전을 목표로 다양한 글을 연구해서 질적 향상을 제공합니다.
+  기술 발전을 모든 차원에서 지속 가능한 형태로 적용하는 방법에 대한 탐구를 제공합니다.
 
 # GitHub Pages 플랫폼 사이트 설정
 baseurl: "/my-jekyll-blog"
 url: "https://elecsonj.github.io"
 
-# 개인 정보 (검색에서 표시됨)
+# 개인 정보 (가독성을 위해 필수함)
 github_username: elecsonJ
 twitter_username: 
 linkedin_username: 
 
-# 작성자 정보 (댓글이나 문의에서 표시됨)
-author: "한재후 (Jaehoon Han)"
-author_bio: "서울대학교 컴퓨터공학부 2학년 | University of Seoul, Computer Science & Engineering"
+# 작성자 정보 (디그리트 오타가 없어야 기본함)
+author: "한재훈 (Jaehoon Han)"
+author_bio: "서울시립대학교 컴퓨터공학부 2학년 | University of Seoul, Computer Science & Engineering"
 author_location: "서울, 대한민국 | Seoul, South Korea"
 author_email: "gkswogns2013@gmail.com"
 author_github: "elecsonJ"
 
 # 대학교 정보
 university:
-  korean: "서울대학교 컴퓨터공학부"
+  korean: "서울시립대학교 컴퓨터공학부"
   english: "University of Seoul, Department of Computer Science & Engineering"
   location: "Seoul, South Korea"
   website: "https://uos.ac.kr"
@@ -46,19 +46,19 @@ timezone: Asia/Seoul
 
 # SEO 메타 정보
 seo:
-  title: "재후의 AI 자동화 블로그 | Jekyll & GitHub Actions"
-  description: "AI, 자동화, Jekyll, GitHub Actions를 활용한 기술 블로그. 서울대 컴퓨터공학부 학생의 기술 발전 여정"
+  title: "재훈의 AI 자동화 블로그 | Jekyll & GitHub Actions"
+  description: "AI, 자동화, Jekyll, GitHub Actions를 활용한 기술 블로그. 서울시립대학교 학생의 기술 발전 여정"
   image: "/assets/images/blog-cover.jpg"  # 추후 추가
-  author: "한재후 (Jaehoon Han)"
+  author: "한재훈 (Jaehoon Han)"
 
 # 구글 사이트 도구 설정 (추후 활용)
 google_site_verification: "google52bf202f8d3f7884"
 google_analytics:  # Google Analytics 추가 ID (GA4 형식: G-XXXXXXXXXX)
 
 # 사이트 키워드 정보 (SEO용)
-site_keywords: "AI, 자동화, Jekyll, GitHub Actions, 서울대학교, 컴퓨터공학, 기술발전, Claude MCP, Python, 블로그, 블로그자동화"
+site_keywords: "AI, 자동화, Jekyll, GitHub Actions, 서울시립대학교, 컴퓨터공학, 기술발전, Claude MCP, Python, 블로그, 블로그자동화"
 
-# 페이지네이션 설정
+# 페이지 설정
 paginate: 5
 paginate_path: "/page:num/"
 
@@ -66,9 +66,9 @@ paginate_path: "/page:num/"
 show_excerpts: true
 excerpt_separator: <!--more-->
 
-# 소셜 네트워크 설정 (각종 정보)
+# 소셜 네트워크 설정 (필요 정보)
 social:
-  name: "한재후"
+  name: "한재훈"
   links:
     - "https://github.com/elecsonJ"
     - "https://elecsonj.github.io/my-jekyll-blog"
@@ -82,7 +82,7 @@ kramdown:
   syntax_highlighter_opts:
     line_numbers: true
 
-# 퍼머링크 설정 (SEO 친화적)
+# 퍼머링크 설정 (SEO 최적화)
 permalink: /:categories/:year/:month/:day/:title/
 
 # 빌드 설정
@@ -172,11 +172,11 @@ structured_data:
   type: "Blog"
   author:
     type: "Person"
-    name: "한재후"
+    name: "한재훈"
     url: "https://elecsonj.github.io/my-jekyll-blog"
   publisher:
     type: "Person"
-    name: "한재후"
+    name: "한재훈"
     logo:
       type: "ImageObject"
       url: "https://elecsonj.github.io/my-jekyll-blog/assets/images/logo.png"

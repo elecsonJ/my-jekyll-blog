@@ -25,7 +25,7 @@ description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
 <div class="blog-intro" style="margin: 30px 0;">
   <h2>🚀 Welcome to My Tech Blog</h2>
   
-  <p><strong>안녕하세요!</strong> 서울시립대학교 컴퓨터과학부 2학년 한재훈입니다.</p>
+  <p><strong>안녕하세요!</strong> 서울시립대학교 컴퓨터공학부 2학년 한재훈입니다.</p>
   
   <p>이 블로그는 <strong>Jekyll</strong>과 <strong>Claude MCP</strong>, <strong>GitHub Actions</strong>를 활용한 
   완전 자동화 시스템으로 운영됩니다.</p>
@@ -35,13 +35,13 @@ description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
     <li><strong>인공지능 (AI)</strong> - 머신러닝, 딥러닝 연구 및 실습</li>
     <li><strong>자동화 (Automation)</strong> - Jekyll, GitHub Actions, Claude MCP</li>
     <li><strong>웹 개발</strong> - 프론트엔드, 백엔드 기술</li>
-    <li><strong>학습 기록</strong> - 컴퓨터과학 학습 과정</li>
+    <li><strong>학습 기록</strong> - 컴퓨터공학 학습 과정</li>
     <li><strong>프로젝트</strong> - 개인 프로젝트 및 포트폴리오</li>
-    <li><strong>창업</strong> - 기술 창업 관련 인사이트</li>
+    <li><strong>발전</strong> - 기술 발전 관련 인사이트</li>
   </ul>
 </div>
 
-<!-- 최신 포스트 미리보기 -->
+<!-- 최신 포스트 목록 구역 -->
 <div class="recent-posts" style="margin: 30px 0;">
   <h2>📝 Latest Posts / 최신 글</h2>
   
@@ -82,7 +82,7 @@ description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
 
 <!-- 기술 스택 섹션 -->
 <div class="tech-stack" style="background: #f8f9fa; padding: 20px; margin: 30px 0; border-radius: 8px;">
-  <h2>🛠 Tech Stack</h2>
+  <h2>💻 Tech Stack</h2>
   
   <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
     {% assign tech_items = "Python,Jekyll,GitHub Actions,Claude MCP,JavaScript,HTML/CSS,Git,Markdown" | split: "," %}
@@ -108,7 +108,7 @@ description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
     </a>
     
     <a href="{{ '/about/' | relative_url }}" style="display: inline-block; margin: 0 10px; padding: 8px 16px; background: #28a745; color: white; text-decoration: none; border-radius: 5px;">
-      👨‍💻 About Me
+      🙋‍💻 About Me
     </a>
   </div>
 </div>
