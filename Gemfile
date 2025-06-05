@@ -1,17 +1,18 @@
 source "https://rubygems.org"
 
-# GitHub Pages 호환 설정
-gem "github-pages", group: :jekyll_plugins
+# 최신 Jekyll 버전 사용 (GitHub Actions에서)
+gem "jekyll", "~> 4.4.1"
 
 # 테마
 gem "minima", "~> 2.5"
 
-# 플러그인 (GitHub Pages에서 지원하는 것만)
+# 플러그인 (GitHub Actions에서는 제한 없음)
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-seo-tag"
   gem "jekyll-sitemap"
   gem "jekyll-paginate"
+  gem "jekyll-compose"  # 추가 플러그인도 사용 가능
 end
 
 # Windows 지원
