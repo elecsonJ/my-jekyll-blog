@@ -2,7 +2,7 @@
 categories:
 - tech
 - github
-date: 2025-06-06 15:01:42 +0900
+date: 2025-06-06 15:19:35 +0900
 description: 이번 주 가장 주목받는 GitHub 오픈소스 프로젝트들을 소개합니다.
 layout: post
 tags:
@@ -31,13 +31,13 @@ None
 
 ### 2. [system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools)
 
-**언어:** None | **⭐ Stars:** 55,490
+**언어:** None | **⭐ Stars:** 55,496
 
 FULL v0, Cursor, Manus, Same.dev, Lovable, Devin, Replit Agent, Windsurf Agent, VSCode Agent, Dia Browser & Trae AI (And other Open Sourced) System Prompts, Tools & AI Models.
 
 **주요 특징:**
 - 최근 주목받고 있는 None 프로젝트
-- 55,490개의 스타를 획득하며 빠른 성장세
+- 55,496개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
@@ -57,26 +57,26 @@ No fortress, purely open ground.  OpenManus is Coming.
 
 ### 4. [cursor-free-vip](https://github.com/yeongpin/cursor-free-vip)
 
-**언어:** Python | **⭐ Stars:** 29,081
+**언어:** Python | **⭐ Stars:** 29,082
 
 [Support 0.49.x]（Reset Cursor AI MachineID & Bypass Higher Token Limit） Cursor Ai ，自动重置机器ID ， 免费升级使用Pro功能: You've reached your trial request limit. / Too many free trial accounts used on this machine. Please upgrade to pro. We have this limit in place to prevent abuse. Please let us know if you believe this is a mistake.
 
 **주요 특징:**
 - 최근 주목받고 있는 Python 프로젝트
-- 29,081개의 스타를 획득하며 빠른 성장세
+- 29,082개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
 
 ### 5. [codex](https://github.com/openai/codex)
 
-**언어:** Rust | **⭐ Stars:** 28,340
+**언어:** Rust | **⭐ Stars:** 28,339
 
 Lightweight coding agent that runs in your terminal
 
 **주요 특징:**
 - 최근 주목받고 있는 Rust 프로젝트
-- 28,340개의 스타를 획득하며 빠른 성장세
+- 28,339개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
