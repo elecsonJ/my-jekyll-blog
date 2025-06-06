@@ -2,7 +2,7 @@
 categories:
 - tech
 - github
-date: 2025-06-06 04:37:30 +0900
+date: 2025-06-06 09:09:19 +0900
 description: 이번 주 가장 주목받는 GitHub 오픈소스 프로젝트들을 소개합니다.
 layout: post
 tags:
@@ -18,65 +18,65 @@ title: 이번 주 GitHub 트렌딩 프로젝트 (2025.06.06)
 
 ### 1. [DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1)
 
-**언어:** None | **⭐ Stars:** 89,902
+**언어:** None | **⭐ Stars:** 89,913
 
 None
 
 **주요 특징:**
 - 최근 주목받고 있는 None 프로젝트
-- 89,902개의 스타를 획득하며 빠른 성장세
+- 89,913개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
 
 ### 2. [system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools)
 
-**언어:** None | **⭐ Stars:** 55,362
+**언어:** None | **⭐ Stars:** 55,420
 
 FULL v0, Cursor, Manus, Same.dev, Lovable, Devin, Replit Agent, Windsurf Agent, VSCode Agent, Dia Browser & Trae AI (And other Open Sourced) System Prompts, Tools & AI Models.
 
 **주요 특징:**
 - 최근 주목받고 있는 None 프로젝트
-- 55,362개의 스타를 획득하며 빠른 성장세
+- 55,420개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
 
 ### 3. [OpenManus](https://github.com/FoundationAgents/OpenManus)
 
-**언어:** Python | **⭐ Stars:** 46,528
+**언어:** Python | **⭐ Stars:** 46,540
 
 No fortress, purely open ground.  OpenManus is Coming.
 
 **주요 특징:**
 - 최근 주목받고 있는 Python 프로젝트
-- 46,528개의 스타를 획득하며 빠른 성장세
+- 46,540개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
 
 ### 4. [cursor-free-vip](https://github.com/yeongpin/cursor-free-vip)
 
-**언어:** Python | **⭐ Stars:** 28,976
+**언어:** Python | **⭐ Stars:** 29,027
 
 [Support 0.49.x]（Reset Cursor AI MachineID & Bypass Higher Token Limit） Cursor Ai ，自动重置机器ID ， 免费升级使用Pro功能: You've reached your trial request limit. / Too many free trial accounts used on this machine. Please upgrade to pro. We have this limit in place to prevent abuse. Please let us know if you believe this is a mistake.
 
 **주요 특징:**
 - 최근 주목받고 있는 Python 프로젝트
-- 28,976개의 스타를 획득하며 빠른 성장세
+- 29,027개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
 
 ### 5. [codex](https://github.com/openai/codex)
 
-**언어:** Rust | **⭐ Stars:** 28,291
+**언어:** Rust | **⭐ Stars:** 28,308
 
 Lightweight coding agent that runs in your terminal
 
 **주요 특징:**
 - 최근 주목받고 있는 Rust 프로젝트
-- 28,291개의 스타를 획득하며 빠른 성장세
+- 28,308개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
