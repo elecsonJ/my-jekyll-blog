@@ -2,7 +2,7 @@
 categories:
 - algorithm
 - baekjoon
-date: 2025-06-06 04:37:30 +0900
+date: 2025-06-06 15:01:42 +0900
 description: 백준 2753번 윤년 문제의 해결 방법과 코드를 설명합니다.
 difficulty: Bronze V
 layout: post
