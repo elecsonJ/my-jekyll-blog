@@ -22,22 +22,29 @@ permalink: /categories/
 {% endif %}
 {% endfor %}
 
-### 💻 기술 (Technology)
-{% for post in site.categories.tech %}
+### 🌐 웹 개발 (Web Development)
+{% for post in site.categories.web-development %}
 {% if post.lang == 'ko' or post.lang == nil %}
 - [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
 {% endif %}
 {% endfor %}
 
-### 📋 프로젝트 (Project)
+### 🔢 알고리즘 (Algorithm)
+{% for post in site.categories.algorithm %}
+{% if post.lang == 'ko' or post.lang == nil %}
+- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
+{% endif %}
+{% endfor %}
+
+### 🚀 프로젝트 (Project)
 {% for post in site.categories.project %}
 {% if post.lang == 'ko' or post.lang == nil %}
 - [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
 {% endif %}
 {% endfor %}
 
-### 📝 블로그 (Blog)
-{% for post in site.categories.blog %}
+### 📰 뉴스 & 트렌드 (News)
+{% for post in site.categories.news %}
 {% if post.lang == 'ko' or post.lang == nil %}
 - [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
 {% endif %}
@@ -61,22 +68,29 @@ permalink: /categories/
 {% endif %}
 {% endfor %}
 
-### 💻 Technology
-{% for post in site.categories.tech %}
+### 🌐 Web Development
+{% for post in site.categories.web-development %}
 {% if post.lang == 'en' %}
 - [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
 {% endif %}
 {% endfor %}
 
-### 📋 Project
+### 🔢 Algorithm
+{% for post in site.categories.algorithm %}
+{% if post.lang == 'en' %}
+- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
+{% endif %}
+{% endfor %}
+
+### 🚀 Project
 {% for post in site.categories.project %}
 {% if post.lang == 'en' %}
 - [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
 {% endif %}
 {% endfor %}
 
-### 📝 Blog
-{% for post in site.categories.blog %}
+### 📰 News & Trends
+{% for post in site.categories.news %}
 {% if post.lang == 'en' %}
 - [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
 {% endif %}
@@ -91,9 +105,10 @@ permalink: /categories/
 **카테고리별 포스트 수**:
 - 🤖 AI: {{ site.categories.ai | size }}개
 - ⚙️ 자동화: {{ site.categories.automation | size }}개  
-- 💻 기술: {{ site.categories.tech | size }}개
-- 📋 프로젝트: {{ site.categories.project | size }}개
-- 📝 블로그: {{ site.categories.blog | size }}개
+- 🌐 웹 개발: {{ site.categories.web-development | size }}개
+- 🔢 알고리즘: {{ site.categories.algorithm | size }}개
+- 🚀 프로젝트: {{ site.categories.project | size }}개
+- 📰 뉴스: {{ site.categories.news | size }}개
 
 **언어별 포스트 수**:
 - 🇰🇷 한국어: {{ site.posts | where: "lang", "ko" | size }}개
@@ -104,7 +119,7 @@ permalink: /categories/
 ## 🔍 빠른 탐색
 
 - **최신 포스트**: [Home]({{ site.baseurl }}/)
-- **태그별 보기**: [Tags]({{ site.baseurl }}/tags/)
-- **검색**: 상단 검색창 이용
+- **태그별 보기**: [Tags]({{ site.baseurl }}/tags/) (구현 예정)
+- **검색**: 상단 검색창을 이용
 
-> 💡 **팁**: 각 카테고리는 주제별로 정리되어 있으며, 언어별로도 구분되어 있습니다. 관심 있는 주제를 클릭해보세요!
+> 💡 **팁**: 각 카테고리로 체계적으로 정리되어 있으니, 원하는 주제를 쉽게 찾아보세요. 지속적으로 업데이트됩니다!
