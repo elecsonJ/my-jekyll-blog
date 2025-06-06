@@ -2,7 +2,7 @@
 layout: post
 title: "Building Automated Jekyll Blog with Claude MCP"
 date: 2025-06-04 15:30:00 +0900
-categories: [automation, tech]
+categories: [automation]
 tags: [jekyll, automation, claude-mcp, github-actions, english]
 lang: en
 description: 'How I built a fully automated Jekyll blog system using Claude MCP and GitHub Actions for content creation and deployment.'
@@ -195,7 +195,7 @@ Interested in collaborating or have questions about the implementation?
 
 - **GitHub**: [@elecsonJ](https://github.com/elecsonJ)
 - **Email**: gkswogns2013@gmail.com
-- **Blog**: [My Automation Blog](https://elecsonj.github.io/my-jekyll-blog)
+- **Blog**: [My Automation Blog](https://elecsoj.github.io/my-jekyll-blog)
 
 ---
 
