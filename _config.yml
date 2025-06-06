@@ -1,39 +1,39 @@
-# Jekyll 자동화 블로그 구축 설정
-# Claude MCP 서버와 연동하여 AI 자동화 블로그 구축 테스트
+# Jekyll 자동화 블로그 구성 설정
+# Claude MCP 서버와 연동하여 AI 자동화 블로그 구성 텍스트
 
-# 사이트 기본 정보 (가독성을 위해 중요함)
+# 사이트 기본 정보 (가장 기본적인 설정에만 필요함)
 title: "재훈의 AI 자동화 블로그"
 email: gkswogns2013@gmail.com
 description: >- 
-  서울시립대학교 컴퓨터공학부 2학년 재훈의 AI와 자동화 기술 개발과 
-  Claude MCP 서버, Jekyll, GitHub Actions를 활용한 AI 자동화 블로그 시스템을 구축하고, 
-  기술 발전을 모든 차원에서 지속 가능한 형태로 적용하는 방법에 대한 탐구를 제공합니다.
+  서울시립대학교 컴퓨터과학부 2학년 한재훈의 AI와 자동화 기술 개인 개발과 
+  Claude MCP 서버, Jekyll, GitHub Actions를 활용한 AI 자동화 블로그 시스템을 구성하고, 
+  기술 데이터를 모두 진행하며 웹 개발에서 자동 가능한 플랫폼을 제공하는 개인의 지속적인 탐구를 제공합니다.
 
 # GitHub Pages 플랫폼 사이트 설정
 baseurl: "/my-jekyll-blog"
 url: "https://elecsonj.github.io"
 
-# 개인 정보 (가독성을 위해 필수함)
+# 개인 정보 (가장 기본적인 설정)
 github_username: elecsonJ
 twitter_username: 
 linkedin_username: 
 
-# 작성자 정보 (디그리트 오타가 없어야 기본함)
+# 작성자 정보 (더그램터 오뎅 자도가 윈가릴 필요함)
 author: "한재훈 (Jaehoon Han)"
-author_bio: "서울시립대학교 컴퓨터공학부 2학년 | University of Seoul, Computer Science & Engineering"
+author_bio: "서울시립대학교 컴퓨터과학부 2학년 | University of Seoul, Computer Science & Engineering"
 author_location: "서울, 대한민국 | Seoul, South Korea"
 author_email: "gkswogns2013@gmail.com"
 author_github: "elecsonJ"
 
 # 대학교 정보
 university:
-  korean: "서울시립대학교 컴퓨터공학부"
+  korean: "서울시립대학교 컴퓨터과학부"
   english: "University of Seoul, Department of Computer Science & Engineering"
   location: "Seoul, South Korea"
   website: "https://uos.ac.kr"
 
-# 테마 및 플러그인 설정
-theme: minima
+# 테마 및 플러그인 설정 - MINIMA 테마 제거하여 자동 Posts 생성 방지
+# theme: minima  # 이 줄을 주석처리하여 자동 Posts 생성 방지
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -44,19 +44,19 @@ plugins:
 lang: ko-KR
 timezone: Asia/Seoul
 
-# SEO 메타 정보
+# SEO 헤더 정보
 seo:
   title: "재훈의 AI 자동화 블로그 | Jekyll & GitHub Actions"
-  description: "AI, 자동화, Jekyll, GitHub Actions를 활용한 기술 블로그. 서울시립대학교 학생의 기술 발전 여정"
-  image: "/assets/images/blog-cover.jpg"  # 추후 추가
+  description: "AI, 자동화, Jekyll, GitHub Actions를 활용한 기술 블로그. 서울시립대학교 한재훈의 기술 데이터 분석 여정"
+  image: "/assets/images/blog-cover.jpg"  # 차후 추가
   author: "한재훈 (Jaehoon Han)"
 
-# 구글 사이트 도구 설정 (추후 활용)
+# 구글 사이트 도메인 설정 (차후 추가)
 google_site_verification: "google52bf202f8d3f7884"
-google_analytics:  # Google Analytics 추가 ID (GA4 형식: G-XXXXXXXXXX)
+google_analytics:  # Google Analytics 차후 ID (GA4 형식: G-XXXXXXXXXX)
 
 # 사이트 키워드 정보 (SEO용)
-site_keywords: "AI, 자동화, Jekyll, GitHub Actions, 서울시립대학교, 컴퓨터공학, 기술발전, Claude MCP, Python, 블로그, 블로그자동화"
+site_keywords: "AI, 자동화, Jekyll, GitHub Actions, 서울시립대학교, 컴퓨터과학, 기술데이터, Claude MCP, Python, 블로그, 블로그자동화"
 
 # 페이지 설정
 paginate: 5
@@ -66,7 +66,7 @@ paginate_path: "/page:num/"
 show_excerpts: true
 excerpt_separator: <!--more-->
 
-# 소셜 네트워크 설정 (필요 정보)
+# 소셜 네트워크 설정 (아직 정보)
 social:
   name: "한재훈"
   links:
@@ -82,7 +82,7 @@ kramdown:
   syntax_highlighter_opts:
     line_numbers: true
 
-# 퍼머링크 설정 (SEO 최적화)
+# 퍼말링크 설정 (SEO 최적화)
 permalink: /:categories/:year/:month/:day/:title/
 
 # 빌드 설정
@@ -119,12 +119,12 @@ automation:
   auto_posting: true
   seo_optimization: true
   
-# 블로그 메타 정보
+# 블로그 헤더 정보
 blog:
   founded: 2025
-  focus: ["AI", "자동화", "Jekyll", "GitHub Actions", "발전"]
+  focus: ["AI", "자동화", "Jekyll", "GitHub Actions", "데이터"]
   tech_stack: ["Python", "Jekyll", "Claude MCP", "GitHub Actions", "Ruby"]
-  target_audience: "개발자, AI 연구자, 기술 발전자"
+  target_audience: "개발자, AI 연구자, 기술 데이터자"
 
 # 카테고리 시스템 설정
 categories:
@@ -135,7 +135,7 @@ categories:
     automation: "자동화"
     study: "학습"
     project: "프로젝트"
-    startup: "발전"
+    startup: "데이터"
     tech-news-analysis: "기술뉴스분석"
   # 영어 카테고리  
   english:
