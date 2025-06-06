@@ -4,7 +4,7 @@ title: "재훈의 AI 자동화 블로그"
 description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
 ---
 
-<!-- 언어별 카테고리 네비게이션 -->
+<!-- 언어별 네비게이션 섹션 -->
 <div class="language-navigation" style="background: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px; text-align: center;">
   <h2 style="margin-bottom: 15px;">🌍 Choose Your Language / 언어를 선택하세요</h2>
   
@@ -25,7 +25,7 @@ description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
 <div class="blog-intro" style="margin: 30px 0;">
   <h2>🚀 Welcome to My Tech Blog</h2>
   
-  <p><strong>안녕하세요!</strong> 서울시립대학교 컴퓨터공학부 2학년 한재훈입니다.</p>
+  <p><strong>안녕하세요!</strong> 서울시립대학교 컴퓨터과학부 2학년 한재훈입니다.</p>
   
   <p>이 블로그는 <strong>Jekyll</strong>과 <strong>Claude MCP</strong>, <strong>GitHub Actions</strong>를 활용한 
   완전 자동화 시스템으로 운영됩니다.</p>
@@ -35,13 +35,13 @@ description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
     <li><strong>인공지능 (AI)</strong> - 머신러닝, 딥러닝 연구 및 실습</li>
     <li><strong>자동화 (Automation)</strong> - Jekyll, GitHub Actions, Claude MCP</li>
     <li><strong>웹 개발</strong> - 프론트엔드, 백엔드 기술</li>
-    <li><strong>학습 기록</strong> - 컴퓨터공학 학습 과정</li>
+    <li><strong>알고리즘 기초</strong> - 컴퓨터과학 학습 과정</li>
     <li><strong>프로젝트</strong> - 개인 프로젝트 및 포트폴리오</li>
-    <li><strong>발전</strong> - 기술 발전 관련 인사이트</li>
+    <li><strong>반도체</strong> - 기술 반도체 관련 인사이트</li>
   </ul>
 </div>
 
-<!-- 최신 포스트 목록 구역 -->
+<!-- 최신 포스트 목록 구성 -->
 <div class="recent-posts" style="margin: 30px 0;">
   <h2>📝 Latest Posts / 최신 글</h2>
   
