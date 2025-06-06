@@ -1,90 +1,100 @@
 ---
 layout: page
-title: 한국어 포스트
+title: "한국어 포스트"
 permalink: /korean/
+language: korean
+description: "한국어 독자를 위한 기술 블로그 포스트들"
 ---
 
 # 🇰🇷 한국어 포스트
 
-모든 한국어 글들을 한 곳에서 만나보세요!
+안녕하세요! 여기서는 한국어로 작성된 기술 블로그 포스트들을 확인할 수 있습니다.
 
----
+## 📚 카테고리
 
-## 📝 최신 포스트
-
-{% assign korean_posts = site.posts | where: "lang", "ko" %}
-{% for post in korean_posts limit: 10 %}
-- **[{{ post.title }}]({{ post.url }})** - {{ post.date | date: "%Y.%m.%d" }}
-  
-  *{{ post.excerpt | strip_html | truncate: 150 }}*
-  
-  {% if post.categories %}
-  📂 카테고리: {% for category in post.categories %}[{{ category | upcase }}](#{{ category }}){% unless forloop.last %}, {% endunless %}{% endfor %}
-  {% endif %}
-  
-  ---
-{% endfor %}
-
-## 📍 카테고리별 한국어 포스트
+### 🖥️ 기술 (Tech)
+AI, 머신러닝, 웹 개발 등 기술 관련 포스트
 
 ### 🤖 인공지능 (AI)
-{% for post in site.categories.ai %}
-{% if post.lang == 'ko' or post.lang == nil %}
-- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
-{% endif %}
-{% endfor %}
+인공지능과 머신러닝 연구 및 실습
 
-### ⚙️ 자동화 (Automation)  
-{% for post in site.categories.automation %}
-{% if post.lang == 'ko' or post.lang == nil %}
-- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
-{% endif %}
-{% endfor %}
+### ⚙️ 자동화 (Automation)
+Jekyll, GitHub Actions, Claude MCP 등 자동화 도구
 
-### 💻 기술 (Technology)
-{% for post in site.categories.tech %}
-{% if post.lang == 'ko' or post.lang == nil %}
-- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
-{% endif %}
-{% endfor %}
+### 📖 학습 (Study)
+컴퓨터공학 학습 과정과 경험 공유
 
-### 📚 프로젝트 (Project)
-{% for post in site.categories.project %}
-{% if post.lang == 'ko' or post.lang == nil %}
-- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
-{% endif %}
-{% endfor %}
+### 🚀 프로젝트 (Project)
+개인 프로젝트와 포트폴리오
 
-### 📝 블로그 (Blog)
-{% for post in site.categories.blog %}
-{% if post.lang == 'ko' or post.lang == nil %}
-- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%Y.%m.%d" }}
-{% endif %}
-{% endfor %}
+### 💼 창업 (Startup)
+기술 창업 관련 인사이트와 경험
+
+### 📰 기술뉴스분석 (Tech News Analysis)
+최신 기술 뉴스와 동향 분석
 
 ---
 
-## 📊 통계
+## 📝 최근 한국어 포스트
 
-- **전체 한국어 포스트**: {{ korean_posts | size }}개
-- **AI 관련**: {{ site.categories.ai | where: "lang", "ko" | size }}개
-- **자동화 관련**: {{ site.categories.automation | where: "lang", "ko" | size }}개
-- **기술 관련**: {{ site.categories.tech | where: "lang", "ko" | size }}개
+<div class="korean-posts">
+{% assign all_posts = site.posts %}
+{% assign korean_posts = "" | split: "" %}
 
----
+{% for post in all_posts %}
+  {% if post.lang == 'ko' or post.lang == nil and post.categories contains 'tech-news-analysis' %}
+    {% assign korean_posts = korean_posts | push: post %}
+  {% elsif post.lang == nil and post.categories contains 'korean' %}
+    {% assign korean_posts = korean_posts | push: post %}
+  {% elsif post.lang != 'en' and post.categories contains 'tech-news-analysis' %}
+    {% assign korean_posts = korean_posts | push: post %}
+  {% endif %}
+{% endfor %}
 
-### 🌏 다른 언어로 보기
-- [🇺🇸 English Posts]({{ site.baseurl }}/english/)
-- [🌍 All Categories]({{ site.baseurl }}/categories/)
+{% if korean_posts.size > 0 %}
+  <div class="posts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
+    {% for post in korean_posts limit:12 %}
+      <article class="post-preview" style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white; transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0;"><a href="{{ post.url | relative_url }}" style="text-decoration: none; color: #333;">{{ post.title }}</a></h3>
+        <p class="post-meta" style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y년 %m월 %d일" }}</time>
+          {% if post.categories %}
+            <span class="categories">
+              {% for category in post.categories %}
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">{{ category }}</span>
+              {% endfor %}
+            </span>
+          {% endif %}
+        </p>
+        {% if post.excerpt %}
+          <p class="excerpt" style="color: #555; line-height: 1.5;">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+        {% elsif post.description %}
+          <p class="excerpt" style="color: #555; line-height: 1.5;">{{ post.description | truncate: 150 }}</p>
+        {% endif %}
+        <a href="{{ post.url | relative_url }}" style="color: #007bff; text-decoration: none; font-weight: bold;">더 읽기 →</a>
+      </article>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>아직 한국어 포스트가 없습니다. 곧 추가될 예정입니다!</p>
+{% endif %}
+</div>
 
----
+<div class="navigation-links" style="text-align: center; margin: 40px 0;">
+  <a href="{{ '/' | relative_url }}" class="btn" style="display: inline-block; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; margin: 0 10px;">← 메인으로</a>
+  <a href="{{ '/english/' | relative_url }}" class="btn" style="display: inline-block; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; margin: 0 10px;">English Posts →</a>
+</div>
 
-## 🎯 이 블로그에 대해
+<style>
+.post-preview:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
-이 블로그는 다음과 같은 주제에 집중합니다:
-- **AI & 머신러닝**: 최신 개발 동향과 인사이트
-- **자동화**: 개발자를 위한 도구와 워크플로우
-- **기술**: 프로그래밍 가이드와 기술 트렌드
-- **프로젝트**: 실제 적용 사례와 케이스 스터디
+.posts-grid article {
+  transition: transform 0.2s ease;
+}
 
-최첨단 기술 주제에 대한 정기적인 업데이트를 기대해 주세요!
+.posts-grid article:hover {
+  transform: translateY(-2px);
+}
+</style>
