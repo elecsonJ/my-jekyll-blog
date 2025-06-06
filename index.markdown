@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: clean
 title: "재훈의 AI 자동화 블로그"
 description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
 ---
