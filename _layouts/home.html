@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  <!-- 기본 minima 테마의 자동 posts 리스트 제거 -->
+  <!-- 원래 여기에 있던 posts 리스트는 index.markdown에서 직접 제어합니다 -->
+  
+</div>
