@@ -1,5 +1,5 @@
 ---
-layout: clean
+layout: default
 title: "재훈의 AI 자동화 블로그"
 description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
 ---
@@ -112,3 +112,5 @@ description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
     </a>
   </div>
 </div>
+
+<!-- 이곳이 끝입니다. 더 이상 Posts가 자동 생성되지 않습니다. -->
