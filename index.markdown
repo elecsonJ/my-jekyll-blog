@@ -1,10 +1,10 @@
 ---
-layout: home
+layout: default
 title: "재훈의 AI 자동화 블로그"
 description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
 ---
 
-<!-- 언어별 네비게이션 섹션 -->
+<!-- 언어별 콘텐츠 네비게이션 -->
 <div class="language-navigation" style="background: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px; text-align: center;">
   <h2 style="margin-bottom: 15px;">🌍 Choose Your Language / 언어를 선택하세요</h2>
   
@@ -41,7 +41,7 @@ description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
   </ul>
 </div>
 
-<!-- 최신 포스트 목록 구성 -->
+<!-- 최신 포스트 목록 구역 -->
 <div class="recent-posts" style="margin: 30px 0;">
   <h2>📝 Latest Posts / 최신 글</h2>
   
@@ -100,7 +100,7 @@ description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
   
   <div style="margin-top: 15px;">
     <a href="https://github.com/elecsonJ" style="display: inline-block; margin: 0 10px; padding: 8px 16px; background: #333; color: white; text-decoration: none; border-radius: 5px;">
-      📄 GitHub
+      🔌 GitHub
     </a>
     
     <a href="mailto:gkswogns2013@gmail.com" style="display: inline-block; margin: 0 10px; padding: 8px 16px; background: #dc3545; color: white; text-decoration: none; border-radius: 5px;">
@@ -112,3 +112,5 @@ description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
     </a>
   </div>
 </div>
+
+<!-- 이곳이 끝입니다. 더 이상 Posts가 자동 생성되지 않습니다. -->
