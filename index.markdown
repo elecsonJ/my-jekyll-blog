@@ -34,50 +34,11 @@ description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
   <ul>
     <li><strong>인공지능 (AI)</strong> - 머신러닝, 딥러닝 연구 및 실습</li>
     <li><strong>자동화 (Automation)</strong> - Jekyll, GitHub Actions, Claude MCP</li>
-    <li><strong>웹 개발</strong> - 프론트엔드, 백엔드 기술</li>
-    <li><strong>알고리즘 기초</strong> - 컴퓨터과학 학습 과정</li>
-    <li><strong>프로젝트</strong> - 개인 프로젝트 및 포트폴리오</li>
-    <li><strong>반도체</strong> - 기술 반도체 관련 인사이트</li>
+    <li><strong>웹 개발 (Web Development)</strong> - 프론트엔드, 백엔드 기술</li>
+    <li><strong>알고리즘 (Algorithm)</strong> - 컴퓨터과학 학습 과정</li>
+    <li><strong>프로젝트 (Project)</strong> - 개인 프로젝트 및 포트폴리오</li>
+    <li><strong>뉴스 & 트렌드 (News)</strong> - 기술 업계 최신 동향</li>
   </ul>
-</div>
-
-<!-- 최신 포스트 목록 구성 -->
-<div class="recent-posts" style="margin: 30px 0;">
-  <h2>📝 Latest Posts / 최신 글</h2>
-  
-  {% assign recent_posts = site.posts | limit: 4 %}
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
-    {% for post in recent_posts %}
-      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
-        <h3 style="margin-top: 0;">
-          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: #333;">
-            {{ post.title }}
-          </a>
-        </h3>
-        
-        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
-          <time>{{ post.date | date: "%Y-%m-%d" }}</time>
-          {% if post.categories %}
-            {% for category in post.categories %}
-              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
-                {{ category }}
-              </span>
-            {% endfor %}
-          {% endif %}
-        </p>
-        
-        {% if post.description %}
-          <p style="color: #555; line-height: 1.5;">{{ post.description }}</p>
-        {% elsif post.excerpt %}
-          <p style="color: #555; line-height: 1.5;">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-        
-        <a href="{{ post.url | relative_url }}" style="color: #007bff; text-decoration: none; font-weight: bold;">
-          Read more →
-        </a>
-      </article>
-    {% endfor %}
-  </div>
 </div>
 
 <!-- 기술 스택 섹션 -->
