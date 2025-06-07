@@ -51,7 +51,7 @@ Welcome! Here you can discover all English content organized by categories for e
     {% assign is_categorized = true %}
   {% endif %}
   
-  {% if post.categories contains 'tech' or post.categories contains 'programming' or post.categories contains 'technology' %}
+  {% if post.categories contains 'tech' or post.categories contains 'programming' %}
     {% assign tech_posts = tech_posts | push: post %}
     {% assign is_categorized = true %}
   {% endif %}
@@ -400,26 +400,6 @@ Welcome! Here you can discover all English content organized by categories for e
   </div>
 </div>
 
-## 📈 Blog Statistics
-
-<div class="stats-section">
-  <h4>📊 Quick Stats</h4>
-  <div class="stats-grid">
-    <div class="stat-item">
-      <span class="stat-number">{{ english_posts.size }}</span>
-      <span class="stat-label">Total English Posts</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">{{ ai_posts.size | plus: automation_posts.size | plus: tech_posts.size }}</span>
-      <span class="stat-label">Tech-focused Posts</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">{{ news_posts.size }}</span>
-      <span class="stat-label">News Analysis</span>
-    </div>
-  </div>
-</div>
-
 ## 🔗 Navigation
 
 <div class="navigation-links">
@@ -427,17 +407,6 @@ Welcome! Here you can discover all English content organized by categories for e
   <a href="{{ '/korean/' | relative_url }}" class="btn-primary">한국어 포스트 →</a>
   <a href="{{ '/categories/' | relative_url }}" class="btn-secondary">All Categories</a>
 </div>
-
-## 🎯 About This Blog
-
-This blog focuses on cutting-edge technology topics including:
-
-- **AI & Machine Learning**: Latest developments, research insights, and practical implementations
-- **Automation**: Tools, workflows, and productivity enhancement for developers
-- **Technology Trends**: Programming guides, tech analysis, and industry insights
-- **Real-world Projects**: Case studies, portfolio projects, and practical applications
-
-Stay tuned for regular updates on the latest in technology and innovation! 🚀
 
 <style>
 .categories-container {
@@ -561,45 +530,6 @@ Stay tuned for regular updates on the latest in technology and innovation! 🚀
   font-weight: bold;
 }
 
-.stats-section {
-  margin: 30px 0;
-  padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 8px;
-  color: white;
-}
-
-.stats-section h4 {
-  margin-top: 0;
-  color: white;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 15px;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 15px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 6px;
-  backdrop-filter: blur(10px);
-}
-
-.stat-number {
-  display: block;
-  font-size: 2em;
-  font-weight: bold;
-  color: #fff;
-}
-
-.stat-label {
-  font-size: 0.9em;
-  opacity: 0.9;
-}
-
 .navigation-links {
   text-align: center;
   margin: 40px 0;
@@ -641,10 +571,6 @@ Stay tuned for regular updates on the latest in technology and innovation! 🚀
   
   .summary-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .stats-grid {
-    grid-template-columns: 1fr;
   }
   
   .category-section {
