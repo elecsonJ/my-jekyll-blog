@@ -8,7 +8,7 @@ description: "English tech blog posts with category-based organization"
 
 # 🇺🇸 English Posts
 
-Welcome! Here you can discover all English content organized by categories for easy browsing.
+Welcome! Here you can discover all English content organized by categories for easy browsing and find what you're looking for.
 
 ## 📂 Posts by Category
 
@@ -20,10 +20,12 @@ Welcome! Here you can discover all English content organized by categories for e
     {% assign english_posts = english_posts | push: post %}
   {% elsif post.lang == nil and post.categories contains 'english' %}
     {% assign english_posts = english_posts | push: post %}
+  {% elsif post.lang != 'ko' and post.categories contains 'tech-news-analysis' %}
+    {% assign english_posts = english_posts | push: post %}
   {% endif %}
 {% endfor %}
 
-<!-- Categorize posts -->
+<!-- Categorize posts by category -->
 {% assign tech_posts = "" | split: "" %}
 {% assign ai_posts = "" | split: "" %}
 {% assign automation_posts = "" | split: "" %}
