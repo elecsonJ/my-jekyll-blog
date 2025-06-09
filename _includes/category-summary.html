@@ -1,0 +1,25 @@
+{% comment %}
+  카테고리 요약 컴포넌트
+  매개변수:
+  - categorized_posts: 카테고리별 포스트 해시
+  - config: 언어 설정
+{% endcomment %}
+
+<div class="category-summary">
+  <h2>{{ config.categories.icon }} {{ config.ui.category_summary }}</h2>
+  <div class="summary-grid">
+    {% for category_pair in config.categories %}
+      {% assign category_key = category_pair[0] %}
+      {% assign category_info = category_pair[1] %}
+      {% assign posts = categorized_posts[category_key] %}
+      
+      {% if posts.size > 0 %}
+        <div class="summary-item">
+          <span class="summary-icon">{{ category_info.icon }}</span>
+          <span class="summary-label">{{ category_info.name }}</span>
+          <span class="summary-count">{{ posts.size }} {{ config.ui.posts_count }}</span>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
