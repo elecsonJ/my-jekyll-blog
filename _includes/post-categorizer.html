@@ -7,18 +7,33 @@
 {% assign all_posts = site.posts %}
 {% assign language_posts = "" | split: "" %}
 
+<!-- 🔍 DEBUG START: 전체 포스트 정보 -->
+<!-- 총 포스트 수: {{ all_posts.size }} -->
+<!-- 요청된 언어: {{ language }} -->
+<!-- Jekyll 환경: {{ jekyll.environment }} -->
+
 {% comment %} 언어별 포스트 필터링 {% endcomment %}
 {% for post in all_posts %}
   {% if language == 'ko' %}
+    <!-- 🔍 포스트 체크: "{{ post.title }}" - lang: "{{ post.lang }}", categories: [{{ post.categories | join: ', ' }}] -->
     {% comment %} 한국어 포스트 조건을 명확히 괄호로 구분 {% endcomment %}
     {% if (post.lang == 'ko') or (post.lang == nil and (post.categories contains 'korean' or post.categories contains 'korean-posts')) or (post.lang != 'en' and post.categories contains 'tech-news-analysis') %}
+      <!-- ✅ 한국어 포스트로 선택됨: "{{ post.title }}" -->
       {% assign language_posts = language_posts | push: post %}
+    {% else %}
+      <!-- ❌ 한국어 포스트에서 제외됨: "{{ post.title }}" -->
     {% endif %}
   {% elsif language == 'en' %}
     {% if (post.lang == 'en') or (post.lang == nil and post.categories contains 'english') or (post.lang != 'ko' and post.categories contains 'tech-news-analysis') %}
       {% assign language_posts = language_posts | push: post %}
     {% endif %}
   {% endif %}
+{% endfor %}
+
+<!-- 🔍 DEBUG: 언어 필터링 결과 -->
+<!-- {{ language }} 언어로 분류된 포스트 수: {{ language_posts.size }} -->
+{% for post in language_posts %}
+<!-- - "{{ post.title }}" [{{ post.categories | join: ', ' }}] -->
 {% endfor %}
 
 {% comment %} 명확히 분류된 카테고리별 분류 {% endcomment %}
@@ -32,19 +47,12 @@
 {% assign startup_posts = "" | split: "" %}
 {% assign other_posts = "" | split: "" %}
 
-{% comment %} 디버깅 정보 출력 (개발 환경에서만) {% endcomment %}
-{% if jekyll.environment != 'production' %}
-<!-- DEBUG: 총 {{ all_posts.size }}개 포스트 중 {{ language_posts.size }}개가 {{ language }} 언어로 분류됨 -->
-{% for post in language_posts limit:5 %}
-<!-- DEBUG: "{{ post.title }}" - lang: "{{ post.lang }}", categories: [{{ post.categories | join: ', ' }}] -->
-{% endfor %}
-{% endif %}
-
 {% for post in language_posts %}
   {% assign is_categorized = false %}
   
   {% comment %} 1. 기술트렌드 (최우선 - 기존 tech-news-analysis 및 tech-trends) {% endcomment %}
   {% if post.categories contains 'tech-trends' or post.categories contains 'tech-news-analysis' or post.categories contains 'news-analysis' or post.categories contains 'industry-analysis' or post.categories contains 'market-trends' %}
+    <!-- 📈 TECH_TRENDS: "{{ post.title }}" -->
     {% assign tech_trends_posts = tech_trends_posts | push: post %}
     {% assign is_categorized = true %}
   {% endif %}
@@ -52,6 +60,7 @@
   {% comment %} 2. 자동화 {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'mcp' or post.categories contains 'automation' or post.categories contains 'jekyll' or post.categories contains 'github-actions' %}
+      <!-- ⚙️ AUTOMATION: "{{ post.title }}" -->
       {% assign automation_posts = automation_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
@@ -60,6 +69,7 @@
   {% comment %} 3. AI 연구 (이론, 논문, 연구) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'ai-research' or post.categories contains 'machine-learning-theory' or post.categories contains 'deep-learning-theory' or post.categories contains 'ai-theory' or post.categories contains 'ai-papers' %}
+      <!-- 🧠 AI_RESEARCH: "{{ post.title }}" -->
       {% assign ai_research_posts = ai_research_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
@@ -68,6 +78,7 @@
   {% comment %} 4. AI 실습 (구현, 튜토리얼, 실습) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'ai-practice' or post.categories contains 'ai-tutorial' or post.categories contains 'model-implementation' or post.categories contains 'ai-coding' %}
+      <!-- 🤖 AI_PRACTICE: "{{ post.title }}" -->
       {% assign ai_practice_posts = ai_practice_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
@@ -76,6 +87,7 @@
   {% comment %} 5. 일반적인 AI 포스트 (제목 기반 실습으로 분류) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
+      <!-- 🤖 AI_PRACTICE (제목기반): "{{ post.title }}" -->
       {% assign ai_practice_posts = ai_practice_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
@@ -84,6 +96,7 @@
   {% comment %} 6. 프로그래밍 (기존 tech 카테고리를 programming으로 변환) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'programming' or post.categories contains 'tech' or post.categories contains 'coding' or post.categories contains 'development' or post.categories contains 'software-engineering' %}
+      <!-- 💻 PROGRAMMING: "{{ post.title }}" -->
       {% assign programming_posts = programming_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
@@ -92,6 +105,7 @@
   {% comment %} 7. 학습 {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'study' or post.categories contains 'learning' or post.categories contains 'education' or post.categories contains 'computer-science' %}
+      <!-- 📖 STUDY: "{{ post.title }}" -->
       {% assign study_posts = study_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
@@ -100,6 +114,7 @@
   {% comment %} 8. 프로젝트 {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'project' or post.categories contains 'portfolio' or post.categories contains 'personal-project' %}
+      <!-- 🚀 PROJECT: "{{ post.title }}" -->
       {% assign project_posts = project_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
@@ -108,6 +123,7 @@
   {% comment %} 9. 창업 {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'startup' or post.categories contains 'business' or post.categories contains 'entrepreneurship' %}
+      <!-- 💼 STARTUP: "{{ post.title }}" -->
       {% assign startup_posts = startup_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
@@ -115,27 +131,20 @@
   
   {% comment %} 10. 기타 (분류되지 않은 모든 포스트) - korean-posts도 여기에 포함 {% endcomment %}
   {% unless is_categorized %}
+    <!-- 📝 OTHER: "{{ post.title }}" - [{{ post.categories | join: ', ' }}] -->
     {% assign other_posts = other_posts | push: post %}
   {% endunless %}
 {% endfor %}
 
-{% comment %} 디버깅 정보 출력 (개발 환경에서만) {% endcomment %}
-{% if jekyll.environment != 'production' %}
-<!-- DEBUG 카테고리별 포스트 수:
-  tech_trends: {{ tech_trends_posts.size }}
-  automation: {{ automation_posts.size }}
-  ai_research: {{ ai_research_posts.size }}
-  ai_practice: {{ ai_practice_posts.size }}
-  programming: {{ programming_posts.size }}
-  study: {{ study_posts.size }}
-  project: {{ project_posts.size }}
-  startup: {{ startup_posts.size }}
-  other: {{ other_posts.size }}
-  총계: {{ tech_trends_posts.size | plus: automation_posts.size | plus: ai_research_posts.size | plus: ai_practice_posts.size | plus: programming_posts.size | plus: study_posts.size | plus: project_posts.size | plus: startup_posts.size | plus: other_posts.size }}
--->
-{% if other_posts.size > 0 %}
-  {% for post in other_posts limit:3 %}
-<!-- DEBUG 기타 포스트: "{{ post.title }}" - categories: [{{ post.categories | join: ', ' }}] -->
-  {% endfor %}
-{% endif %}
-{% endif %}
+<!-- 🔍 DEBUG: 최종 카테고리별 포스트 수 -->
+<!-- 📈 기술트렌드: {{ tech_trends_posts.size }}개 -->
+<!-- ⚙️ 자동화: {{ automation_posts.size }}개 -->
+<!-- 🧠 AI연구: {{ ai_research_posts.size }}개 -->
+<!-- 🤖 AI실습: {{ ai_practice_posts.size }}개 -->
+<!-- 💻 프로그래밍: {{ programming_posts.size }}개 -->
+<!-- 📖 학습: {{ study_posts.size }}개 -->
+<!-- 🚀 프로젝트: {{ project_posts.size }}개 -->
+<!-- 💼 창업: {{ startup_posts.size }}개 -->
+<!-- 📝 기타: {{ other_posts.size }}개 -->
+<!-- 🔢 총합: {{ tech_trends_posts.size | plus: automation_posts.size | plus: ai_research_posts.size | plus: ai_practice_posts.size | plus: programming_posts.size | plus: study_posts.size | plus: project_posts.size | plus: startup_posts.size | plus: other_posts.size }}개 -->
+<!-- 🔍 DEBUG END -->
