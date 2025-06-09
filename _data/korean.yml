@@ -3,13 +3,19 @@ title: "한국어 포스트"
 description: "한국어 기술 블로그 포스트를 카테고리별로 정리한 페이지입니다"
 language: "ko"
 
-# 명확하게 분리된 카테고리 설정
+# 명확하게 분리된 카테고리 설정 (중복 문제 해결)
 categories:
   tech_trends:
     name: "기술트렌드"
-    description: "최신 기술 동향, 산업 분석, IT 뉴스 및 시장 트렌드"
-    icon: "📊"
+    description: "일반 기술 동향, 산업 분석, IT 뉴스 및 시장 트렌드 (AI 제외)"
+    icon: "📈"
     keywords: ["tech-trends", "industry-analysis", "tech-news", "market-trends"]
+    
+  ai_news:
+    name: "AI 뉴스"
+    description: "AI 기업 동향, AI 산업 분석, AI 관련 뉴스 및 시장 이슈"
+    icon: "🤖📰"
+    keywords: ["ai-news", "ai-industry", "ai-companies", "ai-market"]
     
   automation:
     name: "자동화"
@@ -25,7 +31,7 @@ categories:
     
   ai_practice:
     name: "AI실습"
-    description: "AI 모델 구현, 실습 프로젝트, 튜토리얼, 실전 개발"
+    description: "AI 모델 구현, 실습 프로젝트, 튜토리얼, 실제 개발"
     icon: "🤖"
     keywords: ["ai-practice", "ai-tutorial", "model-implementation", "ai-coding"]
     
@@ -66,12 +72,13 @@ ui:
   category_summary: "카테고리 요약"
   navigation: "네비게이션"
   home: "🏠 메인으로"
-  english_posts: "English Posts ↗"
+  english_posts: "English Posts ➡"
   all_categories: "전체 카테고리"
   
 # 카테고리 우선순위 (겹치는 태그가 있을 때 우선적으로 분류할 순서)
 category_priority:
-  - "tech_trends"
+  - "ai_news"        # AI 뉴스가 최우선 (tech_trends와 겹치는 것 방지)
+  - "tech_trends" 
   - "automation" 
   - "ai_research"
   - "ai_practice"
