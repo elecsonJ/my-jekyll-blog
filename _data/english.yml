@@ -1,49 +1,63 @@
-# English Configuration
+# English Configuration (Updated Category Structure)
 title: "English Posts"
 description: "English tech blog posts with category-based organization"
 language: "en"
 
-# Category Settings
+# Clearly Separated Category Settings
 categories:
-  tech_news:
-    name: "Tech News Analysis"
-    description: "Latest technology news and trend analysis"
+  news_analysis:
+    name: "News Analysis"
+    description: "Technology news and industry trend analysis"
     icon: "📰"
+    keywords: ["tech-news-analysis", "news", "analysis"]
     
   automation:
     name: "Automation"
     description: "Jekyll, GitHub Actions, Claude MCP and automation tools"
     icon: "⚙️"
+    keywords: ["mcp", "automation", "jekyll", "github-actions"]
     
-  ai:
-    name: "Artificial Intelligence"
-    description: "AI research, machine learning and practical implementations"
+  ai_research:
+    name: "AI Research"
+    description: "Artificial intelligence research, paper reviews, theoretical background"
+    icon: "🧠"
+    keywords: ["ai-research", "machine-learning", "deep-learning", "ai-theory"]
+    
+  ai_practice:
+    name: "AI Practice"
+    description: "AI model implementation, hands-on projects, tutorials"
     icon: "🤖"
+    keywords: ["ai-practice", "ai-tutorial", "model-implementation"]
     
   tech:
-    name: "Technology"
-    description: "Programming guides, tech trends and problem solving"
+    name: "Programming"
+    description: "Programming languages, development tools, coding tips"
     icon: "💻"
+    keywords: ["tech", "programming", "coding", "development"]
     
   study:
     name: "Learning"
     description: "Computer science studies and learning experiences"
     icon: "📖"
+    keywords: ["study", "learning", "computer-science", "education"]
     
   project:
     name: "Projects"
     description: "Personal projects and portfolio showcases"
     icon: "🚀"
+    keywords: ["project", "portfolio", "personal-project"]
     
   startup:
     name: "Startup"
     description: "Tech entrepreneurship insights and experiences"
     icon: "💼"
+    keywords: ["startup", "business", "entrepreneurship"]
     
   other:
     name: "Other"
     description: "Miscellaneous posts"
     icon: "📝"
+    keywords: []
 
 # UI Text
 ui:
@@ -54,3 +68,15 @@ ui:
   home: "← Home"
   korean_posts: "한국어 포스트 →"
   all_categories: "All Categories"
+  
+# Category Priority (order for classification when overlapping tags exist)
+category_priority:
+  - "news_analysis"
+  - "automation"
+  - "ai_research"
+  - "ai_practice"
+  - "tech"
+  - "study"
+  - "project"
+  - "startup"
+  - "other"
