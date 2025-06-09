@@ -14,8 +14,8 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 
 <div class="categories-container">
 
-{% comment %} 뉴스분석 카테고리 {% endcomment %}
-{% include category-section.html posts=news_analysis_posts category_key='news_analysis' config=config %}
+{% comment %} 기술트렌드 카테고리 {% endcomment %}
+{% include category-section.html posts=tech_trends_posts category_key='tech_trends' config=config %}
 
 {% comment %} 자동화 카테고리 {% endcomment %}
 {% include category-section.html posts=automation_posts category_key='automation' config=config %}
@@ -27,7 +27,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 {% include category-section.html posts=ai_practice_posts category_key='ai_practice' config=config %}
 
 {% comment %} 프로그래밍 카테고리 {% endcomment %}
-{% include category-section.html posts=tech_posts category_key='tech' config=config %}
+{% include category-section.html posts=programming_posts category_key='programming' config=config %}
 
 {% comment %} 학습 카테고리 {% endcomment %}
 {% include category-section.html posts=study_posts category_key='study' config=config %}
@@ -47,11 +47,11 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 <div class="category-summary">
   <h2>📊 {{ config.ui.category_summary }}</h2>
   <div class="summary-grid">
-    {% if news_analysis_posts.size > 0 %}
+    {% if tech_trends_posts.size > 0 %}
       <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.news_analysis.icon }}</span>
-        <span class="summary-label">{{ config.categories.news_analysis.name }}</span>
-        <span class="summary-count">{{ news_analysis_posts.size }} {{ config.ui.posts_count }}</span>
+        <span class="summary-icon">{{ config.categories.tech_trends.icon }}</span>
+        <span class="summary-label">{{ config.categories.tech_trends.name }}</span>
+        <span class="summary-count">{{ tech_trends_posts.size }} {{ config.ui.posts_count }}</span>
       </div>
     {% endif %}
     {% if automation_posts.size > 0 %}
@@ -75,11 +75,11 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
         <span class="summary-count">{{ ai_practice_posts.size }} {{ config.ui.posts_count }}</span>
       </div>
     {% endif %}
-    {% if tech_posts.size > 0 %}
+    {% if programming_posts.size > 0 %}
       <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.tech.icon }}</span>
-        <span class="summary-label">{{ config.categories.tech.name }}</span>
-        <span class="summary-count">{{ tech_posts.size }} {{ config.ui.posts_count }}</span>
+        <span class="summary-icon">{{ config.categories.programming.icon }}</span>
+        <span class="summary-label">{{ config.categories.programming.name }}</span>
+        <span class="summary-count">{{ programming_posts.size }} {{ config.ui.posts_count }}</span>
       </div>
     {% endif %}
     {% if study_posts.size > 0 %}
