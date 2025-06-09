@@ -1,49 +1,63 @@
-# 한국어 설정
+# 한국어 설정 (업데이트된 카테고리 구조)
 title: "한국어 포스트"
 description: "한국어 기술 블로그 포스트를 카테고리별로 정리한 페이지입니다"
 language: "ko"
 
-# 카테고리 설정
+# 명확하게 분리된 카테고리 설정
 categories:
-  tech_news:
-    name: "기술뉴스분석"
-    description: "최신 기술 뉴스와 동향 분석"
+  news_analysis:
+    name: "뉴스분석"
+    description: "기술 뉴스와 산업 동향 분석"
     icon: "📰"
+    keywords: ["tech-news-analysis", "news", "analysis"]
     
   automation:
     name: "자동화"
     description: "Jekyll, GitHub Actions, Claude MCP 등 자동화 도구"
     icon: "⚙️"
+    keywords: ["mcp", "automation", "jekyll", "github-actions"]
     
-  ai:
-    name: "인공지능"
-    description: "인공지능과 머신러닝 연구 및 실습"
+  ai_research:
+    name: "AI연구"
+    description: "인공지능 연구, 논문 리뷰, 이론적 배경"
+    icon: "🧠"
+    keywords: ["ai-research", "machine-learning", "deep-learning", "ai-theory"]
+    
+  ai_practice:
+    name: "AI실습"
+    description: "AI 모델 구현, 실습 프로젝트, 튜토리얼"
     icon: "🤖"
+    keywords: ["ai-practice", "ai-tutorial", "model-implementation"]
     
   tech:
-    name: "기술"
-    description: "프로그래밍, 기술 가이드, 문제 해결"
+    name: "프로그래밍"
+    description: "프로그래밍 언어, 개발 도구, 코딩 팁"
     icon: "💻"
+    keywords: ["tech", "programming", "coding", "development"]
     
   study:
     name: "학습"
     description: "컴퓨터과학 학습 과정과 경험 공유"
     icon: "📖"
+    keywords: ["study", "learning", "computer-science", "education"]
     
   project:
     name: "프로젝트"
     description: "개인 프로젝트와 포트폴리오"
     icon: "🚀"
+    keywords: ["project", "portfolio", "personal-project"]
     
   startup:
     name: "창업"
     description: "기술 창업 관련 인사이트와 경험"
     icon: "💼"
+    keywords: ["startup", "business", "entrepreneurship"]
     
   other:
     name: "기타"
     description: "기타 포스트"
     icon: "📝"
+    keywords: []
 
 # UI 텍스트
 ui:
@@ -54,3 +68,15 @@ ui:
   home: "메인으로"
   english_posts: "English Posts →"
   all_categories: "전체 카테고리"
+  
+# 카테고리 우선순위 (겹치는 태그가 있을 때 우선적으로 분류될 순서)
+category_priority:
+  - "news_analysis"
+  - "automation" 
+  - "ai_research"
+  - "ai_practice"
+  - "tech"
+  - "study"
+  - "project" 
+  - "startup"
+  - "other"
