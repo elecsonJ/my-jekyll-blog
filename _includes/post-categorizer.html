@@ -35,8 +35,8 @@
 {% comment %} 디버깅 정보 출력 (개발 환경에서만) {% endcomment %}
 {% if jekyll.environment != 'production' %}
 <!-- DEBUG: 총 {{ all_posts.size }}개 포스트 중 {{ language_posts.size }}개가 {{ language }} 언어로 분류됨 -->
-{% for post in language_posts limit:3 %}
-<!-- DEBUG: {{ post.title }} - lang: {{ post.lang }}, categories: {{ post.categories | join: ', ' }} -->
+{% for post in language_posts limit:5 %}
+<!-- DEBUG: "{{ post.title }}" - lang: "{{ post.lang }}", categories: [{{ post.categories | join: ', ' }}] -->
 {% endfor %}
 {% endif %}
 
@@ -113,16 +113,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 10. korean-posts 카테고리 처리 (기타로 분류하지 않고 모든 포스트) {% endcomment %}
-  {% unless is_categorized %}
-    {% if post.categories contains 'korean-posts' %}
-      {% comment %} korean-posts는 다른 카테고리와 함께 사용되는 경우가 많으므로 기타로 분류 {% endcomment %}
-      {% assign other_posts = other_posts | push: post %}
-      {% assign is_categorized = true %}
-    {% endif %}
-  {% endunless %}
-  
-  {% comment %} 11. 기타 (분류되지 않은 모든 포스트) {% endcomment %}
+  {% comment %} 10. 기타 (분류되지 않은 모든 포스트) - korean-posts도 여기에 포함 {% endcomment %}
   {% unless is_categorized %}
     {% assign other_posts = other_posts | push: post %}
   {% endunless %}
@@ -140,5 +131,11 @@
   project: {{ project_posts.size }}
   startup: {{ startup_posts.size }}
   other: {{ other_posts.size }}
+  총계: {{ tech_trends_posts.size | plus: automation_posts.size | plus: ai_research_posts.size | plus: ai_practice_posts.size | plus: programming_posts.size | plus: study_posts.size | plus: project_posts.size | plus: startup_posts.size | plus: other_posts.size }}
 -->
+{% if other_posts.size > 0 %}
+  {% for post in other_posts limit:3 %}
+<!-- DEBUG 기타 포스트: "{{ post.title }}" - categories: [{{ post.categories | join: ', ' }}] -->
+  {% endfor %}
+{% endif %}
 {% endif %}
