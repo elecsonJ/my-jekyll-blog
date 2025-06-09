@@ -10,7 +10,7 @@
 {% comment %} 언어별 포스트 필터링 {% endcomment %}
 {% for post in all_posts %}
   {% if language == 'ko' %}
-    {% if post.lang == 'ko' or post.lang == nil and post.categories contains 'korean' or post.lang != 'en' and post.categories contains 'tech-news-analysis' %}
+    {% if post.lang == 'ko' or post.lang == nil and (post.categories contains 'korean' or post.categories contains 'korean-posts') or post.lang != 'en' and post.categories contains 'tech-news-analysis' %}
       {% assign language_posts = language_posts | push: post %}
     {% endif %}
   {% elsif language == 'en' %}
@@ -20,7 +20,7 @@
   {% endif %}
 {% endfor %}
 
-{% comment %} 명확하게 분리된 카테고리별 분류 {% endcomment %}
+{% comment %} 명확한 분류로 카테고리별 분류 {% endcomment %}
 {% assign tech_trends_posts = "" | split: "" %}
 {% assign automation_posts = "" | split: "" %}
 {% assign ai_research_posts = "" | split: "" %}
@@ -64,7 +64,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 5. 일반적인 AI 포스트 (좀더 기본적인 실습으로 분류) {% endcomment %}
+  {% comment %} 5. 일반적인 AI 포스트 (제목 기반 실습으로 분류) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
       {% assign ai_practice_posts = ai_practice_posts | push: post %}
@@ -72,7 +72,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 6. 프로그래밍 (기존 tech 카테고리를 programming으로 변경) {% endcomment %}
+  {% comment %} 6. 프로그래밍 (기존 tech 카테고리를 programming으로 변환) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'programming' or post.categories contains 'tech' or post.categories contains 'coding' or post.categories contains 'development' or post.categories contains 'software-engineering' %}
       {% assign programming_posts = programming_posts | push: post %}
