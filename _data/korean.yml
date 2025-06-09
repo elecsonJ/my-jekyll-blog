@@ -1,0 +1,56 @@
+# 한국어 설정
+title: "한국어 포스트"
+description: "한국어 기술 블로그 포스트를 카테고리별로 정리한 페이지입니다"
+language: "ko"
+
+# 카테고리 설정
+categories:
+  tech_news:
+    name: "기술뉴스분석"
+    description: "최신 기술 뉴스와 동향 분석"
+    icon: "📰"
+    
+  automation:
+    name: "자동화"
+    description: "Jekyll, GitHub Actions, Claude MCP 등 자동화 도구"
+    icon: "⚙️"
+    
+  ai:
+    name: "인공지능"
+    description: "인공지능과 머신러닝 연구 및 실습"
+    icon: "🤖"
+    
+  tech:
+    name: "기술"
+    description: "프로그래밍, 기술 가이드, 문제 해결"
+    icon: "💻"
+    
+  study:
+    name: "학습"
+    description: "컴퓨터과학 학습 과정과 경험 공유"
+    icon: "📖"
+    
+  project:
+    name: "프로젝트"
+    description: "개인 프로젝트와 포트폴리오"
+    icon: "🚀"
+    
+  startup:
+    name: "창업"
+    description: "기술 창업 관련 인사이트와 경험"
+    icon: "💼"
+    
+  other:
+    name: "기타"
+    description: "기타 포스트"
+    icon: "📝"
+
+# UI 텍스트
+ui:
+  posts_count: "개"
+  view_all: "전체 {{count}}개 포스트 보기"
+  category_summary: "카테고리 요약"
+  navigation: "네비게이션"
+  home: "메인으로"
+  english_posts: "English Posts →"
+  all_categories: "전체 카테고리"
