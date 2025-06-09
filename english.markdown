@@ -14,32 +14,32 @@ description: "English tech blog posts with category-based organization"
 
 <div class="categories-container">
 
-{% comment %} Render each category section {% endcomment %}
-{% assign category_keys = 'tech_news,automation,ai,tech,study,project,startup,other' | split: ',' %}
+{% comment %} News Analysis Category {% endcomment %}
+{% include category-section.html posts=news_analysis_posts category_key='news_analysis' config=config %}
 
-{% for i in (0..7) %}
-  {% assign category_key = category_keys[i] %}
-  
-  {% if category_key == 'tech_news' %}
-    {% assign posts = tech_news_posts %}
-  {% elsif category_key == 'automation' %}
-    {% assign posts = automation_posts %}
-  {% elsif category_key == 'ai' %}
-    {% assign posts = ai_posts %}
-  {% elsif category_key == 'tech' %}
-    {% assign posts = tech_posts %}
-  {% elsif category_key == 'study' %}
-    {% assign posts = study_posts %}
-  {% elsif category_key == 'project' %}
-    {% assign posts = project_posts %}
-  {% elsif category_key == 'startup' %}
-    {% assign posts = startup_posts %}
-  {% elsif category_key == 'other' %}
-    {% assign posts = other_posts %}
-  {% endif %}
-  
-  {% include category-section.html posts=posts category_key=category_key config=config %}
-{% endfor %}
+{% comment %} Automation Category {% endcomment %}
+{% include category-section.html posts=automation_posts category_key='automation' config=config %}
+
+{% comment %} AI Research Category {% endcomment %}
+{% include category-section.html posts=ai_research_posts category_key='ai_research' config=config %}
+
+{% comment %} AI Practice Category {% endcomment %}
+{% include category-section.html posts=ai_practice_posts category_key='ai_practice' config=config %}
+
+{% comment %} Programming Category {% endcomment %}
+{% include category-section.html posts=tech_posts category_key='tech' config=config %}
+
+{% comment %} Learning Category {% endcomment %}
+{% include category-section.html posts=study_posts category_key='study' config=config %}
+
+{% comment %} Projects Category {% endcomment %}
+{% include category-section.html posts=project_posts category_key='project' config=config %}
+
+{% comment %} Startup Category {% endcomment %}
+{% include category-section.html posts=startup_posts category_key='startup' config=config %}
+
+{% comment %} Other Category {% endcomment %}
+{% include category-section.html posts=other_posts category_key='other' config=config %}
 
 </div>
 
@@ -47,11 +47,11 @@ description: "English tech blog posts with category-based organization"
 <div class="category-summary">
   <h2>📊 {{ config.ui.category_summary }}</h2>
   <div class="summary-grid">
-    {% if tech_news_posts.size > 0 %}
+    {% if news_analysis_posts.size > 0 %}
       <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.tech_news.icon }}</span>
-        <span class="summary-label">{{ config.categories.tech_news.name }}</span>
-        <span class="summary-count">{{ tech_news_posts.size }} {{ config.ui.posts_count }}</span>
+        <span class="summary-icon">{{ config.categories.news_analysis.icon }}</span>
+        <span class="summary-label">{{ config.categories.news_analysis.name }}</span>
+        <span class="summary-count">{{ news_analysis_posts.size }} {{ config.ui.posts_count }}</span>
       </div>
     {% endif %}
     {% if automation_posts.size > 0 %}
@@ -61,11 +61,18 @@ description: "English tech blog posts with category-based organization"
         <span class="summary-count">{{ automation_posts.size }} {{ config.ui.posts_count }}</span>
       </div>
     {% endif %}
-    {% if ai_posts.size > 0 %}
+    {% if ai_research_posts.size > 0 %}
       <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.ai.icon }}</span>
-        <span class="summary-label">{{ config.categories.ai.name }}</span>
-        <span class="summary-count">{{ ai_posts.size }} {{ config.ui.posts_count }}</span>
+        <span class="summary-icon">{{ config.categories.ai_research.icon }}</span>
+        <span class="summary-label">{{ config.categories.ai_research.name }}</span>
+        <span class="summary-count">{{ ai_research_posts.size }} {{ config.ui.posts_count }}</span>
+      </div>
+    {% endif %}
+    {% if ai_practice_posts.size > 0 %}
+      <div class="summary-item">
+        <span class="summary-icon">{{ config.categories.ai_practice.icon }}</span>
+        <span class="summary-label">{{ config.categories.ai_practice.name }}</span>
+        <span class="summary-count">{{ ai_practice_posts.size }} {{ config.ui.posts_count }}</span>
       </div>
     {% endif %}
     {% if tech_posts.size > 0 %}
