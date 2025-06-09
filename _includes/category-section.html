@@ -1,0 +1,53 @@
+{% comment %}
+  카테고리별 포스트 렌더링 컴포넌트
+  매개변수:
+  - posts: 포스트 배열
+  - category_key: 카테고리 키
+  - config: 언어 설정
+{% endcomment %}
+
+{% if posts.size > 0 %}
+<div class="category-section">
+  <h3>
+    {{ config.categories[category_key].icon }} 
+    {{ config.categories[category_key].name }} 
+    ({{ posts.size }} {{ config.ui.posts_count }})
+  </h3>
+  <p class="category-description">{{ config.categories[category_key].description }}</p>
+  
+  <div class="posts-grid">
+    {% for post in posts limit:6 %}
+      <article class="post-card">
+        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
+        <p class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {% if config.language == 'ko' %}
+              {{ post.date | date: "%Y년 %m월 %d일" }}
+            {% else %}
+              {{ post.date | date: "%B %d, %Y" }}
+            {% endif %}
+          </time>
+          {% if post.categories %}
+            {% for category in post.categories %}
+              <span class="category-tag">{{ category }}</span>
+            {% endfor %}
+          {% endif %}
+        </p>
+        {% if post.excerpt %}
+          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+        {% elsif post.description %}
+          <p class="excerpt">{{ post.description | truncate: 100 }}</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+  
+  {% if posts.size > 6 %}
+    <div class="view-more">
+      <a href="#all-{{ category_key }}-posts" onclick="showAllPosts('{{ category_key }}')" class="btn-secondary">
+        {{ config.ui.view_all | replace: '{{count}}', posts.size }}
+      </a>
+    </div>
+  {% endif %}
+</div>
+{% endif %}
