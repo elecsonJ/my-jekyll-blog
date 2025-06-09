@@ -1,0 +1,97 @@
+{% comment %}
+  포스트 분류 로직
+  매개변수:
+  - language: 'ko' 또는 'en'
+  
+  반환값:
+  - categorized_posts: 카테고리별로 분류된 포스트 해시
+  - language_posts: 해당 언어의 모든 포스트
+{% endcomment %}
+
+{% assign all_posts = site.posts %}
+{% assign language_posts = "" | split: "" %}
+
+{% comment %} 언어별 포스트 필터링 {% endcomment %}
+{% for post in all_posts %}
+  {% if language == 'ko' %}
+    {% if post.lang == 'ko' or post.lang == nil and post.categories contains 'korean' or post.lang != 'en' and post.categories contains 'tech-news-analysis' %}
+      {% assign language_posts = language_posts | push: post %}
+    {% endif %}
+  {% elsif language == 'en' %}
+    {% if post.lang == 'en' or post.lang == nil and post.categories contains 'english' or post.lang != 'ko' and post.categories contains 'tech-news-analysis' %}
+      {% assign language_posts = language_posts | push: post %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% comment %} 카테고리별 분류 {% endcomment %}
+{% assign tech_news_posts = "" | split: "" %}
+{% assign automation_posts = "" | split: "" %}
+{% assign ai_posts = "" | split: "" %}
+{% assign tech_posts = "" | split: "" %}
+{% assign study_posts = "" | split: "" %}
+{% assign project_posts = "" | split: "" %}
+{% assign startup_posts = "" | split: "" %}
+{% assign other_posts = "" | split: "" %}
+
+{% for post in language_posts %}
+  {% assign is_categorized = false %}
+  
+  {% comment %} 기술뉴스분석 (tech-news-analysis 우선 처리) {% endcomment %}
+  {% if post.categories contains 'tech-news-analysis' %}
+    {% assign tech_news_posts = tech_news_posts | push: post %}
+    {% assign is_categorized = true %}
+  {% endif %}
+  
+  {% comment %} 자동화 {% endcomment %}
+  {% if post.categories contains 'mcp' or post.categories contains 'automation' %}
+    {% assign automation_posts = automation_posts | push: post %}
+    {% assign is_categorized = true %}
+  {% endif %}
+  
+  {% comment %} AI {% endcomment %}
+  {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
+    {% assign ai_posts = ai_posts | push: post %}
+    {% assign is_categorized = true %}
+  {% endif %}
+  
+  {% comment %} 기술 {% endcomment %}
+  {% if post.categories contains 'tech' or post.categories contains 'programming' %}
+    {% assign tech_posts = tech_posts | push: post %}
+    {% assign is_categorized = true %}
+  {% endif %}
+  
+  {% comment %} 학습 {% endcomment %}
+  {% if post.categories contains 'study' or post.categories contains 'learning' %}
+    {% assign study_posts = study_posts | push: post %}
+    {% assign is_categorized = true %}
+  {% endif %}
+  
+  {% comment %} 프로젝트 {% endcomment %}
+  {% if post.categories contains 'project' %}
+    {% assign project_posts = project_posts | push: post %}
+    {% assign is_categorized = true %}
+  {% endif %}
+  
+  {% comment %} 창업 {% endcomment %}
+  {% if post.categories contains 'startup' or post.categories contains 'business' %}
+    {% assign startup_posts = startup_posts | push: post %}
+    {% assign is_categorized = true %}
+  {% endif %}
+  
+  {% comment %} 기타 {% endcomment %}
+  {% unless is_categorized %}
+    {% assign other_posts = other_posts | push: post %}
+  {% endunless %}
+{% endfor %}
+
+{% comment %} 카테고리별 포스트 해시 생성 {% endcomment %}
+{% assign categorized_posts = "" | split: "" %}
+{% assign categorized_posts = categorized_posts | push: tech_news_posts %}
+{% assign categorized_posts = categorized_posts | push: automation_posts %}
+{% assign categorized_posts = categorized_posts | push: ai_posts %}
+{% assign categorized_posts = categorized_posts | push: tech_posts %}
+{% assign categorized_posts = categorized_posts | push: study_posts %}
+{% assign categorized_posts = categorized_posts | push: project_posts %}
+{% assign categorized_posts = categorized_posts | push: startup_posts %}
+{% assign categorized_posts = categorized_posts | push: other_posts %}
