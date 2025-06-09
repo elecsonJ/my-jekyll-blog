@@ -1,5 +1,5 @@
 {% comment %}
-  업데이트된 포스트 분류 로직 (명확한 카테고리 분리)
+  언어별로 포스트 분류 로직 (명확한 카테고리 분류)
   매개변수:
   - language: 'ko' 또는 'en'
 {% endcomment %}
@@ -21,11 +21,11 @@
 {% endfor %}
 
 {% comment %} 명확하게 분리된 카테고리별 분류 {% endcomment %}
-{% assign news_analysis_posts = "" | split: "" %}
+{% assign tech_trends_posts = "" | split: "" %}
 {% assign automation_posts = "" | split: "" %}
 {% assign ai_research_posts = "" | split: "" %}
 {% assign ai_practice_posts = "" | split: "" %}
-{% assign tech_posts = "" | split: "" %}
+{% assign programming_posts = "" | split: "" %}
 {% assign study_posts = "" | split: "" %}
 {% assign project_posts = "" | split: "" %}
 {% assign startup_posts = "" | split: "" %}
@@ -34,9 +34,9 @@
 {% for post in language_posts %}
   {% assign is_categorized = false %}
   
-  {% comment %} 1. 뉴스분석 (최우선 - 기존 tech-news-analysis) {% endcomment %}
-  {% if post.categories contains 'tech-news-analysis' or post.categories contains 'news-analysis' %}
-    {% assign news_analysis_posts = news_analysis_posts | push: post %}
+  {% comment %} 1. 기술트렌드 (최우선 - 기존 tech-news-analysis 및 tech-trends) {% endcomment %}
+  {% if post.categories contains 'tech-trends' or post.categories contains 'tech-news-analysis' or post.categories contains 'news-analysis' or post.categories contains 'industry-analysis' or post.categories contains 'market-trends' %}
+    {% assign tech_trends_posts = tech_trends_posts | push: post %}
     {% assign is_categorized = true %}
   {% endif %}
   
@@ -50,7 +50,7 @@
   
   {% comment %} 3. AI 연구 (이론, 논문, 연구) {% endcomment %}
   {% unless is_categorized %}
-    {% if post.categories contains 'ai-research' or post.categories contains 'machine-learning' or post.categories contains 'deep-learning' or post.categories contains 'ai-theory' %}
+    {% if post.categories contains 'ai-research' or post.categories contains 'machine-learning-theory' or post.categories contains 'deep-learning-theory' or post.categories contains 'ai-theory' or post.categories contains 'ai-papers' %}
       {% assign ai_research_posts = ai_research_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
@@ -58,13 +58,13 @@
   
   {% comment %} 4. AI 실습 (구현, 튜토리얼, 실습) {% endcomment %}
   {% unless is_categorized %}
-    {% if post.categories contains 'ai-practice' or post.categories contains 'ai-tutorial' or post.categories contains 'model-implementation' %}
+    {% if post.categories contains 'ai-practice' or post.categories contains 'ai-tutorial' or post.categories contains 'model-implementation' or post.categories contains 'ai-coding' %}
       {% assign ai_practice_posts = ai_practice_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
   {% endunless %}
   
-  {% comment %} 5. 일반적인 AI 포스트 (제목 기반으로 실습으로 분류) {% endcomment %}
+  {% comment %} 5. 일반적인 AI 포스트 (좀더 기본적인 실습으로 분류) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
       {% assign ai_practice_posts = ai_practice_posts | push: post %}
@@ -72,17 +72,17 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 6. 프로그래밍 {% endcomment %}
+  {% comment %} 6. 프로그래밍 (기존 tech 카테고리를 programming으로 변경) {% endcomment %}
   {% unless is_categorized %}
-    {% if post.categories contains 'tech' or post.categories contains 'programming' or post.categories contains 'coding' or post.categories contains 'development' %}
-      {% assign tech_posts = tech_posts | push: post %}
+    {% if post.categories contains 'programming' or post.categories contains 'tech' or post.categories contains 'coding' or post.categories contains 'development' or post.categories contains 'software-engineering' %}
+      {% assign programming_posts = programming_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
   {% endunless %}
   
   {% comment %} 7. 학습 {% endcomment %}
   {% unless is_categorized %}
-    {% if post.categories contains 'study' or post.categories contains 'learning' or post.categories contains 'education' %}
+    {% if post.categories contains 'study' or post.categories contains 'learning' or post.categories contains 'education' or post.categories contains 'computer-science' %}
       {% assign study_posts = study_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
@@ -90,7 +90,7 @@
   
   {% comment %} 8. 프로젝트 {% endcomment %}
   {% unless is_categorized %}
-    {% if post.categories contains 'project' or post.categories contains 'portfolio' %}
+    {% if post.categories contains 'project' or post.categories contains 'portfolio' or post.categories contains 'personal-project' %}
       {% assign project_posts = project_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
