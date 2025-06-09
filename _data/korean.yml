@@ -5,11 +5,11 @@ language: "ko"
 
 # 명확하게 분리된 카테고리 설정
 categories:
-  news_analysis:
-    name: "뉴스분석"
-    description: "기술 뉴스와 산업 동향 분석"
-    icon: "📰"
-    keywords: ["tech-news-analysis", "news", "analysis"]
+  tech_trends:
+    name: "기술트렌드"
+    description: "최신 기술 동향, 산업 분석, IT 뉴스 및 시장 트렌드"
+    icon: "📊"
+    keywords: ["tech-trends", "industry-analysis", "tech-news", "market-trends"]
     
   automation:
     name: "자동화"
@@ -19,21 +19,21 @@ categories:
     
   ai_research:
     name: "AI연구"
-    description: "인공지능 연구, 논문 리뷰, 이론적 배경"
+    description: "인공지능 연구 논문, 이론적 배경, 학술적 내용"
     icon: "🧠"
-    keywords: ["ai-research", "machine-learning", "deep-learning", "ai-theory"]
+    keywords: ["ai-research", "machine-learning-theory", "deep-learning-theory", "ai-papers"]
     
   ai_practice:
     name: "AI실습"
-    description: "AI 모델 구현, 실습 프로젝트, 튜토리얼"
+    description: "AI 모델 구현, 실습 프로젝트, 튜토리얼, 실전 개발"
     icon: "🤖"
-    keywords: ["ai-practice", "ai-tutorial", "model-implementation"]
+    keywords: ["ai-practice", "ai-tutorial", "model-implementation", "ai-coding"]
     
-  tech:
+  programming:
     name: "프로그래밍"
-    description: "프로그래밍 언어, 개발 도구, 코딩 팁"
+    description: "프로그래밍 언어, 개발 도구, 코딩 팁, 소프트웨어 개발"
     icon: "💻"
-    keywords: ["tech", "programming", "coding", "development"]
+    keywords: ["programming", "coding", "development", "software-engineering"]
     
   study:
     name: "학습"
@@ -43,7 +43,7 @@ categories:
     
   project:
     name: "프로젝트"
-    description: "개인 프로젝트와 포트폴리오"
+    description: "개인 프로젝트와 포트폴리오 쇼케이스"
     icon: "🚀"
     keywords: ["project", "portfolio", "personal-project"]
     
@@ -65,18 +65,18 @@ ui:
   view_all: "전체 {{count}}개 포스트 보기"
   category_summary: "카테고리 요약"
   navigation: "네비게이션"
-  home: "메인으로"
-  english_posts: "English Posts →"
+  home: "🏠 메인으로"
+  english_posts: "English Posts ↗"
   all_categories: "전체 카테고리"
   
-# 카테고리 우선순위 (겹치는 태그가 있을 때 우선적으로 분류될 순서)
+# 카테고리 우선순위 (겹치는 태그가 있을 때 우선적으로 분류할 순서)
 category_priority:
-  - "news_analysis"
+  - "tech_trends"
   - "automation" 
   - "ai_research"
   - "ai_practice"
-  - "tech"
+  - "programming"
   - "study"
-  - "project" 
+  - "project"
   - "startup"
   - "other"
