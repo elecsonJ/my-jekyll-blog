@@ -1,11 +1,7 @@
 {% comment %}
-  포스트 분류 로직
+  간소화된 포스트 분류 로직
   매개변수:
   - language: 'ko' 또는 'en'
-  
-  반환값:
-  - categorized_posts: 카테고리별로 분류된 포스트 해시
-  - language_posts: 해당 언어의 모든 포스트
 {% endcomment %}
 
 {% assign all_posts = site.posts %}
@@ -24,7 +20,7 @@
   {% endif %}
 {% endfor %}
 
-{% comment %} 카테고리별 분류 {% endcomment %}
+{% comment %} 카테고리별 분류 - 개별 변수로 직접 할당 {% endcomment %}
 {% assign tech_news_posts = "" | split: "" %}
 {% assign automation_posts = "" | split: "" %}
 {% assign ai_posts = "" | split: "" %}
@@ -37,61 +33,62 @@
 {% for post in language_posts %}
   {% assign is_categorized = false %}
   
-  {% comment %} 기술뉴스분석 (tech-news-analysis 우선 처리) {% endcomment %}
+  {% comment %} 기술뉴스분석 (최우선 - 다른 카테고리와 중복되지 않도록) {% endcomment %}
   {% if post.categories contains 'tech-news-analysis' %}
     {% assign tech_news_posts = tech_news_posts | push: post %}
     {% assign is_categorized = true %}
   {% endif %}
   
-  {% comment %} 자동화 {% endcomment %}
-  {% if post.categories contains 'mcp' or post.categories contains 'automation' %}
-    {% assign automation_posts = automation_posts | push: post %}
-    {% assign is_categorized = true %}
-  {% endif %}
+  {% comment %} 자동화 카테고리 (기술뉴스분석이 아닌 경우에만) {% endcomment %}
+  {% unless is_categorized %}
+    {% if post.categories contains 'mcp' or post.categories contains 'automation' %}
+      {% assign automation_posts = automation_posts | push: post %}
+      {% assign is_categorized = true %}
+    {% endif %}
+  {% endunless %}
   
-  {% comment %} AI {% endcomment %}
-  {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
-    {% assign ai_posts = ai_posts | push: post %}
-    {% assign is_categorized = true %}
-  {% endif %}
+  {% comment %} AI 카테고리 (위 카테고리들이 아닌 경우에만) {% endcomment %}
+  {% unless is_categorized %}
+    {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
+      {% assign ai_posts = ai_posts | push: post %}
+      {% assign is_categorized = true %}
+    {% endif %}
+  {% endunless %}
   
-  {% comment %} 기술 {% endcomment %}
-  {% if post.categories contains 'tech' or post.categories contains 'programming' %}
-    {% assign tech_posts = tech_posts | push: post %}
-    {% assign is_categorized = true %}
-  {% endif %}
+  {% comment %} 기술 카테고리 {% endcomment %}
+  {% unless is_categorized %}
+    {% if post.categories contains 'tech' or post.categories contains 'programming' %}
+      {% assign tech_posts = tech_posts | push: post %}
+      {% assign is_categorized = true %}
+    {% endif %}
+  {% endunless %}
   
-  {% comment %} 학습 {% endcomment %}
-  {% if post.categories contains 'study' or post.categories contains 'learning' %}
-    {% assign study_posts = study_posts | push: post %}
-    {% assign is_categorized = true %}
-  {% endif %}
+  {% comment %} 학습 카테고리 {% endcomment %}
+  {% unless is_categorized %}
+    {% if post.categories contains 'study' or post.categories contains 'learning' %}
+      {% assign study_posts = study_posts | push: post %}
+      {% assign is_categorized = true %}
+    {% endif %}
+  {% endunless %}
   
-  {% comment %} 프로젝트 {% endcomment %}
-  {% if post.categories contains 'project' %}
-    {% assign project_posts = project_posts | push: post %}
-    {% assign is_categorized = true %}
-  {% endif %}
+  {% comment %} 프로젝트 카테고리 {% endcomment %}
+  {% unless is_categorized %}
+    {% if post.categories contains 'project' %}
+      {% assign project_posts = project_posts | push: post %}
+      {% assign is_categorized = true %}
+    {% endif %}
+  {% endunless %}
   
-  {% comment %} 창업 {% endcomment %}
-  {% if post.categories contains 'startup' or post.categories contains 'business' %}
-    {% assign startup_posts = startup_posts | push: post %}
-    {% assign is_categorized = true %}
-  {% endif %}
+  {% comment %} 창업 카테고리 {% endcomment %}
+  {% unless is_categorized %}
+    {% if post.categories contains 'startup' or post.categories contains 'business' %}
+      {% assign startup_posts = startup_posts | push: post %}
+      {% assign is_categorized = true %}
+    {% endif %}
+  {% endunless %}
   
-  {% comment %} 기타 {% endcomment %}
+  {% comment %} 기타 카테고리 (분류되지 않은 모든 포스트) {% endcomment %}
   {% unless is_categorized %}
     {% assign other_posts = other_posts | push: post %}
   {% endunless %}
 {% endfor %}
-
-{% comment %} 카테고리별 포스트 해시 생성 {% endcomment %}
-{% assign categorized_posts = "" | split: "" %}
-{% assign categorized_posts = categorized_posts | push: tech_news_posts %}
-{% assign categorized_posts = categorized_posts | push: automation_posts %}
-{% assign categorized_posts = categorized_posts | push: ai_posts %}
-{% assign categorized_posts = categorized_posts | push: tech_posts %}
-{% assign categorized_posts = categorized_posts | push: study_posts %}
-{% assign categorized_posts = categorized_posts | push: project_posts %}
-{% assign categorized_posts = categorized_posts | push: startup_posts %}
-{% assign categorized_posts = categorized_posts | push: other_posts %}
