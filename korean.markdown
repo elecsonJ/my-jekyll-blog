@@ -14,56 +14,44 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 
 <div class="categories-container">
 
-{% comment %} 각 카테고리별 섹션 렌더링 {% endcomment %}
-{% assign category_keys = 'tech_news,automation,ai,tech,study,project,startup,other' | split: ',' %}
-{% assign category_posts = tech_news_posts,automation_posts,ai_posts,tech_posts,study_posts,project_posts,startup_posts,other_posts | split: ',' %}
+{% comment %} 뉴스분석 카테고리 {% endcomment %}
+{% include category-section.html posts=news_analysis_posts category_key='news_analysis' config=config %}
 
-{% for i in (0..7) %}
-  {% assign category_key = category_keys[i] %}
-  {% assign posts = category_posts[i] %}
-  
-  {% if category_key == 'tech_news' %}
-    {% assign posts = tech_news_posts %}
-  {% elsif category_key == 'automation' %}
-    {% assign posts = automation_posts %}
-  {% elsif category_key == 'ai' %}
-    {% assign posts = ai_posts %}
-  {% elsif category_key == 'tech' %}
-    {% assign posts = tech_posts %}
-  {% elsif category_key == 'study' %}
-    {% assign posts = study_posts %}
-  {% elsif category_key == 'project' %}
-    {% assign posts = project_posts %}
-  {% elsif category_key == 'startup' %}
-    {% assign posts = startup_posts %}
-  {% elsif category_key == 'other' %}
-    {% assign posts = other_posts %}
-  {% endif %}
-  
-  {% include category-section.html posts=posts category_key=category_key config=config %}
-{% endfor %}
+{% comment %} 자동화 카테고리 {% endcomment %}
+{% include category-section.html posts=automation_posts category_key='automation' config=config %}
+
+{% comment %} AI 연구 카테고리 {% endcomment %}
+{% include category-section.html posts=ai_research_posts category_key='ai_research' config=config %}
+
+{% comment %} AI 실습 카테고리 {% endcomment %}
+{% include category-section.html posts=ai_practice_posts category_key='ai_practice' config=config %}
+
+{% comment %} 프로그래밍 카테고리 {% endcomment %}
+{% include category-section.html posts=tech_posts category_key='tech' config=config %}
+
+{% comment %} 학습 카테고리 {% endcomment %}
+{% include category-section.html posts=study_posts category_key='study' config=config %}
+
+{% comment %} 프로젝트 카테고리 {% endcomment %}
+{% include category-section.html posts=project_posts category_key='project' config=config %}
+
+{% comment %} 창업 카테고리 {% endcomment %}
+{% include category-section.html posts=startup_posts category_key='startup' config=config %}
+
+{% comment %} 기타 카테고리 {% endcomment %}
+{% include category-section.html posts=other_posts category_key='other' config=config %}
 
 </div>
 
 {% comment %} 카테고리 요약 {% endcomment %}
-{% assign categorized_posts = '' %}
-{% assign categorized_posts = categorized_posts | append: 'tech_news:' | append: tech_news_posts.size | append: ',' %}
-{% assign categorized_posts = categorized_posts | append: 'automation:' | append: automation_posts.size | append: ',' %}
-{% assign categorized_posts = categorized_posts | append: 'ai:' | append: ai_posts.size | append: ',' %}
-{% assign categorized_posts = categorized_posts | append: 'tech:' | append: tech_posts.size | append: ',' %}
-{% assign categorized_posts = categorized_posts | append: 'study:' | append: study_posts.size | append: ',' %}
-{% assign categorized_posts = categorized_posts | append: 'project:' | append: project_posts.size | append: ',' %}
-{% assign categorized_posts = categorized_posts | append: 'startup:' | append: startup_posts.size | append: ',' %}
-{% assign categorized_posts = categorized_posts | append: 'other:' | append: other_posts.size %}
-
 <div class="category-summary">
   <h2>📊 {{ config.ui.category_summary }}</h2>
   <div class="summary-grid">
-    {% if tech_news_posts.size > 0 %}
+    {% if news_analysis_posts.size > 0 %}
       <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.tech_news.icon }}</span>
-        <span class="summary-label">{{ config.categories.tech_news.name }}</span>
-        <span class="summary-count">{{ tech_news_posts.size }} {{ config.ui.posts_count }}</span>
+        <span class="summary-icon">{{ config.categories.news_analysis.icon }}</span>
+        <span class="summary-label">{{ config.categories.news_analysis.name }}</span>
+        <span class="summary-count">{{ news_analysis_posts.size }} {{ config.ui.posts_count }}</span>
       </div>
     {% endif %}
     {% if automation_posts.size > 0 %}
@@ -73,11 +61,18 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
         <span class="summary-count">{{ automation_posts.size }} {{ config.ui.posts_count }}</span>
       </div>
     {% endif %}
-    {% if ai_posts.size > 0 %}
+    {% if ai_research_posts.size > 0 %}
       <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.ai.icon }}</span>
-        <span class="summary-label">{{ config.categories.ai.name }}</span>
-        <span class="summary-count">{{ ai_posts.size }} {{ config.ui.posts_count }}</span>
+        <span class="summary-icon">{{ config.categories.ai_research.icon }}</span>
+        <span class="summary-label">{{ config.categories.ai_research.name }}</span>
+        <span class="summary-count">{{ ai_research_posts.size }} {{ config.ui.posts_count }}</span>
+      </div>
+    {% endif %}
+    {% if ai_practice_posts.size > 0 %}
+      <div class="summary-item">
+        <span class="summary-icon">{{ config.categories.ai_practice.icon }}</span>
+        <span class="summary-label">{{ config.categories.ai_practice.name }}</span>
+        <span class="summary-count">{{ ai_practice_posts.size }} {{ config.ui.posts_count }}</span>
       </div>
     {% endif %}
     {% if tech_posts.size > 0 %}
