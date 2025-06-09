@@ -1,0 +1,20 @@
+{% comment %}
+  네비게이션 링크 컴포넌트
+  매개변수:
+  - config: 언어 설정
+  - current_page: 현재 페이지 ('korean' 또는 'english')
+{% endcomment %}
+
+<div class="navigation-links">
+  <h2>🔗 {{ config.ui.navigation }}</h2>
+  
+  <a href="{{ '/' | relative_url }}" class="btn-primary">{{ config.ui.home }}</a>
+  
+  {% if current_page == 'korean' %}
+    <a href="{{ '/english/' | relative_url }}" class="btn-primary">{{ config.ui.english_posts }}</a>
+  {% else %}
+    <a href="{{ '/korean/' | relative_url }}" class="btn-primary">{{ config.ui.korean_posts }}</a>
+  {% endif %}
+  
+  <a href="{{ '/categories/' | relative_url }}" class="btn-secondary">{{ config.ui.all_categories }}</a>
+</div>
