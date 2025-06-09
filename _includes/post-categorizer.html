@@ -129,7 +129,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 10. 기타 (분류되지 않은 모든 포스트) - korean-posts도 여기에 포함 {% endcomment %}
+  {% comment %} 10. 기타 (분류되지 않은 모든 포스트) - korean-posts도 여기서 포함 {% endcomment %}
   {% unless is_categorized %}
     <!-- 📝 OTHER: "{{ post.title }}" - [{{ post.categories | join: ', ' }}] -->
     {% assign other_posts = other_posts | push: post %}
