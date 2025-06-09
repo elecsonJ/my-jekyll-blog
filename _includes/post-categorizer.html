@@ -12,20 +12,36 @@
 <!-- 요청된 언어: {{ language }} -->
 <!-- Jekyll 환경: {{ jekyll.environment }} -->
 
-{% comment %} 언어별 포스트 필터링 {% endcomment %}
+{% comment %} 언어별 포스트 필터링 - 개선된 로직 {% endcomment %}
 {% for post in all_posts %}
   {% if language == 'ko' %}
-    <!-- 🔍 포스트 체크: "{{ post.title }}" - lang: "{{ post.lang }}", categories: [{{ post.categories | join: ', ' }}] -->
-    {% comment %} 한국어 포스트 조건을 명확히 괄호로 구분 {% endcomment %}
-    {% if (post.lang == 'ko') or (post.lang == nil and (post.categories contains 'korean' or post.categories contains 'korean-posts')) or (post.lang != 'en' and post.categories contains 'tech-news-analysis') %}
+    <!-- 🔍 포스트 체크: "{{ post.title }}" - lang: "{{ post.lang }}", file: {{ post.name }}, categories: [{{ post.categories | join: ', ' }}] -->
+    {% comment %} 
+    한국어 포스트 조건 (우선순위 순):
+    1. post.lang == 'ko' (가장 명확한 기준)
+    2. 파일명에 'korean'이 포함된 경우 (안전장치)
+    3. 기존 호환성을 위한 korean-posts 카테고리
+    {% endcomment %}
+    {% if post.lang == 'ko' or post.name contains 'korean' or post.categories contains 'korean-posts' %}
       <!-- ✅ 한국어 포스트로 선택됨: "{{ post.title }}" -->
       {% assign language_posts = language_posts | push: post %}
     {% else %}
       <!-- ❌ 한국어 포스트에서 제외됨: "{{ post.title }}" -->
     {% endif %}
   {% elsif language == 'en' %}
-    {% if (post.lang == 'en') or (post.lang == nil and post.categories contains 'english') or (post.lang != 'ko' and post.categories contains 'tech-news-analysis') %}
+    <!-- 🔍 포스트 체크: "{{ post.title }}" - lang: "{{ post.lang }}", file: {{ post.name }}, categories: [{{ post.categories | join: ', ' }}] -->
+    {% comment %}
+    영어 포스트 조건 (우선순위 순):
+    1. post.lang == 'en' (가장 명확한 기준)
+    2. 파일명에 'english'가 포함된 경우 (안전장치)
+    3. 기존 호환성을 위한 english 카테고리
+    4. lang이 설정되지 않았고 korean 관련이 아닌 경우 (기본값)
+    {% endcomment %}
+    {% if post.lang == 'en' or post.name contains 'english' or post.categories contains 'english' or (post.lang == nil and post.name != nil and post.name contains 'korean' == false and post.categories contains 'korean-posts' == false) %}
+      <!-- ✅ 영어 포스트로 선택됨: "{{ post.title }}" -->
       {% assign language_posts = language_posts | push: post %}
+    {% else %}
+      <!-- ❌ 영어 포스트에서 제외됨: "{{ post.title }}" -->
     {% endif %}
   {% endif %}
 {% endfor %}
@@ -33,10 +49,10 @@
 <!-- 🔍 DEBUG: 언어 필터링 결과 -->
 <!-- {{ language }} 언어로 분류된 포스트 수: {{ language_posts.size }} -->
 {% for post in language_posts %}
-<!-- - "{{ post.title }}" [{{ post.categories | join: ', ' }}] -->
+<!-- - "{{ post.title }}" [{{ post.categories | join: ', ' }}] ({{ post.lang | default: 'nil' }}) -->
 {% endfor %}
 
-{% comment %} 명확히 분류된 카테고리별 분류 {% endcomment %}
+{% comment %} 명확한 분류된 카테고리별 분류 {% endcomment %}
 {% assign tech_trends_posts = "" | split: "" %}
 {% assign automation_posts = "" | split: "" %}
 {% assign ai_research_posts = "" | split: "" %}
@@ -84,7 +100,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 5. 일반적인 AI 포스트 (제목 기반 실습으로 분류) {% endcomment %}
+  {% comment %} 5. 최신의 인 AI 포스트 (제목 기반 실습으로 분류) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
       <!-- 🤖 AI_PRACTICE (제목기반): "{{ post.title }}" -->
@@ -129,7 +145,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 10. 기타 (분류되지 않은 모든 포스트) - korean-posts도 여기서 포함 {% endcomment %}
+  {% comment %} 10. 기타 (분류되지 않은 모든 포스트) {% endcomment %}
   {% unless is_categorized %}
     <!-- 📝 OTHER: "{{ post.title }}" - [{{ post.categories | join: ', ' }}] -->
     {% assign other_posts = other_posts | push: post %}
