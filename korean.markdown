@@ -12,43 +12,43 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 {% comment %} 포스트 분류 {% endcomment %}
 {% include post-categorizer.html language='ko' %}
 
-<!-- 🔍 DEBUG: 전체 포스트 확인 -->
-<details style="margin: 20px 0; padding: 10px; background: #f0f0f0; border-radius: 5px;">
-  <summary style="cursor: pointer; font-weight: bold;">🔍 디버그 정보 보기</summary>
-  <div style="margin-top: 10px;">
-    <p><strong>전체 포스트 수:</strong> {{ site.posts.size }}</p>
-    <p><strong>한국어 포스트 수:</strong> {{ language_posts.size }}</p>
-    
-    <h4>한국어 포스트 목록:</h4>
-    <ol>
-    {% for post in site.posts %}
-      {% if post.lang == 'ko' or post.name contains 'korean' or post.categories contains 'korean-posts' %}
-        <li>
-          <strong>{{ post.title }}</strong><br>
-          - 파일명: {{ post.name | default: post.path }}<br>
-          - 카테고리: [{{ post.categories | join: ', ' }}]<br>
-          - 언어: {{ post.lang | default: 'not set' }}<br>
-          - 날짜: {{ post.date | date: "%Y-%m-%d" }}
-        </li>
-      {% endif %}
-    {% endfor %}
-    </ol>
-    
-    <h4>카테고리별 분류 결과:</h4>
-    <ul>
-      <li>📈 기술트렌드: {{ tech_trends_posts.size }}개</li>
-      <li>🤖📰 AI뉴스: {{ ai_news_posts.size }}개</li>
-      <li>⚙️ 자동화: {{ automation_posts.size }}개</li>
-      <li>🧠 AI연구: {{ ai_research_posts.size }}개</li>
-      <li>🤖 AI실습: {{ ai_practice_posts.size }}개</li>
-      <li>💻 프로그래밍: {{ programming_posts.size }}개</li>
-      <li>📖 학습: {{ study_posts.size }}개</li>
-      <li>🚀 프로젝트: {{ project_posts.size }}개</li>
-      <li>💼 창업: {{ startup_posts.size }}개</li>
-      <li>📝 기타: {{ other_posts.size }}개</li>
-    </ul>
+<!-- 페이지 헤더 -->
+<div class="page-header" style="text-align: center; margin-bottom: 40px;">
+  <h1 style="font-size: 2.5em; margin-bottom: 10px;">{{ config.title }}</h1>
+  <p style="font-size: 1.2em; color: #666;">{{ config.description }}</p>
+  <div style="margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+    <p style="margin: 0; font-size: 1.1em;">총 <strong>{{ language_posts.size }}개</strong>의 한국어 포스트가 있습니다</p>
   </div>
-</details>
+</div>
+
+<!-- 최근 포스트 섹션 -->
+{% if language_posts.size > 0 %}
+<div class="recent-posts-section" style="margin-bottom: 60px; padding: 30px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 15px;">
+  <h2 style="text-align: center; margin-bottom: 30px;">🆕 최근 포스트</h2>
+  <div class="posts-grid">
+    {% for post in language_posts limit:6 %}
+      <article class="post-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <h4 style="margin-bottom: 10px;"><a href="{{ post.url | relative_url }}" style="color: #333; text-decoration: none;">{{ post.title }}</a></h4>
+        <p class="post-meta" style="color: #666; font-size: 0.9em;">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%Y년 %m월 %d일" }}
+          </time>
+          {% if post.categories %}
+            {% for category in post.categories limit:2 %}
+              <span class="category-tag" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.85em;">{{ category }}</span>
+            {% endfor %}
+          {% endif %}
+        </p>
+        {% if post.excerpt %}
+          <p class="excerpt" style="margin-top: 10px; color: #555;">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+        {% elsif post.description %}
+          <p class="excerpt" style="margin-top: 10px; color: #555;">{{ post.description | truncate: 100 }}</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
 
 <div class="categories-container">
 
@@ -82,37 +82,6 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 {% comment %} 기타 카테고리 {% endcomment %}
 {% include category-section.html posts=other_posts category_key='other' config=config %}
 
-</div>
-
-<!-- 임시: 모든 한국어 포스트 표시 -->
-<div style="margin-top: 40px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
-  <h2>📚 모든 한국어 포스트</h2>
-  <p>아래는 현재 블로그에 있는 모든 한국어 포스트입니다.</p>
-  
-  <div class="posts-grid">
-    {% for post in site.posts %}
-      {% if post.lang == 'ko' or post.name contains 'korean' or post.categories contains 'korean-posts' %}
-        <article class="post-card">
-          <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-          <p class="post-meta">
-            <time datetime="{{ post.date | date_to_xmlschema }}">
-              {{ post.date | date: "%Y년 %m월 %d일" }}
-            </time>
-            {% if post.categories %}
-              {% for category in post.categories %}
-                <span class="category-tag">{{ category }}</span>
-              {% endfor %}
-            {% endif %}
-          </p>
-          {% if post.excerpt %}
-            <p class="excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
-          {% elsif post.description %}
-            <p class="excerpt">{{ post.description | truncate: 150 }}</p>
-          {% endif %}
-        </article>
-      {% endif %}
-    {% endfor %}
-  </div>
 </div>
 
 {% comment %} 카테고리 요약 {% endcomment %}
