@@ -12,6 +12,44 @@ description: "English tech blog posts with category-based organization"
 {% comment %} Categorize posts {% endcomment %}
 {% include post-categorizer.html language='en' %}
 
+<!-- Page Header -->
+<div class="page-header" style="text-align: center; margin-bottom: 40px;">
+  <h1 style="font-size: 2.5em; margin-bottom: 10px;">{{ config.title }}</h1>
+  <p style="font-size: 1.2em; color: #666;">{{ config.description }}</p>
+  <div style="margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+    <p style="margin: 0; font-size: 1.1em;">Total of <strong>{{ language_posts.size }} posts</strong> in English</p>
+  </div>
+</div>
+
+<!-- Recent Posts Section -->
+{% if language_posts.size > 0 %}
+<div class="recent-posts-section" style="margin-bottom: 60px; padding: 30px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 15px;">
+  <h2 style="text-align: center; margin-bottom: 30px;">🆕 Recent Posts</h2>
+  <div class="posts-grid">
+    {% for post in language_posts limit:6 %}
+      <article class="post-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <h4 style="margin-bottom: 10px;"><a href="{{ post.url | relative_url }}" style="color: #333; text-decoration: none;">{{ post.title }}</a></h4>
+        <p class="post-meta" style="color: #666; font-size: 0.9em;">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%B %d, %Y" }}
+          </time>
+          {% if post.categories %}
+            {% for category in post.categories limit:2 %}
+              <span class="category-tag" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.85em;">{{ category }}</span>
+            {% endfor %}
+          {% endif %}
+        </p>
+        {% if post.excerpt %}
+          <p class="excerpt" style="margin-top: 10px; color: #555;">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+        {% elsif post.description %}
+          <p class="excerpt" style="margin-top: 10px; color: #555;">{{ post.description | truncate: 100 }}</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
 <div class="categories-container">
 
 {% comment %} Tech Trends Category {% endcomment %}
