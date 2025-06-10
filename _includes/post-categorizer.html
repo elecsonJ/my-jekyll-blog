@@ -35,7 +35,7 @@
     1. post.lang == 'en' (가장 명확한 기준)
     2. 파일명에 'english'가 포함된 경우 (안전장치)
     3. 기존 호환성을 위한 english 카테고리
-    4. lang이 설정되지 않았고 korean 관련이 아닌 경우 (기본값)
+    4. lang이 설정되지 않고 korean 관련이 아닌 경우 (기본값)
     {% endcomment %}
     {% if post.lang == 'en' or post.name contains 'english' or post.categories contains 'english' or (post.lang == nil and post.name != nil and post.name contains 'korean' == false and post.categories contains 'korean-posts' == false) %}
       <!-- ✅ 영어 포스트로 선택됨: "{{ post.title }}" -->
@@ -67,19 +67,21 @@
 {% for post in language_posts %}
   {% assign is_categorized = false %}
   
-  {% comment %} 1. 기술트렌드 (최우선 - 기존 tech-news-analysis 및 tech-trends) {% endcomment %}
-  {% if post.categories contains 'tech-trends' or post.categories contains 'tech-news-analysis' or post.categories contains 'news-analysis' or post.categories contains 'industry-analysis' or post.categories contains 'market-trends' %}
-    <!-- 📈 TECH_TRENDS: "{{ post.title }}" -->
-    {% assign tech_trends_posts = tech_trends_posts | push: post %}
+  {% comment %} 1. AI 뉴스 (최우선 - AI 관련 뉴스와 정보) {% endcomment %}
+  {% if post.categories contains 'ai-news' or post.categories contains 'ai-industry-news' or post.categories contains 'ai-tech-news' or post.categories contains 'artificial-intelligence-news' or post.title contains 'AI 뉴스' or post.title contains 'AI News' %}
+    <!-- 🤖📰 AI_NEWS: "{{ post.title }}" -->
+    {% assign ai_news_posts = ai_news_posts | push: post %}
     {% assign is_categorized = true %}
   {% endif %}
   
-  {% comment %} 2. AI 뉴스 (새로 추가 - 뉴스 관련 AI 콘텐츠) {% endcomment %}
+  {% comment %} 2. 기술트렌드 (AI 제외한 일반 기술 뉴스) {% endcomment %}
   {% unless is_categorized %}
-    {% if post.categories contains 'ai-news' or post.categories contains 'ai-industry-news' or post.categories contains 'ai-tech-news' or post.categories contains 'artificial-intelligence-news' or post.title contains 'AI 뉴스' or post.title contains 'AI News' %}
-      <!-- 📰 AI_NEWS: "{{ post.title }}" -->
-      {% assign ai_news_posts = ai_news_posts | push: post %}
-      {% assign is_categorized = true %}
+    {% if post.categories contains 'tech-trends' or post.categories contains 'tech-news-analysis' or post.categories contains 'news-analysis' or post.categories contains 'industry-analysis' or post.categories contains 'market-trends' %}
+      {% unless post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' %}
+        <!-- 📈 TECH_TRENDS: "{{ post.title }}" -->
+        {% assign tech_trends_posts = tech_trends_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endunless %}
     {% endif %}
   {% endunless %}
   
@@ -110,7 +112,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 6. 최종적인 넓은 AI 포스트 (전반적 기본 실습일로 분류) {% endcomment %}
+  {% comment %} 6. 최종적인 넓은 AI 포스트 (전반적 기본 실습으로 분류) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
       <!-- 🤖 AI_PRACTICE (전반적): "{{ post.title }}" -->
@@ -164,7 +166,7 @@
 
 <!-- 🔍 DEBUG: 최종 카테고리별 포스트 수 -->
 <!-- 📈 기술트렌드: {{ tech_trends_posts.size }}개 -->
-<!-- 📰 AI뉴스: {{ ai_news_posts.size }}개 -->
+<!-- 🤖📰 AI뉴스: {{ ai_news_posts.size }}개 -->
 <!-- ⚙️ 자동화: {{ automation_posts.size }}개 -->
 <!-- 🧠 AI연구: {{ ai_research_posts.size }}개 -->
 <!-- 🤖 AI실습: {{ ai_practice_posts.size }}개 -->
