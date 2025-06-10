@@ -17,6 +17,9 @@ description: "English tech blog posts with category-based organization"
 {% comment %} Tech Trends Category {% endcomment %}
 {% include category-section.html posts=tech_trends_posts category_key='tech_trends' config=config %}
 
+{% comment %} AI News Category {% endcomment %}
+{% include category-section.html posts=ai_news_posts category_key='ai_news' config=config %}
+
 {% comment %} Automation Category {% endcomment %}
 {% include category-section.html posts=automation_posts category_key='automation' config=config %}
 
@@ -52,6 +55,13 @@ description: "English tech blog posts with category-based organization"
         <span class="summary-icon">{{ config.categories.tech_trends.icon }}</span>
         <span class="summary-label">{{ config.categories.tech_trends.name }}</span>
         <span class="summary-count">{{ tech_trends_posts.size }} {{ config.ui.posts_count }}</span>
+      </div>
+    {% endif %}
+    {% if ai_news_posts.size > 0 %}
+      <div class="summary-item">
+        <span class="summary-icon">{{ config.categories.ai_news.icon }}</span>
+        <span class="summary-label">{{ config.categories.ai_news.name }}</span>
+        <span class="summary-count">{{ ai_news_posts.size }} {{ config.ui.posts_count }}</span>
       </div>
     {% endif %}
     {% if automation_posts.size > 0 %}
