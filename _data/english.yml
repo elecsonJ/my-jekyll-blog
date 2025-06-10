@@ -1,15 +1,21 @@
-# English Configuration (Updated Category Structure)
+# English Configuration (Updated Category Structure - UI Unified with Korean)
 title: "English Posts"
 description: "English tech blog posts with category-based organization"
 language: "en"
 
-# Clearly Separated Category Settings
+# Clearly Separated Category Settings (Unified with Korean structure)
 categories:
   tech_trends:
     name: "Tech Trends"
-    description: "Latest technology trends, industry analysis, IT news and market insights"
-    icon: "📊"
+    description: "General technology trends, industry analysis, IT news and market insights (excluding AI)"
+    icon: "📈"
     keywords: ["tech-trends", "industry-analysis", "tech-news", "market-trends"]
+    
+  ai_news:
+    name: "AI News"
+    description: "AI technology trends, AI industry analysis, AI-related news and market insights"
+    icon: "🤖📰"
+    keywords: ["ai-news", "ai-industry", "ai-companies", "ai-market"]
     
   automation:
     name: "Automation"
@@ -69,10 +75,11 @@ ui:
   korean_posts: "한국어 포스트 ↗"
   all_categories: "All Categories"
   
-# Category Priority (order for classification when overlapping tags exist)
+# Category Priority (unified with Korean - ai_news takes priority over tech_trends)
 category_priority:
-  - "tech_trends"
-  - "automation"
+  - "ai_news"        # AI news gets top priority (prevents overlap with tech_trends)
+  - "tech_trends" 
+  - "automation" 
   - "ai_research"
   - "ai_practice"
   - "programming"
