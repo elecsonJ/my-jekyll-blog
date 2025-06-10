@@ -116,9 +116,6 @@ description: "English tech blog posts with category-based organization"
   </div>
 </div>
 
-{% comment %} Navigation {% endcomment %}
-{% include navigation.html config=config current_page='english' %}
-
 <script>
 function showAllPosts(category) {
   // Functionality for viewing all posts (implement as needed)
