@@ -116,9 +116,6 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   </div>
 </div>
 
-{% comment %} 네비게이션 {% endcomment %}
-{% include navigation.html config=config current_page='korean' %}
-
 <script>
 function showAllPosts(category) {
   // 전체 포스트 보기 기능 (필요시 구현)
