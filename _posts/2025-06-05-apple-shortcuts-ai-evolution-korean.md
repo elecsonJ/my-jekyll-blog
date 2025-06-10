@@ -2,11 +2,11 @@
 layout: post
 title: "Apple Shortcuts의 AI 진화: 8년간의 여정이 결실을 맺다"
 date: 2025-06-05 14:30:00 +0900
-categories: [tech-news-analysis]
+categories: [tech_trends]
 tags: [apple, shortcuts, ai, wwdc2025, automation, apple-intelligence, tech-analysis]
 author: "한재훈"
 lang: ko
-excerpt: "Apple이 WWDC 2025에서 AI 기반의 새로운 Shortcuts 앱을 공개할 예정이다. 이번 업그레이드는 사용자들이 일상 업무를 더욱 직관적이고 효율적으로 자동화할 수 있게 해주며 혁신적 변화를 가져올 수 있다. Apple의 개인화된 AI 어시스턴트 분야 최 번째 주요 진출을 의미한다."
+excerpt: "Apple이 WWDC 2025에서 AI 기반의 새로운 Shortcuts 앱을 공개할 예정이다. 이번 업그레이드는 사용자들이 일상 업무를 더욱 직관적이고 효율적으로 자동화할 수 있게 해주며 혁신적 변화를 가져올 수 있다. Apple의 개인화된 AI 어시스턴트 부문 첫 번째 주요 진출을 의미한다."
 description: "Apple이 WWDC 2025에서 AI 기반의 새로운 Shortcuts 앱을 공개할 예정이다. 이번 업그레이드는 사용자들이 일상 업무를 더욱 직관적이고 효율적으로 자동화할 수 있게 해준다."
 ---
 
@@ -14,7 +14,7 @@ description: "Apple이 WWDC 2025에서 AI 기반의 새로운 Shortcuts 앱을 �
 
 ## 주요 내용
 
-Apple이 WWDC 2025에서 AI 기반의 새로운 Shortcuts 앱을 공개할 예정이라고 발표했습니다. 이번 업그레이드는 사용자들이 일상 업무를 더욱 직관적이고 효율적으로 자동화할 수 있게 해주며, Apple의 개인화된 AI 어시스턴트 분야 첫 번째 주요 진출을 의미합니다.
+Apple이 WWDC 2025에서 AI 기반의 새로운 Shortcuts 앱을 공개할 예정이라고 발표했습니다. 이번 업그레이드는 사용자들이 일상 업무를 더욱 직관적이고 효율적으로 자동화할 수 있게 해주며, Apple의 개인화된 AI 어시스턴트 부문 첫 번째 주요 진출을 의미합니다.
 
 **게시일**: 2025년 6월 5일  
 **출처**: NewsBytes, MIT Technology Review  
@@ -24,7 +24,7 @@ Apple이 WWDC 2025에서 AI 기반의 새로운 Shortcuts 앱을 공개할 예�
 
 ## 시간대별 변화 분석
 
-### **2017년**: Workflow의 탄생
+### **2016년**: Workflow의 탄생
 - Ari Weinstein과 Conrad Kramer가 개발한 독립 앱
 - 비개발자도 강력한 자동화를 구현할 수 있는 혁신적 도구
 - 아이콘과 블록 기반의 직관적 인터페이스 도입
@@ -99,9 +99,9 @@ Shortcuts의 창시자들은 "LLM 덕분에 앱의 파워 유저가 될 필요 �
 
 개발 지연으로 2026년까지 출시가 미뤄질 가능성이 있지만, 이는 프라이버시를 고려한 생태계에 AI를 시스템 레벨에서 통합하는 복잡성 때문이라고 분석됩니다.
 
-## 결론: 자동화 민주화의 새로운 전환점
+## 결론: 자동화 미래화의 새로운 전환점
 
-Apple의 AI 기반 Shortcuts는 단순한 기능 업그레이드를 넘어서, **자동화의 민주화**를 실현하는 역사적 전환점이 될 것으로 전망됩니다. 
+Apple의 AI 기반 Shortcuts는 단순한 기능 업그레이드를 넘어서, **자동화의 미주화**를 실현하는 역사적 전환점이 될 것으로 전망됩니다. 
 
 8년간의 발전 과정에서 보여준 기술적 성숙도와 Apple의 생태계 통합 능력을 고려할 때, 이번 혁신은 개인 컴퓨팅 환경에 근본적인 변화를 가져올 것으로 예상됩니다.
 
@@ -109,5 +109,5 @@ Apple의 AI 기반 Shortcuts는 단순한 기능 업그레이드를 넘어서, *
 
 ---
 
-*이 포스트는 NewsByte, MIT Technology Review, MacStories 등의 신뢰할 수 있는 소스를 종합하여 작성되었습니다.*  
+*이 포스트는 NewsBytes, MIT Technology Review, MacStories 등의 신뢰할 수 있는 소스를 종합하여 작성되었습니다.*  
 *최신 Apple WWDC 2025 공식 발표를 참조하시기 바랍니다.*
