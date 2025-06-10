@@ -2,7 +2,7 @@
 layout: post
 title: "AI 뉴스 카테고리 테스트: Claude 4 Sonnet 출시 소식"
 date: 2025-06-10 10:00:00 +0900
-categories: [ai-news, korean-posts]
+categories: [ai_news]
 tags: [claude, anthropic, ai-model, korean-test]
 author: "한재훈"
 lang: ko
@@ -18,7 +18,7 @@ description: "AI 뉴스 카테고리가 올바르게 분류되는지 테스트�
 
 ### 주요 내용
 
-1. **카테고리**: `ai-news, korean-posts`
+1. **카테고리**: `ai_news`
 2. **언어**: `ko` (한국어)
 3. **분류 대상**: `ai_news` 카테고리로 분류되어야 함
 
@@ -54,8 +54,8 @@ description: "AI 뉴스 카테고리가 올바르게 분류되는지 테스트�
 ---
 
 **카테고리 분류 확인 포인트:**
-- ✅ `ai-news` 카테고리 포함
-- ✅ `korean-posts` 카테고리 포함  
+- ✅ `ai_news` 카테고리 포함
+- ✅ `korean-posts` 카테고리 제거  
 - ✅ `lang: ko` 설정
 - ✅ AI 관련 내용
 
