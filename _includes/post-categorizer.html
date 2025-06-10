@@ -46,14 +46,15 @@
   {% endif %}
 {% endfor %}
 
-<!-- 🔍 DEBUG: 언어 필터링 결과 -->
+<!-- 🔍 DEBUG: 언어별 필터링 결과 -->
 <!-- {{ language }} 언어로 분류된 포스트 수: {{ language_posts.size }} -->
 {% for post in language_posts %}
 <!-- - "{{ post.title }}" [{{ post.categories | join: ', ' }}] ({{ post.lang | default: 'nil' }}) -->
 {% endfor %}
 
-{% comment %} 명확한 분류된 카테고리별 분류 {% endcomment %}
+{% comment %} 각각의 분류된 카테고리별 분류 {% endcomment %}
 {% assign tech_trends_posts = "" | split: "" %}
+{% assign ai_news_posts = "" | split: "" %}
 {% assign automation_posts = "" | split: "" %}
 {% assign ai_research_posts = "" | split: "" %}
 {% assign ai_practice_posts = "" | split: "" %}
@@ -73,7 +74,16 @@
     {% assign is_categorized = true %}
   {% endif %}
   
-  {% comment %} 2. 자동화 {% endcomment %}
+  {% comment %} 2. AI 뉴스 (새로 추가 - 뉴스 관련 AI 콘텐츠) {% endcomment %}
+  {% unless is_categorized %}
+    {% if post.categories contains 'ai-news' or post.categories contains 'ai-industry-news' or post.categories contains 'ai-tech-news' or post.categories contains 'artificial-intelligence-news' or post.title contains 'AI 뉴스' or post.title contains 'AI News' %}
+      <!-- 📰 AI_NEWS: "{{ post.title }}" -->
+      {% assign ai_news_posts = ai_news_posts | push: post %}
+      {% assign is_categorized = true %}
+    {% endif %}
+  {% endunless %}
+  
+  {% comment %} 3. 자동화 {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'mcp' or post.categories contains 'automation' or post.categories contains 'jekyll' or post.categories contains 'github-actions' %}
       <!-- ⚙️ AUTOMATION: "{{ post.title }}" -->
@@ -82,7 +92,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 3. AI 연구 (이론, 논문, 연구) {% endcomment %}
+  {% comment %} 4. AI 연구 (이론, 논문, 연구) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'ai-research' or post.categories contains 'machine-learning-theory' or post.categories contains 'deep-learning-theory' or post.categories contains 'ai-theory' or post.categories contains 'ai-papers' %}
       <!-- 🧠 AI_RESEARCH: "{{ post.title }}" -->
@@ -91,7 +101,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 4. AI 실습 (구현, 튜토리얼, 실습) {% endcomment %}
+  {% comment %} 5. AI 실습 (구현, 튜토리얼, 실습) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'ai-practice' or post.categories contains 'ai-tutorial' or post.categories contains 'model-implementation' or post.categories contains 'ai-coding' %}
       <!-- 🤖 AI_PRACTICE: "{{ post.title }}" -->
@@ -100,16 +110,16 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 5. 최신의 인 AI 포스트 (제목 기반 실습으로 분류) {% endcomment %}
+  {% comment %} 6. 최종적인 넓은 AI 포스트 (전반적 기본 실습일로 분류) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
-      <!-- 🤖 AI_PRACTICE (제목기반): "{{ post.title }}" -->
+      <!-- 🤖 AI_PRACTICE (전반적): "{{ post.title }}" -->
       {% assign ai_practice_posts = ai_practice_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
   {% endunless %}
   
-  {% comment %} 6. 프로그래밍 (기존 tech 카테고리를 programming으로 변환) {% endcomment %}
+  {% comment %} 7. 프로그래밍 (기존 tech 카테고리를 programming으로 통합) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'programming' or post.categories contains 'tech' or post.categories contains 'coding' or post.categories contains 'development' or post.categories contains 'software-engineering' %}
       <!-- 💻 PROGRAMMING: "{{ post.title }}" -->
@@ -118,7 +128,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 7. 학습 {% endcomment %}
+  {% comment %} 8. 학습 {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'study' or post.categories contains 'learning' or post.categories contains 'education' or post.categories contains 'computer-science' %}
       <!-- 📖 STUDY: "{{ post.title }}" -->
@@ -127,7 +137,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 8. 프로젝트 {% endcomment %}
+  {% comment %} 9. 프로젝트 {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'project' or post.categories contains 'portfolio' or post.categories contains 'personal-project' %}
       <!-- 🚀 PROJECT: "{{ post.title }}" -->
@@ -136,7 +146,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 9. 창업 {% endcomment %}
+  {% comment %} 10. 창업 {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'startup' or post.categories contains 'business' or post.categories contains 'entrepreneurship' %}
       <!-- 💼 STARTUP: "{{ post.title }}" -->
@@ -145,7 +155,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 10. 기타 (분류되지 않은 모든 포스트) {% endcomment %}
+  {% comment %} 11. 기타 (분류되지 않은 모든 포스트) {% endcomment %}
   {% unless is_categorized %}
     <!-- 📝 OTHER: "{{ post.title }}" - [{{ post.categories | join: ', ' }}] -->
     {% assign other_posts = other_posts | push: post %}
@@ -154,6 +164,7 @@
 
 <!-- 🔍 DEBUG: 최종 카테고리별 포스트 수 -->
 <!-- 📈 기술트렌드: {{ tech_trends_posts.size }}개 -->
+<!-- 📰 AI뉴스: {{ ai_news_posts.size }}개 -->
 <!-- ⚙️ 자동화: {{ automation_posts.size }}개 -->
 <!-- 🧠 AI연구: {{ ai_research_posts.size }}개 -->
 <!-- 🤖 AI실습: {{ ai_practice_posts.size }}개 -->
@@ -162,5 +173,5 @@
 <!-- 🚀 프로젝트: {{ project_posts.size }}개 -->
 <!-- 💼 창업: {{ startup_posts.size }}개 -->
 <!-- 📝 기타: {{ other_posts.size }}개 -->
-<!-- 🔢 총합: {{ tech_trends_posts.size | plus: automation_posts.size | plus: ai_research_posts.size | plus: ai_practice_posts.size | plus: programming_posts.size | plus: study_posts.size | plus: project_posts.size | plus: startup_posts.size | plus: other_posts.size }}개 -->
+<!-- 🔢 총합: {{ tech_trends_posts.size | plus: ai_news_posts.size | plus: automation_posts.size | plus: ai_research_posts.size | plus: ai_practice_posts.size | plus: programming_posts.size | plus: study_posts.size | plus: project_posts.size | plus: startup_posts.size | plus: other_posts.size }}개 -->
 <!-- 🔍 DEBUG END -->
