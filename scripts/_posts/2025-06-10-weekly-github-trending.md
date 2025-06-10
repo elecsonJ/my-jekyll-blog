@@ -2,7 +2,7 @@
 categories:
 - tech
 - github
-date: 2025-06-10 05:16:42 +0900
+date: 2025-06-10 05:17:24 +0900
 description: 이번 주 가장 주목받는 GitHub 오픈소스 프로젝트들을 소개합니다.
 layout: post
 tags:
@@ -18,13 +18,13 @@ title: 이번 주 GitHub 트렌딩 프로젝트 (2025.06.10)
 
 ### 1. [DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1)
 
-**언어:** None | **⭐ Stars:** 89,990
+**언어:** None | **⭐ Stars:** 89,989
 
 None
 
 **주요 특징:**
 - 최근 주목받고 있는 None 프로젝트
-- 89,990개의 스타를 획득하며 빠른 성장세
+- 89,989개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
@@ -57,13 +57,13 @@ No fortress, purely open ground.  OpenManus is Coming.
 
 ### 4. [cursor-free-vip](https://github.com/yeongpin/cursor-free-vip)
 
-**언어:** Python | **⭐ Stars:** 29,457
+**언어:** Python | **⭐ Stars:** 29,458
 
 [Support 0.49.x]（Reset Cursor AI MachineID & Bypass Higher Token Limit） Cursor Ai ，自动重置机器ID ， 免费升级使用Pro功能: You've reached your trial request limit. / Too many free trial accounts used on this machine. Please upgrade to pro. We have this limit in place to prevent abuse. Please let us know if you believe this is a mistake.
 
 **주요 특징:**
 - 최근 주목받고 있는 Python 프로젝트
-- 29,457개의 스타를 획득하며 빠른 성장세
+- 29,458개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
