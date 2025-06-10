@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<article class="page-content">
+<article>
   <header class="page-header">
     <h1 class="page-title">{{ page.title }}</h1>
     {% if page.description %}
@@ -16,12 +16,7 @@ layout: default
 </article>
 
 <style>
-.page-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
+/* page-content 클래스 제거 - default 레이아웃과 충돌 방지 */
 .page-header {
   text-align: center;
   margin-bottom: 40px;
@@ -43,11 +38,14 @@ layout: default
 
 .page-body {
   line-height: 1.6;
+  /* 가독성을 위한 최대 너비 설정 */
+  max-width: 100%;
 }
 
 /* 공통 카테고리 스타일 */
 .categories-container {
-  margin: 20px 0;
+  margin: 20px auto;
+  max-width: 1200px;
 }
 
 .category-section {
@@ -167,9 +165,9 @@ layout: default
   font-weight: bold;
 }
 
+/* 네비게이션 링크 제거 - default 레이아웃에 이미 있음 */
 .navigation-links {
-  text-align: center;
-  margin: 40px 0;
+  display: none;
 }
 
 .btn-primary, .btn-secondary {
@@ -212,10 +210,6 @@ layout: default
   
   .category-section {
     margin-bottom: 30px;
-    padding: 15px;
-  }
-  
-  .page-content {
     padding: 15px;
   }
   
