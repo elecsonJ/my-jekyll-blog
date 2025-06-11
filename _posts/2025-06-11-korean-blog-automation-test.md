@@ -2,7 +2,7 @@
 layout: post
 title: "MCP 서버를 활용한 Jekyll 블로그 자동화 시스템 테스트"
 date: 2025-06-11 15:30:00 +0900
-categories: [tech-trends]
+categories: [tech_trends]
 tags: [mcp, automation, jekyll, blog, korean-test, github]
 author: "한재훈"
 lang: ko
@@ -18,14 +18,14 @@ description: "Jekyll 블로그 자동화 시스템의 실제 동작을 확인하
 
 ### 주요 테스트 항목
 
-1. **카테고리**: `tech-trends`
+1. **카테고리**: `tech_trends` (언더스코어 사용)
 2. **언어**: `ko` (한국어)
-3. **빌드 대상**: `tech-trends` 카테고리로 분류
+3. **빌드 대상**: `tech_trends` 카테고리로 분류
 4. **태그**: MCP, 자동화, Jekyll 관련 태그들
 
 ### 테스트 목표
 
-- ✅ `tech-trends` 카테고리 분류가 올바르게 적용되는지 확인
+- ✅ `tech_trends` 카테고리 분류가 올바르게 적용되는지 확인
 - ✅ 한국어 포스트 페이지에서 기술 트렌드가 정상 표시되는지 확인  
 - ✅ post-categorizer.html의 새로운 로직 검증
 - ✅ GitHub Actions 자동 배포 확인
@@ -60,9 +60,9 @@ description: "Jekyll 블로그 자동화 시스템의 실제 동작을 확인하
 ### 자동화된 카테고리 분류
 
 현재 블로그에서 지원하는 카테고리:
-- `ai-news`: AI 관련 최신 뉴스
-- `tech-trends`: 기술 트렌드 분석
-- `dev-tools`: 개발 도구 리뷰
+- `ai_news`: AI 관련 최신 뉴스
+- `tech_trends`: 기술 트렌드 분석
+- `automation`: 자동화 도구
 - `startup`: 창업 관련 정보
 
 ## 향후 개선 계획
@@ -93,18 +93,32 @@ description: "Jekyll 블로그 자동화 시스템의 실제 동작을 확인하
 - **워크플로우 자동화**: 반복 작업의 완전 자동화
 - **버전 관리**: Git 기반의 체계적 콘텐츠 관리
 
+## 카테고리 불일치 문제 해결
+
+### 발견된 문제점
+
+1. **korean.yml**: `tech_trends` (언더스코어)
+2. **포스트 front matter**: `tech-trends` (하이픈)
+3. **post-categorizer.html**: `tech-trends` 탐색 로직
+
+### 해결 방안
+
+- 모든 시스템에서 **일관된 카테고리 키** 사용
+- `tech_trends` (언더스코어) 형식으로 통일
+- 분류 로직 검증 및 테스트
+
 ## 결론
 
-이번 MCP 서버를 활용한 블로그 자동화 시스템 테스트가 성공적으로 진행되어 앞으로 더욱 효율적인 콘텐츠 생성이 가능할 것으로 기대됩니다. 
+이번 MCP 서버를 활용한 블로그 자동화 시스템 테스트를 통해 카테고리 불일치 문제를 발견하고 해결할 수 있었습니다. 
 
-기술적 혁신과 자동화를 통해 블로그 운영의 효율성을 크게 향상시킬 수 있음을 확인했습니다.
+앞으로 더욱 효율적이고 안정적인 콘텐츠 생성 시스템 구축이 가능할 것으로 기대됩니다.
 
 ---
 
 **카테고리 확인 포인트:**
-- ✅ `tech-trends` 카테고리로 분류
+- ✅ `tech_trends` 카테고리로 분류 (언더스코어 사용)
 - ✅ `korean-posts` 카테고리 제외  
 - ✅ `lang: ko` 설정
 - ✅ 기술 관련 태그
 
-**예상 결과**: 한국어 포스트 페이지의 "🔧 기술 트렌드" 섹션에 표시
+**예상 결과**: 한국어 포스트 페이지의 "🔧 기술트렌드" 섹션에 표시
