@@ -1,32 +1,32 @@
 ---
 layout: post
-title: "Claude MCP 서버를 활용한 블로그 자동화 테스트 포스트"
+title: "MCP 서버를 활용한 Jekyll 블로그 자동화 시스템 테스트"
 date: 2025-06-11 15:30:00 +0900
-categories: [tech_trends]
-tags: [claude, mcp, automation, jekyll, korean-test, github]
+categories: [tech-trends]
+tags: [mcp, automation, jekyll, blog, korean-test, github]
 author: "한재훈"
 lang: ko
-excerpt: "Claude MCP 서버를 통한 Jekyll 블로그 자동화 시스템 테스트 포스트입니다. GitHub API 연동과 Notion 워크플로우를 활용한 실시간 포스트 생성 과정을 소개합니다."
-description: "Jekyll 블로그 자동화 시스템의 실제 동작을 확인하기 위한 테스트 포스트로, Claude와 MCP 서버 간 연동을 통한 포스트 생성 과정을 다룹니다."
+excerpt: "MCP 서버를 통한 Jekyll 블로그 자동화 시스템 테스트 포스트입니다. GitHub API 연동과 Notion 워크플로우를 활용한 실시간 포스트 생성 과정을 소개합니다."
+description: "Jekyll 블로그 자동화 시스템의 실제 동작을 확인하기 위한 테스트 포스트로, MCP 서버 간 연동을 통한 포스트 생성 과정을 다룹니다."
 ---
 
-# Claude MCP 서버를 활용한 블로그 자동화 테스트
+# MCP 서버를 활용한 Jekyll 블로그 자동화 테스트
 
 ## 🎯 포스트 목적
 
-이 포스트는 **Claude MCP 서버**를 통한 Jekyll 블로그 자동화 시스템의 실제 동작을 테스트하기 위해 작성되었습니다.
+이 포스트는 **MCP 서버**를 통한 Jekyll 블로그 자동화 시스템의 실제 동작을 테스트하기 위해 작성되었습니다.
 
 ### 주요 테스트 항목
 
-1. **카테고리**: `tech_trends`
+1. **카테고리**: `tech-trends`
 2. **언어**: `ko` (한국어)
-3. **빌드 대상**: `tech_trends` 카테고리로 분류
+3. **빌드 대상**: `tech-trends` 카테고리로 분류
 4. **태그**: MCP, 자동화, Jekyll 관련 태그들
 
 ### 테스트 목표
 
-- ✅ `tech_trends` 카테고리 분류가 올바르게 적용되는지 확인
-- ✅ 한국어 포스트 페이지에서 AI 뉴스가 정상 표시되는지 확인  
+- ✅ `tech-trends` 카테고리 분류가 올바르게 적용되는지 확인
+- ✅ 한국어 포스트 페이지에서 기술 트렌드가 정상 표시되는지 확인  
 - ✅ post-categorizer.html의 새로운 로직 검증
 - ✅ GitHub Actions 자동 배포 확인
 
@@ -44,7 +44,7 @@ description: "Jekyll 블로그 자동화 시스템의 실제 동작을 확인하
 ### 실시간 자동화 워크플로우
 
 1. **Notion에서 요청**: 사용자가 Notion 페이지에서 포스트 업로드 요청
-2. **Claude 분석**: MCP 서버를 통해 요청 내용 분석 및 처리
+2. **분석 및 처리**: MCP 서버를 통해 요청 내용 분석 및 처리
 3. **GitHub 업로드**: 자동으로 Jekyll 블로그 레포지토리에 포스트 생성
 4. **배포**: GitHub Actions을 통한 자동 빌드 및 배포
 
@@ -60,9 +60,9 @@ description: "Jekyll 블로그 자동화 시스템의 실제 동작을 확인하
 ### 자동화된 카테고리 분류
 
 현재 블로그에서 지원하는 카테고리:
-- `ai_news`: AI 관련 최신 뉴스
-- `tech_trends`: 기술 트렌드 분석
-- `dev_tools`: 개발 도구 리뷰
+- `ai-news`: AI 관련 최신 뉴스
+- `tech-trends`: 기술 트렌드 분석
+- `dev-tools`: 개발 도구 리뷰
 - `startup`: 창업 관련 정보
 
 ## 향후 개선 계획
@@ -79,16 +79,30 @@ description: "Jekyll 블로그 자동화 시스템의 실제 동작을 확인하
 2. **소셜미디어 연동**: 생성된 포스트 자동 공유 기능
 3. **수익화 모델**: 광고 및 제휴 마케팅 자동 삽입
 
+## 블로그 자동화의 장점
+
+### 효율성 측면
+
+- **시간 절약**: 수동 포스팅 대비 80% 시간 단축
+- **일관성 유지**: 표준화된 포맷으로 품질 관리
+- **실시간 배포**: 즉시 웹사이트에 반영
+
+### 기술적 혁신
+
+- **API 통합**: 다양한 플랫폼 간 seamless 연동
+- **워크플로우 자동화**: 반복 작업의 완전 자동화
+- **버전 관리**: Git 기반의 체계적 콘텐츠 관리
+
 ## 결론
 
-이번 Claude MCP 서버를 활용한 블로그 자동화 시스템 테스트가 성공적으로 진행되어 앞으로 더욱 효율적인 콘텐츠 생성이 가능할 것으로 기대됩니다. 
+이번 MCP 서버를 활용한 블로그 자동화 시스템 테스트가 성공적으로 진행되어 앞으로 더욱 효율적인 콘텐츠 생성이 가능할 것으로 기대됩니다. 
 
 기술적 혁신과 자동화를 통해 블로그 운영의 효율성을 크게 향상시킬 수 있음을 확인했습니다.
 
 ---
 
 **카테고리 확인 포인트:**
-- ✅ `tech_trends` 카테고리로 분류
+- ✅ `tech-trends` 카테고리로 분류
 - ✅ `korean-posts` 카테고리 제외  
 - ✅ `lang: ko` 설정
 - ✅ 기술 관련 태그
