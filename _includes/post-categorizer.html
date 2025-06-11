@@ -76,9 +76,9 @@
   
   {% comment %} 2. 기술트렌드 (AI 제외한 일반 기술 뉴스) {% endcomment %}
   {% unless is_categorized %}
-    {% if post.categories contains 'tech-trends' or post.categories contains 'tech-news-analysis' or post.categories contains 'news-analysis' or post.categories contains 'industry-analysis' or post.categories contains 'market-trends' %}
+    {% if post.categories contains 'tech_trends' or post.categories contains 'tech-news-analysis' or post.categories contains 'news-analysis' or post.categories contains 'industry-analysis' or post.categories contains 'market-trends' %}
       {% unless post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' %}
-        <!-- 📈 TECH_TRENDS: "{{ post.title }}" -->
+        <!-- 🔧 TECH_TRENDS: "{{ post.title }}" -->
         {% assign tech_trends_posts = tech_trends_posts | push: post %}
         {% assign is_categorized = true %}
       {% endunless %}
@@ -164,8 +164,8 @@
   {% endunless %}
 {% endfor %}
 
-<!-- 🔍 DEBUG: 최종 카테고리별 포스트 수 -->
-<!-- 📈 기술트렌드: {{ tech_trends_posts.size }}개 -->
+<!-- 🔢 DEBUG: 최종 카테고리별 포스트 수 -->
+<!-- 🔧 기술트렌드: {{ tech_trends_posts.size }}개 -->
 <!-- 🤖📰 AI뉴스: {{ ai_news_posts.size }}개 -->
 <!-- ⚙️ 자동화: {{ automation_posts.size }}개 -->
 <!-- 🧠 AI연구: {{ ai_research_posts.size }}개 -->
