@@ -9,8 +9,16 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 {% comment %} 언어 설정 로드 {% endcomment %}
 {% assign config = site.data.korean %}
 
+<!-- 🔍 DEBUG: 전체 사이트 정보 -->
+<!-- 전체 포스트 수: {{ site.posts.size }} -->
+<!-- 페이지 언어 설정: {{ page.language }} -->
+
 {% comment %} 포스트 분류 {% endcomment %}
 {% include post-categorizer.html language='ko' %}
+
+<!-- 🔍 DEBUG: 분류 후 결과 -->
+<!-- language_posts 변수가 존재하는지: {% if language_posts %}있음{% else %}없음{% endif %} -->
+<!-- language_posts 크기: {{ language_posts.size | default: '0' }} -->
 
 <!-- 페이지 헤더 -->
 <div class="page-header" style="text-align: center; margin-bottom: 40px;">
@@ -20,6 +28,30 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     <p style="margin: 0; font-size: 1.1em;">총 <strong>{{ language_posts.size }}개</strong>의 한국어 포스트가 있습니다</p>
   </div>
 </div>
+
+<!-- 포스트가 없을 때 표시 -->
+{% if language_posts.size == 0 %}
+<div style="text-align: center; padding: 40px; background: #f8f9fa; border-radius: 10px; margin: 20px 0;">
+  <h2>⚠️ 한국어 포스트가 없습니다</h2>
+  <p>다음 사항을 확인해주세요:</p>
+  <ul style="text-align: left; display: inline-block;">
+    <li>포스트 파일의 front matter에 <code>lang: ko</code>가 설정되어 있는지</li>
+    <li>파일명에 'korean'이 포함되어 있는지</li>
+    <li>categories에 'korean-posts'가 포함되어 있는지</li>
+  </ul>
+  
+  <h3>🔍 전체 포스트 목록 (디버그용)</h3>
+  {% for post in site.posts limit:10 %}
+    <div style="text-align: left; margin: 10px; padding: 10px; background: white; border: 1px solid #ddd;">
+      <strong>{{ post.title }}</strong><br>
+      파일: {{ post.path }}<br>
+      lang: {{ post.lang | default: 'nil' }}<br>
+      categories: {{ post.categories | join: ', ' }}<br>
+      date: {{ post.date | date: "%Y-%m-%d" }}
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
 
 <!-- 최근 포스트 섹션 -->
 {% if language_posts.size > 0 %}
