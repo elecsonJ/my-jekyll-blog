@@ -9,10 +9,10 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 {% comment %} 언어 설정 로딩 {% endcomment %}
 {% assign config = site.data.korean %}
 
-{% comment %} 직접 포스트 필터링 - include의 변수 스코프 해결 {% endcomment %}
+{% comment %} 직접 한국어 포스트 필터링 - include의 변수 스코프 제한 회피 {% endcomment %}
 {% assign korean_posts = site.posts | where: "lang", "ko" %}
 
-{% comment %} 추가 카테고리 필터링 - 파일명에 korean이 있거나 categories에 korean-posts가 있는 경우 {% endcomment %}
+{% comment %} 추가 한국어 포스트 필터링 - 파일명에 korean이 있거나 categories에 korean-posts가 있는 경우 {% endcomment %}
 {% assign additional_korean_posts = "" | split: "" %}
 {% for post in site.posts %}
   {% unless post.lang == "ko" %}
@@ -22,16 +22,13 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   {% endunless %}
 {% endfor %}
 
-{% comment %} 모든 한국어 포스트 병합 {% endcomment %}
+{% comment %} 모든 한국어 포스트 통합 {% endcomment %}
 {% assign all_korean_posts = korean_posts | concat: additional_korean_posts | uniq %}
 
 <!-- 페이지 헤더 -->
 <div class="page-header" style="text-align: center; margin-bottom: 40px;">
-  <h1 style="font-size: 2.5em; margin-bottom: 10px;">{{ config.title }}</h1>
+  <h1 style="font-size: 2.5em; margin-bottom: 10px;">🇰🇷 한국어 포스트 ({{ all_korean_posts.size }}개)</h1>
   <p style="font-size: 1.2em; color: #666;">{{ config.description }}</p>
-  <div style="margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-    <p style="margin: 0; font-size: 1.1em;">총 <strong>{{ all_korean_posts.size }}개</strong>의 한국어 포스트가 있습니다</p>
-  </div>
 </div>
 
 <!-- 카테고리별 포스트 리스트 섹션 -->
@@ -415,26 +412,22 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 
 <!-- 카테고리별 포스트 섹션 -->
 <div class="categories-container">
-
-{% comment %} 각 카테고리 섹션 따로 {% endcomment %}
+{% comment %} 각 카테고리 섹션 블록 {% endcomment %}
 {% if tech_trends_posts.size > 0 %}
   <div id="tech_trends_section">
     {% include category-section.html posts=tech_trends_posts category_key='tech_trends' config=config %}
   </div>
 {% endif %}
-
 {% if ai_news_posts.size > 0 %}
   <div id="ai_news_section">
     {% include category-section.html posts=ai_news_posts category_key='ai_news' config=config %}
   </div>
 {% endif %}
-
 {% if automation_posts.size > 0 %}
   <div id="automation_section">
     {% include category-section.html posts=automation_posts category_key='automation' config=config %}
   </div>
 {% endif %}
-
 {% if ai_research_posts.size > 0 %}
   <div id="ai_research_section">
     {% include category-section.html posts=ai_research_posts category_key='ai_research' config=config %}
