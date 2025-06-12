@@ -34,9 +34,9 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   </div>
 </div>
 
-<!-- 카테고리 빠른 링크 섹션 -->
-<div class="category-links-section" style="margin-bottom: 50px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
-  <h2 style="text-align: center; margin-bottom: 30px; color: white;">📁 카테고리별 바로가기</h2>
+<!-- 카테고리별 포스트 리스트 섹션 -->
+<div class="category-posts-section" style="margin-bottom: 50px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+  <h2 style="text-align: center; margin-bottom: 30px; color: white;">📚 카테고리별 포스트</h2>
   
   {% comment %} 카테고리별 포스트 분류 {% endcomment %}
   {% assign tech_trends_posts = "" | split: "" %}
@@ -128,77 +128,257 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     {% endunless %}
   {% endfor %}
 
-  <div class="category-quick-links">
+  <div class="category-post-lists">
     {% if tech_trends_posts.size > 0 %}
-      <a href="#tech_trends_section" class="category-link">
-        <span class="category-icon">{{ config.categories.tech_trends.icon }}</span>
-        <span class="category-name">{{ config.categories.tech_trends.name }}</span>
-        <span class="category-count">({{ tech_trends_posts.size }})</span>
-      </a>
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="#tech_trends_section" class="category-title-link">
+            <span class="category-icon">{{ config.categories.tech_trends.icon }}</span>
+            <span class="category-name">{{ config.categories.tech_trends.name }}</span>
+            <span class="category-count">({{ tech_trends_posts.size }}개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          {% assign sorted_tech_posts = tech_trends_posts | sort: 'date' | reverse %}
+          {% for post in sorted_tech_posts limit:5 %}
+            <li class="post-item">
+              <a href="{{ post.url | relative_url }}" class="post-link">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if tech_trends_posts.size > 5 %}
+            <li class="more-posts">
+              <a href="#tech_trends_section" class="more-link">+ {{ tech_trends_posts.size | minus: 5 }}개 더 보기</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
     {% endif %}
     
     {% if ai_news_posts.size > 0 %}
-      <a href="#ai_news_section" class="category-link">
-        <span class="category-icon">{{ config.categories.ai_news.icon }}</span>
-        <span class="category-name">{{ config.categories.ai_news.name }}</span>
-        <span class="category-count">({{ ai_news_posts.size }})</span>
-      </a>
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="#ai_news_section" class="category-title-link">
+            <span class="category-icon">{{ config.categories.ai_news.icon }}</span>
+            <span class="category-name">{{ config.categories.ai_news.name }}</span>
+            <span class="category-count">({{ ai_news_posts.size }}개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          {% assign sorted_ai_news = ai_news_posts | sort: 'date' | reverse %}
+          {% for post in sorted_ai_news limit:5 %}
+            <li class="post-item">
+              <a href="{{ post.url | relative_url }}" class="post-link">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if ai_news_posts.size > 5 %}
+            <li class="more-posts">
+              <a href="#ai_news_section" class="more-link">+ {{ ai_news_posts.size | minus: 5 }}개 더 보기</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
     {% endif %}
     
     {% if automation_posts.size > 0 %}
-      <a href="#automation_section" class="category-link">
-        <span class="category-icon">{{ config.categories.automation.icon }}</span>
-        <span class="category-name">{{ config.categories.automation.name }}</span>
-        <span class="category-count">({{ automation_posts.size }})</span>
-      </a>
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="#automation_section" class="category-title-link">
+            <span class="category-icon">{{ config.categories.automation.icon }}</span>
+            <span class="category-name">{{ config.categories.automation.name }}</span>
+            <span class="category-count">({{ automation_posts.size }}개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          {% assign sorted_automation = automation_posts | sort: 'date' | reverse %}
+          {% for post in sorted_automation limit:5 %}
+            <li class="post-item">
+              <a href="{{ post.url | relative_url }}" class="post-link">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if automation_posts.size > 5 %}
+            <li class="more-posts">
+              <a href="#automation_section" class="more-link">+ {{ automation_posts.size | minus: 5 }}개 더 보기</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
     {% endif %}
     
     {% if ai_research_posts.size > 0 %}
-      <a href="#ai_research_section" class="category-link">
-        <span class="category-icon">{{ config.categories.ai_research.icon }}</span>
-        <span class="category-name">{{ config.categories.ai_research.name }}</span>
-        <span class="category-count">({{ ai_research_posts.size }})</span>
-      </a>
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="#ai_research_section" class="category-title-link">
+            <span class="category-icon">{{ config.categories.ai_research.icon }}</span>
+            <span class="category-name">{{ config.categories.ai_research.name }}</span>
+            <span class="category-count">({{ ai_research_posts.size }}개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          {% assign sorted_ai_research = ai_research_posts | sort: 'date' | reverse %}
+          {% for post in sorted_ai_research limit:5 %}
+            <li class="post-item">
+              <a href="{{ post.url | relative_url }}" class="post-link">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if ai_research_posts.size > 5 %}
+            <li class="more-posts">
+              <a href="#ai_research_section" class="more-link">+ {{ ai_research_posts.size | minus: 5 }}개 더 보기</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
     {% endif %}
     
     {% if ai_practice_posts.size > 0 %}
-      <a href="#ai_practice_section" class="category-link">
-        <span class="category-icon">{{ config.categories.ai_practice.icon }}</span>
-        <span class="category-name">{{ config.categories.ai_practice.name }}</span>
-        <span class="category-count">({{ ai_practice_posts.size }})</span>
-      </a>
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="#ai_practice_section" class="category-title-link">
+            <span class="category-icon">{{ config.categories.ai_practice.icon }}</span>
+            <span class="category-name">{{ config.categories.ai_practice.name }}</span>
+            <span class="category-count">({{ ai_practice_posts.size }}개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          {% assign sorted_ai_practice = ai_practice_posts | sort: 'date' | reverse %}
+          {% for post in sorted_ai_practice limit:5 %}
+            <li class="post-item">
+              <a href="{{ post.url | relative_url }}" class="post-link">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if ai_practice_posts.size > 5 %}
+            <li class="more-posts">
+              <a href="#ai_practice_section" class="more-link">+ {{ ai_practice_posts.size | minus: 5 }}개 더 보기</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
     {% endif %}
     
     {% if programming_posts.size > 0 %}
-      <a href="#programming_section" class="category-link">
-        <span class="category-icon">{{ config.categories.programming.icon }}</span>
-        <span class="category-name">{{ config.categories.programming.name }}</span>
-        <span class="category-count">({{ programming_posts.size }})</span>
-      </a>
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="#programming_section" class="category-title-link">
+            <span class="category-icon">{{ config.categories.programming.icon }}</span>
+            <span class="category-name">{{ config.categories.programming.name }}</span>
+            <span class="category-count">({{ programming_posts.size }}개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          {% assign sorted_programming = programming_posts | sort: 'date' | reverse %}
+          {% for post in sorted_programming limit:5 %}
+            <li class="post-item">
+              <a href="{{ post.url | relative_url }}" class="post-link">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if programming_posts.size > 5 %}
+            <li class="more-posts">
+              <a href="#programming_section" class="more-link">+ {{ programming_posts.size | minus: 5 }}개 더 보기</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
     {% endif %}
     
     {% if study_posts.size > 0 %}
-      <a href="#study_section" class="category-link">
-        <span class="category-icon">{{ config.categories.study.icon }}</span>
-        <span class="category-name">{{ config.categories.study.name }}</span>
-        <span class="category-count">({{ study_posts.size }})</span>
-      </a>
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="#study_section" class="category-title-link">
+            <span class="category-icon">{{ config.categories.study.icon }}</span>
+            <span class="category-name">{{ config.categories.study.name }}</span>
+            <span class="category-count">({{ study_posts.size }}개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          {% assign sorted_study = study_posts | sort: 'date' | reverse %}
+          {% for post in sorted_study limit:5 %}
+            <li class="post-item">
+              <a href="{{ post.url | relative_url }}" class="post-link">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if study_posts.size > 5 %}
+            <li class="more-posts">
+              <a href="#study_section" class="more-link">+ {{ study_posts.size | minus: 5 }}개 더 보기</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
     {% endif %}
     
     {% if project_posts.size > 0 %}
-      <a href="#project_section" class="category-link">
-        <span class="category-icon">{{ config.categories.project.icon }}</span>
-        <span class="category-name">{{ config.categories.project.name }}</span>
-        <span class="category-count">({{ project_posts.size }})</span>
-      </a>
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="#project_section" class="category-title-link">
+            <span class="category-icon">{{ config.categories.project.icon }}</span>
+            <span class="category-name">{{ config.categories.project.name }}</span>
+            <span class="category-count">({{ project_posts.size }}개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          {% assign sorted_project = project_posts | sort: 'date' | reverse %}
+          {% for post in sorted_project limit:5 %}
+            <li class="post-item">
+              <a href="{{ post.url | relative_url }}" class="post-link">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if project_posts.size > 5 %}
+            <li class="more-posts">
+              <a href="#project_section" class="more-link">+ {{ project_posts.size | minus: 5 }}개 더 보기</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
     {% endif %}
     
     {% if startup_posts.size > 0 %}
-      <a href="#startup_section" class="category-link">
-        <span class="category-icon">{{ config.categories.startup.icon }}</span>
-        <span class="category-name">{{ config.categories.startup.name }}</span>
-        <span class="category-count">({{ startup_posts.size }})</span>
-      </a>
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="#startup_section" class="category-title-link">
+            <span class="category-icon">{{ config.categories.startup.icon }}</span>
+            <span class="category-name">{{ config.categories.startup.name }}</span>
+            <span class="category-count">({{ startup_posts.size }}개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          {% assign sorted_startup = startup_posts | sort: 'date' | reverse %}
+          {% for post in sorted_startup limit:5 %}
+            <li class="post-item">
+              <a href="{{ post.url | relative_url }}" class="post-link">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if startup_posts.size > 5 %}
+            <li class="more-posts">
+              <a href="#startup_section" class="more-link">+ {{ startup_posts.size | minus: 5 }}개 더 보기</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
     {% endif %}
   </div>
 </div>
@@ -428,44 +608,117 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   font-weight: bold;
 }
 
-.category-quick-links {
+/* 카테고리별 포스트 리스트 스타일 */
+.category-post-lists {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
 
-.category-link {
+.category-post-group {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.category-header {
+  margin: 0 0 15px 0;
+}
+
+.category-title-link {
+  color: white;
+  text-decoration: none;
   display: flex;
   align-items: center;
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  color: white;
-  text-decoration: none;
   transition: all 0.3s;
-  backdrop-filter: blur(10px);
 }
 
-.category-link:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.3);
-  color: white;
+.category-title-link:hover {
+  color: #f0f0f0;
   text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .category-icon {
-  font-size: 1.5em;
-  margin-right: 10px;
+  font-size: 1.3em;
+  margin-right: 8px;
 }
 
 .category-name {
   flex: 1;
   font-weight: bold;
+  font-size: 1.1em;
 }
 
 .category-count {
   font-size: 0.9em;
   opacity: 0.8;
+  margin-left: 5px;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-item {
+  margin-bottom: 8px;
+}
+
+.post-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.post-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  text-decoration: none;
+  transform: translateX(3px);
+}
+
+.post-title {
+  flex: 1;
+  font-size: 0.9em;
+  line-height: 1.3;
+  margin-right: 10px;
+}
+
+.post-date {
+  font-size: 0.8em;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.more-posts {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.more-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.85em;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.more-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
 }
 
 .nav-button:hover {
@@ -483,12 +736,22 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .category-quick-links {
+  .category-post-lists {
     grid-template-columns: 1fr;
   }
   
   .button-group {
     flex-direction: column;
+  }
+  
+  .post-link {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .post-date {
+    margin-top: 3px;
+    align-self: flex-end;
   }
 }
 </style>
