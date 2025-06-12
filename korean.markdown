@@ -416,7 +416,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 <!-- 카테고리별 포스트 섹션 -->
 <div class="categories-container">
 
-{% comment %} 각 카테고리 섹션 표시 {% endcomment %}
+{% comment %} 각 카테고리 섹션 따로 {% endcomment %}
 {% if tech_trends_posts.size > 0 %}
   <div id="tech_trends_section">
     {% include category-section.html posts=tech_trends_posts category_key='tech_trends' config=config %}
@@ -477,77 +477,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 
 </div>
 
-<!-- 카테고리 요약 -->
-<div class="category-summary">
-  <h2>📊 {{ config.ui.category_summary }}</h2>
-  <div class="summary-grid">
-    {% if tech_trends_posts.size > 0 %}
-      <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.tech_trends.icon }}</span>
-        <span class="summary-label">{{ config.categories.tech_trends.name }}</span>
-        <span class="summary-count">{{ tech_trends_posts.size }} {{ config.ui.posts_count }}</span>
-      </div>
-    {% endif %}
-    {% if ai_news_posts.size > 0 %}
-      <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.ai_news.icon }}</span>
-        <span class="summary-label">{{ config.categories.ai_news.name }}</span>
-        <span class="summary-count">{{ ai_news_posts.size }} {{ config.ui.posts_count }}</span>
-      </div>
-    {% endif %}
-    {% if automation_posts.size > 0 %}
-      <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.automation.icon }}</span>
-        <span class="summary-label">{{ config.categories.automation.name }}</span>
-        <span class="summary-count">{{ automation_posts.size }} {{ config.ui.posts_count }}</span>
-      </div>
-    {% endif %}
-    {% if ai_research_posts.size > 0 %}
-      <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.ai_research.icon }}</span>
-        <span class="summary-label">{{ config.categories.ai_research.name }}</span>
-        <span class="summary-count">{{ ai_research_posts.size }} {{ config.ui.posts_count }}</span>
-      </div>
-    {% endif %}
-    {% if ai_practice_posts.size > 0 %}
-      <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.ai_practice.icon }}</span>
-        <span class="summary-label">{{ config.categories.ai_practice.name }}</span>
-        <span class="summary-count">{{ ai_practice_posts.size }} {{ config.ui.posts_count }}</span>
-      </div>
-    {% endif %}
-    {% if programming_posts.size > 0 %}
-      <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.programming.icon }}</span>
-        <span class="summary-label">{{ config.categories.programming.name }}</span>
-        <span class="summary-count">{{ programming_posts.size }} {{ config.ui.posts_count }}</span>
-      </div>
-    {% endif %}
-    {% if study_posts.size > 0 %}
-      <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.study.icon }}</span>
-        <span class="summary-label">{{ config.categories.study.name }}</span>
-        <span class="summary-count">{{ study_posts.size }} {{ config.ui.posts_count }}</span>
-      </div>
-    {% endif %}
-    {% if project_posts.size > 0 %}
-      <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.project.icon }}</span>
-        <span class="summary-label">{{ config.categories.project.name }}</span>
-        <span class="summary-count">{{ project_posts.size }} {{ config.ui.posts_count }}</span>
-      </div>
-    {% endif %}
-    {% if startup_posts.size > 0 %}
-      <div class="summary-item">
-        <span class="summary-icon">{{ config.categories.startup.icon }}</span>
-        <span class="summary-label">{{ config.categories.startup.name }}</span>
-        <span class="summary-count">{{ startup_posts.size }} {{ config.ui.posts_count }}</span>
-      </div>
-    {% endif %}
-  </div>
-</div>
-
-<!-- 네비게이션 버튼들 -->
+<!-- 네비게이션 버튼 -->
 <div class="navigation-buttons" style="margin-top: 50px; text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
   <h3 style="margin-bottom: 20px; color: #333;">🔗 다른 페이지로 이동</h3>
   <div class="button-group" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
@@ -567,45 +497,6 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-}
-
-.category-summary {
-  margin: 40px 0;
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 10px;
-}
-
-.summary-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.summary-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px;
-  background: white;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-}
-
-.summary-icon {
-  font-size: 2em;
-  margin-bottom: 5px;
-}
-
-.summary-label {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.summary-count {
-  color: #007bff;
-  font-weight: bold;
 }
 
 /* 카테고리별 포스트 리스트 스타일 */
@@ -730,10 +621,6 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 @media (max-width: 768px) {
   .posts-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .summary-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
   
   .category-post-lists {
