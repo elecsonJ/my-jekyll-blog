@@ -9,7 +9,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 {% comment %} 언어 설정 로딩 {% endcomment %}
 {% assign config = site.data.korean %}
 
-{% comment %} 직접 한국어 포스트 필터링 - include의 변수 스코프 제한 회피 {% endcomment %}
+{% comment %} 직접 한국어 포스트 필터링 - include의 변수 스코프 제한 피하기 {% endcomment %}
 {% assign korean_posts = site.posts | where: "lang", "ko" %}
 
 {% comment %} 추가 한국어 포스트 필터링 - 파일명에 korean이 있거나 categories에 korean-posts가 있는 경우 {% endcomment %}
@@ -25,13 +25,13 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 {% comment %} 모든 한국어 포스트 통합 {% endcomment %}
 {% assign all_korean_posts = korean_posts | concat: additional_korean_posts | uniq %}
 
-<!-- 페이지 헤더 -->
-<div class="page-header" style="text-align: center; margin-bottom: 40px;">
-  <h1 style="font-size: 2.5em; margin-bottom: 10px;">🇰🇷 한국어 포스트 ({{ all_korean_posts.size }}개)</h1>
+<!-- 페이지 설명 -->
+<div class="page-stats" style="text-align: center; margin-bottom: 40px;">
   <p style="font-size: 1.2em; color: #666;">{{ config.description }}</p>
+  <p style="font-size: 0.9em; color: #888; margin-top: 10px;">총 {{ all_korean_posts.size }}개의 포스트</p>
 </div>
 
-<!-- 카테고리별 포스트 리스트 섹션 -->
+<!-- 카테고리별 포스트 빠른 링크 섹션 -->
 <div class="category-posts-section" style="margin-bottom: 50px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
   <h2 style="text-align: center; margin-bottom: 30px; color: white;">📚 카테고리별 포스트</h2>
   
@@ -412,7 +412,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 
 <!-- 카테고리별 포스트 섹션 -->
 <div class="categories-container">
-{% comment %} 각 카테고리 섹션 블록 {% endcomment %}
+{% comment %} 각 카테고리 섹션 표시 {% endcomment %}
 {% if tech_trends_posts.size > 0 %}
   <div id="tech_trends_section">
     {% include category-section.html posts=tech_trends_posts category_key='tech_trends' config=config %}
@@ -492,7 +492,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   gap: 20px;
 }
 
-/* 카테고리별 포스트 리스트 스타일 */
+/* 카테고리별 포스트 빠른 링크 스타일 */
 .category-post-lists {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
