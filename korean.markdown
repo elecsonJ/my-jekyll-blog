@@ -6,17 +6,13 @@ language: korean
 description: "한국어 기술 블로그 포스트를 카테고리별로 정리한 페이지입니다"
 ---
 
-{% comment %} 언어 설정 로드 {% endcomment %}
+{% comment %} 언어 설정 로딩 {% endcomment %}
 {% assign config = site.data.korean %}
 
-{% comment %} 직접 포스트 필터링 - include의 변수 스코프 문제 해결 {% endcomment %}
+{% comment %} 직접 포스트 필터링 - include의 변수 스코프 해결 {% endcomment %}
 {% assign korean_posts = site.posts | where: "lang", "ko" %}
 
-<!-- 🔍 DEBUG: 전체 사이트 정보 -->
-<!-- 전체 포스트 수: {{ site.posts.size }} -->
-<!-- 한국어 포스트 수 (lang:ko): {{ korean_posts.size }} -->
-
-{% comment %} 추가 필터링 - 파일명에 korean이 있거나 categories에 korean-posts가 있는 경우 {% endcomment %}
+{% comment %} 추가 카테고리 필터링 - 파일명에 korean이 있거나 categories에 korean-posts가 있는 경우 {% endcomment %}
 {% assign additional_korean_posts = "" | split: "" %}
 {% for post in site.posts %}
   {% unless post.lang == "ko" %}
@@ -29,8 +25,6 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 {% comment %} 모든 한국어 포스트 병합 {% endcomment %}
 {% assign all_korean_posts = korean_posts | concat: additional_korean_posts | uniq %}
 
-<!-- 🔍 DEBUG: 최종 한국어 포스트 수: {{ all_korean_posts.size }} -->
-
 <!-- 페이지 헤더 -->
 <div class="page-header" style="text-align: center; margin-bottom: 40px;">
   <h1 style="font-size: 2.5em; margin-bottom: 10px;">{{ config.title }}</h1>
@@ -40,34 +34,179 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   </div>
 </div>
 
-<!-- 포스트가 없을 때 표시 -->
-{% if all_korean_posts.size == 0 %}
-<div style="text-align: center; padding: 40px; background: #f8f9fa; border-radius: 10px; margin: 20px 0;">
-  <h2>⚠️ 한국어 포스트가 없습니다</h2>
-  <p>다음 사항을 확인해주세요:</p>
-  <ul style="text-align: left; display: inline-block;">
-    <li>포스트 파일의 front matter에 <code>lang: ko</code>가 설정되어 있는지</li>
-    <li>파일명에 'korean'이 포함되어 있는지</li>
-    <li>categories에 'korean-posts'가 포함되어 있는지</li>
-  </ul>
+<!-- 카테고리 빠른 링크 섹션 -->
+<div class="category-links-section" style="margin-bottom: 50px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+  <h2 style="text-align: center; margin-bottom: 30px; color: white;">📁 카테고리별 바로가기</h2>
   
-  <h3>🔍 전체 포스트 목록 (디버그용)</h3>
-  {% for post in site.posts limit:10 %}
-    <div style="text-align: left; margin: 10px; padding: 10px; background: white; border: 1px solid #ddd;">
-      <strong>{{ post.title }}</strong><br>
-      파일: {{ post.path }}<br>
-      lang: {{ post.lang | default: 'nil' }}<br>
-      categories: {{ post.categories | join: ', ' }}<br>
-      date: {{ post.date | date: "%Y-%m-%d" }}
-    </div>
+  {% comment %} 카테고리별 포스트 분류 {% endcomment %}
+  {% assign tech_trends_posts = "" | split: "" %}
+  {% assign ai_news_posts = "" | split: "" %}
+  {% assign automation_posts = "" | split: "" %}
+  {% assign ai_research_posts = "" | split: "" %}
+  {% assign ai_practice_posts = "" | split: "" %}
+  {% assign programming_posts = "" | split: "" %}
+  {% assign study_posts = "" | split: "" %}
+  {% assign project_posts = "" | split: "" %}
+  {% assign startup_posts = "" | split: "" %}
+  {% assign other_posts = "" | split: "" %}
+
+  {% for post in all_korean_posts %}
+    {% assign is_categorized = false %}
+    
+    {% if post.categories contains 'ai_news' or post.categories contains 'ai-news' %}
+      {% assign ai_news_posts = ai_news_posts | push: post %}
+      {% assign is_categorized = true %}
+    {% endif %}
+    
+    {% unless is_categorized %}
+      {% if post.categories contains 'tech_trends' or post.categories contains 'tech-trends' %}
+        {% unless post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' %}
+          {% assign tech_trends_posts = tech_trends_posts | push: post %}
+          {% assign is_categorized = true %}
+        {% endunless %}
+      {% endif %}
+    {% endunless %}
+    
+    {% unless is_categorized %}
+      {% if post.categories contains 'mcp' or post.categories contains 'automation' or post.categories contains 'jekyll' or post.categories contains 'github-actions' %}
+        {% assign automation_posts = automation_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
+    {% endunless %}
+    
+    {% unless is_categorized %}
+      {% if post.categories contains 'ai-research' or post.categories contains 'machine-learning-theory' or post.categories contains 'deep-learning-theory' or post.categories contains 'ai-theory' or post.categories contains 'ai-papers' %}
+        {% assign ai_research_posts = ai_research_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
+    {% endunless %}
+    
+    {% unless is_categorized %}
+      {% if post.categories contains 'ai-practice' or post.categories contains 'ai-tutorial' or post.categories contains 'model-implementation' or post.categories contains 'ai-coding' %}
+        {% assign ai_practice_posts = ai_practice_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
+    {% endunless %}
+    
+    {% unless is_categorized %}
+      {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
+        {% assign ai_practice_posts = ai_practice_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
+    {% endunless %}
+    
+    {% unless is_categorized %}
+      {% if post.categories contains 'programming' or post.categories contains 'tech' or post.categories contains 'coding' or post.categories contains 'development' or post.categories contains 'software-engineering' %}
+        {% assign programming_posts = programming_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
+    {% endunless %}
+    
+    {% unless is_categorized %}
+      {% if post.categories contains 'study' or post.categories contains 'learning' or post.categories contains 'education' or post.categories contains 'computer-science' %}
+        {% assign study_posts = study_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
+    {% endunless %}
+    
+    {% unless is_categorized %}
+      {% if post.categories contains 'project' or post.categories contains 'portfolio' or post.categories contains 'personal-project' %}
+        {% assign project_posts = project_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
+    {% endunless %}
+    
+    {% unless is_categorized %}
+      {% if post.categories contains 'startup' or post.categories contains 'business' or post.categories contains 'entrepreneurship' %}
+        {% assign startup_posts = startup_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
+    {% endunless %}
+    
+    {% unless is_categorized %}
+      {% assign other_posts = other_posts | push: post %}
+    {% endunless %}
   {% endfor %}
+
+  <div class="category-quick-links">
+    {% if tech_trends_posts.size > 0 %}
+      <a href="#tech_trends_section" class="category-link">
+        <span class="category-icon">{{ config.categories.tech_trends.icon }}</span>
+        <span class="category-name">{{ config.categories.tech_trends.name }}</span>
+        <span class="category-count">({{ tech_trends_posts.size }})</span>
+      </a>
+    {% endif %}
+    
+    {% if ai_news_posts.size > 0 %}
+      <a href="#ai_news_section" class="category-link">
+        <span class="category-icon">{{ config.categories.ai_news.icon }}</span>
+        <span class="category-name">{{ config.categories.ai_news.name }}</span>
+        <span class="category-count">({{ ai_news_posts.size }})</span>
+      </a>
+    {% endif %}
+    
+    {% if automation_posts.size > 0 %}
+      <a href="#automation_section" class="category-link">
+        <span class="category-icon">{{ config.categories.automation.icon }}</span>
+        <span class="category-name">{{ config.categories.automation.name }}</span>
+        <span class="category-count">({{ automation_posts.size }})</span>
+      </a>
+    {% endif %}
+    
+    {% if ai_research_posts.size > 0 %}
+      <a href="#ai_research_section" class="category-link">
+        <span class="category-icon">{{ config.categories.ai_research.icon }}</span>
+        <span class="category-name">{{ config.categories.ai_research.name }}</span>
+        <span class="category-count">({{ ai_research_posts.size }})</span>
+      </a>
+    {% endif %}
+    
+    {% if ai_practice_posts.size > 0 %}
+      <a href="#ai_practice_section" class="category-link">
+        <span class="category-icon">{{ config.categories.ai_practice.icon }}</span>
+        <span class="category-name">{{ config.categories.ai_practice.name }}</span>
+        <span class="category-count">({{ ai_practice_posts.size }})</span>
+      </a>
+    {% endif %}
+    
+    {% if programming_posts.size > 0 %}
+      <a href="#programming_section" class="category-link">
+        <span class="category-icon">{{ config.categories.programming.icon }}</span>
+        <span class="category-name">{{ config.categories.programming.name }}</span>
+        <span class="category-count">({{ programming_posts.size }})</span>
+      </a>
+    {% endif %}
+    
+    {% if study_posts.size > 0 %}
+      <a href="#study_section" class="category-link">
+        <span class="category-icon">{{ config.categories.study.icon }}</span>
+        <span class="category-name">{{ config.categories.study.name }}</span>
+        <span class="category-count">({{ study_posts.size }})</span>
+      </a>
+    {% endif %}
+    
+    {% if project_posts.size > 0 %}
+      <a href="#project_section" class="category-link">
+        <span class="category-icon">{{ config.categories.project.icon }}</span>
+        <span class="category-name">{{ config.categories.project.name }}</span>
+        <span class="category-count">({{ project_posts.size }})</span>
+      </a>
+    {% endif %}
+    
+    {% if startup_posts.size > 0 %}
+      <a href="#startup_section" class="category-link">
+        <span class="category-icon">{{ config.categories.startup.icon }}</span>
+        <span class="category-name">{{ config.categories.startup.name }}</span>
+        <span class="category-count">({{ startup_posts.size }})</span>
+      </a>
+    {% endif %}
+  </div>
 </div>
-{% endif %}
 
 <!-- 최근 포스트 섹션 -->
 {% if all_korean_posts.size > 0 %}
 <div class="recent-posts-section" style="margin-bottom: 60px; padding: 30px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 15px;">
-  <h2 style="text-align: center; margin-bottom: 30px;">🆕 최근 포스트</h2>
+  <h2 style="text-align: center; margin-bottom: 30px;">🖊 최근 포스트</h2>
   <div class="posts-grid">
     {% assign sorted_posts = all_korean_posts | sort: 'date' | reverse %}
     {% for post in sorted_posts limit:6 %}
@@ -94,133 +233,62 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 </div>
 {% endif %}
 
-{% comment %} 카테고리별 분류 {% endcomment %}
-{% assign tech_trends_posts = "" | split: "" %}
-{% assign ai_news_posts = "" | split: "" %}
-{% assign automation_posts = "" | split: "" %}
-{% assign ai_research_posts = "" | split: "" %}
-{% assign ai_practice_posts = "" | split: "" %}
-{% assign programming_posts = "" | split: "" %}
-{% assign study_posts = "" | split: "" %}
-{% assign project_posts = "" | split: "" %}
-{% assign startup_posts = "" | split: "" %}
-{% assign other_posts = "" | split: "" %}
-
-{% for post in all_korean_posts %}
-  {% assign is_categorized = false %}
-  
-  {% if post.categories contains 'ai_news' or post.categories contains 'ai-news' %}
-    {% assign ai_news_posts = ai_news_posts | push: post %}
-    {% assign is_categorized = true %}
-  {% endif %}
-  
-  {% unless is_categorized %}
-    {% if post.categories contains 'tech_trends' or post.categories contains 'tech-trends' %}
-      {% unless post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' %}
-        {% assign tech_trends_posts = tech_trends_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endunless %}
-    {% endif %}
-  {% endunless %}
-  
-  {% unless is_categorized %}
-    {% if post.categories contains 'mcp' or post.categories contains 'automation' or post.categories contains 'jekyll' or post.categories contains 'github-actions' %}
-      {% assign automation_posts = automation_posts | push: post %}
-      {% assign is_categorized = true %}
-    {% endif %}
-  {% endunless %}
-  
-  {% unless is_categorized %}
-    {% if post.categories contains 'ai-research' or post.categories contains 'machine-learning-theory' or post.categories contains 'deep-learning-theory' or post.categories contains 'ai-theory' or post.categories contains 'ai-papers' %}
-      {% assign ai_research_posts = ai_research_posts | push: post %}
-      {% assign is_categorized = true %}
-    {% endif %}
-  {% endunless %}
-  
-  {% unless is_categorized %}
-    {% if post.categories contains 'ai-practice' or post.categories contains 'ai-tutorial' or post.categories contains 'model-implementation' or post.categories contains 'ai-coding' %}
-      {% assign ai_practice_posts = ai_practice_posts | push: post %}
-      {% assign is_categorized = true %}
-    {% endif %}
-  {% endunless %}
-  
-  {% unless is_categorized %}
-    {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
-      {% assign ai_practice_posts = ai_practice_posts | push: post %}
-      {% assign is_categorized = true %}
-    {% endif %}
-  {% endunless %}
-  
-  {% unless is_categorized %}
-    {% if post.categories contains 'programming' or post.categories contains 'tech' or post.categories contains 'coding' or post.categories contains 'development' or post.categories contains 'software-engineering' %}
-      {% assign programming_posts = programming_posts | push: post %}
-      {% assign is_categorized = true %}
-    {% endif %}
-  {% endunless %}
-  
-  {% unless is_categorized %}
-    {% if post.categories contains 'study' or post.categories contains 'learning' or post.categories contains 'education' or post.categories contains 'computer-science' %}
-      {% assign study_posts = study_posts | push: post %}
-      {% assign is_categorized = true %}
-    {% endif %}
-  {% endunless %}
-  
-  {% unless is_categorized %}
-    {% if post.categories contains 'project' or post.categories contains 'portfolio' or post.categories contains 'personal-project' %}
-      {% assign project_posts = project_posts | push: post %}
-      {% assign is_categorized = true %}
-    {% endif %}
-  {% endunless %}
-  
-  {% unless is_categorized %}
-    {% if post.categories contains 'startup' or post.categories contains 'business' or post.categories contains 'entrepreneurship' %}
-      {% assign startup_posts = startup_posts | push: post %}
-      {% assign is_categorized = true %}
-    {% endif %}
-  {% endunless %}
-  
-  {% unless is_categorized %}
-    {% assign other_posts = other_posts | push: post %}
-  {% endunless %}
-{% endfor %}
-
+<!-- 카테고리별 포스트 섹션 -->
 <div class="categories-container">
 
 {% comment %} 각 카테고리 섹션 표시 {% endcomment %}
 {% if tech_trends_posts.size > 0 %}
-  {% include category-section.html posts=tech_trends_posts category_key='tech_trends' config=config %}
+  <div id="tech_trends_section">
+    {% include category-section.html posts=tech_trends_posts category_key='tech_trends' config=config %}
+  </div>
 {% endif %}
 
 {% if ai_news_posts.size > 0 %}
-  {% include category-section.html posts=ai_news_posts category_key='ai_news' config=config %}
+  <div id="ai_news_section">
+    {% include category-section.html posts=ai_news_posts category_key='ai_news' config=config %}
+  </div>
 {% endif %}
 
 {% if automation_posts.size > 0 %}
-  {% include category-section.html posts=automation_posts category_key='automation' config=config %}
+  <div id="automation_section">
+    {% include category-section.html posts=automation_posts category_key='automation' config=config %}
+  </div>
 {% endif %}
 
 {% if ai_research_posts.size > 0 %}
-  {% include category-section.html posts=ai_research_posts category_key='ai_research' config=config %}
+  <div id="ai_research_section">
+    {% include category-section.html posts=ai_research_posts category_key='ai_research' config=config %}
+  </div>
 {% endif %}
 
 {% if ai_practice_posts.size > 0 %}
-  {% include category-section.html posts=ai_practice_posts category_key='ai_practice' config=config %}
+  <div id="ai_practice_section">
+    {% include category-section.html posts=ai_practice_posts category_key='ai_practice' config=config %}
+  </div>
 {% endif %}
 
 {% if programming_posts.size > 0 %}
-  {% include category-section.html posts=programming_posts category_key='programming' config=config %}
+  <div id="programming_section">
+    {% include category-section.html posts=programming_posts category_key='programming' config=config %}
+  </div>
 {% endif %}
 
 {% if study_posts.size > 0 %}
-  {% include category-section.html posts=study_posts category_key='study' config=config %}
+  <div id="study_section">
+    {% include category-section.html posts=study_posts category_key='study' config=config %}
+  </div>
 {% endif %}
 
 {% if project_posts.size > 0 %}
-  {% include category-section.html posts=project_posts category_key='project' config=config %}
+  <div id="project_section">
+    {% include category-section.html posts=project_posts category_key='project' config=config %}
+  </div>
 {% endif %}
 
 {% if startup_posts.size > 0 %}
-  {% include category-section.html posts=startup_posts category_key='startup' config=config %}
+  <div id="startup_section">
+    {% include category-section.html posts=startup_posts category_key='startup' config=config %}
+  </div>
 {% endif %}
 
 {% if other_posts.size > 0 %}
@@ -229,7 +297,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 
 </div>
 
-{% comment %} 카테고리 요약 {% endcomment %}
+<!-- 카테고리 요약 -->
 <div class="category-summary">
   <h2>📊 {{ config.ui.category_summary }}</h2>
   <div class="summary-grid">
@@ -299,6 +367,21 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   </div>
 </div>
 
+<!-- 네비게이션 버튼들 -->
+<div class="navigation-buttons" style="margin-top: 50px; text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
+  <h3 style="margin-bottom: 20px; color: #333;">🔗 다른 페이지로 이동</h3>
+  <div class="button-group" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <a href="{{ '/' | relative_url }}" class="nav-button home-button" style="display: inline-flex; align-items: center; padding: 15px 25px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; transition: transform 0.3s;">
+      <span style="margin-right: 8px;">🏠</span>
+      홈페이지
+    </a>
+    <a href="{{ '/english/' | relative_url }}" class="nav-button english-button" style="display: inline-flex; align-items: center; padding: 15px 25px; background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; transition: transform 0.3s;">
+      <span style="margin-right: 8px;">🇺🇸</span>
+      English Posts
+    </a>
+  </div>
+</div>
+
 <style>
 .posts-grid {
   display: grid;
@@ -345,6 +428,52 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   font-weight: bold;
 }
 
+.category-quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.category-link {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.category-link:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.category-icon {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.category-name {
+  flex: 1;
+  font-weight: bold;
+}
+
+.category-count {
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   .posts-grid {
     grid-template-columns: 1fr;
@@ -352,6 +481,14 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   
   .summary-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .category-quick-links {
+    grid-template-columns: 1fr;
+  }
+  
+  .button-group {
+    flex-direction: column;
   }
 }
 </style>
