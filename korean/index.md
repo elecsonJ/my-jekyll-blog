@@ -8,30 +8,37 @@ description: "한국어 독자를 위한 기술 블로그 포스트들"
 
 # 🇰🇷 한국어 포스트
 
-안녕하세요! 여기서는 한국어로 작성된 기술 블로그 포스트들을 확인할 수 있습니다.
+안녕하세요! 여기서는 여러분과 함께 한국어로 작성된 기술 블로그 포스트들을 확인할 수 있습니다.
 
 ## 📚 카테고리
 
 ### 🖥️ 기술 (Tech)
 AI, 머신러닝, 웹 개발 등 기술 관련 포스트
+<a href="{{ '/korean/categories/tech/' | relative_url }}" style="color: #007bff; text-decoration: none; font-weight: bold;">→ 기술 카테고리 전체 보기</a>
 
 ### 🤖 인공지능 (AI)
 인공지능과 머신러닝 연구 및 실습
+<a href="{{ '/korean/categories/ai/' | relative_url }}" style="color: #007bff; text-decoration: none; font-weight: bold;">→ AI 카테고리 전체 보기</a>
 
 ### ⚙️ 자동화 (Automation)
 Jekyll, GitHub Actions, Claude MCP 등 자동화 도구
+<a href="{{ '/korean/categories/automation/' | relative_url }}" style="color: #007bff; text-decoration: none; font-weight: bold;">→ 자동화 카테고리 전체 보기</a>
 
 ### 📖 학습 (Study)
 컴퓨터공학 학습 과정과 경험 공유
+<a href="{{ '/korean/categories/study/' | relative_url }}" style="color: #007bff; text-decoration: none; font-weight: bold;">→ 학습 카테고리 전체 보기</a>
 
 ### 🚀 프로젝트 (Project)
 개인 프로젝트와 포트폴리오
+<a href="{{ '/korean/categories/project/' | relative_url }}" style="color: #007bff; text-decoration: none; font-weight: bold;">→ 프로젝트 카테고리 전체 보기</a>
 
-### 💼 발전 (Startup)
-기술 발전 관련 인사이트와 경험
+### 💼 창업 (Startup)
+기술 창업 관련 인사이트
+<a href="{{ '/korean/categories/startup/' | relative_url }}" style="color: #007bff; text-decoration: none; font-weight: bold;">→ 창업 카테고리 전체 보기</a>
 
 ### 📰 기술뉴스분석 (Tech News Analysis)
 최신 기술 뉴스와 동향 분석
+<a href="{{ '/korean/categories/tech-news-analysis/' | relative_url }}" style="color: #007bff; text-decoration: none; font-weight: bold;">→ 기술뉴스분석 카테고리 전체 보기</a>
 
 ---
 
