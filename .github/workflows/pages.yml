@@ -2,7 +2,7 @@ name: Deploy Jekyll to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, fix-blog-issues ]
   schedule:
     # 매일 오전 9시에 자동 실행 (UTC 기준 0시)
     - cron: '0 0 * * *'
