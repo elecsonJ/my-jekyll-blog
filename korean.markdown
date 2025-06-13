@@ -27,7 +27,6 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 
 <!-- 페이지 설명 -->
 <div class="page-stats" style="text-align: center; margin-bottom: 40px;">
-  <p style="font-size: 1.2em; color: #666;">{{ config.description }}</p>
   <p style="font-size: 0.9em; color: #888; margin-top: 10px;">총 {{ all_korean_posts.size }}개의 포스트</p>
 </div>
 
