@@ -1,0 +1,237 @@
+---
+layout: default
+---
+
+<!-- 카테고리별 페이지 레이아웃 -->
+<div class="korean-category-page">
+  <!-- 페이지 헤더 -->
+  <div class="category-header" style="text-align: center; margin-bottom: 40px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+    <h1 style="margin: 0; display: flex; align-items: center; justify-content: center; gap: 15px;">
+      <span class="category-icon" style="font-size: 2em;">{{ site.data.korean.categories[page.category_key].icon }}</span>
+      <span>{{ page.category_display_name | default: site.data.korean.categories[page.category_key].name }}</span>
+    </h1>
+    <p style="margin-top: 15px; opacity: 0.9; font-size: 1.1em;">
+      {{ site.data.korean.categories[page.category_key].description }}  
+    </p>
+  </div>
+
+  <!-- 해당 카테고리의 포스트들 필터링 -->
+  {% assign category_posts = "" | split: "" %}
+  {% for post in site.posts %}
+    {% if post.categories contains page.category_key %}
+      {% assign category_posts = category_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  <!-- 포스트 목록 -->
+  {% if category_posts.size > 0 %}
+    <div class="posts-container">
+      <div class="posts-stats" style="text-align: center; margin-bottom: 30px;">
+        <p style="font-size: 1.1em; color: #666;">총 {{ category_posts.size }}개의 포스트</p>
+      </div>
+
+      <div class="posts-grid">
+        {% assign sorted_posts = category_posts | sort: 'date' | reverse %}
+        {% for post in sorted_posts %}
+          <article class="post-card" onclick="location.href='{{ post.url | relative_url }}'" style="cursor: pointer;">
+            <div class="post-content">
+              <h3 class="post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </h3>
+              
+              <div class="post-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">
+                  {{ post.date | date: "%Y년 %m월 %d일" }}
+                </time>
+                {% if post.categories %}
+                  {% for category in post.categories limit:2 %}
+                    <span class="category-tag">{{ category }}</span>
+                  {% endfor %}
+                {% endif %}
+              </div>
+
+              <div class="post-excerpt">
+                {% if post.excerpt %}
+                  <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+                {% elsif post.description %}
+                  <p>{{ post.description | truncate: 150 }}</p>
+                {% elsif post.content %}
+                  <p>{{ post.content | strip_html | truncate: 150 }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    <!-- 빈 카테고리 안내 -->
+    <div class="empty-category" style="text-align: center; padding: 60px 20px; background: #f8f9fa; border-radius: 15px;">
+      <p style="font-size: 1.2em; color: #666; margin-bottom: 10px;">아직 이 카테고리에 포스트가 없습니다.</p>
+      <p style="color: #888;">곧 흥미로운 컨텐츠로 채워질 예정입니다! 🚀</p>
+    </div>
+  {% endif %}
+
+  <!-- 네비게이션 버튼 -->
+  <div class="navigation-buttons" style="margin-top: 50px; text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
+    <h3 style="margin-bottom: 20px; color: #333;">🔗 다른 페이지로 이동</h3>
+    <div class="button-group" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <a href="{{ '/korean/' | relative_url }}" class="nav-button back-button">
+        <span style="margin-right: 8px;">⬅️</span>
+        한국어 포스트로 돌아가기
+      </a>
+      <a href="{{ '/' | relative_url }}" class="nav-button home-button">
+        <span style="margin-right: 8px;">🏠</span>
+        홈페이지
+      </a>
+      <a href="{{ '/english/' | relative_url }}" class="nav-button english-button">
+        <span style="margin-right: 8px;">🇺🇸</span>
+        English Posts
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- 스타일링 -->
+<style>
+.korean-category-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.post-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+  height: fit-content;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.post-title {
+  margin: 0 0 15px 0;
+  font-size: 1.3em;
+  line-height: 1.4;
+}
+
+.post-title a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post-title a:hover {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  color: #666;
+  flex-wrap: wrap;
+}
+
+.category-tag {
+  background: #e9ecef;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  color: #495057;
+}
+
+.post-excerpt {
+  color: #555;
+  line-height: 1.6;
+}
+
+.post-excerpt p {
+  margin: 0;
+}
+
+/* 네비게이션 버튼 스타일 */
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.back-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.home-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.english-button {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .korean-category-page {
+    padding: 15px;
+  }
+  
+  .posts-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .post-card {
+    padding: 20px;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .nav-button {
+    margin-bottom: 10px;
+  }
+  
+  .category-header h1 {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-card {
+    padding: 15px;
+  }
+  
+  .post-title {
+    font-size: 1.1em;
+  }
+}
+</style>
