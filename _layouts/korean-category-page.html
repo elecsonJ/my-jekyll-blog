@@ -1,0 +1,250 @@
+---
+layout: default
+---
+
+<style>
+.category-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+.category-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px 0;
+}
+
+.category-title {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.category-icon {
+  font-size: 1.2em;
+}
+
+.category-description {
+  font-size: 1.1em;
+  opacity: 0.9;
+  margin-top: 15px;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.post-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.post-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.post-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.post-date {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.85em;
+}
+
+.post-excerpt {
+  font-size: 0.95em;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 15px;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.post-tag {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.no-posts {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 40px 0;
+}
+
+.navigation-buttons {
+  text-align: center;
+  margin-top: 50px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 25px;
+  margin: 0 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-title {
+    flex-direction: column;
+    font-size: 2em;
+  }
+  
+  .navigation-buttons {
+    padding: 20px 10px;
+  }
+  
+  .nav-button {
+    display: block;
+    margin: 10px 0;
+  }
+}
+</style>
+
+<div class="category-page-container">
+  <!-- 카테고리 헤더 -->
+  <div class="category-header">
+    <h1 class="category-title">
+      <span class="category-icon">{{ site.data.korean.categories[page.category_key].icon }}</span>
+      <span>{{ page.category_display_name | default: site.data.korean.categories[page.category_key].name }}</span>
+    </h1>
+    <p class="category-description">{{ site.data.korean.categories[page.category_key].description }}</p>
+  </div>
+
+  <!-- 카테고리별 포스트 필터링 -->
+  {% assign category_posts = "" | split: "" %}
+  {% for post in site.posts %}
+    {% if post.lang == "ko" or post.categories contains "korean-posts" or post.name contains "korean" %}
+      {% if post.categories contains page.category_key %}
+        {% assign category_posts = category_posts | push: post %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  <!-- 포스트 카드 그리드 -->
+  {% if category_posts.size > 0 %}
+    <div class="posts-grid">
+      {% assign sorted_posts = category_posts | sort: 'date' | reverse %}
+      {% for post in sorted_posts %}
+        <article class="post-card" onclick="location.href='{{ post.url | relative_url }}'">
+          <h2 class="post-title">{{ post.title }}</h2>
+          
+          <div class="post-meta">
+            <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+              {{ post.date | date: "%Y년 %m월 %d일" }}
+            </time>
+          </div>
+
+          {% if post.excerpt %}
+            <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+          {% elsif post.description %}
+            <p class="post-excerpt">{{ post.description | truncate: 120 }}</p>
+          {% endif %}
+
+          {% if post.tags %}
+            <div class="post-tags">
+              {% for tag in post.tags limit: 4 %}
+                <span class="post-tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="no-posts">
+      <h3>📝 아직 이 카테고리에 포스트가 없습니다</h3>
+      <p>곧 새로운 포스트가 업데이트될 예정입니다!</p>
+    </div>
+  {% endif %}
+
+  <!-- 네비게이션 버튼 -->
+  <div class="navigation-buttons">
+    <h3 style="margin-bottom: 20px; color: #fff;">🔗 다른 페이지로 이동</h3>
+    <div class="button-group">
+      <a href="{{ '/' | relative_url }}" class="nav-button">
+        <span style="margin-right: 8px;">🏠</span>
+        홈페이지
+      </a>
+      <a href="{{ '/korean/' | relative_url }}" class="nav-button">
+        <span style="margin-right: 8px;">📝</span>
+        한국어 포스트
+      </a>
+      <a href="{{ '/english/' | relative_url }}" class="nav-button">
+        <span style="margin-right: 8px;">🇺🇸</span>
+        English Posts
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+// 카드 클릭 시 부드러운 전환 효과
+document.querySelectorAll('.post-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    if (!e.target.closest('a')) {
+      const url = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+      window.location.href = url;
+    }
+  });
+});
+</script>
