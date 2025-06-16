@@ -25,16 +25,19 @@ layout: default
   align-items: center;
   justify-content: center;
   gap: 15px;
+  color: white !important; /* 명시적으로 흰색 설정 */
 }
 
 .category-icon {
   font-size: 1.2em;
+  color: white !important; /* 아이콘도 흰색으로 */
 }
 
 .category-description {
   font-size: 1.1em;
   opacity: 0.9;
   margin-top: 15px;
+  color: white !important; /* 설명도 흰색으로 */
 }
 
 .posts-grid {
@@ -52,6 +55,7 @@ layout: default
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   cursor: pointer;
+  color: white !important; /* 카드 전체 텍스트를 흰색으로 */
 }
 
 .post-card:hover {
@@ -65,6 +69,7 @@ layout: default
   font-weight: bold;
   margin-bottom: 15px;
   line-height: 1.4;
+  color: white !important; /* 글 제목을 명시적으로 흰색으로 */
 }
 
 .post-meta {
@@ -74,6 +79,7 @@ layout: default
   margin-bottom: 15px;
   font-size: 0.9em;
   opacity: 0.8;
+  color: white !important; /* 메타 정보도 흰색으로 */
 }
 
 .post-date {
@@ -81,6 +87,7 @@ layout: default
   padding: 4px 12px;
   border-radius: 15px;
   font-size: 0.85em;
+  color: white !important; /* 날짜도 흰색으로 */
 }
 
 .post-excerpt {
@@ -88,6 +95,7 @@ layout: default
   line-height: 1.6;
   opacity: 0.9;
   margin-bottom: 15px;
+  color: white !important; /* 발췌문도 흰색으로 */
 }
 
 .post-tags {
@@ -102,6 +110,7 @@ layout: default
   border-radius: 12px;
   font-size: 0.8em;
   opacity: 0.8;
+  color: white !important; /* 태그도 흰색으로 */
 }
 
 .no-posts {
@@ -110,6 +119,7 @@ layout: default
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   margin: 40px 0;
+  color: white !important; /* 빈 포스트 메시지도 흰색으로 */
 }
 
 .navigation-buttons {
@@ -120,13 +130,17 @@ layout: default
   border-radius: 15px;
 }
 
+.navigation-buttons h3 {
+  color: white !important; /* 네비게이션 제목도 흰색으로 */
+}
+
 .nav-button {
   display: inline-flex;
   align-items: center;
   padding: 15px 25px;
   margin: 0 10px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: white !important; /* 버튼 텍스트를 명시적으로 흰색으로 */
   text-decoration: none;
   border-radius: 10px;
   font-weight: bold;
@@ -135,7 +149,7 @@ layout: default
 
 .nav-button:hover {
   transform: translateY(-2px);
-  color: white;
+  color: white !important; /* 호버 상태에서도 흰색 유지 */
   text-decoration: none;
 }
 
