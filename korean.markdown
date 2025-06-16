@@ -6,7 +6,7 @@ language: korean
 description: "한국어 기술 블로그 포스트를 카테고리별로 정리한 페이지입니다"
 ---
 
-{% comment %} 언어 설정 로딩 {% endcomment %}
+{% comment %} 언어 설정 로직 {% endcomment %}
 {% assign config = site.data.korean %}
 
 {% comment %} 직접 한국어 포스트 필터링 - include의 변수 스코프 제한 피하기 {% endcomment %}
@@ -30,9 +30,9 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   <p style="font-size: 0.9em; color: #888; margin-top: 10px;">총 {{ all_korean_posts.size }}개의 포스트</p>
 </div>
 
-<!-- 카테고리별 포스트 빠른 링크 섹션 -->
+<!-- 카테고리별 포스트 빠른 맵뷰 섹션 -->
 <div class="category-posts-section" style="margin-bottom: 50px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
-  <h2 style="text-align: center; margin-bottom: 30px; color: white;">📚 카테고리별 포스트</h2>
+  <h2 style="text-align: center; margin-bottom: 30px; color: white;">📊 카테고리별 포스트</h2>
   
   {% comment %} 카테고리별 포스트 분류 {% endcomment %}
   {% assign tech_trends_posts = "" | split: "" %}
@@ -128,7 +128,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     {% if tech_trends_posts.size > 0 %}
       <div class="category-post-group">
         <h3 class="category-header">
-          <a href="#tech_trends_section" class="category-title-link">
+          <a href="{{ '/korean/categories/tech_trends/' | relative_url }}" class="category-title-link">
             <span class="category-icon">{{ config.categories.tech_trends.icon }}</span>
             <span class="category-name">{{ config.categories.tech_trends.name }}</span>
             <span class="category-count">({{ tech_trends_posts.size }}개)</span>
@@ -146,7 +146,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
           {% endfor %}
           {% if tech_trends_posts.size > 5 %}
             <li class="more-posts">
-              <a href="#tech_trends_section" class="more-link">+ {{ tech_trends_posts.size | minus: 5 }}개 더 보기</a>
+              <a href="{{ '/korean/categories/tech_trends/' | relative_url }}" class="more-link">+ {{ tech_trends_posts.size | minus: 5 }}개 더 보기</a>
             </li>
           {% endif %}
         </ul>
@@ -156,7 +156,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     {% if ai_news_posts.size > 0 %}
       <div class="category-post-group">
         <h3 class="category-header">
-          <a href="#ai_news_section" class="category-title-link">
+          <a href="{{ '/korean/categories/ai_news/' | relative_url }}" class="category-title-link">
             <span class="category-icon">{{ config.categories.ai_news.icon }}</span>
             <span class="category-name">{{ config.categories.ai_news.name }}</span>
             <span class="category-count">({{ ai_news_posts.size }}개)</span>
@@ -174,7 +174,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
           {% endfor %}
           {% if ai_news_posts.size > 5 %}
             <li class="more-posts">
-              <a href="#ai_news_section" class="more-link">+ {{ ai_news_posts.size | minus: 5 }}개 더 보기</a>
+              <a href="{{ '/korean/categories/ai_news/' | relative_url }}" class="more-link">+ {{ ai_news_posts.size | minus: 5 }}개 더 보기</a>
             </li>
           {% endif %}
         </ul>
@@ -184,7 +184,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     {% if automation_posts.size > 0 %}
       <div class="category-post-group">
         <h3 class="category-header">
-          <a href="#automation_section" class="category-title-link">
+          <a href="{{ '/korean/categories/automation/' | relative_url }}" class="category-title-link">
             <span class="category-icon">{{ config.categories.automation.icon }}</span>
             <span class="category-name">{{ config.categories.automation.name }}</span>
             <span class="category-count">({{ automation_posts.size }}개)</span>
@@ -202,7 +202,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
           {% endfor %}
           {% if automation_posts.size > 5 %}
             <li class="more-posts">
-              <a href="#automation_section" class="more-link">+ {{ automation_posts.size | minus: 5 }}개 더 보기</a>
+              <a href="{{ '/korean/categories/automation/' | relative_url }}" class="more-link">+ {{ automation_posts.size | minus: 5 }}개 더 보기</a>
             </li>
           {% endif %}
         </ul>
@@ -212,7 +212,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     {% if ai_research_posts.size > 0 %}
       <div class="category-post-group">
         <h3 class="category-header">
-          <a href="#ai_research_section" class="category-title-link">
+          <a href="{{ '/korean/categories/ai_research/' | relative_url }}" class="category-title-link">
             <span class="category-icon">{{ config.categories.ai_research.icon }}</span>
             <span class="category-name">{{ config.categories.ai_research.name }}</span>
             <span class="category-count">({{ ai_research_posts.size }}개)</span>
@@ -230,7 +230,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
           {% endfor %}
           {% if ai_research_posts.size > 5 %}
             <li class="more-posts">
-              <a href="#ai_research_section" class="more-link">+ {{ ai_research_posts.size | minus: 5 }}개 더 보기</a>
+              <a href="{{ '/korean/categories/ai_research/' | relative_url }}" class="more-link">+ {{ ai_research_posts.size | minus: 5 }}개 더 보기</a>
             </li>
           {% endif %}
         </ul>
@@ -240,7 +240,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     {% if ai_practice_posts.size > 0 %}
       <div class="category-post-group">
         <h3 class="category-header">
-          <a href="#ai_practice_section" class="category-title-link">
+          <a href="{{ '/korean/categories/ai_practice/' | relative_url }}" class="category-title-link">
             <span class="category-icon">{{ config.categories.ai_practice.icon }}</span>
             <span class="category-name">{{ config.categories.ai_practice.name }}</span>
             <span class="category-count">({{ ai_practice_posts.size }}개)</span>
@@ -258,7 +258,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
           {% endfor %}
           {% if ai_practice_posts.size > 5 %}
             <li class="more-posts">
-              <a href="#ai_practice_section" class="more-link">+ {{ ai_practice_posts.size | minus: 5 }}개 더 보기</a>
+              <a href="{{ '/korean/categories/ai_practice/' | relative_url }}" class="more-link">+ {{ ai_practice_posts.size | minus: 5 }}개 더 보기</a>
             </li>
           {% endif %}
         </ul>
@@ -268,7 +268,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     {% if programming_posts.size > 0 %}
       <div class="category-post-group">
         <h3 class="category-header">
-          <a href="#programming_section" class="category-title-link">
+          <a href="{{ '/korean/categories/programming/' | relative_url }}" class="category-title-link">
             <span class="category-icon">{{ config.categories.programming.icon }}</span>
             <span class="category-name">{{ config.categories.programming.name }}</span>
             <span class="category-count">({{ programming_posts.size }}개)</span>
@@ -286,7 +286,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
           {% endfor %}
           {% if programming_posts.size > 5 %}
             <li class="more-posts">
-              <a href="#programming_section" class="more-link">+ {{ programming_posts.size | minus: 5 }}개 더 보기</a>
+              <a href="{{ '/korean/categories/programming/' | relative_url }}" class="more-link">+ {{ programming_posts.size | minus: 5 }}개 더 보기</a>
             </li>
           {% endif %}
         </ul>
@@ -296,7 +296,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     {% if study_posts.size > 0 %}
       <div class="category-post-group">
         <h3 class="category-header">
-          <a href="#study_section" class="category-title-link">
+          <a href="{{ '/korean/categories/study/' | relative_url }}" class="category-title-link">
             <span class="category-icon">{{ config.categories.study.icon }}</span>
             <span class="category-name">{{ config.categories.study.name }}</span>
             <span class="category-count">({{ study_posts.size }}개)</span>
@@ -314,7 +314,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
           {% endfor %}
           {% if study_posts.size > 5 %}
             <li class="more-posts">
-              <a href="#study_section" class="more-link">+ {{ study_posts.size | minus: 5 }}개 더 보기</a>
+              <a href="{{ '/korean/categories/study/' | relative_url }}" class="more-link">+ {{ study_posts.size | minus: 5 }}개 더 보기</a>
             </li>
           {% endif %}
         </ul>
@@ -324,7 +324,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     {% if project_posts.size > 0 %}
       <div class="category-post-group">
         <h3 class="category-header">
-          <a href="#project_section" class="category-title-link">
+          <a href="{{ '/korean/categories/project/' | relative_url }}" class="category-title-link">
             <span class="category-icon">{{ config.categories.project.icon }}</span>
             <span class="category-name">{{ config.categories.project.name }}</span>
             <span class="category-count">({{ project_posts.size }}개)</span>
@@ -342,7 +342,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
           {% endfor %}
           {% if project_posts.size > 5 %}
             <li class="more-posts">
-              <a href="#project_section" class="more-link">+ {{ project_posts.size | minus: 5 }}개 더 보기</a>
+              <a href="{{ '/korean/categories/project/' | relative_url }}" class="more-link">+ {{ project_posts.size | minus: 5 }}개 더 보기</a>
             </li>
           {% endif %}
         </ul>
@@ -352,7 +352,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     {% if startup_posts.size > 0 %}
       <div class="category-post-group">
         <h3 class="category-header">
-          <a href="#startup_section" class="category-title-link">
+          <a href="{{ '/korean/categories/startup/' | relative_url }}" class="category-title-link">
             <span class="category-icon">{{ config.categories.startup.icon }}</span>
             <span class="category-name">{{ config.categories.startup.name }}</span>
             <span class="category-count">({{ startup_posts.size }}개)</span>
@@ -370,7 +370,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
           {% endfor %}
           {% if startup_posts.size > 5 %}
             <li class="more-posts">
-              <a href="#startup_section" class="more-link">+ {{ startup_posts.size | minus: 5 }}개 더 보기</a>
+              <a href="{{ '/korean/categories/startup/' | relative_url }}" class="more-link">+ {{ startup_posts.size | minus: 5 }}개 더 보기</a>
             </li>
           {% endif %}
         </ul>
@@ -382,7 +382,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 <!-- 최근 포스트 섹션 -->
 {% if all_korean_posts.size > 0 %}
 <div class="recent-posts-section" style="margin-bottom: 60px; padding: 30px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 15px;">
-  <h2 style="text-align: center; margin-bottom: 30px;">🖊 최근 포스트</h2>
+  <h2 style="text-align: center; margin-bottom: 30px;">🕒 최근 포스트</h2>
   <div class="posts-grid">
     {% assign sorted_posts = all_korean_posts | sort: 'date' | reverse %}
     {% for post in sorted_posts limit:6 %}
@@ -491,7 +491,7 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   gap: 20px;
 }
 
-/* 카테고리별 포스트 빠른 링크 스타일 */
+/* 카테고리별 포스트 빠른 맵뷰 스타일 */
 .category-post-lists {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
