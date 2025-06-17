@@ -35,58 +35,49 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
   <h2 style="text-align: center; margin-bottom: 30px; color: white;">📊 카테고리별 포스트</h2>
   
   {% comment %} 카테고리별 포스트 분류 {% endcomment %}
-  {% assign tech_trends_posts = "" | split: "" %}
+  {% assign tech_analysis_posts = "" | split: "" %}
   {% assign ai_news_posts = "" | split: "" %}
+  {% assign algorithm_posts = "" | split: "" %}
+  {% assign ai_lab_posts = "" | split: "" %}
   {% assign automation_posts = "" | split: "" %}
-  {% assign ai_research_posts = "" | split: "" %}
-  {% assign ai_practice_posts = "" | split: "" %}
   {% assign programming_posts = "" | split: "" %}
   {% assign study_posts = "" | split: "" %}
   {% assign project_posts = "" | split: "" %}
   {% assign startup_posts = "" | split: "" %}
-  {% assign other_posts = "" | split: "" %}
+  {% assign dev_life_posts = "" | split: "" %}
 
   {% for post in all_korean_posts %}
     {% assign is_categorized = false %}
     
-    {% if post.categories contains 'ai_news' or post.categories contains 'ai-news' %}
-      {% assign ai_news_posts = ai_news_posts | push: post %}
+    {% if post.categories contains 'tech_analysis' or post.categories contains 'tech-analysis' %}
+      {% assign tech_analysis_posts = tech_analysis_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
     
     {% unless is_categorized %}
-      {% if post.categories contains 'tech_trends' or post.categories contains 'tech-trends' %}
-        {% unless post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' %}
-          {% assign tech_trends_posts = tech_trends_posts | push: post %}
-          {% assign is_categorized = true %}
-        {% endunless %}
+      {% if post.categories contains 'ai_news' or post.categories contains 'ai-news' %}
+        {% assign ai_news_posts = ai_news_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
+    {% endunless %}
+    
+    {% unless is_categorized %}
+      {% if post.categories contains 'algorithm' %}
+        {% assign algorithm_posts = algorithm_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
+    {% endunless %}
+    
+    {% unless is_categorized %}
+      {% if post.categories contains 'ai_lab' or post.categories contains 'ai-lab' or post.categories contains 'ai-research' or post.categories contains 'ai-practice' %}
+        {% assign ai_lab_posts = ai_lab_posts | push: post %}
+        {% assign is_categorized = true %}
       {% endif %}
     {% endunless %}
     
     {% unless is_categorized %}
       {% if post.categories contains 'mcp' or post.categories contains 'automation' or post.categories contains 'jekyll' or post.categories contains 'github-actions' %}
         {% assign automation_posts = automation_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endif %}
-    {% endunless %}
-    
-    {% unless is_categorized %}
-      {% if post.categories contains 'ai-research' or post.categories contains 'machine-learning-theory' or post.categories contains 'deep-learning-theory' or post.categories contains 'ai-theory' or post.categories contains 'ai-papers' %}
-        {% assign ai_research_posts = ai_research_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endif %}
-    {% endunless %}
-    
-    {% unless is_categorized %}
-      {% if post.categories contains 'ai-practice' or post.categories contains 'ai-tutorial' or post.categories contains 'model-implementation' or post.categories contains 'ai-coding' %}
-        {% assign ai_practice_posts = ai_practice_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endif %}
-    {% endunless %}
-    
-    {% unless is_categorized %}
-      {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
-        {% assign ai_practice_posts = ai_practice_posts | push: post %}
         {% assign is_categorized = true %}
       {% endif %}
     {% endunless %}
@@ -120,23 +111,41 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     {% endunless %}
     
     {% unless is_categorized %}
-      {% assign other_posts = other_posts | push: post %}
+      {% if post.categories contains 'dev_life' or post.categories contains 'dev-life' or post.categories contains 'thoughts' %}
+        {% assign dev_life_posts = dev_life_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
+    {% endunless %}
+    
+    {% comment %} 이전 카테고리 시스템 마이그레이션 {% endcomment %}
+    {% unless is_categorized %}
+      {% if post.categories contains 'tech_trends' or post.categories contains 'tech-trends' %}
+        {% assign tech_analysis_posts = tech_analysis_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
+    {% endunless %}
+    
+    {% unless is_categorized %}
+      {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' %}
+        {% assign ai_lab_posts = ai_lab_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endif %}
     {% endunless %}
   {% endfor %}
 
   <div class="category-post-lists">
-    {% if tech_trends_posts.size > 0 %}
+    {% if tech_analysis_posts.size > 0 %}
       <div class="category-post-group">
         <h3 class="category-header">
-          <a href="{{ '/korean/categories/tech_trends/' | relative_url }}" class="category-title-link">
-            <span class="category-icon">{{ config.categories.tech_trends.icon }}</span>
-            <span class="category-name">{{ config.categories.tech_trends.name }}</span>
-            <span class="category-count">({{ tech_trends_posts.size }}개)</span>
+          <a href="{{ '/korean/categories/tech_analysis/' | relative_url }}" class="category-title-link">
+            <span class="category-icon">{{ config.categories.tech_analysis.icon }}</span>
+            <span class="category-name">{{ config.categories.tech_analysis.name }}</span>
+            <span class="category-count">({{ tech_analysis_posts.size }}개)</span>
           </a>
         </h3>
         <ul class="post-list">
-          {% assign sorted_tech_posts = tech_trends_posts | sort: 'date' | reverse %}
-          {% for post in sorted_tech_posts limit:5 %}
+          {% assign sorted_tech_analysis = tech_analysis_posts | sort: 'date' | reverse %}
+          {% for post in sorted_tech_analysis limit:5 %}
             <li class="post-item">
               <a href="{{ post.url | relative_url }}" class="post-link">
                 <span class="post-title">{{ post.title }}</span>
@@ -144,9 +153,9 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
               </a>
             </li>
           {% endfor %}
-          {% if tech_trends_posts.size > 5 %}
+          {% if tech_analysis_posts.size > 5 %}
             <li class="more-posts">
-              <a href="{{ '/korean/categories/tech_trends/' | relative_url }}" class="more-link">+ {{ tech_trends_posts.size | minus: 5 }}개 더 보기</a>
+              <a href="{{ '/korean/categories/tech_analysis/' | relative_url }}" class="more-link">+ {{ tech_analysis_posts.size | minus: 5 }}개 더 보기</a>
             </li>
           {% endif %}
         </ul>
@@ -181,6 +190,62 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
       </div>
     {% endif %}
     
+    {% if algorithm_posts.size > 0 %}
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="{{ '/korean/categories/algorithm/' | relative_url }}" class="category-title-link">
+            <span class="category-icon">{{ config.categories.algorithm.icon }}</span>
+            <span class="category-name">{{ config.categories.algorithm.name }}</span>
+            <span class="category-count">({{ algorithm_posts.size }}개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          {% assign sorted_algorithm = algorithm_posts | sort: 'date' | reverse %}
+          {% for post in sorted_algorithm limit:5 %}
+            <li class="post-item">
+              <a href="{{ post.url | relative_url }}" class="post-link">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if algorithm_posts.size > 5 %}
+            <li class="more-posts">
+              <a href="{{ '/korean/categories/algorithm/' | relative_url }}" class="more-link">+ {{ algorithm_posts.size | minus: 5 }}개 더 보기</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    {% endif %}
+    
+    {% if ai_lab_posts.size > 0 %}
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="{{ '/korean/categories/ai_lab/' | relative_url }}" class="category-title-link">
+            <span class="category-icon">{{ config.categories.ai_lab.icon }}</span>
+            <span class="category-name">{{ config.categories.ai_lab.name }}</span>
+            <span class="category-count">({{ ai_lab_posts.size }}개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          {% assign sorted_ai_lab = ai_lab_posts | sort: 'date' | reverse %}
+          {% for post in sorted_ai_lab limit:5 %}
+            <li class="post-item">
+              <a href="{{ post.url | relative_url }}" class="post-link">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if ai_lab_posts.size > 5 %}
+            <li class="more-posts">
+              <a href="{{ '/korean/categories/ai_lab/' | relative_url }}" class="more-link">+ {{ ai_lab_posts.size | minus: 5 }}개 더 보기</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    {% endif %}
+    
     {% if automation_posts.size > 0 %}
       <div class="category-post-group">
         <h3 class="category-header">
@@ -203,62 +268,6 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
           {% if automation_posts.size > 5 %}
             <li class="more-posts">
               <a href="{{ '/korean/categories/automation/' | relative_url }}" class="more-link">+ {{ automation_posts.size | minus: 5 }}개 더 보기</a>
-            </li>
-          {% endif %}
-        </ul>
-      </div>
-    {% endif %}
-    
-    {% if ai_research_posts.size > 0 %}
-      <div class="category-post-group">
-        <h3 class="category-header">
-          <a href="{{ '/korean/categories/ai_research/' | relative_url }}" class="category-title-link">
-            <span class="category-icon">{{ config.categories.ai_research.icon }}</span>
-            <span class="category-name">{{ config.categories.ai_research.name }}</span>
-            <span class="category-count">({{ ai_research_posts.size }}개)</span>
-          </a>
-        </h3>
-        <ul class="post-list">
-          {% assign sorted_ai_research = ai_research_posts | sort: 'date' | reverse %}
-          {% for post in sorted_ai_research limit:5 %}
-            <li class="post-item">
-              <a href="{{ post.url | relative_url }}" class="post-link">
-                <span class="post-title">{{ post.title }}</span>
-                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
-              </a>
-            </li>
-          {% endfor %}
-          {% if ai_research_posts.size > 5 %}
-            <li class="more-posts">
-              <a href="{{ '/korean/categories/ai_research/' | relative_url }}" class="more-link">+ {{ ai_research_posts.size | minus: 5 }}개 더 보기</a>
-            </li>
-          {% endif %}
-        </ul>
-      </div>
-    {% endif %}
-    
-    {% if ai_practice_posts.size > 0 %}
-      <div class="category-post-group">
-        <h3 class="category-header">
-          <a href="{{ '/korean/categories/ai_practice/' | relative_url }}" class="category-title-link">
-            <span class="category-icon">{{ config.categories.ai_practice.icon }}</span>
-            <span class="category-name">{{ config.categories.ai_practice.name }}</span>
-            <span class="category-count">({{ ai_practice_posts.size }}개)</span>
-          </a>
-        </h3>
-        <ul class="post-list">
-          {% assign sorted_ai_practice = ai_practice_posts | sort: 'date' | reverse %}
-          {% for post in sorted_ai_practice limit:5 %}
-            <li class="post-item">
-              <a href="{{ post.url | relative_url }}" class="post-link">
-                <span class="post-title">{{ post.title }}</span>
-                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
-              </a>
-            </li>
-          {% endfor %}
-          {% if ai_practice_posts.size > 5 %}
-            <li class="more-posts">
-              <a href="{{ '/korean/categories/ai_practice/' | relative_url }}" class="more-link">+ {{ ai_practice_posts.size | minus: 5 }}개 더 보기</a>
             </li>
           {% endif %}
         </ul>
@@ -376,12 +385,41 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
         </ul>
       </div>
     {% endif %}
+    
+    {% if dev_life_posts.size > 0 %}
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="{{ '/korean/categories/dev_life/' | relative_url }}" class="category-title-link">
+            <span class="category-icon">{{ config.categories.dev_life.icon }}</span>
+            <span class="category-name">{{ config.categories.dev_life.name }}</span>
+            <span class="category-count">({{ dev_life_posts.size }}개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          {% assign sorted_dev_life = dev_life_posts | sort: 'date' | reverse %}
+          {% for post in sorted_dev_life limit:5 %}
+            <li class="post-item">
+              <a href="{{ post.url | relative_url }}" class="post-link">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date: "%m/%d" }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if dev_life_posts.size > 5 %}
+            <li class="more-posts">
+              <a href="{{ '/korean/categories/dev_life/' | relative_url }}" class="more-link">+ {{ dev_life_posts.size | minus: 5 }}개 더 보기</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    {% endif %}
   </div>
 </div>
 
 <!-- 최근 포스트 섹션 -->
 {% if all_korean_posts.size > 0 %}
-<div class="recent-posts-section" style="margin-bottom: 60px; padding: 30px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 15px;">
+<div class="recent-posts-section" style="margin-bottom: 60px; padding: 30px; background: linear-gradient
+135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 15px;">
   <h2 style="text-align: center; margin-bottom: 30px;">🕒 최근 포스트</h2>
   <div class="posts-grid">
     {% assign sorted_posts = all_korean_posts | sort: 'date' | reverse %}
@@ -412,9 +450,9 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
 <!-- 카테고리별 포스트 섹션 -->
 <div class="categories-container">
 {% comment %} 각 카테고리 섹션 표시 {% endcomment %}
-{% if tech_trends_posts.size > 0 %}
-  <div id="tech_trends_section">
-    {% include category-section.html posts=tech_trends_posts category_key='tech_trends' config=config %}
+{% if tech_analysis_posts.size > 0 %}
+  <div id="tech_analysis_section">
+    {% include category-section.html posts=tech_analysis_posts category_key='tech_analysis' config=config %}
   </div>
 {% endif %}
 {% if ai_news_posts.size > 0 %}
@@ -422,51 +460,46 @@ description: "한국어 기술 블로그 포스트를 카테고리별로 정리�
     {% include category-section.html posts=ai_news_posts category_key='ai_news' config=config %}
   </div>
 {% endif %}
+{% if algorithm_posts.size > 0 %}
+  <div id="algorithm_section">
+    {% include category-section.html posts=algorithm_posts category_key='algorithm' config=config %}
+  </div>
+{% endif %}
+{% if ai_lab_posts.size > 0 %}
+  <div id="ai_lab_section">
+    {% include category-section.html posts=ai_lab_posts category_key='ai_lab' config=config %}
+  </div>
+{% endif %}
 {% if automation_posts.size > 0 %}
   <div id="automation_section">
     {% include category-section.html posts=automation_posts category_key='automation' config=config %}
   </div>
 {% endif %}
-{% if ai_research_posts.size > 0 %}
-  <div id="ai_research_section">
-    {% include category-section.html posts=ai_research_posts category_key='ai_research' config=config %}
-  </div>
-{% endif %}
-
-{% if ai_practice_posts.size > 0 %}
-  <div id="ai_practice_section">
-    {% include category-section.html posts=ai_practice_posts category_key='ai_practice' config=config %}
-  </div>
-{% endif %}
-
 {% if programming_posts.size > 0 %}
   <div id="programming_section">
     {% include category-section.html posts=programming_posts category_key='programming' config=config %}
   </div>
 {% endif %}
-
 {% if study_posts.size > 0 %}
   <div id="study_section">
     {% include category-section.html posts=study_posts category_key='study' config=config %}
   </div>
 {% endif %}
-
 {% if project_posts.size > 0 %}
   <div id="project_section">
     {% include category-section.html posts=project_posts category_key='project' config=config %}
   </div>
 {% endif %}
-
 {% if startup_posts.size > 0 %}
   <div id="startup_section">
     {% include category-section.html posts=startup_posts category_key='startup' config=config %}
   </div>
 {% endif %}
-
-{% if other_posts.size > 0 %}
-  {% include category-section.html posts=other_posts category_key='other' config=config %}
+{% if dev_life_posts.size > 0 %}
+  <div id="dev_life_section">
+    {% include category-section.html posts=dev_life_posts category_key='dev_life' config=config %}
+  </div>
 {% endif %}
-
 </div>
 
 <!-- 네비게이션 버튼 -->
