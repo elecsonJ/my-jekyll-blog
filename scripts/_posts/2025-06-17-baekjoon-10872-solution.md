@@ -2,7 +2,7 @@
 categories:
 - algorithm
 - baekjoon
-date: 2025-06-17 01:03:13 +0900
+date: 2025-06-17 04:33:19 +0900
 description: 백준 10872번 팩토리얼 문제의 해결 방법과 코드를 설명합니다.
 difficulty: Bronze V
 layout: post
