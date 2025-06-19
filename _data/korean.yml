@@ -1,89 +1,55 @@
-# 한국어 설정 (엔드라이터가 카테고리 구성하고 클로드가 관리)
-title: "한국어 포스트"
-description: "한국어 기술 블로그 포스트를 카테고리별로 정리한 페이지입니다"
-language: "ko"
-
-# 명확하고 부분별 카테고리 설정 (중복 문제 해결)
 categories:
+  ai_news:
+    name: "AI뉴스분석"
+    icon: "🤖"
+    description: "최신 AI 기술 동향, 업계 뉴스, 정책 변화 분석"
+  
   tech_analysis:
     name: "기술시장분석"
-    description: "기술 기업 분석, 시장 동향, 투자 관점, 트레이딩 전략"
-    icon: "📈"
-    keywords: ["tech-analysis", "market-analysis", "investment", "trading", "company-analysis"]
-    
-  ai_news:
-    name: "AI동향"
-    description: "AI 모델 출시, AI 기술 발표, AI 업계 소식 및 동향"
-    icon: "🤖"
-    keywords: ["ai-news", "ai-models", "ai-industry", "ai-updates"]
-    
-  algorithm:
-    name: "알고리즘"
-    description: "알고리즘 문제 풀이, 자료구조, 코딩테스트, 최적화 기법"
-    icon: "🧮"
-    keywords: ["algorithm", "data-structure", "coding-test", "problem-solving"]
-    
+    icon: "📊"
+    description: "기업 분석, 시장 동향, 트레이딩 전략, 기술 트렌드 분석"
+  
   ai_lab:
     name: "AI연구실습"
-    description: "AI 연구, 논문 리뷰, 모델 구현, AI 프로젝트"
-    icon: "🧪"
-    keywords: ["ai-research", "ai-practice", "machine-learning", "deep-learning", "ai-papers"]
-    
+    icon: "🔬"
+    description: "AI 논문 리뷰, 모델 구현, 연구 프로젝트, 실험 결과"
+  
+  algorithm:
+    name: "알고리즘"
+    icon: "🧮"
+    description: "알고리즘 문제 풀이, 코딩 테스트, 자료구조"
+  
   automation:
-    name: "자동화프로젝트"
-    description: "Jekyll, GitHub Actions, Claude MCP 등 자동화 프로젝트"
-    icon: "⚙️"
-    keywords: ["automation", "mcp", "jekyll", "github-actions", "workflow"]
-    
+    name: "자동화도구"
+    icon: "⚡"
+    description: "업무 자동화, 스크립트, 도구 개발, 생산성 향상"
+  
   programming:
     name: "프로그래밍"
-    description: "프로그래밍 언어, 개발 도구, 코딩 기법, 소프트웨어 개발"
     icon: "💻"
-    keywords: ["programming", "coding", "development", "software-engineering"]
-    
-  study:
-    name: "학습노트"
-    description: "컴퓨터과학 학습 과정과 결과 정리"
-    icon: "📚"
-    keywords: ["study", "learning", "computer-science", "education", "math", "statistics"]
-    
+    description: "프로그래밍 언어, 개발 방법론, 코드 최적화"
+  
   project:
     name: "프로젝트"
-    description: "개인 프로젝트와 포트폴리오 소개자료"
     icon: "🚀"
-    keywords: ["project", "portfolio", "personal-project"]
-    
-  startup:
-    name: "창업"
-    description: "기술 창업 관련 인사이트와 경험"
-    icon: "💡"
-    keywords: ["startup", "business", "entrepreneurship"]
-    
-  dev_life:
-    name: "개발일상"
-    description: "개발자 일상, 경험담, 생각 정리, 업계 관찰"
-    icon: "💭"
-    keywords: ["dev-life", "thoughts", "experience", "reflection"]
-
-# UI 텍스트
-ui:
-  posts_count: "개"
-  view_all: "전체 {{count}}개 포스트 보기"
-  category_summary: "카테고리 요약"
-  navigation: "내비게이션"
-  home: "🏠 메인페이지"
-  english_posts: "English Posts ➡"
-  all_categories: "전체 카테고리"
+    description: "개인/팀 프로젝트, 오픈소스 기여, 포트폴리오"
   
-# 카테고리 우선순위 (겹치는 태그가 있을 때 우선순위가 높은 것으로 분류될 수 있도록)
-category_priority:
-  - "tech_analysis"
-  - "ai_news"
-  - "algorithm"
-  - "ai_lab"
-  - "automation"
-  - "programming"
-  - "study"
-  - "project"
-  - "startup"
-  - "dev_life"
+  startup:
+    name: "창업아이디어"
+    icon: "💡"
+    description: "창업 아이디어, 비즈니스 모델, 스타트업 생태계"
+  
+  dev_life:
+    name: "개발자일상"
+    icon: "☕"
+    description: "개발자 문화, 일상, 회고, 성장 이야기"
+  
+  study:
+    name: "학습기록"
+    icon: "📚"
+    description: "공부 기록, 강의 정리, 책 리뷰, 학습 노트"
+  
+  other:
+    name: "기타"
+    icon: "📋"
+    description: "카테고리에 속하지 않는 다양한 주제의 이야기"
