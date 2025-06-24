@@ -185,86 +185,19 @@ layout: default
   </div>
 
   <!-- 카테고리별 포스트 필터링 -->
-  {% comment %} 언어 설정 로직 {% endcomment %}
-  {% assign config = site.data.korean %}
-  
-  {% comment %} 직접 한국어 포스트 필터링 - include의 변수 스코프 제한 피하기 {% endcomment %}
-  {% assign korean_posts = site.posts | where: "lang", "ko" %}
-  
-  {% comment %} 추가 한국어 포스트 필터링 - 파일명에 korean이 있거나 categories에 korean-posts가 있는 경우 {% endcomment %}
-  {% assign additional_korean_posts = "" | split: "" %}
-  {% for post in site.posts %}
-    {% unless post.lang == "ko" %}
-      {% if post.name contains 'korean' or post.categories contains 'korean-posts' %}
-        {% assign additional_korean_posts = additional_korean_posts | push: post %}
-      {% endif %}
-    {% endunless %}
-  {% endfor %}
-  
-  {% comment %} 모든 한국어 포스트 통합 {% endcomment %}
-  {% assign all_korean_posts = korean_posts | concat: additional_korean_posts | uniq %}
-  
-  {% comment %} 카테고리별 포스트 분류 로직 - korean.markdown과 동일하게 {% endcomment %}
   {% assign category_posts = "" | split: "" %}
-  
-  {% for post in all_korean_posts %}
-    {% assign is_categorized = false %}
-    
-    {% if page.category_key == "tech_analysis" %}
-      {% if post.categories contains 'tech_analysis' or post.categories contains 'tech-analysis' or post.categories contains 'tech_trends' or post.categories contains 'tech-trends' %}
+  {% for post in site.posts %}
+    {% if post.lang == "ko" or post.language == "korean" or post.categories contains "korean-posts" or post.name contains "korean" %}
+      {% if post.categories contains page.category_key %}
         {% assign category_posts = category_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endif %}
-    {% elsif page.category_key == "ai_news" %}
-      {% if post.categories contains 'ai_news' or post.categories contains 'ai-news' %}
+      {% elsif page.category_key == "tech_analysis" and post.categories contains "tech_trends" %}
+        <!-- tech_trends -> tech_analysis 마이그레이션 -->
         {% assign category_posts = category_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endif %}
-    {% elsif page.category_key == "algorithm" %}
-      {% if post.categories contains 'algorithm' %}
-        {% assign category_posts = category_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endif %}
-    {% elsif page.category_key == "ai_lab" %}
-      {% if post.categories contains 'ai_lab' or post.categories contains 'ai-lab' or post.categories contains 'ai-research' or post.categories contains 'ai-practice' %}
-        {% assign category_posts = category_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endif %}
-      {% unless is_categorized %}
-        {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' %}
+      {% elsif page.category_key == "ai_lab" %}
+        <!-- ai_research, ai_practice -> ai_lab 통합 -->
+        {% if post.categories contains "ai_research" or post.categories contains "ai_practice" %}
           {% assign category_posts = category_posts | push: post %}
-          {% assign is_categorized = true %}
         {% endif %}
-      {% endunless %}
-    {% elsif page.category_key == "automation" %}
-      {% if post.categories contains 'mcp' or post.categories contains 'automation' or post.categories contains 'jekyll' or post.categories contains 'github-actions' %}
-        {% assign category_posts = category_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endif %}
-    {% elsif page.category_key == "programming" %}
-      {% if post.categories contains 'programming' or post.categories contains 'tech' or post.categories contains 'coding' or post.categories contains 'development' or post.categories contains 'software-engineering' %}
-        {% assign category_posts = category_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endif %}
-    {% elsif page.category_key == "study" %}
-      {% if post.categories contains 'study' or post.categories contains 'learning' or post.categories contains 'education' or post.categories contains 'computer-science' %}
-        {% assign category_posts = category_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endif %}
-    {% elsif page.category_key == "project" %}
-      {% if post.categories contains 'project' or post.categories contains 'portfolio' or post.categories contains 'personal-project' %}
-        {% assign category_posts = category_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endif %}
-    {% elsif page.category_key == "startup" %}
-      {% if post.categories contains 'startup' or post.categories contains 'business' or post.categories contains 'entrepreneurship' %}
-        {% assign category_posts = category_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endif %}
-    {% elsif page.category_key == "dev_life" %}
-      {% if post.categories contains 'dev_life' or post.categories contains 'dev-life' or post.categories contains 'thoughts' %}
-        {% assign category_posts = category_posts | push: post %}
-        {% assign is_categorized = true %}
       {% endif %}
     {% endif %}
   {% endfor %}
