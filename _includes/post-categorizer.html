@@ -53,39 +53,56 @@
 {% endfor %}
 
 {% comment %} 각각의 분류된 카테고리별 분류 {% endcomment %}
-{% assign tech_trends_posts = "" | split: "" %}
+{% assign tech_analysis_posts = "" | split: "" %}
 {% assign ai_news_posts = "" | split: "" %}
+{% assign algorithm_posts = "" | split: "" %}
+{% assign ai_lab_posts = "" | split: "" %}
 {% assign automation_posts = "" | split: "" %}
-{% assign ai_research_posts = "" | split: "" %}
-{% assign ai_practice_posts = "" | split: "" %}
 {% assign programming_posts = "" | split: "" %}
 {% assign study_posts = "" | split: "" %}
 {% assign project_posts = "" | split: "" %}
 {% assign startup_posts = "" | split: "" %}
+{% assign dev_life_posts = "" | split: "" %}
 {% assign other_posts = "" | split: "" %}
 
 {% for post in language_posts %}
   {% assign is_categorized = false %}
   
-  {% comment %} 1. AI 뉴스 (최우선 - AI 관련 뉴스와 정보) {% endcomment %}
-  {% if post.categories contains 'ai-news' or post.categories contains 'ai-industry-news' or post.categories contains 'ai-tech-news' or post.categories contains 'artificial-intelligence-news' or post.title contains 'AI 뉴스' or post.title contains 'AI News' %}
-    <!-- 🤖📰 AI_NEWS: "{{ post.title }}" -->
-    {% assign ai_news_posts = ai_news_posts | push: post %}
+  {% comment %} 1. 기술시장분석 (tech_analysis) {% endcomment %}
+  {% if post.categories contains 'tech_analysis' or post.categories contains 'tech-analysis' %}
+    <!-- 📈 TECH_ANALYSIS: "{{ post.title }}" -->
+    {% assign tech_analysis_posts = tech_analysis_posts | push: post %}
     {% assign is_categorized = true %}
   {% endif %}
   
-  {% comment %} 2. 기술트렌드 (AI 제외한 일반 기술 뉴스) {% endcomment %}
+  {% comment %} 2. AI뉴스분석 (ai_news) - 여러 변형 포함 {% endcomment %}
   {% unless is_categorized %}
-    {% if post.categories contains 'tech_trends' or post.categories contains 'tech-news-analysis' or post.categories contains 'news-analysis' or post.categories contains 'industry-analysis' or post.categories contains 'market-trends' %}
-      {% unless post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' %}
-        <!-- 🔧 TECH_TRENDS: "{{ post.title }}" -->
-        {% assign tech_trends_posts = tech_trends_posts | push: post %}
-        {% assign is_categorized = true %}
-      {% endunless %}
+    {% if post.categories contains 'ai_news' or post.categories contains 'ai-news' or post.categories contains 'tech-news-analysis' or post.categories contains 'ai-industry-news' or post.categories contains 'ai-tech-news' or post.categories contains 'artificial-intelligence-news' or post.title contains 'AI 뉴스' or post.title contains 'AI News' %}
+      <!-- 🤖📰 AI_NEWS: "{{ post.title }}" -->
+      {% assign ai_news_posts = ai_news_posts | push: post %}
+      {% assign is_categorized = true %}
     {% endif %}
   {% endunless %}
   
-  {% comment %} 3. 자동화 {% endcomment %}
+  {% comment %} 3. 알고리즘 (algorithm) {% endcomment %}
+  {% unless is_categorized %}
+    {% if post.categories contains 'algorithm' %}
+      <!-- 💻 ALGORITHM: "{{ post.title }}" -->
+      {% assign algorithm_posts = algorithm_posts | push: post %}
+      {% assign is_categorized = true %}
+    {% endif %}
+  {% endunless %}
+  
+  {% comment %} 4. AI연구실습 (ai_lab) - ai_research와 ai_practice 통합 {% endcomment %}
+  {% unless is_categorized %}
+    {% if post.categories contains 'ai_lab' or post.categories contains 'ai-lab' or post.categories contains 'ai-research' or post.categories contains 'ai-practice' or post.categories contains 'machine-learning-theory' or post.categories contains 'deep-learning-theory' or post.categories contains 'ai-theory' or post.categories contains 'ai-papers' %}
+      <!-- 🧠 AI_LAB: "{{ post.title }}" -->
+      {% assign ai_lab_posts = ai_lab_posts | push: post %}
+      {% assign is_categorized = true %}
+    {% endif %}
+  {% endunless %}
+  
+  {% comment %} 5. 자동화 (automation) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'mcp' or post.categories contains 'automation' or post.categories contains 'jekyll' or post.categories contains 'github-actions' %}
       <!-- ⚙️ AUTOMATION: "{{ post.title }}" -->
@@ -94,34 +111,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 4. AI 연구 (이론, 논문, 연구) {% endcomment %}
-  {% unless is_categorized %}
-    {% if post.categories contains 'ai-research' or post.categories contains 'machine-learning-theory' or post.categories contains 'deep-learning-theory' or post.categories contains 'ai-theory' or post.categories contains 'ai-papers' %}
-      <!-- 🧠 AI_RESEARCH: "{{ post.title }}" -->
-      {% assign ai_research_posts = ai_research_posts | push: post %}
-      {% assign is_categorized = true %}
-    {% endif %}
-  {% endunless %}
-  
-  {% comment %} 5. AI 실습 (구현, 튜토리얼, 실습) {% endcomment %}
-  {% unless is_categorized %}
-    {% if post.categories contains 'ai-practice' or post.categories contains 'ai-tutorial' or post.categories contains 'model-implementation' or post.categories contains 'ai-coding' %}
-      <!-- 🤖 AI_PRACTICE: "{{ post.title }}" -->
-      {% assign ai_practice_posts = ai_practice_posts | push: post %}
-      {% assign is_categorized = true %}
-    {% endif %}
-  {% endunless %}
-  
-  {% comment %} 6. 최종적인 넓은 AI 포스트 (전반적 기본 실습으로 분류) {% endcomment %}
-  {% unless is_categorized %}
-    {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
-      <!-- 🤖 AI_PRACTICE (전반적): "{{ post.title }}" -->
-      {% assign ai_practice_posts = ai_practice_posts | push: post %}
-      {% assign is_categorized = true %}
-    {% endif %}
-  {% endunless %}
-  
-  {% comment %} 7. 프로그래밍 (기존 tech 카테고리를 programming으로 통합) {% endcomment %}
+  {% comment %} 6. 프로그래밍 (programming) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'programming' or post.categories contains 'tech' or post.categories contains 'coding' or post.categories contains 'development' or post.categories contains 'software-engineering' %}
       <!-- 💻 PROGRAMMING: "{{ post.title }}" -->
@@ -130,7 +120,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 8. 학습 {% endcomment %}
+  {% comment %} 7. 학습 (study) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'study' or post.categories contains 'learning' or post.categories contains 'education' or post.categories contains 'computer-science' %}
       <!-- 📖 STUDY: "{{ post.title }}" -->
@@ -139,7 +129,7 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 9. 프로젝트 {% endcomment %}
+  {% comment %} 8. 프로젝트 (project) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'project' or post.categories contains 'portfolio' or post.categories contains 'personal-project' %}
       <!-- 🚀 PROJECT: "{{ post.title }}" -->
@@ -148,11 +138,39 @@
     {% endif %}
   {% endunless %}
   
-  {% comment %} 10. 창업 {% endcomment %}
+  {% comment %} 9. 창업 (startup) {% endcomment %}
   {% unless is_categorized %}
     {% if post.categories contains 'startup' or post.categories contains 'business' or post.categories contains 'entrepreneurship' %}
       <!-- 💼 STARTUP: "{{ post.title }}" -->
       {% assign startup_posts = startup_posts | push: post %}
+      {% assign is_categorized = true %}
+    {% endif %}
+  {% endunless %}
+  
+  {% comment %} 10. 개발일상 (dev_life) {% endcomment %}
+  {% unless is_categorized %}
+    {% if post.categories contains 'dev_life' or post.categories contains 'dev-life' or post.categories contains 'thoughts' %}
+      <!-- 🌟 DEV_LIFE: "{{ post.title }}" -->
+      {% assign dev_life_posts = dev_life_posts | push: post %}
+      {% assign is_categorized = true %}
+    {% endif %}
+  {% endunless %}
+  
+  {% comment %} 이전 카테고리 시스템 마이그레이션 {% endcomment %}
+  {% unless is_categorized %}
+    {% if post.categories contains 'tech_trends' or post.categories contains 'tech-trends' %}
+      {% unless post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' %}
+        <!-- 📈 TECH_TRENDS → TECH_ANALYSIS: "{{ post.title }}" -->
+        {% assign tech_analysis_posts = tech_analysis_posts | push: post %}
+        {% assign is_categorized = true %}
+      {% endunless %}
+    {% endif %}
+  {% endunless %}
+  
+  {% unless is_categorized %}
+    {% if post.categories contains 'ai' or post.title contains 'AI' or post.title contains '인공지능' or post.title contains 'Artificial Intelligence' %}
+      <!-- 🤖 AI_LAB (전반적): "{{ post.title }}" -->
+      {% assign ai_lab_posts = ai_lab_posts | push: post %}
       {% assign is_categorized = true %}
     {% endif %}
   {% endunless %}
@@ -165,15 +183,16 @@
 {% endfor %}
 
 <!-- 🔢 DEBUG: 최종 카테고리별 포스트 수 -->
-<!-- 🔧 기술트렌드: {{ tech_trends_posts.size }}개 -->
+<!-- 📈 기술시장분석: {{ tech_analysis_posts.size }}개 -->
 <!-- 🤖📰 AI뉴스: {{ ai_news_posts.size }}개 -->
+<!-- 💻 알고리즘: {{ algorithm_posts.size }}개 -->
+<!-- 🧠 AI연구실습: {{ ai_lab_posts.size }}개 -->
 <!-- ⚙️ 자동화: {{ automation_posts.size }}개 -->
-<!-- 🧠 AI연구: {{ ai_research_posts.size }}개 -->
-<!-- 🤖 AI실습: {{ ai_practice_posts.size }}개 -->
 <!-- 💻 프로그래밍: {{ programming_posts.size }}개 -->
 <!-- 📖 학습: {{ study_posts.size }}개 -->
 <!-- 🚀 프로젝트: {{ project_posts.size }}개 -->
 <!-- 💼 창업: {{ startup_posts.size }}개 -->
+<!-- 🌟 개발일상: {{ dev_life_posts.size }}개 -->
 <!-- 📝 기타: {{ other_posts.size }}개 -->
-<!-- 🔢 총합: {{ tech_trends_posts.size | plus: ai_news_posts.size | plus: automation_posts.size | plus: ai_research_posts.size | plus: ai_practice_posts.size | plus: programming_posts.size | plus: study_posts.size | plus: project_posts.size | plus: startup_posts.size | plus: other_posts.size }}개 -->
+<!-- 🔢 총합: {{ tech_analysis_posts.size | plus: ai_news_posts.size | plus: algorithm_posts.size | plus: ai_lab_posts.size | plus: automation_posts.size | plus: programming_posts.size | plus: study_posts.size | plus: project_posts.size | plus: startup_posts.size | plus: dev_life_posts.size | plus: other_posts.size }}개 -->
 <!-- 🔍 DEBUG END -->
