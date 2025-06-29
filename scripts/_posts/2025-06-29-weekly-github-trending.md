@@ -2,7 +2,7 @@
 categories:
 - tech
 - github
-date: 2025-06-29 13:11:40 +0900
+date: 2025-06-29 13:21:31 +0900
 description: 이번 주 가장 주목받는 GitHub 오픈소스 프로젝트들을 소개합니다.
 layout: post
 tags:
@@ -31,13 +31,13 @@ None
 
 ### 2. [system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools)
 
-**언어:** None | **⭐ Stars:** 62,721
+**언어:** None | **⭐ Stars:** 62,727
 
 FULL v0, Cursor, Manus, Same.dev, Lovable, Devin, Replit Agent, Windsurf Agent, VSCode Agent, Dia Browser, Trae AI & Cluely (And other Open Sourced) System Prompts, Tools & AI Models.
 
 **주요 특징:**
 - 최근 주목받고 있는 None 프로젝트
-- 62,721개의 스타를 획득하며 빠른 성장세
+- 62,727개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
@@ -57,13 +57,13 @@ No fortress, purely open ground.  OpenManus is Coming.
 
 ### 4. [gemini-cli](https://github.com/google-gemini/gemini-cli)
 
-**언어:** TypeScript | **⭐ Stars:** 42,181
+**언어:** TypeScript | **⭐ Stars:** 42,198
 
 An open-source AI agent that brings the power of Gemini directly into your terminal.
 
 **주요 특징:**
 - 최근 주목받고 있는 TypeScript 프로젝트
-- 42,181개의 스타를 획득하며 빠른 성장세
+- 42,198개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
