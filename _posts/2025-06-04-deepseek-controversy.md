@@ -1,9 +1,10 @@
 ---
+layout: post
 title: "DeepSeek이 Google Gemini로 AI 모델 훈련? 최신 AI 업계 논란 분석"
-date: 2025-06-04 19:45:00
-categories: [ai_news, tech_analysis]
+date: 2025-06-04 19:45:00 +0900
+categories: [ai_news]
+tags: [AI, DeepSeek, Google, Gemini, 기술뉴스, 머신러닝, 중국AI]
 lang: ko
-tags: ["AI", "DeepSeek", "Google", "Gemini", "기술뉴스", "머신러닝", "중국AI"]
 description: "중국 AI 랩 DeepSeek이 Google Gemini를 이용해 최신 R1 모델을 훈련했을 가능성이 제기되며 AI 업계에 파장이 일고 있습니다."
 featured_image: "https://via.placeholder.com/800x400?text=DeepSeek+AI+Controversy"
 ---
