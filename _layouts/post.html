@@ -27,8 +27,39 @@ layout: default
     </div>
   </header>
 
+  <!-- 목차 자동 생성 -->
+  <div class="table-of-contents">
+    <h3>📋 목차</h3>
+    <div id="toc"></div>
+  </div>
+
   <div class="post-content">
     {{ content }}
+  </div>
+
+  <!-- 포스트 네비게이션 -->
+  <nav class="post-navigation">
+    {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}" class="nav-previous">
+        ← {{ page.previous.title | truncate: 30 }}
+      </a>
+    {% endif %}
+    
+    {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}" class="nav-next">
+        {{ page.next.title | truncate: 30 }} →
+      </a>
+    {% endif %}
+  </nav>
+
+  <!-- 소셜 공유 -->
+  <div class="social-share">
+    <h4>📢 이 글 공유하기</h4>
+    <div class="share-buttons">
+      <a href="#" onclick="shareToTwitter()" class="share-btn twitter">Twitter</a>
+      <a href="#" onclick="shareToFacebook()" class="share-btn facebook">Facebook</a>
+      <a href="#" onclick="copyUrl()" class="share-btn copy">링크 복사</a>
+    </div>
   </div>
 </article>
 
@@ -213,4 +244,292 @@ layout: default
     padding-left: 1.5em;
   }
 }
+
+/* 목차 스타일 */
+.table-of-contents {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 30px 0;
+}
+
+.table-of-contents h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #495057;
+}
+
+#toc {
+  line-height: 1.5;
+}
+
+#toc ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#toc ul ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+#toc li {
+  margin-bottom: 5px;
+}
+
+#toc a {
+  color: #007bff;
+  text-decoration: none;
+  padding: 3px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+#toc a:hover, #toc a.active {
+  background-color: #e9ecef;
+  color: #0056b3;
+}
+
+/* 포스트 네비게이션 스타일 */
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+  padding: 20px 0;
+  border-top: 1px solid #e1e4e8;
+  gap: 20px;
+}
+
+.nav-previous, .nav-next {
+  flex: 1;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #495057;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.nav-previous:hover, .nav-next:hover {
+  background: #e9ecef;
+  color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.nav-previous {
+  text-align: left;
+}
+
+.nav-next {
+  text-align: right;
+}
+
+/* 소셜 공유 스타일 */
+.social-share {
+  text-align: center;
+  margin: 30px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.social-share h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #495057;
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 0.9em;
+}
+
+.share-btn.twitter {
+  background: #1da1f2;
+  color: white;
+}
+
+.share-btn.twitter:hover {
+  background: #0d8bd9;
+  transform: translateY(-2px);
+}
+
+.share-btn.facebook {
+  background: #4267b2;
+  color: white;
+}
+
+.share-btn.facebook:hover {
+  background: #365899;
+  transform: translateY(-2px);
+}
+
+.share-btn.copy {
+  background: #28a745;
+  color: white;
+}
+
+.share-btn.copy:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+/* 모바일 반응형 - 새 기능들 */
+@media (max-width: 768px) {
+  .table-of-contents {
+    padding: 15px;
+    margin: 20px 0;
+  }
+  
+  .post-navigation {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nav-previous, .nav-next {
+    text-align: center;
+  }
+  
+  .share-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .share-btn {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-of-contents {
+    padding: 10px;
+  }
+  
+  .social-share {
+    padding: 15px;
+  }
+  
+  .share-btn {
+    width: 160px;
+    padding: 8px 16px;
+  }
+}
 </style>
+
+<script>
+// 목차 자동 생성
+document.addEventListener('DOMContentLoaded', function() {
+  generateTableOfContents();
+  setupSocialShare();
+  setupScrollSpy();
+});
+
+function generateTableOfContents() {
+  const toc = document.getElementById('toc');
+  const headers = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3');
+  
+  if (headers.length === 0) {
+    document.querySelector('.table-of-contents').style.display = 'none';
+    return;
+  }
+  
+  let tocHTML = '<ul>';
+  let currentLevel = 1;
+  
+  headers.forEach((header, index) => {
+    const level = parseInt(header.tagName.substring(1));
+    const id = 'heading-' + index;
+    header.id = id;
+    
+    const text = header.textContent;
+    
+    if (level > currentLevel) {
+      tocHTML += '<ul>'.repeat(level - currentLevel);
+    } else if (level < currentLevel) {
+      tocHTML += '</ul>'.repeat(currentLevel - level);
+    }
+    
+    tocHTML += `<li><a href="#${id}" class="toc-link">${text}</a></li>`;
+    currentLevel = level;
+  });
+  
+  tocHTML += '</ul>'.repeat(currentLevel);
+  toc.innerHTML = tocHTML;
+}
+
+// 스크롤 스파이 기능
+function setupScrollSpy() {
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const headers = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3');
+  
+  window.addEventListener('scroll', function() {
+    let currentActive = '';
+    
+    headers.forEach(header => {
+      const rect = header.getBoundingClientRect();
+      if (rect.top <= 100) {
+        currentActive = header.id;
+      }
+    });
+    
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + currentActive) {
+        link.classList.add('active');
+      }
+    });
+  });
+}
+
+// 소셜 공유 기능
+function setupSocialShare() {
+  const currentUrl = window.location.href;
+  const currentTitle = document.title;
+  
+  window.shareToTwitter = function() {
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(currentTitle)}&url=${encodeURIComponent(currentUrl)}`;
+    window.open(url, '_blank', 'width=550,height=420');
+  };
+  
+  window.shareToFacebook = function() {
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`;
+    window.open(url, '_blank', 'width=580,height=400');
+  };
+  
+  window.copyUrl = function() {
+    navigator.clipboard.writeText(currentUrl).then(function() {
+      const btn = document.querySelector('.share-btn.copy');
+      const originalText = btn.textContent;
+      btn.textContent = '복사 완료!';
+      btn.style.background = '#dc3545';
+      
+      setTimeout(function() {
+        btn.textContent = originalText;
+        btn.style.background = '#28a745';
+      }, 2000);
+    }).catch(function() {
+      alert('링크가 클립보드에 복사되었습니다: ' + currentUrl);
+    });
+  };
+}
+</script>
