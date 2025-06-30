@@ -1,0 +1,187 @@
+Configuration file: /Users/hanjaehoon/claude_playground/my-jekyll-blog/_config.yml
+            Source: /Users/hanjaehoon/claude_playground/my-jekyll-blog
+       Destination: /Users/hanjaehoon/claude_playground/my-jekyll-blog/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+[33m        Pagination: Pagination is enabled, but I couldn't find an index.html page to use as the pagination template. Skipping pagination.[0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/english/index.html[0m[0m
+[33m                     - english.markdown[0m
+[33m                     - english/index.md[0m
+[33m                    [0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/korean/index.html[0m[0m
+[33m                     - korean/index.md[0m
+[33m                     - korean.markdown[0m
+[33m                    [0m
+                    done in 1.422 seconds.
+ Auto-regeneration: enabled for '/Users/hanjaehoon/claude_playground/my-jekyll-blog'
+    Server address: http://127.0.0.1:4000/my-jekyll-blog/
+  Server running... press ctrl-c to stop.
+[2025-06-30 17:01:10] ERROR '/' not found.
+      Regenerating: 1 file(s) changed at 2025-06-30 17:03:11
+                    _layouts/default.html
+       Jekyll Feed: Generating feed for posts
+[33m        Pagination: Pagination is enabled, but I couldn't find an index.html page to use as the pagination template. Skipping pagination.[0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/english/index.html[0m[0m
+[33m                     - english.markdown[0m
+[33m                     - english/index.md[0m
+[33m                    [0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/korean/index.html[0m[0m
+[33m                     - korean/index.md[0m
+[33m                     - korean.markdown[0m
+[33m                    [0m
+                    ...done in 0.730633 seconds.
+                    
+      Regenerating: 2 file(s) changed at 2025-06-30 17:27:12
+                    _layouts/default.html
+                    jekyll.log
+       Jekyll Feed: Generating feed for posts
+[33m        Pagination: Pagination is enabled, but I couldn't find an index.html page to use as the pagination template. Skipping pagination.[0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/english/index.html[0m[0m
+[33m                     - english.markdown[0m
+[33m                     - english/index.md[0m
+[33m                    [0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/korean/index.html[0m[0m
+[33m                     - korean/index.md[0m
+[33m                     - korean.markdown[0m
+[33m                    [0m
+                    ...done in 0.258829 seconds.
+                    
+      Regenerating: 1 file(s) changed at 2025-06-30 17:52:17
+                    _posts/2025-06-18-ai-lab-test.md
+       Jekyll Feed: Generating feed for posts
+[33m        Pagination: Pagination is enabled, but I couldn't find an index.html page to use as the pagination template. Skipping pagination.[0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/english/index.html[0m[0m
+[33m                     - english.markdown[0m
+[33m                     - english/index.md[0m
+[33m                    [0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/korean/index.html[0m[0m
+[33m                     - korean/index.md[0m
+[33m                     - korean.markdown[0m
+[33m                    [0m
+                    ...done in 0.282147 seconds.
+                    
+      Regenerating: 1 file(s) changed at 2025-06-30 17:52:31
+                    _posts/2025-06-18-ai-news-test-korean.md
+       Jekyll Feed: Generating feed for posts
+[33m        Pagination: Pagination is enabled, but I couldn't find an index.html page to use as the pagination template. Skipping pagination.[0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/english/index.html[0m[0m
+[33m                     - english.markdown[0m
+[33m                     - english/index.md[0m
+[33m                    [0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/korean/index.html[0m[0m
+[33m                     - korean/index.md[0m
+[33m                     - korean.markdown[0m
+[33m                    [0m
+                    ...done in 0.257881 seconds.
+                    
+      Regenerating: 1 file(s) changed at 2025-06-30 17:52:34
+                    _posts/2025-06-11-korean-blog-automation-test.md
+       Jekyll Feed: Generating feed for posts
+[33m        Pagination: Pagination is enabled, but I couldn't find an index.html page to use as the pagination template. Skipping pagination.[0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/english/index.html[0m[0m
+[33m                     - english.markdown[0m
+[33m                     - english/index.md[0m
+[33m                    [0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/korean/index.html[0m[0m
+[33m                     - korean/index.md[0m
+[33m                     - korean.markdown[0m
+[33m                    [0m
+                    ...done in 0.248889 seconds.
+                    
+      Regenerating: 1 file(s) changed at 2025-06-30 17:52:36
+                    _posts/2025-06-04-deployment-test.md
+       Jekyll Feed: Generating feed for posts
+[33m        Pagination: Pagination is enabled, but I couldn't find an index.html page to use as the pagination template. Skipping pagination.[0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/english/index.html[0m[0m
+[33m                     - english.markdown[0m
+[33m                     - english/index.md[0m
+[33m                    [0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/korean/index.html[0m[0m
+[33m                     - korean/index.md[0m
+[33m                     - korean.markdown[0m
+[33m                    [0m
+                    ...done in 0.225886 seconds.
+                    
+      Regenerating: 1 file(s) changed at 2025-06-30 17:52:38
+                    _posts/2025-06-18-ai-news-test.md
+       Jekyll Feed: Generating feed for posts
+[33m        Pagination: Pagination is enabled, but I couldn't find an index.html page to use as the pagination template. Skipping pagination.[0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/english/index.html[0m[0m
+[33m                     - english.markdown[0m
+[33m                     - english/index.md[0m
+[33m                    [0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/korean/index.html[0m[0m
+[33m                     - korean/index.md[0m
+[33m                     - korean.markdown[0m
+[33m                    [0m
+                    ...done in 0.226837 seconds.
+                    
+      Regenerating: 1 file(s) changed at 2025-06-30 17:52:40
+                    _posts/2025-06-18-tech-analysis-test.md
+       Jekyll Feed: Generating feed for posts
+[33m        Pagination: Pagination is enabled, but I couldn't find an index.html page to use as the pagination template. Skipping pagination.[0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/english/index.html[0m[0m
+[33m                     - english.markdown[0m
+[33m                     - english/index.md[0m
+[33m                    [0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/korean/index.html[0m[0m
+[33m                     - korean/index.md[0m
+[33m                     - korean.markdown[0m
+[33m                    [0m
+                    ...done in 0.226781 seconds.
+                    
+      Regenerating: 1 file(s) changed at 2025-06-30 17:52:48
+                    _posts/2025-06-18-tech-trends-test.md
+       Jekyll Feed: Generating feed for posts
+[33m        Pagination: Pagination is enabled, but I couldn't find an index.html page to use as the pagination template. Skipping pagination.[0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/english/index.html[0m[0m
+[33m                     - english.markdown[0m
+[33m                     - english/index.md[0m
+[33m                    [0m
+[33m          Conflict: The following destination is shared by multiple files.[0m
+[33m                    The written file may end up with unexpected contents.[0m
+[33m                    [36m/Users/hanjaehoon/claude_playground/my-jekyll-blog/_site/korean/index.html[0m[0m
+[33m                     - korean/index.md[0m
+[33m                     - korean.markdown[0m
+[33m                    [0m
+                    ...done in 0.248436 seconds.
+                    
