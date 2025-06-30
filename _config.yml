@@ -59,7 +59,7 @@ google_analytics:  # Google Analytics 차후 ID (GA4 형식: G-XXXXXXXXXX)
 site_keywords: "AI, 자동화, Jekyll, GitHub Actions, 서울시립대학교, 컴퓨터과학, 기술데이터, Claude MCP, Python, 블로그, 블로그자동화"
 
 # 페이지 설정
-paginate: 5
+paginate: 10
 paginate_path: "/page:num/"
 
 # 콘텐츠 설정
