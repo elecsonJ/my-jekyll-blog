@@ -45,7 +45,7 @@ description: "AI, 자동화, Jekyll을 활용한 기술 블로그"
 <div class="recent-posts" style="margin: 30px 0;">
   <h2>📝 Latest Posts / 최신 글</h2>
   
-  {% assign recent_posts = site.posts | limit: 4 %}
+  {% assign recent_posts = site.posts | limit: 10 %}
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
     {% for post in recent_posts %}
       <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
