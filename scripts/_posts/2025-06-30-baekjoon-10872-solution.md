@@ -2,37 +2,39 @@
 categories:
 - algorithm
 - baekjoon
-date: 2025-06-29 16:00:56 +0900
-description: 백준 2753번 윤년 문제의 해결 방법과 코드를 설명합니다.
+date: 2025-06-30 01:07:46 +0900
+description: 백준 10872번 팩토리얼 문제의 해결 방법과 코드를 설명합니다.
 difficulty: Bronze V
 layout: post
-problem_number: 2753
+problem_number: 10872
 tags:
 - 백준
 - algorithm
 - problem-solving
+- 수학
 - 구현
-- 조건문
-title: '[백준 2753] 윤년 - Bronze V'
+- 재귀
+title: '[백준 10872] 팩토리얼 - Bronze V'
 ---
 
 # 문제 정보
 
-- **문제 번호**: 2753
-- **문제 이름**: 윤년
+- **문제 번호**: 10872
+- **문제 이름**: 팩토리얼
 - **난이도**: Bronze V
-- **알고리즘**: 구현, 조건문
+- **알고리즘**: 수학, 구현, 재귀
 
 ## 📋 문제 설명
 
-연도가 윤년인지 판별하는 문제입니다. 4로 나누어지고 100으로 나누어지지 않거나, 400으로 나누어지면 윤년입니다.
+N!을 구하는 문제입니다. 재귀 또는 반복문을 사용하여 해결할 수 있습니다.
 
 ## 💡 접근 방법
 
 이 문제의 핵심은 다음과 같습니다:
 
 - **구현**: 문제에서 요구하는 조건을 정확히 코드로 구현하는 것이 중요합니다.
-- **조건문**: 주어진 조건에 따라 올바른 분기 처리를 해야 합니다.
+- **재귀**: 문제를 더 작은 단위로 나누어 해결하는 재귀적 사고가 필요합니다.
+- **수학**: 수학적 공식이나 법칙을 활용하여 효율적으로 해결할 수 있습니다.
 
 
 ## 🔧 C++ 풀이
@@ -41,16 +43,15 @@ title: '[백준 2753] 윤년 - Bronze V'
 #include <iostream>
 using namespace std;
 
+int factorial(int n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}
+
 int main() {
-    int year;
-    cin >> year;
-    
-    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
-        cout << 1 << endl;
-    } else {
-        cout << 0 << endl;
-    }
-    
+    int n;
+    cin >> n;
+    cout << factorial(n) << endl;
     return 0;
 }
 ```
@@ -58,19 +59,20 @@ int main() {
 ## 🐍 Python 풀이
 
 ```python
-year = int(input())
+def factorial(n):
+    if n <= 1:
+        return 1
+    return n * factorial(n - 1)
 
-if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
-    print(1)
-else:
-    print(0)
+n = int(input())
+print(factorial(n))
 ```
 
 ## 📚 해설
 
 ### 알고리즘 분석
 
-이 문제는 **Bronze V** 난이도로, 주로 **구현** 개념을 다룹니다.
+이 문제는 **Bronze V** 난이도로, 주로 **수학** 개념을 다룹니다.
 
 ### 시간복잡도
 - **C++**: O(1) 또는 O(N) - 문제의 특성에 따라 다름
