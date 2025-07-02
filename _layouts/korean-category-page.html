@@ -153,6 +153,64 @@ layout: default
   text-decoration: none;
 }
 
+/* 페이지네이션 스타일 */
+.pagination-info {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: white;
+  font-size: 0.9em;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+}
+
+.pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white !important;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  gap: 8px;
+}
+
+.pagination-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  color: white !important;
+  text-decoration: none;
+}
+
+.pagination-btn.prev-btn:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+.pagination-btn.next-btn:hover {
+  background: linear-gradient(135deg, #7d8cff 0%, #8957b4 100%);
+}
+
+.pagination-current {
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
   .posts-grid {
     grid-template-columns: 1fr;
@@ -170,6 +228,16 @@ layout: default
   .nav-button {
     display: block;
     margin: 10px 0;
+  }
+  
+  .pagination-controls {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .pagination-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 </style>
@@ -204,10 +272,17 @@ layout: default
 
   <!-- 포스트 카드 그리드 -->
   {% if category_posts.size > 0 %}
-    <div class="posts-grid">
-      {% assign sorted_posts = category_posts | sort: 'date' | reverse %}
+    {% assign sorted_posts = category_posts | sort: 'date' | reverse %}
+    
+    <!-- 페이지 정보 표시 (JavaScript로 업데이트됨) -->
+    <div class="pagination-info" id="pagination-info" style="display: none;">
+      <span id="pagination-text">페이지 1 / 1 (총 {{ sorted_posts.size }}개 포스트)</span>
+    </div>
+    
+    <!-- 포스트 그리드 -->
+    <div class="posts-grid" id="posts-grid">
       {% for post in sorted_posts %}
-        <article class="post-card" onclick="location.href='{{ post.url | relative_url }}'">
+        <article class="post-card" data-index="{{ forloop.index0 }}" onclick="location.href='{{ post.url | relative_url }}'">
           <h2 class="post-title">{{ post.title }}</h2>
           
           <div class="post-meta">
@@ -231,6 +306,19 @@ layout: default
           {% endif %}
         </article>
       {% endfor %}
+    </div>
+    
+    <!-- 페이지네이션 버튼 (JavaScript로 제어됨) -->
+    <div class="pagination-controls" id="pagination-controls" style="display: none;">
+      <button class="pagination-btn prev-btn" id="prev-btn">
+        <span>←</span> 이전
+      </button>
+      
+      <span class="pagination-current" id="pagination-current">1 / 1</span>
+      
+      <button class="pagination-btn next-btn" id="next-btn">
+        다음 <span>→</span>
+      </button>
     </div>
   {% else %}
     <div class="no-posts">
@@ -260,13 +348,159 @@ layout: default
 </div>
 
 <script>
-// 카드 클릭 시 부드러운 전환 효과
-document.querySelectorAll('.post-card').forEach(card => {
-  card.addEventListener('click', function(e) {
-    if (!e.target.closest('a')) {
-      const url = this.getAttribute('onclick').match(/'([^']+)'/)[1];
-      window.location.href = url;
+// 페이지네이션 설정
+const POSTS_PER_PAGE = 6;
+let currentPage = 1;
+let totalPosts = 0;
+let totalPages = 0;
+
+// URL 파라미터에서 페이지 번호 읽기
+function getCurrentPageFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return parseInt(urlParams.get('page')) || 1;
+}
+
+// URL 업데이트
+function updateURL(page) {
+  const url = new URL(window.location);
+  if (page === 1) {
+    url.searchParams.delete('page');
+  } else {
+    url.searchParams.set('page', page);
+  }
+  window.history.pushState({page: page}, '', url);
+}
+
+// 페이지네이션 정보 업데이트
+function updatePaginationInfo() {
+  const paginationText = document.getElementById('pagination-text');
+  const paginationCurrent = document.getElementById('pagination-current');
+  
+  if (paginationText) {
+    paginationText.textContent = `페이지 ${currentPage} / ${totalPages} (총 ${totalPosts}개 포스트)`;
+  }
+  
+  if (paginationCurrent) {
+    paginationCurrent.textContent = `${currentPage} / ${totalPages}`;
+  }
+}
+
+// 포스트 표시/숨김 처리
+function showPage(page) {
+  const postCards = document.querySelectorAll('.post-card');
+  const startIndex = (page - 1) * POSTS_PER_PAGE;
+  const endIndex = startIndex + POSTS_PER_PAGE;
+  
+  postCards.forEach((card, index) => {
+    if (index >= startIndex && index < endIndex) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
     }
   });
+  
+  currentPage = page;
+  updatePaginationInfo();
+  updateURL(page);
+  
+  // 버튼 상태 업데이트
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  
+  if (prevBtn) {
+    prevBtn.disabled = currentPage <= 1;
+    prevBtn.style.opacity = currentPage <= 1 ? '0.5' : '1';
+  }
+  
+  if (nextBtn) {
+    nextBtn.disabled = currentPage >= totalPages;
+    nextBtn.style.opacity = currentPage >= totalPages ? '0.5' : '1';
+  }
+  
+  // 부드러운 스크롤
+  const postsGrid = document.querySelector('.posts-grid');
+  if (postsGrid && page > 1) {
+    postsGrid.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+}
+
+// 페이지네이션 초기화
+function initializePagination() {
+  const postCards = document.querySelectorAll('.post-card');
+  totalPosts = postCards.length;
+  totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
+  currentPage = getCurrentPageFromURL();
+  
+  // 페이지가 범위를 벗어나면 1페이지로 설정
+  if (currentPage > totalPages) {
+    currentPage = 1;
+  }
+  
+  // 6개 이하면 페이지네이션 숨김
+  if (totalPosts <= POSTS_PER_PAGE) {
+    return;
+  }
+  
+  // 페이지네이션 UI 표시
+  const paginationInfo = document.getElementById('pagination-info');
+  const paginationControls = document.getElementById('pagination-controls');
+  
+  if (paginationInfo) {
+    paginationInfo.style.display = 'block';
+  }
+  
+  if (paginationControls) {
+    paginationControls.style.display = 'flex';
+  }
+  
+  // 첫 페이지 표시
+  showPage(currentPage);
+  
+  // 버튼 이벤트 리스너 추가
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      if (currentPage > 1) {
+        showPage(currentPage - 1);
+      }
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      if (currentPage < totalPages) {
+        showPage(currentPage + 1);
+      }
+    });
+  }
+}
+
+// 페이지 로드 시 초기화
+document.addEventListener('DOMContentLoaded', function() {
+  // 페이지네이션 초기화
+  initializePagination();
+  
+  // 카드 클릭 시 부드러운 전환 효과
+  document.querySelectorAll('.post-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (!e.target.closest('a') && !e.target.closest('button')) {
+        const url = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+        window.location.href = url;
+      }
+    });
+  });
+});
+
+// 브라우저 뒤로가기/앞으로가기 처리
+window.addEventListener('popstate', function(event) {
+  const page = getCurrentPageFromURL();
+  if (page !== currentPage) {
+    showPage(page);
+  }
 });
 </script>
