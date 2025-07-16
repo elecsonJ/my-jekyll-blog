@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>English Posts | 재훈의 AI 자동화 블로그</title>
+    <meta name="description" content="Tech blog posts in English for global readers">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="English Posts">
+    <meta property="og:description" content="Tech blog posts in English for global readers">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elecsonj.github.io/my-jekyll-blog/english/">
+    
+    <!-- Enhanced CSS for Better Readability -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+        line-height: 1.6; 
+        color: #333; 
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+      }
+      
+      .container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 0 20px;
+      }
+      
+      .site-header { 
+        background-color: #ffffff;
+        border-bottom: 1px solid #e1e4e8; 
+        margin-bottom: 30px; 
+        padding: 20px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .site-title { 
+        color: #0366d6; 
+        text-decoration: none; 
+        font-weight: bold; 
+        font-size: 1.5em;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      
+      .site-title:hover {
+        color: #0056b3;
+      }
+      
+      .site-nav { 
+        margin-top: 15px; 
+      }
+      
+      .site-nav a { 
+        margin-right: 25px; 
+        text-decoration: none; 
+        color: #0366d6;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+        display: inline-block;
+      }
+      
+      .site-nav a:hover {
+        background-color: #f1f8ff;
+        color: #0056b3;
+      }
+      
+      .page-content {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+      
+      .content-wrapper {
+        padding: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .site-footer { 
+        background-color: #f8f9fa;
+        border-top: 1px solid #e1e4e8; 
+        margin-top: 50px; 
+        padding: 30px 0; 
+        text-align: center; 
+        color: #666; 
+      }
+      
+      .site-footer p {
+        margin: 5px 0;
+      }
+      
+      /* 반응형 디자인 */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 15px;
+        }
+        
+        .content-wrapper {
+          padding: 20px;
+        }
+        
+        .site-nav a {
+          margin-right: 15px;
+          margin-bottom: 5px;
+          font-size: 0.9em;
+        }
+        
+        .site-title {
+          font-size: 1.3em;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 10px;
+        }
+        
+        .content-wrapper {
+          padding: 15px;
+        }
+        
+        .site-nav {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        
+        .site-nav a {
+          margin-right: 0;
+          flex: 1;
+          text-align: center;
+          min-width: calc(50% - 5px);
+        }
+      }
+      
+      /* 타이포그래피 개선 */
+      h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #2c3e50;
+      }
+      
+      h1 { font-size: 2.2em; }
+      h2 { font-size: 1.8em; }
+      h3 { font-size: 1.5em; }
+      
+      p {
+        margin-bottom: 1em;
+      }
+      
+      a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      code {
+        background-color: #f6f8fa;
+        border-radius: 3px;
+        padding: 2px 4px;
+        font-size: 0.9em;
+      }
+      
+      pre {
+        background-color: #f6f8fa;
+        border-radius: 6px;
+        padding: 16px;
+        overflow-x: auto;
+        line-height: 1.4;
+      }
+      
+      blockquote {
+        border-left: 4px solid #0366d6;
+        margin: 0;
+        padding-left: 20px;
+        color: #666;
+        font-style: italic;
+      }
+      
+      /* Latest Posts 10개 제한 - 안전장치 */
+      .recent-posts article:nth-child(n+11) {
+        display: none !important;
+      }
+      
+      /* 그리드 컨테이너에서 11번째 이후 article 숨기기 */
+      .recent-posts div[style*="grid"] > article:nth-child(n+11) {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="site-title" href="/my-jekyll-blog/">재훈의 AI 자동화 블로그</a>
+        
+        <nav class="site-nav">
+          <a href="/my-jekyll-blog/">Home</a>
+          <a href="/my-jekyll-blog/korean/">한국어</a>
+          <a href="/my-jekyll-blog/english/">English</a>
+          <a href="/my-jekyll-blog/categories/">Categories</a>
+          <a href="/my-jekyll-blog/about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <main class="page-content">
+        <div class="content-wrapper">
+          <article>
+  <header class="page-header">
+    <h1 class="page-title">English Posts</h1>
+    
+      <p class="page-description">Tech blog posts in English for global readers</p>
+    
+  </header>
+
+  <div class="page-body">
+    <h1 id="-english-posts">🇺🇸 English Posts</h1>
+
+<p>Welcome! Here you can find all the tech blog posts written in English.</p>
+
+<h2 id="-categories">📚 Categories</h2>
+
+<h3 id="️-technology-tech">🖥️ Technology (Tech)</h3>
+<p>AI, machine learning, web development and other technology-related posts</p>
+
+<h3 id="-artificial-intelligence-ai">🤖 Artificial Intelligence (AI)</h3>
+<p>AI research, machine learning studies and practical implementations</p>
+
+<h3 id="️-automation">⚙️ Automation</h3>
+<p>Jekyll, GitHub Actions, Claude MCP and other automation tools</p>
+
+<h3 id="-study">📖 Study</h3>
+<p>Computer science learning journey and experience sharing</p>
+
+<h3 id="-project">🚀 Project</h3>
+<p>Personal projects and portfolio showcases</p>
+
+<h3 id="-startup">💼 Startup</h3>
+<p>Technology startup insights and entrepreneurial experiences</p>
+
+<h3 id="-tech-news-analysis">📰 Tech News Analysis</h3>
+<p>Analysis of latest technology news and industry trends</p>
+
+<hr />
+
+<h2 id="-latest-english-posts">📝 Latest English Posts</h2>
+
+<div class="english-posts">
+
+
+
+
+
+
+  <div class="posts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
+    
+      <article class="post-preview" style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white; transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0;"><a href="/my-jekyll-blog/ai_research/2025/06/30/next-gen-ai-trends-english/" style="text-decoration: none; color: #333;">The Evolution of Next-Generation AI Models: Essential 2025 Trends for Developers</a></h3>
+        <p class="post-meta" style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time datetime="2025-06-30T00:00:00+09:00">June 30, 2025</time>
+          
+            <span class="categories">
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">ai_research</span>
+              
+            </span>
+          
+        </p>
+        
+          <p class="excerpt" style="color: #555; line-height: 1.5;">The Evolution of Next-Generation AI Models: Essential 2025 Trends for Developers
+
+In 2025, AI technology has moved far beyond simple text generatio...</p>
+        
+        <a href="/my-jekyll-blog/ai_research/2025/06/30/next-gen-ai-trends-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">Read more →</a>
+      </article>
+    
+      <article class="post-preview" style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white; transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0;"><a href="/my-jekyll-blog/ai_news/2025/06/10/ai-news-category-test-english/" style="text-decoration: none; color: #333;">Testing AI News Category - English Version</a></h3>
+        <p class="post-meta" style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time datetime="2025-06-10T10:00:00+09:00">June 10, 2025</time>
+          
+            <span class="categories">
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">ai_news</span>
+              
+            </span>
+          
+        </p>
+        
+          <p class="excerpt" style="color: #555; line-height: 1.5;">This is a test post for the AI News category in English.</p>
+        
+        <a href="/my-jekyll-blog/ai_news/2025/06/10/ai-news-category-test-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">Read more →</a>
+      </article>
+    
+      <article class="post-preview" style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white; transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0;"><a href="/my-jekyll-blog/ai/2025/06/06/ai-era-developer-guide-english/" style="text-decoration: none; color: #333;">What Skills Should Developers Learn in the AI Era?</a></h3>
+        <p class="post-meta" style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time datetime="2025-06-06T09:00:00+09:00">June 06, 2025</time>
+          
+            <span class="categories">
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">ai</span>
+              
+            </span>
+          
+        </p>
+        
+          <p class="excerpt" style="color: #555; line-height: 1.5;">A comprehensive analysis of changing developer roles, required competencies, and the philosophy computer science students should develop in the age...</p>
+        
+        <a href="/my-jekyll-blog/ai/2025/06/06/ai-era-developer-guide-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">Read more →</a>
+      </article>
+    
+      <article class="post-preview" style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white; transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0;"><a href="/my-jekyll-blog/tech-news-analysis/2025/06/05/baidu-ernie-open-source-strategy-english/" style="text-decoration: none; color: #333;">Baidu Ernie Model Open Source Strategy: Strategic Transformation and Global Impact of China's AI Market</a></h3>
+        <p class="post-meta" style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time datetime="2025-06-05T16:00:00+09:00">June 05, 2025</time>
+          
+            <span class="categories">
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">tech-news-analysis</span>
+              
+            </span>
+          
+        </p>
+        
+          <p class="excerpt" style="color: #555; line-height: 1.5;">Baidu Ernie Model Open Source Strategy: Strategic Transformation and Global Impact of China’s AI Market
+
+Introduction
+
+China’s largest search engin...</p>
+        
+        <a href="/my-jekyll-blog/tech-news-analysis/2025/06/05/baidu-ernie-open-source-strategy-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">Read more →</a>
+      </article>
+    
+      <article class="post-preview" style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white; transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0;"><a href="/my-jekyll-blog/tech-news-analysis/2025/06/05/reddit-anthropic-lawsuit-english/" style="text-decoration: none; color: #333;">Reddit vs Anthropic Lawsuit Analysis: New Frontline in AI Training Data and Copyright</a></h3>
+        <p class="post-meta" style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time datetime="2025-06-05T15:00:00+09:00">June 05, 2025</time>
+          
+            <span class="categories">
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">tech-news-analysis</span>
+              
+            </span>
+          
+        </p>
+        
+          <p class="excerpt" style="color: #555; line-height: 1.5;">Reddit has filed a lawsuit against Anthropic for unauthorized use of AI training data. This represents a crucial case highlighting the conflict bet...</p>
+        
+        <a href="/my-jekyll-blog/tech-news-analysis/2025/06/05/reddit-anthropic-lawsuit-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">Read more →</a>
+      </article>
+    
+      <article class="post-preview" style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white; transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0;"><a href="/my-jekyll-blog/tech_analysis/2025/06/05/apple-shortcuts-ai-evolution-english/" style="text-decoration: none; color: #333;">Apple Shortcuts AI Evolution: 8 Years of Innovation Bearing Fruit</a></h3>
+        <p class="post-meta" style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time datetime="2025-06-05T14:30:00+09:00">June 05, 2025</time>
+          
+            <span class="categories">
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">tech_analysis</span>
+              
+            </span>
+          
+        </p>
+        
+          <p class="excerpt" style="color: #555; line-height: 1.5;">Apple is set to unveil an AI-powered Shortcuts app at WWDC 2025, making daily automation more intuitive and efficient while marking Apple's first m...</p>
+        
+        <a href="/my-jekyll-blog/tech_analysis/2025/06/05/apple-shortcuts-ai-evolution-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">Read more →</a>
+      </article>
+    
+      <article class="post-preview" style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white; transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0;"><a href="/my-jekyll-blog/ai_news/2025/06/05/google-deepmind-alphaevolve-english/" style="text-decoration: none; color: #333;">Google DeepMind's AlphaEvolve: The Era of Self-Evolving AI</a></h3>
+        <p class="post-meta" style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time datetime="2025-06-05T11:00:00+09:00">June 05, 2025</time>
+          
+            <span class="categories">
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">ai_news</span>
+              
+            </span>
+          
+        </p>
+        
+          <p class="excerpt" style="color: #555; line-height: 1.5;">Google DeepMind's AlphaEvolve introduces a new paradigm where AI can learn and evolve autonomously.</p>
+        
+        <a href="/my-jekyll-blog/ai_news/2025/06/05/google-deepmind-alphaevolve-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">Read more →</a>
+      </article>
+    
+      <article class="post-preview" style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white; transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0;"><a href="/my-jekyll-blog/english/mcp/automation/2025/06/04/ultimate-mcp-server-guide/" style="text-decoration: none; color: #333;">The Ultimate MCP Server Guide: From Popular Tools to Hidden Gems for Maximum Productivity</a></h3>
+        <p class="post-meta" style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time datetime="2025-06-04T20:00:00+09:00">June 04, 2025</time>
+          
+            <span class="categories">
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">english</span>
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">mcp</span>
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">automation</span>
+              
+            </span>
+          
+        </p>
+        
+          <p class="excerpt" style="color: #555; line-height: 1.5;">🚀 The Ultimate MCP Server Guide: From Popular Tools to Hidden Gems
+
+Six months after Model Context Protocol (MCP) revolutionized the AI industry, m...</p>
+        
+        <a href="/my-jekyll-blog/english/mcp/automation/2025/06/04/ultimate-mcp-server-guide/" style="color: #007bff; text-decoration: none; font-weight: bold;">Read more →</a>
+      </article>
+    
+      <article class="post-preview" style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white; transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0;"><a href="/my-jekyll-blog/automation/2025/06/04/automated-jekyll-blog-claude-mcp/" style="text-decoration: none; color: #333;">Building Automated Jekyll Blog with Claude MCP</a></h3>
+        <p class="post-meta" style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time datetime="2025-06-04T15:30:00+09:00">June 04, 2025</time>
+          
+            <span class="categories">
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">automation</span>
+              
+            </span>
+          
+        </p>
+        
+          <p class="excerpt" style="color: #555; line-height: 1.5;">🚀 Building an Automated Jekyll Blog
+
+Hello! I’m excited to share how I built a fully automated Jekyll blog system using Claude MCP and GitHub Actio...</p>
+        
+        <a href="/my-jekyll-blog/automation/2025/06/04/automated-jekyll-blog-claude-mcp/" style="color: #007bff; text-decoration: none; font-weight: bold;">Read more →</a>
+      </article>
+    
+      <article class="post-preview" style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white; transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0;"><a href="/my-jekyll-blog/english/automation/2025/06/04/automated-jekyll-claude-mcp/" style="text-decoration: none; color: #333;">Building Automated Jekyll Blog with Claude MCP</a></h3>
+        <p class="post-meta" style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time datetime="2025-06-04T13:00:00+09:00">June 04, 2025</time>
+          
+            <span class="categories">
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">english</span>
+              
+                <span class="category" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">automation</span>
+              
+            </span>
+          
+        </p>
+        
+          <p class="excerpt" style="color: #555; line-height: 1.5;">🚀 Building Automated Jekyll Blog with Claude MCP
+
+Welcome! Today I’m sharing how I built a fully automated Jekyll blog using Claude MCP and GitHub ...</p>
+        
+        <a href="/my-jekyll-blog/english/automation/2025/06/04/automated-jekyll-claude-mcp/" style="color: #007bff; text-decoration: none; font-weight: bold;">Read more →</a>
+      </article>
+    
+  </div>
+
+</div>
+
+<div class="navigation-links" style="text-align: center; margin: 40px 0;">
+  <a href="/my-jekyll-blog/" class="btn" style="display: inline-block; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; margin: 0 10px;">← Home</a>
+  <a href="/my-jekyll-blog/korean/" class="btn" style="display: inline-block; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; margin: 0 10px;">한국어 포스트 →</a>
+</div>
+
+<style>
+.post-preview:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.posts-grid article {
+  transition: transform 0.2s ease;
+}
+
+.posts-grid article:hover {
+  transform: translateY(-2px);
+}
+</style>
+
+
+  </div>
+</article>
+
+<style>
+/* page-content 클래스 제거 - default 레이아웃과 충돌 방지 */
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #007bff;
+}
+
+.page-title {
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.page-description {
+  color: #666;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.page-body {
+  line-height: 1.6;
+  /* 가독성을 위한 최대 너비 설정 */
+  max-width: 100%;
+}
+
+/* 공통 카테고리 스타일 */
+.categories-container {
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.category-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.category-section h3 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.category-description {
+  color: #666;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.post-card {
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.post-card h4 {
+  margin: 0 0 10px 0;
+}
+
+.post-card h4 a {
+  text-decoration: none;
+  color: #333;
+}
+
+.post-card h4 a:hover {
+  color: #007bff;
+}
+
+.post-meta {
+  color: #666;
+  font-size: 0.9em;
+  margin: 10px 0;
+}
+
+.category-tag {
+  background: #e9ecef;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 5px;
+  font-size: 0.8em;
+}
+
+.excerpt {
+  color: #555;
+  line-height: 1.4;
+  margin: 10px 0;
+}
+
+.view-more {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.category-summary {
+  margin: 30px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.summary-icon {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+.summary-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.summary-count {
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* 네비게이션 링크 제거 - default 레이아웃에 이미 있음 */
+.navigation-links {
+  display: none;
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-secondary {
+  background: #28a745;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #1e7e34;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .category-section {
+    margin-bottom: 30px;
+    padding: 15px;
+  }
+  
+  .page-title {
+    font-size: 2em;
+  }
+}
+</style>
+
+        </div>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 한재훈 (Jaehoon Han). All rights reserved.</p>
+        <p>Built with Jekyll & GitHub Actions</p>
+      </div>
+    </footer>
+  </body>
+</html>

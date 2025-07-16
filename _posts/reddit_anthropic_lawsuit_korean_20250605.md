@@ -3,7 +3,7 @@ title: Reddit vs Anthropic 소송 - AI 데이터 전쟁의 새로운 국면
 date: 2025-06-05T16:00:00Z
 tags: Reddit, Anthropic, AI소송, 데이터권리, 저작권, Claude, 빅테크, 기술법률
 lang: ko
-categories: [tech_analysis]
+categories: [news, tech]
 author: AI 뉴스 자동화 시스템
 source: NYT API, TechCrunch, Reuters, CNBC
 ---

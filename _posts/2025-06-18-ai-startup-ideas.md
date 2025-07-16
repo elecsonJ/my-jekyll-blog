@@ -2,7 +2,7 @@
 layout: post
 title: "AI 시대의 창업 아이디어: 개발자가 주목해야 할 5가지 비즈니스 기회"
 date: 2025-06-18
-categories: [startup]
+categories: [insights]
 tags: [창업, 스타트업, AI, 비즈니스모델, 아이디어]
 lang: ko
 description: "AI 기술 발전이 만들어낸 새로운 창업 기회들과 개발자가 시작할 수 있는 실현 가능한 비즈니스 아이디어를 소개합니다."

@@ -2,7 +2,7 @@
 layout: post
 title: "Python으로 일상 업무 자동화하기: 파일 정리부터 이메일 발송까지"
 date: 2025-06-18
-categories: [automation]
+categories: [programming]
 tags: [Python, 자동화, 스크립트, 생산성, 업무효율화]
 lang: ko
 description: "Python을 활용하여 반복적인 일상 업무를 자동화하는 실용적인 방법들을 소개합니다."

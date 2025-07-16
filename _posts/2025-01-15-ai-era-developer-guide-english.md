@@ -1,12 +1,9 @@
 ---
 layout: post
 title: "What Skills Should Developers Learn in the AI Era?"
-date: 2025-06-06 09:00:00 +0900
-categories: [ai]
-tags: [artificial-intelligence, developer, programming, career, computer-science, undergraduate, startup, job-market, AI, development]
-author: "Jaehoon Han"
-lang: en
-excerpt: "A comprehensive analysis of changing developer roles, required competencies, and the philosophy computer science students should develop in the age of AI"
+date: 2025-01-15
+categories: [insights]
+tags: [artificial-intelligence, developer, programming, career, computer-science, undergraduate, startup, job-market]
 description: "A comprehensive analysis of changing developer roles, required competencies, and the philosophy computer science students should develop in the age of AI"
 ---
 
@@ -39,7 +36,7 @@ Since there are clearly areas **where AI cannot excel**, future developers will 
 
 ## Human Developer Strengths and Required Competencies in the AI Era
 
-### ↗️ Technical Competencies: **Becoming Engineers with Solid Fundamentals and Integrative Skills**
+### ① Technical Competencies: **Becoming Engineers with Solid Fundamentals and Integrative Skills**
 
 #### Strong CS Fundamentals
 Traditional computer science knowledge like data structures, algorithms, and computer architecture remains **absolutely crucial in the AI era**. Even if AI tools can quickly generate code, properly understanding the **time complexity and memory usage** of that code is the developer's responsibility.
@@ -54,7 +51,7 @@ Future developers will increasingly take on **"director" roles that assemble AI-
 #### Testing and Debugging Capabilities
 **Test writing** and **debugging abilities** that ensure software reliability are also core roles of human developers. While AI can generate basic test code, determining **what boundary conditions to additionally verify** and **whether there are logical flaws** remains human work.
 
-Google's Jeff Dean emphasized that *for AI to truly reach human developer level, it must also be able to **run tests and debug performance issues***. Ultimately, **tracing root causes of bugs** and **finding performance bottlenecks through profilers** are advanced tasks that depend on developer expertise.
+Google's Jeff Dean emphasized that *"for AI to truly reach human developer level, it must also be able to **run tests and debug performance issues**."* Ultimately, **tracing root causes of bugs** and **finding performance bottlenecks through profilers** are advanced tasks that depend on developer expertise.
 
 #### AI/Data Utilization Skills
 In the AI era, developers also need **basic understanding of data and machine learning**. Even if not all developers become AI specialists, having knowledge of **fundamental machine learning principles (based on linear algebra and probability/statistics)** and **data processing capabilities (SQL, etc.)** provides significant advantages.
@@ -66,7 +63,7 @@ As software becomes more complex and AI-generated code increases, **Security** a
 
 Therefore, developers who understand **security principles** (e.g., input validation, SQL injection prevention, memory safety) and **software testing techniques** are highly valued in the AI era. For AI-generated code especially, we must thoroughly examine *"Does this code work as intended? Is there potential for abuse?"*
 
-### ↗️ Soft Skills: **Leveraging Human Capabilities in the AI Era**
+### ② Soft Skills: **Leveraging Human Capabilities in the AI Era**
 
 #### Creative Problem-Solving
 **Creativity** is one of the greatest strengths of human developers. Programming goes beyond simply implementing given problems in code; it involves **defining problems and devising novel solutions**. AI only suggests code in familiar patterns learned from past data; it cannot **generate completely new ideas or innovative designs**.
@@ -109,7 +106,7 @@ Specifically, you should **directly run tests on AI-written code and manually ch
 
 The theories and principles learned in undergraduate studies serve as the foundation for higher-level problem-solving in the AI era. The more AI automates, the more valuable people who understand **"why things work that way"** become.
 
-### ▶️ Theoretical and Mathematical Foundation Courses: **Logical Thinking and AI's Language**
+### ▶ Theoretical and Mathematical Foundation Courses: **Logical Thinking and AI's Language**
 
 #### Discrete Mathematics
 Forms the logical backbone of computer science. Learning propositional logic, sets, graphs, and combinatorics develops **logical thinking** and **proof abilities**. This helps understand the correctness of complex algorithms and verify AI logic.
@@ -117,14 +114,14 @@ Forms the logical backbone of computer science. Learning propositional logic, se
 For example, knowing graph theory is essential to properly solve **social network path recommendation** or **network optimization** problems. To judge whether AI-proposed solutions are logically sound, such **rigorous thinking** must be the foundation.
 
 #### Linear Algebra and Probability & Statistics
-These are the **mathematical foundations of modern AI algorithms**. Linear algebra is virtually the basic language of **deep learning**, with matrix operations and vector space concepts being key to understanding neural network operating principles. Probability and statistics help understand how **machine learning** models make probabilistic predictions and inferences.
+These are the **mathematical foundations of modern AI algorithms**. Linear algebra is virtually the basic language of **deep learning**, with matrix operations and vector space concepts being the key to understanding neural network operating principles. Probability and statistics help understand how **machine learning** models make probabilistic predictions and inferences.
 
 Studying these subjects diligently allows you to go beyond simply using AI to **understand why it works that way**, and when errors occur, **approach and diagnose mathematically**.
 
 #### Numerical Analysis
-Deals with solving mathematical problems by computer, studying floating-point errors, approximation methods, etc. This knowledge applies directly to **scientific computing** and **simulation**, and also adds depth to understanding numerical stability issues like **gradient vanishing/exploding problems** in deep learning.
+Deals with solving mathematical problems by computer, studying floating-point errors, approximation methods, etc. This knowledge applies directly to **scientific computing** and **simulation**, and also adds depth of understanding when dealing with numerical stability issues like **gradient vanishing/exploding problems** in deep learning.
 
-### ▶️ Programming and Algorithm Courses: **Honing Problem-Solving Skills**
+### ▶ Programming and Algorithm Courses: **Honing Problem-Solving Skills**
 
 #### Object-Oriented Programming (OOP)
 Learning concepts like **encapsulation, inheritance, polymorphism** teaches how to structure large programs. This improves code reusability and maintainability. Even when AI writes code, knowing OOP principles allows us to **properly structure AI-generated code** and refactor when necessary.
@@ -141,7 +138,7 @@ Studies programming language design principles and various paradigms (imperative
 
 In the AI era, using appropriate tools for different situations is important. Understanding language theory helps you understand questions like "Why is Python easy to learn but slow?" or "What advantages do functional languages have in the multicore era?" enabling **optimal technology stack selection**.
 
-### ▶️ Systems and Networking Courses: **Understanding Computing Internals**
+### ▶ Systems and Networking Courses: **Understanding Computing Internals**
 
 #### Operating Systems
 Covers **computer resource management principles** like CPU scheduling, memory management, file systems, and process synchronization. Learning OS helps understand how programs receive memory allocation, threads execute, and interact with hardware through system calls.
@@ -159,7 +156,7 @@ Learning to handle **concurrency issues (data races, race conditions)** through 
 #### Data Communications/Computer Communications (Networking)
 Teaches principles of internet and network protocols (TCP/IP, HTTP, etc.). This helps learn **how data flows between computers** and **network performance and security** concepts. Almost all modern software is connected to networks, making network knowledge essential especially for **cloud services, web development, and distributed AI services**.
 
-### ▶️ Software Engineering and Development Methodologies
+### ▶ Software Engineering and Development Methodologies
 
 #### Software Engineering
 Covers the overall **development cycle** including requirements analysis, design (UML, etc.), development processes (agile, waterfall, etc.), project management, and configuration management (git). This is a **meta-ability** different from simply coding well - it's **methodology for leading large projects to success**.
@@ -172,7 +169,7 @@ Covers various testing techniques (unit testing, integration testing, regression
 #### Unix Programming
 Teaches system calls, shell scripting, and system tool usage in Linux/Unix environments. This develops **efficient development environment utilization skills** for developers. Learning CLI (Command Line Interface) familiarity and automation script writing can later help with **AI development environment setup** and **build/deployment automation**.
 
-### ▶️ Data and AI Courses
+### ▶ Data and AI Courses
 
 #### Database
 Teaches **efficient data storage/retrieval methods** through SQL usage, normalization, transactions, and indexing. Since almost all modern applications handle data, DB knowledge is essential. **Data modeling ability** remains very important in the AI era.
@@ -180,19 +177,19 @@ Teaches **efficient data storage/retrieval methods** through SQL usage, normaliz
 AI doesn't magically utilize data. **Humans must design** what data to collect in what structure for meaningful analysis or learning.
 
 #### AI Introduction
-Covers classical search algorithms, knowledge representation, reasoning, and machine learning fundamentals. This helps **understand various approaches to problem-solving** in AI's broad context. Learning state space search or A* algorithms develops **thinking processes for modeling problems** and **finding solution strategies** beyond simple coding.
+Covers classical search algorithms, knowledge representation, reasoning, and machine learning fundamentals. This helps understand **various approaches to problem-solving** in AI's broad context. Learning state space search or A* algorithms develops **thinking processes for modeling problems** and **finding solution strategies** beyond simple coding.
 
 #### Deep Learning Practice
 Literally involves **implementing and applying deep learning models**. You'll likely use Python's **TensorFlow or PyTorch** and work with various deep learning models like CNN/RNN and reinforcement learning. This experience helps **understand how modern AI is actually built and operates**.
 
 You'll observe model learning curves and experience the difficulties of hyperparameter tuning. This practical experience **develops an eye for AI** even if you don't directly develop deep learning models after graduation.
 
-### ▶️ Security and Quality Courses
+### ▶ Security and Quality Courses
 
 #### Computer Security and Network Security
 Covers cryptography basics, authentication, access control, malware, system security concepts, and **attack and defense techniques for vulnerabilities**. This knowledge instills **security-conscious coding habits** when developing.
 
-For example, through input validation, encrypting/hashing important data, and avoiding sensitive information logs are areas that developers with security knowledge naturally consider. AI-generated code doesn't automatically guarantee security.
+For example, thorough input validation, encrypting/hashing important data, and avoiding sensitive information logs are areas that developers with security knowledge naturally consider. AI-generated code doesn't automatically guarantee security.
 
 ## Career Strategy: **Learning in Companies vs. Entrepreneurship**
 
@@ -209,7 +206,7 @@ However, recently, demonstrating **AI utilization skills** in addition can be a 
 Also, creating AI-related projects (e.g., adding chatbots to simple web apps) in your **portfolio** helps with differentiation. Companies inevitably prefer candidates who understand AI trends.
 
 ### Entrepreneurship Perspective
-Entrepreneurship is the **ultimate comprehensive art**. Technology is basic, but various abilities like **market research, product planning, fundraising, marketing** are needed. Fortunately, from a technical perspective, AI has made it possible for **small teams to accomplish much more**.
+Entrepreneurship is the **ultimate comprehensive art**. Technology is basic, but various abilities like **market research, product planning, fundraising, and marketing** are needed. Fortunately, from a technical perspective, AI has made it possible for **small teams to accomplish much more**.
 
 For example, prototypes that used to take 10 people 6 months can now potentially be created by 2-3 people in a short time with AI coding assistants. Therefore, if you dream of entrepreneurship, you can adopt **strategies to develop products efficiently by maximally utilizing AI**.
 

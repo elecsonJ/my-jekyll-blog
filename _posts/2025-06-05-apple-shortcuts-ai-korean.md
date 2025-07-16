@@ -2,7 +2,7 @@
 layout: post
 title: "Apple Shortcuts의 AI 진화 - 자동화의 새로운 시대"
 date: 2025-06-05 14:30:00 +0900
-categories: [ai_news]
+categories: [news, ai]
 tags: [Apple, Shortcuts, AI, WWDC2025, 자동화, AppleIntelligence, 기술혁신]
 lang: ko
 author: AI 뉴스 자동화 시스템

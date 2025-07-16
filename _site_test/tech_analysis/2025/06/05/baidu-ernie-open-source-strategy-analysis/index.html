@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>바이두 Ernie 모델 오픈소스 전략: 중국 AI 시장의 전략적 변화와 글로벌 영향 | 재훈의 AI 자동화 블로그</title>
+    <meta name="description" content="바이두가 Ernie 모델을 오픈소스로 전환하고 있는 전략적 배경과 경쟁 구도의 중국적 특성과 글로벌 AI 생태계에 미치는 파급효과를 분석합니다.">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="바이두 Ernie 모델 오픈소스 전략: 중국 AI 시장의 전략적 변화와 글로벌 영향">
+    <meta property="og:description" content="바이두가 Ernie 모델을 오픈소스로 전환하고 있는 전략적 배경과 경쟁 구도의 중국적 특성과 글로벌 AI 생태계에 미치는 파급효과를 분석합니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elecsonj.github.io/my-jekyll-blog/tech_analysis/2025/06/05/baidu-ernie-open-source-strategy-analysis/">
+    
+    <!-- Enhanced CSS for Better Readability -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+        line-height: 1.6; 
+        color: #333; 
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+      }
+      
+      .container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 0 20px;
+      }
+      
+      .site-header { 
+        background-color: #ffffff;
+        border-bottom: 1px solid #e1e4e8; 
+        margin-bottom: 30px; 
+        padding: 20px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .site-title { 
+        color: #0366d6; 
+        text-decoration: none; 
+        font-weight: bold; 
+        font-size: 1.5em;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      
+      .site-title:hover {
+        color: #0056b3;
+      }
+      
+      .site-nav { 
+        margin-top: 15px; 
+      }
+      
+      .site-nav a { 
+        margin-right: 25px; 
+        text-decoration: none; 
+        color: #0366d6;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+        display: inline-block;
+      }
+      
+      .site-nav a:hover {
+        background-color: #f1f8ff;
+        color: #0056b3;
+      }
+      
+      .page-content {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+      
+      .content-wrapper {
+        padding: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .site-footer { 
+        background-color: #f8f9fa;
+        border-top: 1px solid #e1e4e8; 
+        margin-top: 50px; 
+        padding: 30px 0; 
+        text-align: center; 
+        color: #666; 
+      }
+      
+      .site-footer p {
+        margin: 5px 0;
+      }
+      
+      /* 반응형 디자인 */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 15px;
+        }
+        
+        .content-wrapper {
+          padding: 20px;
+        }
+        
+        .site-nav a {
+          margin-right: 15px;
+          margin-bottom: 5px;
+          font-size: 0.9em;
+        }
+        
+        .site-title {
+          font-size: 1.3em;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 10px;
+        }
+        
+        .content-wrapper {
+          padding: 15px;
+        }
+        
+        .site-nav {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        
+        .site-nav a {
+          margin-right: 0;
+          flex: 1;
+          text-align: center;
+          min-width: calc(50% - 5px);
+        }
+      }
+      
+      /* 타이포그래피 개선 */
+      h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #2c3e50;
+      }
+      
+      h1 { font-size: 2.2em; }
+      h2 { font-size: 1.8em; }
+      h3 { font-size: 1.5em; }
+      
+      p {
+        margin-bottom: 1em;
+      }
+      
+      a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      code {
+        background-color: #f6f8fa;
+        border-radius: 3px;
+        padding: 2px 4px;
+        font-size: 0.9em;
+      }
+      
+      pre {
+        background-color: #f6f8fa;
+        border-radius: 6px;
+        padding: 16px;
+        overflow-x: auto;
+        line-height: 1.4;
+      }
+      
+      blockquote {
+        border-left: 4px solid #0366d6;
+        margin: 0;
+        padding-left: 20px;
+        color: #666;
+        font-style: italic;
+      }
+      
+      /* Latest Posts 10개 제한 - 안전장치 */
+      .recent-posts article:nth-child(n+11) {
+        display: none !important;
+      }
+      
+      /* 그리드 컨테이너에서 11번째 이후 article 숨기기 */
+      .recent-posts div[style*="grid"] > article:nth-child(n+11) {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="site-title" href="/my-jekyll-blog/">재훈의 AI 자동화 블로그</a>
+        
+        <nav class="site-nav">
+          <a href="/my-jekyll-blog/">Home</a>
+          <a href="/my-jekyll-blog/korean/">한국어</a>
+          <a href="/my-jekyll-blog/english/">English</a>
+          <a href="/my-jekyll-blog/categories/">Categories</a>
+          <a href="/my-jekyll-blog/about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <main class="page-content">
+        <div class="content-wrapper">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">바이두 Ernie 모델 오픈소스 전략: 중국 AI 시장의 전략적 변화와 글로벌 영향</h1>
+    
+    <div class="post-meta">
+      <time class="post-date">2025년 06월 05일</time>
+      
+      
+        <div class="post-categories">
+          
+            <span class="category-tag">tech_analysis</span>
+          
+        </div>
+      
+      
+      
+        <div class="post-tags">
+          
+            <span class="tag">baidu</span>
+          
+            <span class="tag">ernie</span>
+          
+            <span class="tag">open-source</span>
+          
+            <span class="tag">chinese-ai</span>
+          
+            <span class="tag">deepseek</span>
+          
+            <span class="tag">competitive-strategy</span>
+          
+            <span class="tag">ai-models</span>
+          
+        </div>
+      
+    </div>
+  </header>
+
+  <div class="post-content">
+    <h1 id="바이두-ernie-모델-오픈소스-전략-중국-ai-시장의-전략적-변화와-글로벌-영향">바이두 Ernie 모델 오픈소스 전략: 중국 AI 시장의 전략적 변화와 글로벌 영향</h1>
+
+<h2 id="서론">서론</h2>
+
+<p>중국 최대 검색엔진 기업인 <strong>바이두(Baidu)</strong>가 <strong>2025년 6월 30일</strong>까지 대화형 언어모델 <strong>Ernie</strong>를 오픈소스로 공개한다고 발표했습니다. 이는 DeepSeek 같은 스타트업의 오픈소스 AI 서비스에서 칩업한 경쟁에서 우위를 차지하려는 바이두 AI 시장의 헤게모니를 위한 전략적 변화로 보여집니다.</p>
+
+<h2 id="바이두-ernie-모델-개요">바이두 Ernie 모델 개요</h2>
+
+<h3 id="ernie의-발전-과정">Ernie의 발전 과정</h3>
+
+<p><strong>Enhanced Representation through Knowledge Integration (ERNIE)</strong>는 바이두가 2019년부터 개발한 대규모 언어모델입니다:</p>
+
+<ul>
+  <li><strong>ERNIE 1.0</strong> (2019): 지식 기반 사전 훈련 모델</li>
+  <li><strong>ERNIE 2.0</strong> (2019): 다중 작업 학습 능력 강화</li>
+  <li><strong>ERNIE 3.0</strong> (2021): 멀티모달 능력 추가</li>
+  <li><strong>ERNIE 4.0</strong> (2023): GPT-4 수준의 성능 달성</li>
+  <li><strong>문심일격 대화모델 ERNIE</strong> (2025): 오픈소스 예정</li>
+</ul>
+
+<h3 id="기술적-특징">기술적 특징</h3>
+
+<p><strong>중국어 특화 능력</strong></p>
+<ul>
+  <li>중국어 문맥 이해와 문화적 뉘앙스 처리</li>
+  <li>실시간 정보 검색과 연결된 context</li>
+  <li>실제 중국 법무, 의료, 금융 시스템 적용</li>
+</ul>
+
+<p><strong>지식 기반 멀티모달 특징</strong></p>
+<ul>
+  <li>바이두의 광범위한 검색 데이터베이스 활용</li>
+  <li>실시간 정보와 역사적 데이터 통합</li>
+  <li>다국어 지원과 중국어 최적화</li>
+</ul>
+
+<h2 id="오픈소스-전환의-배경">오픈소스 전환의 배경</h2>
+
+<h3 id="경쟁-환경-변화">경쟁 환경 변화</h3>
+
+<p><strong>DeepSeek의 도전</strong></p>
+<ul>
+  <li>오픈소스 AI 서비스 시장에서 인기 상승</li>
+  <li>최적화된 비용으로 고품질 성능 제공</li>
+  <li>개발자와 기업 사용자 확보 성공</li>
+</ul>
+
+<p><strong>시장반응과 오픈소스 경쟁</strong></p>
+<ul>
+  <li>ChatGPT, Claude 등의 상업 서비스 시장 지배</li>
+  <li>중국 내 텐센트 등과 클라우드 서비스 업체와의 경쟁 필요</li>
+  <li>바이두 자체의 우위를 확보하기 위한 전략</li>
+</ul>
+
+<h3 id="전략적-고려사항">전략적 고려사항</h3>
+
+<p><strong>1. 생태계 확산</strong></p>
+<ul>
+  <li>개발자와 기업 채널 확대</li>
+  <li>더 다양한 애플리케이션 케이스와 수익 창출</li>
+  <li>기술 혁신 플랫폼을 통한 경쟁우위 강화</li>
+</ul>
+
+<p><strong>2. 경쟁 우위 확보</strong></p>
+<ul>
+  <li>기존 트렌드에서 배제된 위험 완화</li>
+  <li>기존 경쟁사 대비 차별화된 능력 확보</li>
+  <li>글로벌 AI 시장에서의 경쟁력 강화</li>
+</ul>
+
+<p><strong>3. 비용 효율성</strong></p>
+<ul>
+  <li>개발자들이 자체 모델을 사용할 때 개발 비용 절감</li>
+  <li>오픈 커뮤니티 개발을 통한 효율화</li>
+  <li>오픈소스 생태계 수익화를 통한 최적화</li>
+</ul>
+
+<h2 id="ernie-bot-모델의-의미">Ernie Bot 모델의 의미</h2>
+
+<h3 id="2025년-4월-1일-서비스">2025년 4월 1일 서비스</h3>
+
+<p>바이두는 Ernie 모델을 기반으로 한 <strong>Ernie Bot</strong>을 오픈소스로 공개하고 중국 사용자를 대상으로 발표했습니다:</p>
+
+<p><strong>사용자 경험 향상</strong></p>
+<ul>
+  <li>무료 서비스로 일반 사용자 대상 중국어</li>
+  <li>대규모 사용자가 DeepSeek 등과 경쟁 서비스에 비해 우위</li>
+  <li>실시간 정보 검색과 대화 능력 강화</li>
+</ul>
+
+<p><strong>경쟁력 강화</strong></p>
+<ul>
+  <li>ChatGPT, Claude 등의 상업 서비스 대응</li>
+  <li>중국 내 기업들과 DeepSeek 등 경쟁 시장 강화</li>
+  <li>바이두 자체의 우위를 확보하려는 전략</li>
+</ul>
+
+<p><strong>시장 접근성</strong></p>
+<ul>
+  <li>기술 고도 대응 및 서비스 제공</li>
+  <li>바이두 자체의 확장 전략과 우위 확보</li>
+  <li>기존 API 및 클라우드 서비스 확대</li>
+</ul>
+
+<h2 id="중국-ai-시장에-미치는-파급효과">중국 AI 시장에 미치는 파급효과</h2>
+
+<h3 id="경쟁-구도-변화">경쟁 구도 변화</h3>
+
+<p><strong>기존 플레이어들의 대응</strong></p>
+<ul>
+  <li>Alibaba Qwen: 이미 오픈소스로 최신 추진</li>
+  <li>Tencent Hunyuan: 오픈소스 전환 알림</li>
+  <li>ByteDance: 자체 모델 Volcano 개발 가능성</li>
+</ul>
+
+<p><strong>스타트업 생태계 영향</strong></p>
+<ul>
+  <li>오픈소스 모델 기반의 스타트업 생태계 활산</li>
+  <li>AI 애플리케이션 개발 진입장벽 하락</li>
+  <li>혁신 대응 모델 개발에서 경쟁적 전환</li>
+</ul>
+
+<h3 id="정부-정책과-고려사항">정부 정책과 고려사항</h3>
+
+<p><strong>우선 AI 발전 정책</strong></p>
+<ul>
+  <li>바이두 등 대기업의 오픈소스 정책이 정부 방침과 합치</li>
+  <li>중국 기업들과 기업 경쟁 지원</li>
+  <li>해외 협력 진출 및 혁신 촉진</li>
+</ul>
+
+<p><strong>해외 정책 고려</strong></p>
+<ul>
+  <li>바이두 자체 데이터베이스의 정부 관점</li>
+  <li>상업적 스케일링과 우려 정책 보호</li>
+  <li>정부 스케일과 및 위리적 AI 고려</li>
+</ul>
+
+<h2 id="글로벌-ai-생태계-영향과-시사점">글로벌 AI 생태계 영향과 시사점</h2>
+
+<h3 id="오픈소스-모델-경쟁">오픈소스 모델 경쟁</h3>
+
+<p><strong>AlphaFold와 포텐셜 경쟁</strong></p>
+<ul>
+  <li>Meta Llama, Google Gemma와의 직접 경쟁 구조 구축</li>
+  <li>기술적 관점의 오픈소스 전략 경쟁 선제 확대</li>
+  <li>넓어만 혁신을 통한 오픈 협력 기대 강화</li>
+</ul>
+
+<p><strong>기존 클로즈드소스 모델의 대응</strong></p>
+<ul>
+  <li>OpenAI GPT, Anthropic Claude 등의 상업적 서비스</li>
+  <li>중국 정부 요구에 특화된 화웨이 AI 기술과 경쟁 확대</li>
+  <li>상호간 경쟁력을 통한 우위요소 정립과 시장 전개</li>
+</ul>
+
+<h3 id="지역적-의미">지역적 의미</h3>
+
+<p><strong>아시아 AI 기술 경쟁</strong></p>
+<ul>
+  <li>언어와 문화적 정보 처리에서 지역 특화</li>
+  <li>데이터베이스 구축의 우위와 지역 특화 강화</li>
+  <li>아시아 시장 확대를 통한 지역적 강화</li>
+</ul>
+
+<p><strong>현재 해외 대응 경쟁</strong></p>
+<ul>
+  <li>바이두 자체 데이터베이스가 갖는 한계</li>
+  <li>중국 정부 정책과 해외 협력 제약</li>
+  <li>기존 스케일러 및 우려 정책에 대한 정부 협조</li>
+</ul>
+
+<h2 id="경쟁-분석">경쟁 분석</h2>
+
+<h3 id="우위한-요소-2025-2026">우위한 요소 (2025-2026)</h3>
+
+<p><strong>양극화 경쟁 시장</strong></p>
+<ul>
+  <li>바이두 AI 서비스 점점 중점적 확보</li>
+  <li>오픈소스 서비스와 가 DeepSeek 등과 비교 확대</li>
+  <li>상호 경쟁 시장과 자릿성</li>
+</ul>
+
+<p><strong>수익성 시장</strong></p>
+<ul>
+  <li>기업 고도화된 응답 자체 확보</li>
+  <li>바이두 생태계와 AI 협력 가능성</li>
+  <li>정보 수집 환경 및 혁신 촉진</li>
+</ul>
+
+<h3 id="중기-전략-2027년">중기 전략 (2027년)</h3>
+
+<p><strong>상업적 선택 확대</strong></p>
+<ul>
+  <li>오픈소스 Ernie 기반 생태계 AI 서비스</li>
+  <li>기업 고도 대응 및 수익성 생태계 확보</li>
+  <li>글로벌 AI 컴퓨터트 서비스 확장</li>
+</ul>
+
+<p><strong>제공 세계 경쟁 확보</strong></p>
+<ul>
+  <li>중국 생산 시스템 및 분석 서비스 확대</li>
+  <li>경영적 우위 모델 개발의 의사결정 경력</li>
+  <li>자체 성공 정책: 모델 성능 vs 인적 다양성</li>
+</ul>
+
+<h2 id="미래-전망">미래 전망</h2>
+
+<h3 id="단기-전망-2025-2026">단기 전망 (2025-2026)</h3>
+
+<p><strong>양극화 경쟁 시장</strong></p>
+<ul>
+  <li>바이두 AI 서비스 점시 중점적 확보</li>
+  <li>오픈소스 서비스와 DeepSeek 등과 비교 확대</li>
+  <li>상호간 경쟁 시장과 자릿</li>
+</ul>
+
+<p><strong>수익성 시장</strong></p>
+<ul>
+  <li>기업 고도 메이징 확보와 제품 AI 기술 개발</li>
+  <li>바이두 생태계와 AI 확보 가능성</li>
+  <li>정보 수집 환경: 모델 성능 vs 인적 다양성</li>
+</ul>
+
+<h3 id="중기-전략-2027년-1">중기 전략 (2027년)</h3>
+
+<p><strong>상업적 선택 확대</strong></p>
+<ul>
+  <li>오픈소스 Ernie 기반 생태계 AI 서비스</li>
+  <li>기업 고도 대응 및 빅데이터 모델 최적화</li>
+  <li>글로벌 AI 컴퓨터트 서비스 확장</li>
+</ul>
+
+<p><strong>제공 세계 경쟁</strong></p>
+<ul>
+  <li>중국 생산 시스템 및 서비스 확대</li>
+  <li>경영 우위 모델 개발의 의사결정</li>
+  <li>자체성공 정책 및 확천 통점 고려</li>
+</ul>
+
+<h3 id="장기-전망-2028년-이후">장기 전망 (2028년 이후)</h3>
+
+<p><strong>1. 기술가 확대</strong></p>
+<ul>
+  <li>AI 개발 생태계 속에서 신기술 달성</li>
+  <li>모델 사용자 다양성 및 AI 확산</li>
+  <li>인공지능 기술과 가좋 확대 사용체</li>
+</ul>
+
+<p><strong>2. 기술 환경 부조변화</strong></p>
+<ul>
+  <li>경기업 확산화된 로컬 AI 시스템</li>
+  <li>바이두 생태계와 중국 확대 모졸</li>
+</ul>
+
+<p><strong>3. 인공지능 가치성</strong></p>
+<ul>
+  <li>중국 내 다양성 강화 및 해외 촉진</li>
+  <li>장기 시장 전망 및 기존 특화</li>
+  <li>시장 구조 잠편 고쳥 실현</li>
+</ul>
+
+<h2 id="시사점과-제한점">시사점과 제한점</h2>
+
+<h3 id="잠재적-위험">잠재적 위험</h3>
+
+<p><strong>기술 보안</strong>: 소프트웨어 기업의 오픈소스 기술 보안
+<strong>일자리 대체</strong>: 자동화 영향 및 우려 보고서 실스
+<strong>의사결정 수식</strong>: 다양한 국제 규제 기준 충족</p>
+
+<h3 id="성장-고려사항">성장 고려사항</h3>
+
+<p><strong>국제 파트너십</strong>: 글로벌 회사 파트너십 기회 제공
+<strong>기술 통합</strong>: 기존 AI 플랫폼과 통합 기회 제공
+<strong>혁신 가속</strong>: 커뮤니티 협력을 통한 혁신 가속</p>
+
+<h2 id="결론">결론</h2>
+
+<p>바이두의 Ernie 모델 오픈소스 전략은 <strong>중국 AI 생태계의 인애칩적 패러다임 쉬프트</strong>를 나타냅니다.</p>
+
+<p>이 전략이 AI 기업의 헤게모니를 위한 경쟁에서 우위를 확보할 것인지는 글로벌 AI 생태계와 중국적 특성의 조합에서 결정될 것입니다.</p>
+
+<p><strong>핵심 의의</strong>:</p>
+
+<ol>
+  <li><strong>오픈소스의 힘</strong>: 경쟁적 대응을 위한 생태계 구축으로 인한 인애칩적 가속화</li>
+  <li><strong>경쟁 지역화</strong>: 중국형 AI 특성을 위한 중국적 특성 확보 지역화</li>
+  <li><strong>생태계 전환</strong>: 다양 AI 생태계 대응에서 프로젝트 확대 전환과 글로벌 영향</li>
+  <li><strong>기술 역량</strong>: 바이두 기술 역량을 위한 역량과 혁신 경합</li>
+</ol>
+
+<p><strong>미래 핵심구조</strong>:</p>
+
+<ul>
+  <li>🎯 <strong>경쟁적 혁신</strong>: 오픈소스 경쟁을 통한 기술 혁신 텍스트 가속화</li>
+  <li>🌍 <strong>글로벌 영향</strong>: 전세계 AI 개발 전략에 대한 우면 경활</li>
+  <li>🔬 <strong>과합적 진보</strong>: 공동연구를 통한 AI 연구 진보</li>
+  <li>💼 <strong>경제적 변화</strong>: 새로운 비즈니스 모델과 시장 기회</li>
+</ul>
+
+<p>바이두의 Ernie 오픈소스화는 단순한 비즈니스 전략을 넘어서서 <strong>무경합 AI 개발의 기본적 변화</strong>를 닐화 게 수 있겠 것입니다.</p>
+
+<p>극극적으로 이 오픈소스와 경쟁이 AI 기업이 앞서갈수록 가치성을 갖고 구축 즉정 은 확정 것럼 중요성 사항을 가졌워 수 있겠습니다.</p>
+
+<hr />
+
+<p><em>이 포스트는 바이두의 공식 발표와 중국 AI 시장 분석 자료를 바탕으로 작성되었습니다.</em></p>
+
+  </div>
+</article>
+
+<style>
+/* 포스트 전용 스타일링 - 단순하고 깔끔하게, 글 내용 최우선 */
+.post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #e1e4e8;
+}
+
+.post-title {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.post-date {
+  color: #666;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.post-categories, .post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.category-tag {
+  background: #007bff;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.tag {
+  background: #28a745;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+/* 포스트 내용 - 가독성 최우선 */
+.post-content {
+  margin-top: 50px;
+  color: #333;
+}
+
+/* 제목들 - 명확한 구분 */
+.post-content h1 {
+  font-size: 2.2em;
+  color: #2c3e50;
+  margin: 2.5em 0 1.2em 0;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #007bff;
+  font-weight: 700;
+}
+
+.post-content h2 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin: 2.2em 0 1em 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #28a745;
+  font-weight: 600;
+}
+
+.post-content h3 {
+  font-size: 1.4em;
+  color: #495057;
+  margin: 1.8em 0 0.8em 0;
+  font-weight: 600;
+}
+
+/* 단락들 - 충분한 간격 */
+.post-content p {
+  margin-bottom: 1.8em;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* 리스트들 - 깔끔한 정렬 */
+.post-content ul, .post-content ol {
+  margin: 1.8em 0;
+  padding-left: 2.5em;
+}
+
+.post-content li {
+  margin-bottom: 0.8em;
+  line-height: 1.7;
+}
+
+/* 강조 텍스트 */
+.post-content strong {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* 인용구 */
+.post-content blockquote {
+  background: #f8f9fa;
+  border-left: 5px solid #007bff;
+  padding: 25px 30px;
+  margin: 2.5em 0;
+  font-style: italic;
+  color: #495057;
+  font-size: 1.1em;
+}
+
+/* 코드 블록 */
+.post-content pre {
+  background: #f6f8fa;
+  padding: 25px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2.5em 0;
+  border: 1px solid #e1e4e8;
+  line-height: 1.5;
+}
+
+.post-content code {
+  background: #f6f8fa;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #e83e8c;
+  font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .post {
+    padding: 20px 15px;
+    font-size: 15px;
+  }
+  
+  .post-title {
+    font-size: 2em;
+  }
+  
+  .post-meta {
+    gap: 12px;
+  }
+  
+  .post-content h1 {
+    font-size: 1.8em;
+  }
+  
+  .post-content h2 {
+    font-size: 1.5em;
+  }
+  
+  .post-content h3 {
+    font-size: 1.3em;
+  }
+  
+  .post-content ul, .post-content ol {
+    padding-left: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .post {
+    padding: 15px 10px;
+    font-size: 14px;
+  }
+  
+  .post-title {
+    font-size: 1.8em;
+  }
+  
+  .post-content h1 {
+    font-size: 1.6em;
+  }
+  
+  .post-content h2 {
+    font-size: 1.4em;
+  }
+  
+  .post-content ul, .post-content ol {
+    padding-left: 1.5em;
+  }
+}
+</style>
+        </div>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 한재훈 (Jaehoon Han). All rights reserved.</p>
+        <p>Built with Jekyll & GitHub Actions</p>
+      </div>
+    </footer>
+  </body>
+</html>

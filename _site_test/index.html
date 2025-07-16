@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>재훈의 AI 자동화 블로그 | 재훈의 AI 자동화 블로그</title>
+    <meta name="description" content="AI, 자동화, Jekyll을 활용한 기술 블로그">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="재훈의 AI 자동화 블로그">
+    <meta property="og:description" content="AI, 자동화, Jekyll을 활용한 기술 블로그">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elecsonj.github.io/my-jekyll-blog/">
+    
+    <!-- Enhanced CSS for Better Readability -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+        line-height: 1.6; 
+        color: #333; 
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+      }
+      
+      .container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 0 20px;
+      }
+      
+      .site-header { 
+        background-color: #ffffff;
+        border-bottom: 1px solid #e1e4e8; 
+        margin-bottom: 30px; 
+        padding: 20px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .site-title { 
+        color: #0366d6; 
+        text-decoration: none; 
+        font-weight: bold; 
+        font-size: 1.5em;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      
+      .site-title:hover {
+        color: #0056b3;
+      }
+      
+      .site-nav { 
+        margin-top: 15px; 
+      }
+      
+      .site-nav a { 
+        margin-right: 25px; 
+        text-decoration: none; 
+        color: #0366d6;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+        display: inline-block;
+      }
+      
+      .site-nav a:hover {
+        background-color: #f1f8ff;
+        color: #0056b3;
+      }
+      
+      .page-content {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+      
+      .content-wrapper {
+        padding: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .site-footer { 
+        background-color: #f8f9fa;
+        border-top: 1px solid #e1e4e8; 
+        margin-top: 50px; 
+        padding: 30px 0; 
+        text-align: center; 
+        color: #666; 
+      }
+      
+      .site-footer p {
+        margin: 5px 0;
+      }
+      
+      /* 반응형 디자인 */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 15px;
+        }
+        
+        .content-wrapper {
+          padding: 20px;
+        }
+        
+        .site-nav a {
+          margin-right: 15px;
+          margin-bottom: 5px;
+          font-size: 0.9em;
+        }
+        
+        .site-title {
+          font-size: 1.3em;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 10px;
+        }
+        
+        .content-wrapper {
+          padding: 15px;
+        }
+        
+        .site-nav {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        
+        .site-nav a {
+          margin-right: 0;
+          flex: 1;
+          text-align: center;
+          min-width: calc(50% - 5px);
+        }
+      }
+      
+      /* 타이포그래피 개선 */
+      h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #2c3e50;
+      }
+      
+      h1 { font-size: 2.2em; }
+      h2 { font-size: 1.8em; }
+      h3 { font-size: 1.5em; }
+      
+      p {
+        margin-bottom: 1em;
+      }
+      
+      a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      code {
+        background-color: #f6f8fa;
+        border-radius: 3px;
+        padding: 2px 4px;
+        font-size: 0.9em;
+      }
+      
+      pre {
+        background-color: #f6f8fa;
+        border-radius: 6px;
+        padding: 16px;
+        overflow-x: auto;
+        line-height: 1.4;
+      }
+      
+      blockquote {
+        border-left: 4px solid #0366d6;
+        margin: 0;
+        padding-left: 20px;
+        color: #666;
+        font-style: italic;
+      }
+      
+      /* Latest Posts 10개 제한 - 안전장치 */
+      .recent-posts article:nth-child(n+11) {
+        display: none !important;
+      }
+      
+      /* 그리드 컨테이너에서 11번째 이후 article 숨기기 */
+      .recent-posts div[style*="grid"] > article:nth-child(n+11) {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="site-title" href="/my-jekyll-blog/">재훈의 AI 자동화 블로그</a>
+        
+        <nav class="site-nav">
+          <a href="/my-jekyll-blog/">Home</a>
+          <a href="/my-jekyll-blog/korean/">한국어</a>
+          <a href="/my-jekyll-blog/english/">English</a>
+          <a href="/my-jekyll-blog/categories/">Categories</a>
+          <a href="/my-jekyll-blog/about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <main class="page-content">
+        <div class="content-wrapper">
+          <!-- 언어별 콘텐츠 네비게이션 -->
+<div class="language-navigation" style="background: #f8f9fa; padding: 20px; margin: 20px 0; border-radius: 8px; text-align: center;">
+  <h2 style="margin-bottom: 15px;">🌍 Choose Your Language / 언어를 선택하세요</h2>
+  
+  <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <a href="/my-jekyll-blog/korean/" class="language-btn" style="display: inline-block; padding: 12px 24px; background: #007bff; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
+      🇰🇷 한국어 포스트
+    </a>
+    
+    <a href="/my-jekyll-blog/english/" class="language-btn" style="display: inline-block; padding: 12px 24px; background: #28a745; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
+      🇺🇸 English Posts
+    </a>
+  </div>
+</div>
+
+<!-- 블로그 소개 섹션 -->
+<div class="blog-intro" style="margin: 30px 0;">
+  <h2>🚀 Welcome to My Tech Blog</h2>
+  
+  <p><strong>안녕하세요!</strong> 서울시립대학교 컴퓨터과학부 2학년 한재훈입니다.</p>
+  
+  <p>이 블로그는 <strong>Jekyll</strong>과 <strong>Claude MCP</strong>, <strong>GitHub Actions</strong>를 활용한 
+  완전 자동화 시스템으로 운영됩니다.</p>
+  
+  <h3>🎯 주요 주제</h3>
+  <ul>
+    <li><strong>인공지능 (AI)</strong> - 머신러닝, 딥러닝 연구 및 실습</li>
+    <li><strong>자동화 (Automation)</strong> - Jekyll, GitHub Actions, Claude MCP</li>
+    <li><strong>웹 개발 (Web Development)</strong> - 프론트엔드, 백엔드 기술</li>
+    <li><strong>알고리즘 (Algorithm)</strong> - 컴퓨터과학 학습 과정</li>
+    <li><strong>프로젝트 (Project)</strong> - 개인 프로젝트 및 포트폴리오</li>
+    <li><strong>뉴스 &amp; 트렌드 (News)</strong> - 기술 업계 최신 동향</li>
+  </ul>
+</div>
+
+<!-- 최신 포스트 목록 구역 -->
+<div class="recent-posts" style="margin: 30px 0;">
+  <h2>📝 Latest Posts / 최신 글</h2>
+  
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai_research/2025/06/30/next-gen-ai-trends-korean/" style="text-decoration: none; color: #333;">
+            차세대 AI 모델의 진화: 개발자가 알아야 할 2025년 AI 트렌드
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-30</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai_research
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">차세대 AI 모델의 진화: 개발자가 알아야 할 2025년 AI 트렌드
+
+2025년, AI 기술은 단순한 텍스트 생성을 넘어 진정한 인텔리전스에 한 걸음 더 다가섰습니다. GPT-4o, Claude 3.5, Ge...</p>
+        
+        
+        <a href="/my-jekyll-blog/ai_research/2025/06/30/next-gen-ai-trends-korean/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai_research/2025/06/30/next-gen-ai-trends-english/" style="text-decoration: none; color: #333;">
+            The Evolution of Next-Generation AI Models: Essential 2025 Trends for Developers
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-30</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai_research
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">The Evolution of Next-Generation AI Models: Essential 2025 Trends for Developers
+
+In 2025, AI technology has moved fa...</p>
+        
+        
+        <a href="/my-jekyll-blog/ai_research/2025/06/30/next-gen-ai-trends-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/study/2025/06/18/study-reflection/" style="text-decoration: none; color: #333;">
+            컴퓨터과학 2학년 1학기 회고: 배운 것들과 성장 기록
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-18</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                study
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">컴퓨터과학 2학년 1학기를 돌아보며 배운 것들과 성장한 점들을 정리해봅니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/study/2025/06/18/study-reflection/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/automation/2025/06/18/python-automation-guide/" style="text-decoration: none; color: #333;">
+            Python으로 일상 업무 자동화하기: 파일 정리부터 이메일 발송까지
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-18</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                automation
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Python을 활용하여 반복적인 일상 업무를 자동화하는 실용적인 방법들을 소개합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/automation/2025/06/18/python-automation-guide/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/automation/2025/06/18/mcp-jekyll-automation/" style="text-decoration: none; color: #333;">
+            MCP 서버를 활용한 Jekyll 블로그 자동화 시스템
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-18</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                automation
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">MCP 서버를 활용한 Jekyll 블로그 자동화 시스템
+
+Claude MCP 서버를 활용하여 Jekyll 블로그를 자동화하는 프로젝트입니다.
+
+주요 기능
+
+1. 자동 포스트 생성
+
+  Notion API를 통한...</p>
+        
+        
+        <a href="/my-jekyll-blog/automation/2025/06/18/mcp-jekyll-automation/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/tech/investment/2025/06/18/finance-basics/" style="text-decoration: none; color: #333;">
+            AI 시대 기업 가치 평가의 새로운 패러다임: 전통적 재무지표를 넘어선 AI 네이티브 밸류에이션
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-18</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                tech
+              </span>
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                investment
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">AI 네이티브 기업들이 만들어내는 새로운 가치 평가 체계와 전통적 재무분석의 한계를 깊이 있게 분석합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/tech/investment/2025/06/18/finance-basics/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/project/2025/06/18/discord-stock-bot-project/" style="text-decoration: none; color: #333;">
+            실시간 주식 가격 알림 봇 만들기: Discord + Python 프로젝트
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-18</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                project
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Python과 Discord API를 활용하여 실시간 주식 가격 알림 봇을 만드는 프로젝트를 소개합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/project/2025/06/18/discord-stock-bot-project/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/programming/2025/06/18/clean-code-python/" style="text-decoration: none; color: #333;">
+            클린 코드의 핵심: 가독성 높은 Python 코드 작성법
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-18</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                programming
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">읽기 쉽고 유지보수하기 좋은 Python 코드를 작성하는 실용적인 방법들을 소개합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/programming/2025/06/18/clean-code-python/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/tech_analysis/2025/06/18/bigtech-analysis/" style="text-decoration: none; color: #333;">
+            FAANG의 AI 딜레마: 레거시 거대기업이 직면한 구조적 한계와 AI 네이티브의 부상
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-18</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                tech_analysis
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">FAANG 기업들이 AI 전환에서 직면한 구조적 딜레마와 OpenAI, Anthropic 같은 AI 네이티브 기업들이 제시하는 새로운 패러다임을 심층 분석합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/tech_analysis/2025/06/18/bigtech-analysis/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/tech_analysis/2025/06/18/apple-ai-investment-analysis/" style="text-decoration: none; color: #333;">
+            Apple의 조용한 혁명: Private Cloud Compute가 바꾸는 AI 생태계
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-18</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                tech_analysis
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Apple Intelligence와 Private Cloud Compute를 통해 Apple이 제시하는 차별화된 AI 패러다임과 그것이 기술 생태계에 미칠 혁신적 영향을 심층 분석합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/tech_analysis/2025/06/18/apple-ai-investment-analysis/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/algorithm/2025/06/18/algorithm-basics/" style="text-decoration: none; color: #333;">
+            알고리즘 기초: 정렬 알고리즘 완전정복
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-18</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                algorithm
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">기본적인 정렬 알고리즘들을 구현하고 시간복잡도를 분석해봅니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/algorithm/2025/06/18/algorithm-basics/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/startup/2025/06/18/ai-startup-ideas/" style="text-decoration: none; color: #333;">
+            AI 시대의 창업 아이디어: 개발자가 주목해야 할 5가지 비즈니스 기회
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-18</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                startup
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">AI 기술 발전이 만들어낸 새로운 창업 기회들과 개발자가 시작할 수 있는 실현 가능한 비즈니스 아이디어를 소개합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/startup/2025/06/18/ai-startup-ideas/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/programming/2025/06/18/ai-era-developer-guide/" style="text-decoration: none; color: #333;">
+            AI 시대 개발자 완전 가이드: 생존과 성장을 위한 실전 전략
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-18</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                programming
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">AI 시대 개발자 완전 가이드: 생존과 성장을 위한 실전 전략
+
+2024년, AI가 코딩을 할 수 있게 되면서 개발자들 사이에 “우리가 대체될까?”라는 불안감이 퍼졌습니다. 하지만 1년이 지난 지금, 현실은 다...</p>
+        
+        
+        <a href="/my-jekyll-blog/programming/2025/06/18/ai-era-developer-guide/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai_news/2025/06/10/ai-news-category-test-korean/" style="text-decoration: none; color: #333;">
+            AI 뉴스 카테고리 테스트 - 한국어 버전
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-10</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai_news
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">AI 뉴스 카테고리를 위한 한국어 테스트 포스트입니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/ai_news/2025/06/10/ai-news-category-test-korean/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai_news/2025/06/10/ai-news-category-test-english/" style="text-decoration: none; color: #333;">
+            Testing AI News Category - English Version
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-10</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai_news
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">This is a test post for the AI News category in English.</p>
+        
+        
+        <a href="/my-jekyll-blog/ai_news/2025/06/10/ai-news-category-test-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/tech_trends/2025/06/06/ai-era-developer-guide-korean/" style="text-decoration: none; color: #333;">
+            AI 시대, 개발자는 무엇을 배워야 할까? - 현실적인 학습 가이드
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-06</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                tech_trends
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">AI 기술이 발전일로를 달리는 개발자의 역할과 해야 할 것들, 그리고 기술 커뮤니케이션 능력이 강조되는 시대에 필요한 포괄적인 개발자를 위한 포괄적인 학습 가이드</p>
+        
+        
+        <a href="/my-jekyll-blog/tech_trends/2025/06/06/ai-era-developer-guide-korean/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai/2025/06/06/ai-era-developer-guide-english/" style="text-decoration: none; color: #333;">
+            What Skills Should Developers Learn in the AI Era?
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-06</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">A comprehensive analysis of changing developer roles, required competencies, and the philosophy computer science students should develop in the age of AI</p>
+        
+        
+        <a href="/my-jekyll-blog/ai/2025/06/06/ai-era-developer-guide-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/tech-news-analysis/2025/06/05/baidu-ernie-open-source-strategy-english/" style="text-decoration: none; color: #333;">
+            Baidu Ernie Model Open Source Strategy: Strategic Transformation and Global Impact of China's AI Market
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-05</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                tech-news-analysis
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Analysis of Baidu's strategic shift to open-source Ernie models, examining the competitive landscape in China's AI market and its impact on the global AI ecosystem.</p>
+        
+        
+        <a href="/my-jekyll-blog/tech-news-analysis/2025/06/05/baidu-ernie-open-source-strategy-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/tech_analysis/2025/06/05/baidu-ernie-open-source-strategy-analysis/" style="text-decoration: none; color: #333;">
+            바이두 Ernie 모델 오픈소스 전략: 중국 AI 시장의 전략적 변화와 글로벌 영향
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-05</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                tech_analysis
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">바이두가 Ernie 모델을 오픈소스로 전환하고 있는 전략적 배경과 경쟁 구도의 중국적 특성과 글로벌 AI 생태계에 미치는 파급효과를 분석합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/tech_analysis/2025/06/05/baidu-ernie-open-source-strategy-analysis/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/tech_analysis/2025/06/05/apple-wwdc-2025-ai-shortcuts-automation/" style="text-decoration: none; color: #333;">
+            Apple WWDC 2025: AI 기반 Shortcuts 앱으로 개인 맞춤형 자동화 시대 열다
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-05</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                tech_analysis
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Apple이 WWDC 2025에서 발표할 예정인 업그레이드된 AI 기반 Shortcuts 앱이 개인 맞춤형 자동화에 미칠 혁신적 영향을 분석합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/tech_analysis/2025/06/05/apple-wwdc-2025-ai-shortcuts-automation/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai_news/2025/06/05/reddit-anthropic-lawsuit-korean/" style="text-decoration: none; color: #333;">
+            Reddit vs Anthropic 소송 분석: AI 훈련 데이터와 저작권의 새로운 전선
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-05</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai_news
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Reddit이 Anthropic을 상대로 AI 훈련 데이터 무단 사용에 대한 소송을 제기했습니다. 이번 AI 업계의 데이터 수집 관행과 저작권 보호 사이의 갈등을 다루는 중요한 사건을 제거한 사안입니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/ai_news/2025/06/05/reddit-anthropic-lawsuit-korean/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/tech-news-analysis/2025/06/05/reddit-anthropic-lawsuit-english/" style="text-decoration: none; color: #333;">
+            Reddit vs Anthropic Lawsuit Analysis: New Frontline in AI Training Data and Copyright
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-05</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                tech-news-analysis
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Reddit has filed a lawsuit against Anthropic for unauthorized use of AI training data. This represents a crucial case highlighting the conflict between AI industry data collection practices and copyright protection.</p>
+        
+        
+        <a href="/my-jekyll-blog/tech-news-analysis/2025/06/05/reddit-anthropic-lawsuit-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai_news/2025/06/05/apple-shortcuts-ai-korean/" style="text-decoration: none; color: #333;">
+            Apple Shortcuts의 AI 진화 - 자동화의 새로운 시대
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-05</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai_news
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Apple Shortcuts의 AI 진화: 8년간의 여정이 결실을 맺다
+
+주요 내용
+
+Apple이 WWDC 2025에서 AI 기반의 새로운 Shortcuts 앱을 공개할 예정이라고 발표했습니다. 이번 업그레이드...</p>
+        
+        
+        <a href="/my-jekyll-blog/ai_news/2025/06/05/apple-shortcuts-ai-korean/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/tech_analysis/2025/06/05/apple-shortcuts-ai-evolution-korean/" style="text-decoration: none; color: #333;">
+            Apple Shortcuts의 AI 진화: 8년간의 여정이 결실을 맺다
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-05</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                tech_analysis
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Apple이 WWDC 2025에서 AI 기반의 새로운 Shortcuts 앱을 공개할 예정이다. 이번 업그레이드는 사용자들이 일상 업무를 더욱 직관적이고 효율적으로 자동화할 수 있게 해준다.</p>
+        
+        
+        <a href="/my-jekyll-blog/tech_analysis/2025/06/05/apple-shortcuts-ai-evolution-korean/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/tech_analysis/2025/06/05/apple-shortcuts-ai-evolution-english/" style="text-decoration: none; color: #333;">
+            Apple Shortcuts AI Evolution: 8 Years of Innovation Bearing Fruit
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-05</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                tech_analysis
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Apple is set to unveil an AI-powered Shortcuts app at WWDC 2025, making daily automation more intuitive and efficient while marking Apple's first major step into personalized AI assistants.</p>
+        
+        
+        <a href="/my-jekyll-blog/tech_analysis/2025/06/05/apple-shortcuts-ai-evolution-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai_news/2025/06/05/agi-2030-prediction-safety-analysis/" style="text-decoration: none; color: #333;">
+            AGI 2030년 실현 가능성 분석: 전문가 예측과 안전성 과제
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-05</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai_news
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">AGI(인공일반지능) 실현 시기에 대한 전문가들의 예측과 안전성 확보를 위한 과제들을 심층 분석합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/ai_news/2025/06/05/agi-2030-prediction-safety-analysis/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai_news/2025/06/05/google-deepmind-alphaevolve-english/" style="text-decoration: none; color: #333;">
+            Google DeepMind's AlphaEvolve: The Era of Self-Evolving AI
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-05</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai_news
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Google DeepMind's AlphaEvolve introduces a new paradigm where AI can learn and evolve autonomously.</p>
+        
+        
+        <a href="/my-jekyll-blog/ai_news/2025/06/05/google-deepmind-alphaevolve-english/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai_news/2025/06/05/google-deepmind-alphaevolve-breakthrough/" style="text-decoration: none; color: #333;">
+            Google DeepMind의 AlphaEvolve: AI가 스스로 진화하는 시대
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-05</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai_news
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Google DeepMind가 발표한 AlphaEvolve는 AI가 스스로 학습하고 진화하는 새로운 패러다임을 제시합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/ai_news/2025/06/05/google-deepmind-alphaevolve-breakthrough/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/algorithm/2025/06/05/boj-1043/" style="text-decoration: none; color: #333;">
+            [백준 1043번] 거짓말 - Python 풀이 (Union-Find)
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-05</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                algorithm
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">백준 1043번 거짓말 문제를 Union-Find(분리집합)로 해결하는 Python 풀이입니다. 단계별 접근 과정과 코드 해설을 제공합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/algorithm/2025/06/05/boj-1043/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/english/mcp/automation/2025/06/04/ultimate-mcp-server-guide/" style="text-decoration: none; color: #333;">
+            The Ultimate MCP Server Guide: From Popular Tools to Hidden Gems for Maximum Productivity
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-04</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                english
+              </span>
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                mcp
+              </span>
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                automation
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Comprehensive guide to Model Context Protocol (MCP) servers for practical use. From popular servers to hidden gems, with detailed implementation examples and real-world use cases.</p>
+        
+        
+        <a href="/my-jekyll-blog/english/mcp/automation/2025/06/04/ultimate-mcp-server-guide/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/programming/2025/06/04/mcp-servers-complete-guide/" style="text-decoration: none; color: #333;">
+            실무에서 바로 활용 가능한 MCP 서버 완전 가이드 - 숨겨진 보석들부터 대중적 서버까지
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-04</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                programming
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Model Context Protocol(MCP) 서버의 실전 활용 가이드입니다. 대중적인 서버부터 숨겨진 보석 같은 서버들까지, 구체적인 활용 예시와 함께 상세히 분석했습니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/programming/2025/06/04/mcp-servers-complete-guide/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai_news/2025/06/04/deepseek-controversy/" style="text-decoration: none; color: #333;">
+            DeepSeek이 Google Gemini로 AI 모델 훈련? 최신 AI 업계 논란 분석
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-04</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai_news
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">중국 AI 랩 DeepSeek이 Google Gemini를 이용해 최신 R1 모델을 훈련했을 가능성이 제기되며 AI 업계에 파장이 일고 있습니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/ai_news/2025/06/04/deepseek-controversy/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/tech/github/2025/06/04/weekly-github-trending/" style="text-decoration: none; color: #333;">
+            이번 주 GitHub 트렌딩 프로젝트 (2025.06.04)
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-04</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                tech
+              </span>
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                github
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">이번 주 가장 주목받는 GitHub 오픈소스 프로젝트들을 소개합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/tech/github/2025/06/04/weekly-github-trending/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/algorithm/2025/06/04/baekjoon-1000-solution/" style="text-decoration: none; color: #333;">
+            [백준 1000] A+B - Bronze V
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-04</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                algorithm
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">백준 1000번 A+B 문제의 해답 과정과 코드를 설명합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/algorithm/2025/06/04/baekjoon-1000-solution/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/automation/2025/06/04/automated-jekyll-blog-claude-mcp/" style="text-decoration: none; color: #333;">
+            Building Automated Jekyll Blog with Claude MCP
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-04</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                automation
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">How I built a fully automated Jekyll blog system using Claude MCP and GitHub Actions for content creation and deployment.</p>
+        
+        
+        <a href="/my-jekyll-blog/automation/2025/06/04/automated-jekyll-blog-claude-mcp/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai_news/2025/06/04/latest-ai-breakthroughs-2025/" style="text-decoration: none; color: #333;">
+            2025년 최신 AI 돌파구: 차세대 인공지능 기술 동향
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-04</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai_news
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">2025년 AI 분야의 최신 돌파구와 혁신적인 기술들을 소개합니다. GPT-5부터 양자 AI까지.</p>
+        
+        
+        <a href="/my-jekyll-blog/ai_news/2025/06/04/latest-ai-breakthroughs-2025/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/troubleshooting/claude-mcp/2025/06/04/claude-mcp-github-actions-troubleshooting-guide/" style="text-decoration: none; color: #333;">
+            Claude MCP 서버 GitHub Actions peaceiris/actions-gh-pages 권한 오류 해결 완전 가이드
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-04</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                troubleshooting
+              </span>
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                claude-mcp
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Claude MCP 서버와 Jekyll 연동 시 GitHub Actions peaceiris/actions-gh-pages에서 발생하는 Permission denied 오류의 완전한 해결 방법을 단계별로 설명합니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/troubleshooting/claude-mcp/2025/06/04/claude-mcp-github-actions-troubleshooting-guide/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/english/automation/2025/06/04/automated-jekyll-claude-mcp/" style="text-decoration: none; color: #333;">
+            Building Automated Jekyll Blog with Claude MCP
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-04</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                english
+              </span>
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                automation
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">A guide to building automated Jekyll blog using Claude MCP and GitHub Actions.</p>
+        
+        
+        <a href="/my-jekyll-blog/english/automation/2025/06/04/automated-jekyll-claude-mcp/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/korean/automation/2025/06/04/jekyll-automation-blog-launch/" style="text-decoration: none; color: #333;">
+            Jekyll 자동화 블로그 시작 (2025.06.04)
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-04</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                korean
+              </span>
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                automation
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">Jekyll과 GitHub Actions를 활용한 자동화 블로그 시스템을 구축해보았습니다.</p>
+        
+        
+        <a href="/my-jekyll-blog/korean/automation/2025/06/04/jekyll-automation-blog-launch/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/jekyll/update/2025/06/04/welcome-to-jekyll/" style="text-decoration: none; color: #333;">
+            Welcome to Jekyll!
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-04</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                jekyll
+              </span>
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                update
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">You’ll find this post in your 1
+_posts
+ directory. Go ahead and edit it and re-build the site to see your changes. Yo...</p>
+        
+        
+        <a href="/my-jekyll-blog/jekyll/update/2025/06/04/welcome-to-jekyll/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+      <article style="border: 1px solid #e9ecef; border-radius: 8px; padding: 20px; background: white;">
+        <h3 style="margin-top: 0;">
+          <a href="/my-jekyll-blog/ai_news/2025/06/04/ai-breakthroughs-2025-analysis/" style="text-decoration: none; color: #333;">
+            2025년 AI 혁신 동향 분석: 차세대 AI 기술의 전환점
+          </a>
+        </h3>
+        
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          <time>2025-06-04</time>
+          
+            
+              <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.8em;">
+                ai_news
+              </span>
+            
+          
+        </p>
+        
+        
+          <p style="color: #555; line-height: 1.5;">2025년 AI 기술의 최신 동향과 혁신적인 돌파구들을 심층 분석합니다. AGI 실현 가능성부터 실생활 응용까지.</p>
+        
+        
+        <a href="/my-jekyll-blog/ai_news/2025/06/04/ai-breakthroughs-2025-analysis/" style="color: #007bff; text-decoration: none; font-weight: bold;">
+          Read more →
+        </a>
+      </article>
+    
+  </div>
+</div>
+
+<!-- 기술 스택 섹션 -->
+<div class="tech-stack" style="background: #f8f9fa; padding: 20px; margin: 30px 0; border-radius: 8px;">
+  <h2>💻 Tech Stack</h2>
+  
+  <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+    
+    
+      <span style="background: #007bff; color: white; padding: 6px 12px; border-radius: 15px; font-size: 0.9em;">
+        Python
+      </span>
+    
+      <span style="background: #007bff; color: white; padding: 6px 12px; border-radius: 15px; font-size: 0.9em;">
+        Jekyll
+      </span>
+    
+      <span style="background: #007bff; color: white; padding: 6px 12px; border-radius: 15px; font-size: 0.9em;">
+        GitHub Actions
+      </span>
+    
+      <span style="background: #007bff; color: white; padding: 6px 12px; border-radius: 15px; font-size: 0.9em;">
+        Claude MCP
+      </span>
+    
+      <span style="background: #007bff; color: white; padding: 6px 12px; border-radius: 15px; font-size: 0.9em;">
+        JavaScript
+      </span>
+    
+      <span style="background: #007bff; color: white; padding: 6px 12px; border-radius: 15px; font-size: 0.9em;">
+        HTML/CSS
+      </span>
+    
+      <span style="background: #007bff; color: white; padding: 6px 12px; border-radius: 15px; font-size: 0.9em;">
+        Git
+      </span>
+    
+      <span style="background: #007bff; color: white; padding: 6px 12px; border-radius: 15px; font-size: 0.9em;">
+        Markdown
+      </span>
+    
+  </div>
+</div>
+
+<!-- 연락처 및 링크 -->
+<div class="contact-links" style="text-align: center; margin: 30px 0; padding: 20px; background: #e9ecef; border-radius: 8px;">
+  <h2>🔗 Connect with Me</h2>
+  
+  <div style="margin-top: 15px;">
+    <a href="https://github.com/elecsonJ" style="display: inline-block; margin: 0 10px; padding: 8px 16px; background: #333; color: white; text-decoration: none; border-radius: 5px;">
+      🔌 GitHub
+    </a>
+    
+    <a href="mailto:gkswogns2013@gmail.com" style="display: inline-block; margin: 0 10px; padding: 8px 16px; background: #dc3545; color: white; text-decoration: none; border-radius: 5px;">
+      📧 Email
+    </a>
+    
+    <a href="/my-jekyll-blog/about/" style="display: inline-block; margin: 0 10px; padding: 8px 16px; background: #28a745; color: white; text-decoration: none; border-radius: 5px;">
+      🙋‍💻 About Me
+    </a>
+  </div>
+</div>
+
+<!-- 이곳이 끝입니다. 더 이상 Posts가 자동 생성되지 않습니다. -->
+
+        </div>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 한재훈 (Jaehoon Han). All rights reserved.</p>
+        <p>Built with Jekyll & GitHub Actions</p>
+      </div>
+    </footer>
+  </body>
+</html>

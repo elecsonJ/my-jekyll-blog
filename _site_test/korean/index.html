@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>🇰🇷 한국어 포스트 | 재훈의 AI 자동화 블로그</title>
+    <meta name="description" content="한국어 기술 블로그 포스트를 카테고리별로 정리한 페이지입니다">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="🇰🇷 한국어 포스트">
+    <meta property="og:description" content="한국어 기술 블로그 포스트를 카테고리별로 정리한 페이지입니다">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elecsonj.github.io/my-jekyll-blog/korean/">
+    
+    <!-- Enhanced CSS for Better Readability -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+        line-height: 1.6; 
+        color: #333; 
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+      }
+      
+      .container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 0 20px;
+      }
+      
+      .site-header { 
+        background-color: #ffffff;
+        border-bottom: 1px solid #e1e4e8; 
+        margin-bottom: 30px; 
+        padding: 20px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .site-title { 
+        color: #0366d6; 
+        text-decoration: none; 
+        font-weight: bold; 
+        font-size: 1.5em;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      
+      .site-title:hover {
+        color: #0056b3;
+      }
+      
+      .site-nav { 
+        margin-top: 15px; 
+      }
+      
+      .site-nav a { 
+        margin-right: 25px; 
+        text-decoration: none; 
+        color: #0366d6;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+        display: inline-block;
+      }
+      
+      .site-nav a:hover {
+        background-color: #f1f8ff;
+        color: #0056b3;
+      }
+      
+      .page-content {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+      
+      .content-wrapper {
+        padding: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .site-footer { 
+        background-color: #f8f9fa;
+        border-top: 1px solid #e1e4e8; 
+        margin-top: 50px; 
+        padding: 30px 0; 
+        text-align: center; 
+        color: #666; 
+      }
+      
+      .site-footer p {
+        margin: 5px 0;
+      }
+      
+      /* 반응형 디자인 */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 15px;
+        }
+        
+        .content-wrapper {
+          padding: 20px;
+        }
+        
+        .site-nav a {
+          margin-right: 15px;
+          margin-bottom: 5px;
+          font-size: 0.9em;
+        }
+        
+        .site-title {
+          font-size: 1.3em;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 10px;
+        }
+        
+        .content-wrapper {
+          padding: 15px;
+        }
+        
+        .site-nav {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        
+        .site-nav a {
+          margin-right: 0;
+          flex: 1;
+          text-align: center;
+          min-width: calc(50% - 5px);
+        }
+      }
+      
+      /* 타이포그래피 개선 */
+      h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #2c3e50;
+      }
+      
+      h1 { font-size: 2.2em; }
+      h2 { font-size: 1.8em; }
+      h3 { font-size: 1.5em; }
+      
+      p {
+        margin-bottom: 1em;
+      }
+      
+      a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      code {
+        background-color: #f6f8fa;
+        border-radius: 3px;
+        padding: 2px 4px;
+        font-size: 0.9em;
+      }
+      
+      pre {
+        background-color: #f6f8fa;
+        border-radius: 6px;
+        padding: 16px;
+        overflow-x: auto;
+        line-height: 1.4;
+      }
+      
+      blockquote {
+        border-left: 4px solid #0366d6;
+        margin: 0;
+        padding-left: 20px;
+        color: #666;
+        font-style: italic;
+      }
+      
+      /* Latest Posts 10개 제한 - 안전장치 */
+      .recent-posts article:nth-child(n+11) {
+        display: none !important;
+      }
+      
+      /* 그리드 컨테이너에서 11번째 이후 article 숨기기 */
+      .recent-posts div[style*="grid"] > article:nth-child(n+11) {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="site-title" href="/my-jekyll-blog/">재훈의 AI 자동화 블로그</a>
+        
+        <nav class="site-nav">
+          <a href="/my-jekyll-blog/">Home</a>
+          <a href="/my-jekyll-blog/korean/">한국어</a>
+          <a href="/my-jekyll-blog/english/">English</a>
+          <a href="/my-jekyll-blog/categories/">Categories</a>
+          <a href="/my-jekyll-blog/about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <main class="page-content">
+        <div class="content-wrapper">
+          <article>
+  <header class="page-header">
+    <h1 class="page-title">🇰🇷 한국어 포스트</h1>
+    
+      <p class="page-description">한국어 기술 블로그 포스트를 카테고리별로 정리한 페이지입니다</p>
+    
+  </header>
+
+  <div class="page-body">
+    
+<!-- 페이지 설명 -->
+<div class="page-stats" style="text-align: center; margin-bottom: 40px;">
+  <p style="font-size: 0.9em; color: #888; margin-top: 10px;">총 22개의 포스트</p>
+</div>
+
+<!-- 카테고리별 포스트 빠른 맵뷰 섹션 -->
+<div class="category-posts-section" style="margin-bottom: 50px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+  <h2 style="text-align: center; margin-bottom: 30px; color: white;">📊 카테고리별 포스트</h2>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+
+  <div class="category-post-lists">
+    
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="/my-jekyll-blog/korean/categories/tech_analysis/" class="category-title-link">
+            <span class="category-icon">📊</span>
+            <span class="category-name">기술시장분석</span>
+            <span class="category-count">(5개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/tech_analysis/2025/06/18/apple-ai-investment-analysis/" class="post-link">
+                <span class="post-title">Apple의 조용한 혁명: Private Cloud Compute가 바꾸는 AI 생태계</span>
+                <span class="post-date">06/18</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/tech_analysis/2025/06/18/bigtech-analysis/" class="post-link">
+                <span class="post-title">FAANG의 AI 딜레마: 레거시 거대기업이 직면한 구조적 한계와 AI 네이티브의 부상</span>
+                <span class="post-date">06/18</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/tech_trends/2025/06/06/ai-era-developer-guide-korean/" class="post-link">
+                <span class="post-title">AI 시대, 개발자는 무엇을 배워야 할까? - 현실적인 학습 가이드</span>
+                <span class="post-date">06/06</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/tech_analysis/2025/06/05/baidu-ernie-open-source-strategy-analysis/" class="post-link">
+                <span class="post-title">바이두 Ernie 모델 오픈소스 전략: 중국 AI 시장의 전략적 변화와 글로벌 영향</span>
+                <span class="post-date">06/05</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/tech_analysis/2025/06/05/apple-shortcuts-ai-evolution-korean/" class="post-link">
+                <span class="post-title">Apple Shortcuts의 AI 진화: 8년간의 여정이 결실을 맺다</span>
+                <span class="post-date">06/05</span>
+              </a>
+            </li>
+          
+          
+        </ul>
+      </div>
+    
+    
+    
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="/my-jekyll-blog/korean/categories/ai_news/" class="category-title-link">
+            <span class="category-icon">🤖</span>
+            <span class="category-name">AI뉴스분석</span>
+            <span class="category-count">(4개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/ai_news/2025/06/10/ai-news-category-test-korean/" class="post-link">
+                <span class="post-title">AI 뉴스 카테고리 테스트 - 한국어 버전</span>
+                <span class="post-date">06/10</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/ai_news/2025/06/05/reddit-anthropic-lawsuit-korean/" class="post-link">
+                <span class="post-title">Reddit vs Anthropic 소송 분석: AI 훈련 데이터와 저작권의 새로운 전선</span>
+                <span class="post-date">06/05</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/ai_news/2025/06/05/apple-shortcuts-ai-korean/" class="post-link">
+                <span class="post-title">Apple Shortcuts의 AI 진화 - 자동화의 새로운 시대</span>
+                <span class="post-date">06/05</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/ai_news/2025/06/04/deepseek-controversy/" class="post-link">
+                <span class="post-title">DeepSeek이 Google Gemini로 AI 모델 훈련? 최신 AI 업계 논란 분석</span>
+                <span class="post-date">06/04</span>
+              </a>
+            </li>
+          
+          
+        </ul>
+      </div>
+    
+    
+    
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="/my-jekyll-blog/korean/categories/algorithm/" class="category-title-link">
+            <span class="category-icon">🧮</span>
+            <span class="category-name">알고리즘</span>
+            <span class="category-count">(2개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/algorithm/2025/06/18/algorithm-basics/" class="post-link">
+                <span class="post-title">알고리즘 기초: 정렬 알고리즘 완전정복</span>
+                <span class="post-date">06/18</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/algorithm/2025/06/05/boj-1043/" class="post-link">
+                <span class="post-title">[백준 1043번] 거짓말 - Python 풀이 (Union-Find)</span>
+                <span class="post-date">06/05</span>
+              </a>
+            </li>
+          
+          
+        </ul>
+      </div>
+    
+    
+    
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="/my-jekyll-blog/korean/categories/ai_lab/" class="category-title-link">
+            <span class="category-icon">🔬</span>
+            <span class="category-name">AI연구실습</span>
+            <span class="category-count">(1개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/ai_research/2025/06/30/next-gen-ai-trends-korean/" class="post-link">
+                <span class="post-title">차세대 AI 모델의 진화: 개발자가 알아야 할 2025년 AI 트렌드</span>
+                <span class="post-date">06/30</span>
+              </a>
+            </li>
+          
+          
+        </ul>
+      </div>
+    
+    
+    
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="/my-jekyll-blog/korean/categories/automation/" class="category-title-link">
+            <span class="category-icon">⚡</span>
+            <span class="category-name">자동화</span>
+            <span class="category-count">(3개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/automation/2025/06/18/mcp-jekyll-automation/" class="post-link">
+                <span class="post-title">MCP 서버를 활용한 Jekyll 블로그 자동화 시스템</span>
+                <span class="post-date">06/18</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/automation/2025/06/18/python-automation-guide/" class="post-link">
+                <span class="post-title">Python으로 일상 업무 자동화하기: 파일 정리부터 이메일 발송까지</span>
+                <span class="post-date">06/18</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/korean/automation/2025/06/04/jekyll-automation-blog-launch/" class="post-link">
+                <span class="post-title">Jekyll 자동화 블로그 시작 (2025.06.04)</span>
+                <span class="post-date">06/04</span>
+              </a>
+            </li>
+          
+          
+        </ul>
+      </div>
+    
+    
+    
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="/my-jekyll-blog/korean/categories/programming/" class="category-title-link">
+            <span class="category-icon">💻</span>
+            <span class="category-name">프로그래밍</span>
+            <span class="category-count">(4개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/programming/2025/06/18/ai-era-developer-guide/" class="post-link">
+                <span class="post-title">AI 시대 개발자 완전 가이드: 생존과 성장을 위한 실전 전략</span>
+                <span class="post-date">06/18</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/programming/2025/06/18/clean-code-python/" class="post-link">
+                <span class="post-title">클린 코드의 핵심: 가독성 높은 Python 코드 작성법</span>
+                <span class="post-date">06/18</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/tech/investment/2025/06/18/finance-basics/" class="post-link">
+                <span class="post-title">AI 시대 기업 가치 평가의 새로운 패러다임: 전통적 재무지표를 넘어선 AI 네이티브 밸류에이션</span>
+                <span class="post-date">06/18</span>
+              </a>
+            </li>
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/programming/2025/06/04/mcp-servers-complete-guide/" class="post-link">
+                <span class="post-title">실무에서 바로 활용 가능한 MCP 서버 완전 가이드 - 숨겨진 보석들부터 대중적 서버까지</span>
+                <span class="post-date">06/04</span>
+              </a>
+            </li>
+          
+          
+        </ul>
+      </div>
+    
+    
+    
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="/my-jekyll-blog/korean/categories/study/" class="category-title-link">
+            <span class="category-icon">📚</span>
+            <span class="category-name">학습기록</span>
+            <span class="category-count">(1개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/study/2025/06/18/study-reflection/" class="post-link">
+                <span class="post-title">컴퓨터과학 2학년 1학기 회고: 배운 것들과 성장 기록</span>
+                <span class="post-date">06/18</span>
+              </a>
+            </li>
+          
+          
+        </ul>
+      </div>
+    
+    
+    
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="/my-jekyll-blog/korean/categories/project/" class="category-title-link">
+            <span class="category-icon">🚀</span>
+            <span class="category-name">프로젝트</span>
+            <span class="category-count">(1개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/project/2025/06/18/discord-stock-bot-project/" class="post-link">
+                <span class="post-title">실시간 주식 가격 알림 봇 만들기: Discord + Python 프로젝트</span>
+                <span class="post-date">06/18</span>
+              </a>
+            </li>
+          
+          
+        </ul>
+      </div>
+    
+    
+    
+      <div class="category-post-group">
+        <h3 class="category-header">
+          <a href="/my-jekyll-blog/korean/categories/startup/" class="category-title-link">
+            <span class="category-icon">💡</span>
+            <span class="category-name">창업아이디어</span>
+            <span class="category-count">(1개)</span>
+          </a>
+        </h3>
+        <ul class="post-list">
+          
+          
+            <li class="post-item">
+              <a href="/my-jekyll-blog/startup/2025/06/18/ai-startup-ideas/" class="post-link">
+                <span class="post-title">AI 시대의 창업 아이디어: 개발자가 주목해야 할 5가지 비즈니스 기회</span>
+                <span class="post-date">06/18</span>
+              </a>
+            </li>
+          
+          
+        </ul>
+      </div>
+    
+    
+    
+  </div>
+</div>
+
+<!-- 최근 포스트 섹션 -->
+
+<div class="recent-posts-section" style="margin-bottom: 60px; padding: 30px; background: linear-gradient
+135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 15px;">
+  <h2 style="text-align: center; margin-bottom: 30px;">🕒 최근 포스트</h2>
+  <div class="posts-grid">
+    
+    
+      <article class="post-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s; margin-bottom: 20px;">
+        <h4 style="margin-bottom: 10px;"><a href="/my-jekyll-blog/ai_research/2025/06/30/next-gen-ai-trends-korean/" style="color: #333; text-decoration: none;">차세대 AI 모델의 진화: 개발자가 알아야 할 2025년 AI 트렌드</a></h4>
+        <p class="post-meta" style="color: #666; font-size: 0.9em;">
+          <time datetime="2025-06-30T00:00:00+09:00">
+            2025년 06월 30일
+          </time>
+          
+            
+              <span class="category-tag" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.85em;">ai_research</span>
+            
+          
+        </p>
+        
+          <p class="excerpt" style="margin-top: 10px; color: #555;">차세대 AI 모델의 진화: 개발자가 알아야 할 2025년 AI 트렌드
+
+2025년, AI 기술은 단순한 텍스트 생성을 넘어 진정한 인텔리전스에 한 걸음 더 다가섰습니다. GP...</p>
+        
+      </article>
+    
+      <article class="post-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s; margin-bottom: 20px;">
+        <h4 style="margin-bottom: 10px;"><a href="/my-jekyll-blog/algorithm/2025/06/18/algorithm-basics/" style="color: #333; text-decoration: none;">알고리즘 기초: 정렬 알고리즘 완전정복</a></h4>
+        <p class="post-meta" style="color: #666; font-size: 0.9em;">
+          <time datetime="2025-06-18T00:00:00+09:00">
+            2025년 06월 18일
+          </time>
+          
+            
+              <span class="category-tag" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.85em;">algorithm</span>
+            
+          
+        </p>
+        
+          <p class="excerpt" style="margin-top: 10px; color: #555;">알고리즘 기초: 정렬 알고리즘 완전정복
+
+코딩 테스트와 개발에서 가장 기본이 되는 정렬 알고리즘들을 알아봅시다.
+
+1. 버블 정렬 (Bubble Sort)
+
+1
+2
+3
+4
+5...</p>
+        
+      </article>
+    
+      <article class="post-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s; margin-bottom: 20px;">
+        <h4 style="margin-bottom: 10px;"><a href="/my-jekyll-blog/tech_analysis/2025/06/18/apple-ai-investment-analysis/" style="color: #333; text-decoration: none;">Apple의 조용한 혁명: Private Cloud Compute가 바꾸는 AI 생태계</a></h4>
+        <p class="post-meta" style="color: #666; font-size: 0.9em;">
+          <time datetime="2025-06-18T00:00:00+09:00">
+            2025년 06월 18일
+          </time>
+          
+            
+              <span class="category-tag" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.85em;">tech_analysis</span>
+            
+          
+        </p>
+        
+          <p class="excerpt" style="margin-top: 10px; color: #555;">Apple의 조용한 혁명: Private Cloud Compute가 바꾸는 AI 생태계
+
+“진정한 혁신은 소리 없이 일어난다” - Apple이 AI 분야에서 보여주고 있는 접...</p>
+        
+      </article>
+    
+      <article class="post-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s; margin-bottom: 20px;">
+        <h4 style="margin-bottom: 10px;"><a href="/my-jekyll-blog/tech_analysis/2025/06/18/bigtech-analysis/" style="color: #333; text-decoration: none;">FAANG의 AI 딜레마: 레거시 거대기업이 직면한 구조적 한계와 AI 네이티브의 부상</a></h4>
+        <p class="post-meta" style="color: #666; font-size: 0.9em;">
+          <time datetime="2025-06-18T00:00:00+09:00">
+            2025년 06월 18일
+          </time>
+          
+            
+              <span class="category-tag" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.85em;">tech_analysis</span>
+            
+          
+        </p>
+        
+          <p class="excerpt" style="margin-top: 10px; color: #555;">FAANG의 AI 딜레마: 레거시 거대기업이 직면한 구조적 한계와 AI 네이티브의 부상
+
+“20년 전 Google이 전통 미디어를 흔들었듯이, 오늘날 AI 네이티브 기업들이 ...</p>
+        
+      </article>
+    
+      <article class="post-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s; margin-bottom: 20px;">
+        <h4 style="margin-bottom: 10px;"><a href="/my-jekyll-blog/programming/2025/06/18/clean-code-python/" style="color: #333; text-decoration: none;">클린 코드의 핵심: 가독성 높은 Python 코드 작성법</a></h4>
+        <p class="post-meta" style="color: #666; font-size: 0.9em;">
+          <time datetime="2025-06-18T00:00:00+09:00">
+            2025년 06월 18일
+          </time>
+          
+            
+              <span class="category-tag" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.85em;">programming</span>
+            
+          
+        </p>
+        
+          <p class="excerpt" style="margin-top: 10px; color: #555;">클린 코드의 핵심: 가독성 높은 Python 코드 작성법
+
+
+  “코드는 작성하는 시간보다 읽는 시간이 10배는 더 많다” - Robert C. Martin
+
+
+1. 의미 있...</p>
+        
+      </article>
+    
+      <article class="post-card" style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s; margin-bottom: 20px;">
+        <h4 style="margin-bottom: 10px;"><a href="/my-jekyll-blog/project/2025/06/18/discord-stock-bot-project/" style="color: #333; text-decoration: none;">실시간 주식 가격 알림 봇 만들기: Discord + Python 프로젝트</a></h4>
+        <p class="post-meta" style="color: #666; font-size: 0.9em;">
+          <time datetime="2025-06-18T00:00:00+09:00">
+            2025년 06월 18일
+          </time>
+          
+            
+              <span class="category-tag" style="background: #e9ecef; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-size: 0.85em;">project</span>
+            
+          
+        </p>
+        
+          <p class="excerpt" style="margin-top: 10px; color: #555;">실시간 주식 가격 알림 봇 만들기
+
+주식 투자자들을 위한 Discord 알림 봇을 만들어보겠습니다!
+
+프로젝트 개요
+
+🎯 목표
+
+  관심 종목의 실시간 가격 모니터링
+  목표...</p>
+        
+      </article>
+    
+  </div>
+</div>
+
+<!-- 카테고리별 포스트 섹션 -->
+<div class="categories-container">
+
+
+  <div id="tech_analysis_section">
+    
+
+
+
+  </div>
+
+
+  <div id="ai_news_section">
+    
+
+
+
+  </div>
+
+
+  <div id="algorithm_section">
+    
+
+
+
+  </div>
+
+
+  <div id="ai_lab_section">
+    
+
+
+
+  </div>
+
+
+  <div id="automation_section">
+    
+
+
+
+  </div>
+
+
+  <div id="programming_section">
+    
+
+
+
+  </div>
+
+
+  <div id="study_section">
+    
+
+
+
+  </div>
+
+
+  <div id="project_section">
+    
+
+
+
+  </div>
+
+
+  <div id="startup_section">
+    
+
+
+
+  </div>
+
+
+</div>
+
+<!-- 네비게이션 버튼 -->
+<div class="navigation-buttons" style="margin-top: 50px; text-align: center; padding: 30px; background: #f8f9fa; border-radius: 15px;">
+  <h3 style="margin-bottom: 20px; color: #333;">🔗 다른 페이지로 이동</h3>
+  <div class="button-group" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <a href="/my-jekyll-blog/" class="nav-button home-button" style="display: inline-flex; align-items: center; padding: 15px 25px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; transition: transform 0.3s;">
+      <span style="margin-right: 8px;">🏠</span>
+      홈페이지
+    </a>
+    <a href="/my-jekyll-blog/english/" class="nav-button english-button" style="display: inline-flex; align-items: center; padding: 15px 25px; background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: bold; transition: transform 0.3s;">
+      <span style="margin-right: 8px;">🇺🇸</span>
+      English Posts
+    </a>
+  </div>
+</div>
+
+<style>
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* 카테고리별 포스트 빠른 맵뷰 스타일 */
+.category-post-lists {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.category-post-group {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.category-header {
+  margin: 0 0 15px 0;
+}
+
+.category-title-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.category-title-link:hover {
+  color: #f0f0f0;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.category-icon {
+  font-size: 1.3em;
+  margin-right: 8px;
+}
+
+.category-name {
+  flex: 1;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.category-count {
+  font-size: 0.9em;
+  opacity: 0.8;
+  margin-left: 5px;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-item {
+  margin-bottom: 8px;
+}
+
+.post-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.post-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  text-decoration: none;
+  transform: translateX(3px);
+}
+
+.post-title {
+  flex: 1;
+  font-size: 0.9em;
+  line-height: 1.3;
+  margin-right: 10px;
+}
+
+.post-date {
+  font-size: 0.8em;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.more-posts {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.more-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.85em;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.more-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-post-lists {
+    grid-template-columns: 1fr;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .post-link {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .post-date {
+    margin-top: 3px;
+    align-self: flex-end;
+  }
+}
+</style>
+
+
+  </div>
+</article>
+
+<style>
+/* page-content 클래스 제거 - default 레이아웃과 충돌 방지 */
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #007bff;
+}
+
+.page-title {
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.page-description {
+  color: #666;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.page-body {
+  line-height: 1.6;
+  /* 가독성을 위한 최대 너비 설정 */
+  max-width: 100%;
+}
+
+/* 공통 카테고리 스타일 */
+.categories-container {
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.category-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.category-section h3 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.category-description {
+  color: #666;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.post-card {
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.post-card h4 {
+  margin: 0 0 10px 0;
+}
+
+.post-card h4 a {
+  text-decoration: none;
+  color: #333;
+}
+
+.post-card h4 a:hover {
+  color: #007bff;
+}
+
+.post-meta {
+  color: #666;
+  font-size: 0.9em;
+  margin: 10px 0;
+}
+
+.category-tag {
+  background: #e9ecef;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 5px;
+  font-size: 0.8em;
+}
+
+.excerpt {
+  color: #555;
+  line-height: 1.4;
+  margin: 10px 0;
+}
+
+.view-more {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.category-summary {
+  margin: 30px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.summary-icon {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+.summary-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.summary-count {
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* 네비게이션 링크 제거 - default 레이아웃에 이미 있음 */
+.navigation-links {
+  display: none;
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-secondary {
+  background: #28a745;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #1e7e34;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .category-section {
+    margin-bottom: 30px;
+    padding: 15px;
+  }
+  
+  .page-title {
+    font-size: 2em;
+  }
+}
+</style>
+
+        </div>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 한재훈 (Jaehoon Han). All rights reserved.</p>
+        <p>Built with Jekyll & GitHub Actions</p>
+      </div>
+    </footer>
+  </body>
+</html>

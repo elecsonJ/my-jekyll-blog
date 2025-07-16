@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>What Skills Should Developers Learn in the AI Era? | 재훈의 AI 자동화 블로그</title>
+    <meta name="description" content="A comprehensive analysis of changing developer roles, required competencies, and the philosophy computer science students should develop in the age of AI">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="What Skills Should Developers Learn in the AI Era?">
+    <meta property="og:description" content="A comprehensive analysis of changing developer roles, required competencies, and the philosophy computer science students should develop in the age of AI">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elecsonj.github.io/my-jekyll-blog/ai/2025/06/06/ai-era-developer-guide-english/">
+    
+    <!-- Enhanced CSS for Better Readability -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+        line-height: 1.6; 
+        color: #333; 
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+      }
+      
+      .container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 0 20px;
+      }
+      
+      .site-header { 
+        background-color: #ffffff;
+        border-bottom: 1px solid #e1e4e8; 
+        margin-bottom: 30px; 
+        padding: 20px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .site-title { 
+        color: #0366d6; 
+        text-decoration: none; 
+        font-weight: bold; 
+        font-size: 1.5em;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      
+      .site-title:hover {
+        color: #0056b3;
+      }
+      
+      .site-nav { 
+        margin-top: 15px; 
+      }
+      
+      .site-nav a { 
+        margin-right: 25px; 
+        text-decoration: none; 
+        color: #0366d6;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+        display: inline-block;
+      }
+      
+      .site-nav a:hover {
+        background-color: #f1f8ff;
+        color: #0056b3;
+      }
+      
+      .page-content {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+      
+      .content-wrapper {
+        padding: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .site-footer { 
+        background-color: #f8f9fa;
+        border-top: 1px solid #e1e4e8; 
+        margin-top: 50px; 
+        padding: 30px 0; 
+        text-align: center; 
+        color: #666; 
+      }
+      
+      .site-footer p {
+        margin: 5px 0;
+      }
+      
+      /* 반응형 디자인 */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 15px;
+        }
+        
+        .content-wrapper {
+          padding: 20px;
+        }
+        
+        .site-nav a {
+          margin-right: 15px;
+          margin-bottom: 5px;
+          font-size: 0.9em;
+        }
+        
+        .site-title {
+          font-size: 1.3em;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 10px;
+        }
+        
+        .content-wrapper {
+          padding: 15px;
+        }
+        
+        .site-nav {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        
+        .site-nav a {
+          margin-right: 0;
+          flex: 1;
+          text-align: center;
+          min-width: calc(50% - 5px);
+        }
+      }
+      
+      /* 타이포그래피 개선 */
+      h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #2c3e50;
+      }
+      
+      h1 { font-size: 2.2em; }
+      h2 { font-size: 1.8em; }
+      h3 { font-size: 1.5em; }
+      
+      p {
+        margin-bottom: 1em;
+      }
+      
+      a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      code {
+        background-color: #f6f8fa;
+        border-radius: 3px;
+        padding: 2px 4px;
+        font-size: 0.9em;
+      }
+      
+      pre {
+        background-color: #f6f8fa;
+        border-radius: 6px;
+        padding: 16px;
+        overflow-x: auto;
+        line-height: 1.4;
+      }
+      
+      blockquote {
+        border-left: 4px solid #0366d6;
+        margin: 0;
+        padding-left: 20px;
+        color: #666;
+        font-style: italic;
+      }
+      
+      /* Latest Posts 10개 제한 - 안전장치 */
+      .recent-posts article:nth-child(n+11) {
+        display: none !important;
+      }
+      
+      /* 그리드 컨테이너에서 11번째 이후 article 숨기기 */
+      .recent-posts div[style*="grid"] > article:nth-child(n+11) {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="site-title" href="/my-jekyll-blog/">재훈의 AI 자동화 블로그</a>
+        
+        <nav class="site-nav">
+          <a href="/my-jekyll-blog/">Home</a>
+          <a href="/my-jekyll-blog/korean/">한국어</a>
+          <a href="/my-jekyll-blog/english/">English</a>
+          <a href="/my-jekyll-blog/categories/">Categories</a>
+          <a href="/my-jekyll-blog/about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <main class="page-content">
+        <div class="content-wrapper">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">What Skills Should Developers Learn in the AI Era?</h1>
+    
+    <div class="post-meta">
+      <time class="post-date">2025년 06월 06일</time>
+      
+      
+        <div class="post-categories">
+          
+            <span class="category-tag">ai</span>
+          
+        </div>
+      
+      
+      
+        <div class="post-tags">
+          
+            <span class="tag">artificial-intelligence</span>
+          
+            <span class="tag">developer</span>
+          
+            <span class="tag">programming</span>
+          
+            <span class="tag">career</span>
+          
+            <span class="tag">computer-science</span>
+          
+            <span class="tag">undergraduate</span>
+          
+            <span class="tag">startup</span>
+          
+            <span class="tag">job-market</span>
+          
+            <span class="tag">AI</span>
+          
+            <span class="tag">development</span>
+          
+        </div>
+      
+    </div>
+  </header>
+
+  <div class="post-content">
+    <h1 id="what-skills-should-developers-learn-in-the-ai-era">What Skills Should Developers Learn in the AI Era?</h1>
+
+<p><em>While AI technology automates simple coding tasks, the role of developers remains crucial and is evolving rather than disappearing.</em></p>
+
+<p>Today, Artificial Intelligence (AI) has evolved into programming-capable <strong>agents</strong> that can assist or automate many development tasks from code generation to debugging. According to a 2023 survey, <strong>76% of developers</strong> are already using or considering adopting AI coding tools (like GitHub Copilot), and <strong>65% of companies</strong> are utilizing generative AI for one or more business functions.</p>
+
+<p><strong>Bottom line</strong>: AI is changing the <strong>types of roles and competencies</strong> required of developers, but <strong>it’s not eliminating developer jobs</strong>. However, since <strong>AI is replacing simple and repetitive tasks</strong> that humans used to handle, future developers must focus on work that creates <strong>higher added value</strong>.</p>
+
+<h2 id="how-developer-roles-are-changing-evolution-not-replacement">How Developer Roles Are Changing: <strong>“Evolution” Not “Replacement”</strong></h2>
+
+<p>The emergence of AI has indeed brought significant changes to development work. AI tools now quickly handle tasks that developers used to do manually: <strong>automatic code generation</strong>, <strong>refactoring</strong>, <strong>bug fixes</strong>, and <strong>test case generation</strong>.</p>
+
+<p>Google’s Principal Scientist <strong>Jeff Dean</strong> predicted that <em>“AI will soon be able to perform coding at the level of a junior developer.”</em> This means <strong>the environment is becoming more challenging for recognition with only average entry-level development skills</strong>.</p>
+
+<p>However, many experts propose a new direction of <strong>collaboration between AI and developers</strong>. Microsoft CEO <strong>Satya Nadella</strong> mentioned that <em>“AI will not replace programmers but will become their tool, helping humans achieve more.”</em></p>
+
+<h3 id="ai-limitations-and-human-developer-strengths">AI Limitations and Human Developer Strengths</h3>
+
+<p>Current AI coding tools have limitations:</p>
+<ul>
+  <li><strong>Cannot fully understand context</strong></li>
+  <li><strong>Limited in creative thinking and generating new ideas</strong></li>
+  <li><strong>Insufficient complex and long-term problem-solving abilities</strong></li>
+</ul>
+
+<p><em>Three areas where AI tools are vulnerable: (1) deep contextual understanding, (2) creative thinking, (3) complex problem-solving abilities.</em></p>
+
+<p>Since there are clearly areas <strong>where AI cannot excel</strong>, future developers will be responsible for <strong>filling the gaps that AI cannot address</strong>.</p>
+
+<h2 id="human-developer-strengths-and-required-competencies-in-the-ai-era">Human Developer Strengths and Required Competencies in the AI Era</h2>
+
+<h3 id="️-technical-competencies-becoming-engineers-with-solid-fundamentals-and-integrative-skills">↗️ Technical Competencies: <strong>Becoming Engineers with Solid Fundamentals and Integrative Skills</strong></h3>
+
+<h4 id="strong-cs-fundamentals">Strong CS Fundamentals</h4>
+<p>Traditional computer science knowledge like data structures, algorithms, and computer architecture remains <strong>absolutely crucial in the AI era</strong>. Even if AI tools can quickly generate code, properly understanding the <strong>time complexity and memory usage</strong> of that code is the developer’s responsibility.</p>
+
+<p>Large Language Models (LLMs) have learned from vast datasets, but they don’t truly “understand” programming concepts like humans do, <strong>sometimes producing inefficient or error-prone code</strong>. To filter these out and <strong>select optimized solutions</strong>, fundamental knowledge of algorithmic complexity and data structure principles is essential.</p>
+
+<h4 id="software-architecture-design-skills">Software Architecture Design Skills</h4>
+<p>While AI can write code, it cannot autonomously decide <strong>what system structure to design</strong>. The ability to envision the big picture, design inter-module relationships, and <strong>organize architecture</strong> considering scalability and maintainability requires the judgment of experienced developers.</p>
+
+<p>Future developers will increasingly take on <strong>“director” roles that assemble AI-generated code fragments and provide direction</strong>. Therefore, understanding and applying object-oriented design, design patterns, and system architecture principles will become a differentiating capability.</p>
+
+<h4 id="testing-and-debugging-capabilities">Testing and Debugging Capabilities</h4>
+<p><strong>Test writing</strong> and <strong>debugging abilities</strong> that ensure software reliability are also core roles of human developers. While AI can generate basic test code, determining <strong>what boundary conditions to additionally verify</strong> and <strong>whether there are logical flaws</strong> remains human work.</p>
+
+<p>Google’s Jeff Dean emphasized that <em>for AI to truly reach human developer level, it must also be able to <strong>run tests and debug performance issues</strong></em>. Ultimately, <strong>tracing root causes of bugs</strong> and <strong>finding performance bottlenecks through profilers</strong> are advanced tasks that depend on developer expertise.</p>
+
+<h4 id="aidata-utilization-skills">AI/Data Utilization Skills</h4>
+<p>In the AI era, developers also need <strong>basic understanding of data and machine learning</strong>. Even if not all developers become AI specialists, having knowledge of <strong>fundamental machine learning principles (based on linear algebra and probability/statistics)</strong> and <strong>data processing capabilities (SQL, etc.)</strong> provides significant advantages.</p>
+
+<p>For example, extracting insights from large datasets or <strong>applying simple machine learning models</strong> are capabilities that may be required in almost all future software. Developers who effectively utilize AI understand <strong>how to collect and preprocess necessary data</strong> and <strong>apply models to solve problems</strong>.</p>
+
+<h4 id="security-and-quality-insights">Security and Quality Insights</h4>
+<p>As software becomes more complex and AI-generated code increases, <strong>Security</strong> and <strong>Quality</strong> assurance have become even more important. Since AI generates code based on vast training data, it can sometimes indiscriminately suggest code with <strong>licensing issues</strong> or <strong>security vulnerabilities</strong>.</p>
+
+<p>Therefore, developers who understand <strong>security principles</strong> (e.g., input validation, SQL injection prevention, memory safety) and <strong>software testing techniques</strong> are highly valued in the AI era. For AI-generated code especially, we must thoroughly examine <em>“Does this code work as intended? Is there potential for abuse?”</em></p>
+
+<h3 id="️-soft-skills-leveraging-human-capabilities-in-the-ai-era">↗️ Soft Skills: <strong>Leveraging Human Capabilities in the AI Era</strong></h3>
+
+<h4 id="creative-problem-solving">Creative Problem-Solving</h4>
+<p><strong>Creativity</strong> is one of the greatest strengths of human developers. Programming goes beyond simply implementing given problems in code; it involves <strong>defining problems and devising novel solutions</strong>. AI only suggests code in familiar patterns learned from past data; it cannot <strong>generate completely new ideas or innovative designs</strong>.</p>
+
+<p>Ultimately, <strong>“innovative thinking”</strong> remains the domain of human engineers. Develop <strong>creative thinking skills</strong> to identify user pain points for improvement or conceive entirely new services.</p>
+
+<h4 id="critical-thinking-and-ethical-awareness">Critical Thinking and Ethical Awareness</h4>
+<p>The attitude of <strong>verifying</strong> rather than blindly trusting AI outputs, and <strong>ethical consciousness</strong> considering technology’s social impact, are also important. In the AI era, humans must <strong>ultimately filter and take responsibility</strong> for errors caused by incorrect AI outputs or biased data.</p>
+
+<p>Therefore, <strong>critical thinking skills</strong> that question <em>“Why did this result occur?”</em> are essential. For example, you must be able to thoroughly examine and question whether AI-recommended code has errors or security issues.</p>
+
+<h4 id="communication-and-collaboration-skills">Communication and Collaboration Skills</h4>
+<p><strong>Teamwork</strong> and <strong>communication abilities</strong> are increasingly important <strong>strengths of human developers</strong> in the AI era. While AI might be good at coding alone, it <strong>cannot communicate with people</strong>. Ultimately, extracting user requirements and collaborating across departments to create products remains human work.</p>
+
+<p>Developers must constantly communicate with fellow developers, designers, planners, and even clients. Developers who excel at persuasively conveying their ideas and listening to others’ opinions for coordination are indispensable in organizations.</p>
+
+<h4 id="domain-knowledge-and-business-acumen">Domain Knowledge and Business Acumen</h4>
+<p>Future developers who are <strong>multi-players</strong> with <strong>domain expertise</strong> and <strong>business understanding</strong>, rather than just technical knowledge, will become increasingly valuable. In the AI era, developers with deep knowledge in specific fields become more important because <strong>even AI-powered solutions ultimately require humans to understand the context and apply them appropriately</strong>.</p>
+
+<p>For example, developing medical AI software requires developers who understand medical data characteristics, regulations, and doctors’ needs. AI only performs general learning; it cannot fully grasp the subtle differences or specialized knowledge of each industry.</p>
+
+<h2 id="how-to-use-ai-as-a-tool-become-a-smart-pilot">How to Use AI as a Tool: <strong>Become a Smart Pilot</strong></h2>
+
+<h3 id="treat-ai-as-a-smart-junior-developer">Treat AI as a “Smart Junior Developer”</h3>
+<p>AI coding tools are more like <strong>“very diligent junior developers who work quickly but also make mistakes”</strong> rather than experienced senior developers. Therefore, rather than blindly trusting and delegating, you always need an attitude of <strong>supervising and mentoring</strong>.</p>
+
+<p>When reviewing AI-suggested code or solutions, first <strong>examine whether there are any incomprehensible or suspicious parts</strong>. Like reviewing code written by a newcomer, you should <strong>identify bugs or inefficiencies and think of improvements</strong>. Since AI cannot fully understand context, we must properly guide the direction.</p>
+
+<h3 id="prompt-engineering-questions-determine-quality">Prompt Engineering: Questions Determine Quality</h3>
+<p><strong>How you ask (prompts)</strong> is very important to get desired results from AI. The same problem can yield vastly different answer quality with slight prompt modifications. Therefore, practice <strong>asking clearly and specifically</strong>.</p>
+
+<p>The more detailed you provide about problem situations, requirements, and constraints, the higher the accuracy of AI responses. Also, it’s normal if perfect responses don’t come in one try - <strong>trying multiple times and improving</strong> is part of the process.</p>
+
+<h3 id="trust-but-verify">“Trust but Verify”</h3>
+<p>This is the golden rule of AI utilization. If you’ve quickly generated code with AI’s help, <strong>always go through a verification process</strong>. Using AI code without verification can lead to unexpected bugs or security issues later.</p>
+
+<p>Specifically, you should <strong>directly run tests on AI-written code and manually check edge cases</strong>. According to GitHub’s recommendations, <strong>AI-generated test code should also be understandable and analyzable by developers to be trustworthy</strong>.</p>
+
+<h2 id="what-to-learn-and-how-to-utilize-undergraduate-curriculum">What to Learn and How to Utilize Undergraduate Curriculum</h2>
+
+<p>The theories and principles learned in undergraduate studies serve as the foundation for higher-level problem-solving in the AI era. The more AI automates, the more valuable people who understand <strong>“why things work that way”</strong> become.</p>
+
+<h3 id="️-theoretical-and-mathematical-foundation-courses-logical-thinking-and-ais-language">▶️ Theoretical and Mathematical Foundation Courses: <strong>Logical Thinking and AI’s Language</strong></h3>
+
+<h4 id="discrete-mathematics">Discrete Mathematics</h4>
+<p>Forms the logical backbone of computer science. Learning propositional logic, sets, graphs, and combinatorics develops <strong>logical thinking</strong> and <strong>proof abilities</strong>. This helps understand the correctness of complex algorithms and verify AI logic.</p>
+
+<p>For example, knowing graph theory is essential to properly solve <strong>social network path recommendation</strong> or <strong>network optimization</strong> problems. To judge whether AI-proposed solutions are logically sound, such <strong>rigorous thinking</strong> must be the foundation.</p>
+
+<h4 id="linear-algebra-and-probability--statistics">Linear Algebra and Probability &amp; Statistics</h4>
+<p>These are the <strong>mathematical foundations of modern AI algorithms</strong>. Linear algebra is virtually the basic language of <strong>deep learning</strong>, with matrix operations and vector space concepts being key to understanding neural network operating principles. Probability and statistics help understand how <strong>machine learning</strong> models make probabilistic predictions and inferences.</p>
+
+<p>Studying these subjects diligently allows you to go beyond simply using AI to <strong>understand why it works that way</strong>, and when errors occur, <strong>approach and diagnose mathematically</strong>.</p>
+
+<h4 id="numerical-analysis">Numerical Analysis</h4>
+<p>Deals with solving mathematical problems by computer, studying floating-point errors, approximation methods, etc. This knowledge applies directly to <strong>scientific computing</strong> and <strong>simulation</strong>, and also adds depth to understanding numerical stability issues like <strong>gradient vanishing/exploding problems</strong> in deep learning.</p>
+
+<h3 id="️-programming-and-algorithm-courses-honing-problem-solving-skills">▶️ Programming and Algorithm Courses: <strong>Honing Problem-Solving Skills</strong></h3>
+
+<h4 id="object-oriented-programming-oop">Object-Oriented Programming (OOP)</h4>
+<p>Learning concepts like <strong>encapsulation, inheritance, polymorphism</strong> teaches how to structure large programs. This improves code reusability and maintainability. Even when AI writes code, knowing OOP principles allows us to <strong>properly structure AI-generated code</strong> and refactor when necessary.</p>
+
+<p>For example, even with Copilot-generated code fragments, deciding how to divide them into classes and modules, or applying design patterns for generalization, remains the developer’s responsibility.</p>
+
+<h4 id="data-structures-and-algorithms">Data Structures and Algorithms</h4>
+<p>Provide <strong>tools for efficient problem-solving</strong>. Learning data structures like arrays, linked lists, trees, hashes, graphs, and algorithms for sorting, searching, pathfinding develops <strong>the ability to judge which approach is appropriate for which problem</strong>.</p>
+
+<p>This process also teaches <strong>time/space complexity analysis</strong>. This knowledge remains important in the AI era because even when AI writes code, humans must judge whether it’s an O(N²) or O(N log N) algorithm.</p>
+
+<h4 id="programming-language-theory">Programming Language Theory</h4>
+<p>Studies programming language design principles and various paradigms (imperative, functional, logical, etc.). While this might seem abstract, this knowledge enables <strong>quickly grasping core concepts</strong> when learning new languages and develops <strong>insight for language selection</strong>.</p>
+
+<p>In the AI era, using appropriate tools for different situations is important. Understanding language theory helps you understand questions like “Why is Python easy to learn but slow?” or “What advantages do functional languages have in the multicore era?” enabling <strong>optimal technology stack selection</strong>.</p>
+
+<h3 id="️-systems-and-networking-courses-understanding-computing-internals">▶️ Systems and Networking Courses: <strong>Understanding Computing Internals</strong></h3>
+
+<h4 id="operating-systems">Operating Systems</h4>
+<p>Covers <strong>computer resource management principles</strong> like CPU scheduling, memory management, file systems, and process synchronization. Learning OS helps understand how programs receive memory allocation, threads execute, and interact with hardware through system calls.</p>
+
+<p>This knowledge greatly helps in writing <strong>efficient code</strong>. For example, it strengthens <strong>performance optimization and problem-solving</strong> abilities like avoiding deadlocks when using multithreading or coding in a memory cache-friendly manner.</p>
+
+<h4 id="computer-architecture">Computer Architecture</h4>
+<p>Covers CPU and memory principles, instruction pipelines, caches, and parallel processing. This teaches <strong>how hardware executes code</strong>. This knowledge is essential for <strong>system optimization</strong>. Understanding computer architecture helps you know why certain code patterns cause cache misses and performance degradation, and consider <strong>operation optimization</strong> at the assembly level.</p>
+
+<h4 id="multiprocessor-computing">Multiprocessor Computing</h4>
+<p>Deals with <strong>parallel processing and concurrent programming</strong> essential today. To extract performance in multicore CPU and distributed computing environments, you need to understand concepts like locks/mutexes, parallel algorithms, and distributed systems.</p>
+
+<p>Learning to handle <strong>concurrency issues (data races, race conditions)</strong> through this course enables you to identify and fix risks in AI-generated multithreaded code.</p>
+
+<h4 id="data-communicationscomputer-communications-networking">Data Communications/Computer Communications (Networking)</h4>
+<p>Teaches principles of internet and network protocols (TCP/IP, HTTP, etc.). This helps learn <strong>how data flows between computers</strong> and <strong>network performance and security</strong> concepts. Almost all modern software is connected to networks, making network knowledge essential especially for <strong>cloud services, web development, and distributed AI services</strong>.</p>
+
+<h3 id="️-software-engineering-and-development-methodologies">▶️ Software Engineering and Development Methodologies</h3>
+
+<h4 id="software-engineering">Software Engineering</h4>
+<p>Covers the overall <strong>development cycle</strong> including requirements analysis, design (UML, etc.), development processes (agile, waterfall, etc.), project management, and configuration management (git). This is a <strong>meta-ability</strong> different from simply coding well - it’s <strong>methodology for leading large projects to success</strong>.</p>
+
+<p>Even when AI writes code, <strong>deciding what features to implement</strong> must be human-led. Understanding user requirements, writing them as specifications, and systematically managing development schedules are high-level capabilities.</p>
+
+<h4 id="software-testing">Software Testing</h4>
+<p>Covers various testing techniques (unit testing, integration testing, regression testing, etc.) and test automation. This course teaches <strong>systematic methods for ensuring software quality</strong>. Testing becomes even more important in the AI era because AI-written code may have <strong>unexpected malfunctions</strong>.</p>
+
+<h4 id="unix-programming">Unix Programming</h4>
+<p>Teaches system calls, shell scripting, and system tool usage in Linux/Unix environments. This develops <strong>efficient development environment utilization skills</strong> for developers. Learning CLI (Command Line Interface) familiarity and automation script writing can later help with <strong>AI development environment setup</strong> and <strong>build/deployment automation</strong>.</p>
+
+<h3 id="️-data-and-ai-courses">▶️ Data and AI Courses</h3>
+
+<h4 id="database">Database</h4>
+<p>Teaches <strong>efficient data storage/retrieval methods</strong> through SQL usage, normalization, transactions, and indexing. Since almost all modern applications handle data, DB knowledge is essential. <strong>Data modeling ability</strong> remains very important in the AI era.</p>
+
+<p>AI doesn’t magically utilize data. <strong>Humans must design</strong> what data to collect in what structure for meaningful analysis or learning.</p>
+
+<h4 id="ai-introduction">AI Introduction</h4>
+<p>Covers classical search algorithms, knowledge representation, reasoning, and machine learning fundamentals. This helps <strong>understand various approaches to problem-solving</strong> in AI’s broad context. Learning state space search or A* algorithms develops <strong>thinking processes for modeling problems</strong> and <strong>finding solution strategies</strong> beyond simple coding.</p>
+
+<h4 id="deep-learning-practice">Deep Learning Practice</h4>
+<p>Literally involves <strong>implementing and applying deep learning models</strong>. You’ll likely use Python’s <strong>TensorFlow or PyTorch</strong> and work with various deep learning models like CNN/RNN and reinforcement learning. This experience helps <strong>understand how modern AI is actually built and operates</strong>.</p>
+
+<p>You’ll observe model learning curves and experience the difficulties of hyperparameter tuning. This practical experience <strong>develops an eye for AI</strong> even if you don’t directly develop deep learning models after graduation.</p>
+
+<h3 id="️-security-and-quality-courses">▶️ Security and Quality Courses</h3>
+
+<h4 id="computer-security-and-network-security">Computer Security and Network Security</h4>
+<p>Covers cryptography basics, authentication, access control, malware, system security concepts, and <strong>attack and defense techniques for vulnerabilities</strong>. This knowledge instills <strong>security-conscious coding habits</strong> when developing.</p>
+
+<p>For example, through input validation, encrypting/hashing important data, and avoiding sensitive information logs are areas that developers with security knowledge naturally consider. AI-generated code doesn’t automatically guarantee security.</p>
+
+<h2 id="career-strategy-learning-in-companies-vs-entrepreneurship">Career Strategy: <strong>Learning in Companies vs. Entrepreneurship</strong></h2>
+
+<h3 id="learning-from-large-companiesexisting-it-companies">Learning from Large Companies/Existing IT Companies</h3>
+<p>A few years at a good company provides opportunities to learn not just technology but <strong>project management, large-scale system operations, team collaboration, and business domain knowledge</strong>. Well-established companies especially have systematized <strong>efficient development processes, code review culture, test automation, and DevOps pipelines</strong>, naturally teaching <strong>industry standards and best practices</strong>.</p>
+
+<p>This experience becomes a great asset when starting a business or forming new teams later. For example, seeing directly how systems used by millions of users are structured and how service failures are handled is dimensionally different from learning through books.</p>
+
+<h3 id="job-preparation-points-ai-era-version">Job Preparation Points (AI Era Version)</h3>
+<p>Job preparation processes are also changing slightly with AI’s emergence. Many companies still value <strong>data structures/algorithms coding tests</strong> and <strong>basic CS knowledge interviews</strong> - AI can’t take these for you.</p>
+
+<p>However, recently, demonstrating <strong>AI utilization skills</strong> in addition can be a plus factor. For example, showing that you’ve used Copilot in personal projects or created simple ML models as side projects - demonstrating that <strong>“you’re prepared to develop efficiently in the AI era”</strong>.</p>
+
+<p>Also, creating AI-related projects (e.g., adding chatbots to simple web apps) in your <strong>portfolio</strong> helps with differentiation. Companies inevitably prefer candidates who understand AI trends.</p>
+
+<h3 id="entrepreneurship-perspective">Entrepreneurship Perspective</h3>
+<p>Entrepreneurship is the <strong>ultimate comprehensive art</strong>. Technology is basic, but various abilities like <strong>market research, product planning, fundraising, marketing</strong> are needed. Fortunately, from a technical perspective, AI has made it possible for <strong>small teams to accomplish much more</strong>.</p>
+
+<p>For example, prototypes that used to take 10 people 6 months can now potentially be created by 2-3 people in a short time with AI coding assistants. Therefore, if you dream of entrepreneurship, you can adopt <strong>strategies to develop products efficiently by maximally utilizing AI</strong>.</p>
+
+<p>The path of gaining experience in companies before entrepreneurship is especially recommended. <strong>Know-how gained from developing/operating large-scale user services</strong> in companies becomes a great strength when starting businesses. Also, <strong>industry networks</strong> and <strong>domain knowledge</strong> gained through work can lead to new business ideas.</p>
+
+<p>If you decide on entrepreneurship, <strong>what problem the business solves</strong> is important in the AI era. Rather than developing AI itself, ideas that <strong>innovatively solve specific field problems using AI</strong> will be promising. Since there are many AI application opportunities in medical, education, environment, transportation, and other fields, pay attention to <strong>trends and problems in various fields</strong>.</p>
+
+<h3 id="promising-roles-in-the-ai-era">Promising Roles in the AI Era</h3>
+<ul>
+  <li><strong>ML Engineers/Data Scientists</strong>: Obviously popular positions</li>
+  <li><strong>MLOps Engineers</strong>: Model deployment/operations specialists with expected increased demand</li>
+  <li><strong>Application developers who integrate AI into products</strong>: App developers with AI features, etc.</li>
+  <li><strong>Developers with AI ethics/regulatory expertise</strong>: Designing AI utilization while complying with data regulations like GDPR</li>
+  <li><strong>Product Managers (PM) and Tech Leads</strong>: Abilities to establish AI utilization strategies are required</li>
+</ul>
+
+<p>Ultimately, rather than development positions decreasing in the AI era, <strong>new specialized fields and convergence areas</strong> are emerging, so rather than focusing on just one thing, <strong>trying various experiences to find what suits you</strong> is good.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p><strong>The anxiety you feel now can be a good catalyst for preparing for the future</strong>. Having this kind of problem awareness itself means <strong>you’re prepared to move ahead</strong>. <strong>Don’t fear AI; actively utilize it while developing uniquely human strengths</strong>.</p>
+
+<p>As NVIDIA CEO Jensen Huang said, <em>“People who use AI as a tool will <strong>replace those who don’t</strong>.”</em> This means <strong>those who collaborate with AI rather than compete with it will be the winners</strong>.</p>
+
+<p>Continue your studies by absorbing <strong>theory</strong> as much as possible and validating your skills through <strong>practice</strong> and <strong>projects</strong>. Using AI alongside will show tremendous growth by graduation compared to now. Your perspective on AI will also change - from <strong>“AI does many things better than me”</strong> to <strong>“I can do better thanks to AI”</strong>.</p>
+
+<blockquote>
+  <p>“AI will fundamentally change the meaning of software development, but <strong>human creativity and problem-solving abilities will become even more important</strong>. Conceptualizing complex problems and designing for special requirements remains the domain of human experts, and <strong>AI will only make such experts more powerful</strong>.”</p>
+</blockquote>
+
+<hr />
+
+<p><strong>Referenced Materials:</strong></p>
+<ul>
+  <li>Verdi, S. (2024). <em>Hard and soft skills for developers coding in the age of AI</em>. GitHub Blog</li>
+  <li>Burak, A. (2023). <em>Will AI Replace Programmers? The Real Impact on Coding Jobs</em>. Relevant Software Blog</li>
+  <li>Brainhub. (2025). <em>Is There a Future for Software Engineers? The Impact of AI</em>. Brainhub.eu Report</li>
+  <li>Business Insider. (2025). <em>Google chief scientist predicts AI could perform at the level of a junior coder in a year</em>. (Interview with Jeff Dean)</li>
+  <li>Korostelev, F. (2023). <em>Surviving and thriving as a software developer in the age of AI</em>. Pragmatic Engineer Newsletter</li>
+</ul>
+
+  </div>
+</article>
+
+<style>
+/* 포스트 전용 스타일링 - 단순하고 깔끔하게, 글 내용 최우선 */
+.post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #e1e4e8;
+}
+
+.post-title {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.post-date {
+  color: #666;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.post-categories, .post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.category-tag {
+  background: #007bff;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.tag {
+  background: #28a745;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+/* 포스트 내용 - 가독성 최우선 */
+.post-content {
+  margin-top: 50px;
+  color: #333;
+}
+
+/* 제목들 - 명확한 구분 */
+.post-content h1 {
+  font-size: 2.2em;
+  color: #2c3e50;
+  margin: 2.5em 0 1.2em 0;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #007bff;
+  font-weight: 700;
+}
+
+.post-content h2 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin: 2.2em 0 1em 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #28a745;
+  font-weight: 600;
+}
+
+.post-content h3 {
+  font-size: 1.4em;
+  color: #495057;
+  margin: 1.8em 0 0.8em 0;
+  font-weight: 600;
+}
+
+/* 단락들 - 충분한 간격 */
+.post-content p {
+  margin-bottom: 1.8em;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* 리스트들 - 깔끔한 정렬 */
+.post-content ul, .post-content ol {
+  margin: 1.8em 0;
+  padding-left: 2.5em;
+}
+
+.post-content li {
+  margin-bottom: 0.8em;
+  line-height: 1.7;
+}
+
+/* 강조 텍스트 */
+.post-content strong {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* 인용구 */
+.post-content blockquote {
+  background: #f8f9fa;
+  border-left: 5px solid #007bff;
+  padding: 25px 30px;
+  margin: 2.5em 0;
+  font-style: italic;
+  color: #495057;
+  font-size: 1.1em;
+}
+
+/* 코드 블록 */
+.post-content pre {
+  background: #f6f8fa;
+  padding: 25px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2.5em 0;
+  border: 1px solid #e1e4e8;
+  line-height: 1.5;
+}
+
+.post-content code {
+  background: #f6f8fa;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #e83e8c;
+  font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .post {
+    padding: 20px 15px;
+    font-size: 15px;
+  }
+  
+  .post-title {
+    font-size: 2em;
+  }
+  
+  .post-meta {
+    gap: 12px;
+  }
+  
+  .post-content h1 {
+    font-size: 1.8em;
+  }
+  
+  .post-content h2 {
+    font-size: 1.5em;
+  }
+  
+  .post-content h3 {
+    font-size: 1.3em;
+  }
+  
+  .post-content ul, .post-content ol {
+    padding-left: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .post {
+    padding: 15px 10px;
+    font-size: 14px;
+  }
+  
+  .post-title {
+    font-size: 1.8em;
+  }
+  
+  .post-content h1 {
+    font-size: 1.6em;
+  }
+  
+  .post-content h2 {
+    font-size: 1.4em;
+  }
+  
+  .post-content ul, .post-content ol {
+    padding-left: 1.5em;
+  }
+}
+</style>
+        </div>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 한재훈 (Jaehoon Han). All rights reserved.</p>
+        <p>Built with Jekyll & GitHub Actions</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>2025년 최신 AI 돌파구: 차세대 인공지능 기술 동향 | 재훈의 AI 자동화 블로그</title>
+    <meta name="description" content="서울시립대학교 컴퓨터과학부 2학년 한재훈의 AI와 자동화 기술 개인 개발과 Claude MCP 서버, Jekyll, GitHub Actions를 활용한 AI 자동화 블로그 시스템을 구성하고, 기술 데이터를 모두 진행하며 웹 개발에서 자동 가능한 플랫폼을 제공하는 개인의 지속적인 탐...">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="2025년 최신 AI 돌파구: 차세대 인공지능 기술 동향">
+    <meta property="og:description" content="서울시립대학교 컴퓨터과학부 2학년 한재훈의 AI와 자동화 기술 개인 개발과 Claude MCP 서버, Jekyll, GitHub Actions를 활용한 AI 자동화 블로그 시스템을 구성하고, 기술 데이터를 모두 진행하며 웹 개발에서 자동 가능한 플랫폼을 제공하는 개인의 지속적인 탐...">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elecsonj.github.io/my-jekyll-blog/ai_news/2025/06/04/latest-ai-breakthroughs-2025/">
+    
+    <!-- Enhanced CSS for Better Readability -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+        line-height: 1.6; 
+        color: #333; 
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+      }
+      
+      .container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 0 20px;
+      }
+      
+      .site-header { 
+        background-color: #ffffff;
+        border-bottom: 1px solid #e1e4e8; 
+        margin-bottom: 30px; 
+        padding: 20px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .site-title { 
+        color: #0366d6; 
+        text-decoration: none; 
+        font-weight: bold; 
+        font-size: 1.5em;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      
+      .site-title:hover {
+        color: #0056b3;
+      }
+      
+      .site-nav { 
+        margin-top: 15px; 
+      }
+      
+      .site-nav a { 
+        margin-right: 25px; 
+        text-decoration: none; 
+        color: #0366d6;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+        display: inline-block;
+      }
+      
+      .site-nav a:hover {
+        background-color: #f1f8ff;
+        color: #0056b3;
+      }
+      
+      .page-content {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+      
+      .content-wrapper {
+        padding: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .site-footer { 
+        background-color: #f8f9fa;
+        border-top: 1px solid #e1e4e8; 
+        margin-top: 50px; 
+        padding: 30px 0; 
+        text-align: center; 
+        color: #666; 
+      }
+      
+      .site-footer p {
+        margin: 5px 0;
+      }
+      
+      /* 반응형 디자인 */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 15px;
+        }
+        
+        .content-wrapper {
+          padding: 20px;
+        }
+        
+        .site-nav a {
+          margin-right: 15px;
+          margin-bottom: 5px;
+          font-size: 0.9em;
+        }
+        
+        .site-title {
+          font-size: 1.3em;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 10px;
+        }
+        
+        .content-wrapper {
+          padding: 15px;
+        }
+        
+        .site-nav {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        
+        .site-nav a {
+          margin-right: 0;
+          flex: 1;
+          text-align: center;
+          min-width: calc(50% - 5px);
+        }
+      }
+      
+      /* 타이포그래피 개선 */
+      h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #2c3e50;
+      }
+      
+      h1 { font-size: 2.2em; }
+      h2 { font-size: 1.8em; }
+      h3 { font-size: 1.5em; }
+      
+      p {
+        margin-bottom: 1em;
+      }
+      
+      a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      code {
+        background-color: #f6f8fa;
+        border-radius: 3px;
+        padding: 2px 4px;
+        font-size: 0.9em;
+      }
+      
+      pre {
+        background-color: #f6f8fa;
+        border-radius: 6px;
+        padding: 16px;
+        overflow-x: auto;
+        line-height: 1.4;
+      }
+      
+      blockquote {
+        border-left: 4px solid #0366d6;
+        margin: 0;
+        padding-left: 20px;
+        color: #666;
+        font-style: italic;
+      }
+      
+      /* Latest Posts 10개 제한 - 안전장치 */
+      .recent-posts article:nth-child(n+11) {
+        display: none !important;
+      }
+      
+      /* 그리드 컨테이너에서 11번째 이후 article 숨기기 */
+      .recent-posts div[style*="grid"] > article:nth-child(n+11) {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="site-title" href="/my-jekyll-blog/">재훈의 AI 자동화 블로그</a>
+        
+        <nav class="site-nav">
+          <a href="/my-jekyll-blog/">Home</a>
+          <a href="/my-jekyll-blog/korean/">한국어</a>
+          <a href="/my-jekyll-blog/english/">English</a>
+          <a href="/my-jekyll-blog/categories/">Categories</a>
+          <a href="/my-jekyll-blog/about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <main class="page-content">
+        <div class="content-wrapper">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">2025년 최신 AI 돌파구: 차세대 인공지능 기술 동향</h1>
+    
+    <div class="post-meta">
+      <time class="post-date">2025년 06월 04일</time>
+      
+      
+        <div class="post-categories">
+          
+            <span class="category-tag">ai_news</span>
+          
+        </div>
+      
+      
+      
+        <div class="post-tags">
+          
+            <span class="tag">AI</span>
+          
+            <span class="tag">기술동향</span>
+          
+            <span class="tag">혁신</span>
+          
+            <span class="tag">2025</span>
+          
+        </div>
+      
+    </div>
+  </header>
+
+  <div class="post-content">
+    <h2 id="2025년-ai-기술의-새로운-지평">2025년 AI 기술의 새로운 지평</h2>
+
+<p>2025년이 시작되면서 AI 기술은 예상을 뛰어넘는 속도로 발전하고 있습니다. 이번 포스트에서는 올해 상반기에 발표된 주요 AI 돌파구들과 그 의미를 살펴보겠습니다.</p>
+
+<h3 id="1-openai-gpt-5-진정한-멀티모달-ai의-등장">1. OpenAI GPT-5: 진정한 멀티모달 AI의 등장</h3>
+
+<h4 id="주요-특징">주요 특징</h4>
+<ul>
+  <li><strong>컨텍스트 윈도우</strong>: 2백만 토큰 (이전 모델 대비 10배 증가)</li>
+  <li><strong>멀티모달 통합</strong>: 텍스트, 이미지, 오디오, 비디오를 자연스럽게 처리</li>
+  <li><strong>실시간 학습</strong>: 대화 중 새로운 정보를 즉시 학습하고 적용</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="c1"># GPT-5 API 사용 예시
+</span><span class="kn">import</span> <span class="n">openai</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">openai</span><span class="p">.</span><span class="nc">Client</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="sh">"</span><span class="s">your-api-key</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">chat</span><span class="p">.</span><span class="n">completions</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">gpt-5</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span>
+            <span class="sh">"</span><span class="s">role</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user</span><span class="sh">"</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">content</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">이 비디오를 분석해주세요</span><span class="sh">"</span><span class="p">},</span>
+                <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">video_url</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">video_url</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">https://example.com/video.mp4</span><span class="sh">"</span><span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="n">stream</span><span class="o">=</span><span class="bp">True</span>
+<span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="2-google의-gemini-ultra-20">2. Google의 Gemini Ultra 2.0</h3>
+
+<p>Google DeepMind가 발표한 Gemini Ultra 2.0은 다음과 같은 혁신을 보여줍니다:</p>
+
+<ul>
+  <li><strong>코드 생성 능력</strong>: 전체 애플리케이션을 자동으로 생성</li>
+  <li><strong>과학적 추론</strong>: 복잡한 과학 문제 해결 능력</li>
+  <li><strong>다국어 지원</strong>: 200개 이상의 언어를 네이티브 수준으로 지원</li>
+</ul>
+
+<h3 id="3-양자-ai의-실용화">3. 양자 AI의 실용화</h3>
+
+<h4 id="ibm-quantum-ai">IBM Quantum AI</h4>
+<p>IBM이 발표한 양자-고전 하이브리드 AI 시스템은:</p>
+<ul>
+  <li>특정 최적화 문제에서 기존 AI 대비 1000배 빠른 속도</li>
+  <li>신약 개발에서 획기적인 성과</li>
+  <li>금융 포트폴리오 최적화에 실제 적용</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">execute</span>
+<span class="kn">from</span> <span class="n">qiskit_machine_learning.algorithms</span> <span class="kn">import</span> <span class="n">QSVC</span>
+
+<span class="c1"># 양자 서포트 벡터 분류기 예시
+</span><span class="n">qsvc</span> <span class="o">=</span> <span class="nc">QSVC</span><span class="p">(</span><span class="n">quantum_kernel</span><span class="o">=</span><span class="n">quantum_kernel</span><span class="p">)</span>
+<span class="n">qsvc</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">qsvc</span><span class="p">.</span><span class="nf">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="4-ai-에이전트의-자율성-향상">4. AI 에이전트의 자율성 향상</h3>
+
+<h4 id="autogpt-30">AutoGPT 3.0</h4>
+<p>완전 자율적인 AI 에이전트가 현실화되었습니다:</p>
+<ul>
+  <li>복잡한 작업을 스스로 분해하고 실행</li>
+  <li>필요한 도구를 자동으로 선택하고 사용</li>
+  <li>오류 발생 시 자가 수정</li>
+</ul>
+
+<h3 id="5-뇌-컴퓨터-인터페이스bci와-ai의-결합">5. 뇌-컴퓨터 인터페이스(BCI)와 AI의 결합</h3>
+
+<p>Neuralink와 같은 기업들이 BCI 기술을 AI와 결합하여:</p>
+<ul>
+  <li>생각만으로 AI와 직접 소통</li>
+  <li>실시간 뇌파 분석을 통한 감정 인식</li>
+  <li>의료 분야에서의 혁신적 응용</li>
+</ul>
+
+<h3 id="6-엣지-ai의-진화">6. 엣지 AI의 진화</h3>
+
+<h4 id="초경량-모델">초경량 모델</h4>
+<p>스마트폰에서 실행 가능한 강력한 AI 모델들:</p>
+<ul>
+  <li>Apple의 On-Device LLM</li>
+  <li>Google의 Nano 모델 시리즈</li>
+  <li>Qualcomm의 AI 프로세서 최적화 모델</li>
+</ul>
+
+<h3 id="7-ai-안전성과-윤리의-진전">7. AI 안전성과 윤리의 진전</h3>
+
+<h4 id="constitutional-ai의-발전">Constitutional AI의 발전</h4>
+<p>Anthropic의 Constitutional AI 접근법이 업계 표준으로 자리잡으며:</p>
+<ul>
+  <li>AI의 자가 수정 능력 향상</li>
+  <li>편향성 감소</li>
+  <li>설명 가능한 의사결정</li>
+</ul>
+
+<h3 id="8-생성-ai의-새로운-차원">8. 생성 AI의 새로운 차원</h3>
+
+<h4 id="3d-콘텐츠-생성">3D 콘텐츠 생성</h4>
+<ul>
+  <li>텍스트로부터 고품질 3D 모델 생성</li>
+  <li>실시간 가상 환경 구축</li>
+  <li>게임 및 메타버스 응용</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1"># 3D 생성 AI 예시
+</span><span class="kn">from</span> <span class="n">ai3d</span> <span class="kn">import</span> <span class="n">TextTo3D</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="nc">TextTo3D</span><span class="p">()</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">generate</span><span class="p">(</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="sh">"</span><span class="s">현대적인 사무실 의자, 인체공학적 디자인</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">quality</span><span class="o">=</span><span class="sh">"</span><span class="s">high</span><span class="sh">"</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="sh">"</span><span class="s">obj</span><span class="sh">"</span>
+<span class="p">)</span>
+<span class="n">mesh</span><span class="p">.</span><span class="nf">save</span><span class="p">(</span><span class="sh">"</span><span class="s">office_chair.obj</span><span class="sh">"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="9-ai-기반-과학-연구의-가속화">9. AI 기반 과학 연구의 가속화</h3>
+
+<h4 id="alphafold-3">AlphaFold 3</h4>
+<p>DeepMind의 AlphaFold 3는:</p>
+<ul>
+  <li>단백질-약물 상호작용 예측</li>
+  <li>RNA 구조 예측</li>
+  <li>전체 세포 시뮬레이션 가능</li>
+</ul>
+
+<h3 id="10-실시간-ai-번역의-완성">10. 실시간 AI 번역의 완성</h3>
+
+<h4 id="meta의-seamlessm4t-v2">Meta의 SeamlessM4T v2</h4>
+<ul>
+  <li>100개 언어 간 실시간 음성 번역</li>
+  <li>문화적 뉘앙스 이해</li>
+  <li>동시통역 수준의 정확도</li>
+</ul>
+
+<h2 id="산업별-영향">산업별 영향</h2>
+
+<h3 id="헬스케어">헬스케어</h3>
+<ul>
+  <li>AI 진단 정확도가 인간 의사 수준 도달</li>
+  <li>개인 맞춤형 치료 계획 수립</li>
+  <li>신약 개발 기간 50% 단축</li>
+</ul>
+
+<h3 id="교육">교육</h3>
+<ul>
+  <li>완전 개인화된 AI 튜터</li>
+  <li>실시간 학습 분석 및 피드백</li>
+  <li>VR/AR 통합 몰입형 학습</li>
+</ul>
+
+<h3 id="금융">금융</h3>
+<ul>
+  <li>AI 기반 리스크 관리 고도화</li>
+  <li>실시간 사기 탐지 99.9% 정확도</li>
+  <li>자동화된 투자 전략 수립</li>
+</ul>
+
+<h2 id="향후-전망">향후 전망</h2>
+
+<p>2025년 하반기에는 다음과 같은 발전이 예상됩니다:</p>
+
+<ol>
+  <li><strong>AGI(Artificial General Intelligence)</strong> 논의 본격화</li>
+  <li><strong>뇌 수준의 AI</strong> 프로토타입 등장</li>
+  <li><strong>완전 자율 로봇</strong> 상용화</li>
+  <li><strong>AI 거버넌스</strong> 국제 표준 확립</li>
+</ol>
+
+<h2 id="실무-적용-가이드">실무 적용 가이드</h2>
+
+<h3 id="개발자를-위한-팁">개발자를 위한 팁</h3>
+<ol>
+  <li>멀티모달 AI API 활용법 습득</li>
+  <li>양자 컴퓨팅 기초 학습</li>
+  <li>AI 안전성 best practice 적용</li>
+</ol>
+
+<h3 id="비즈니스-리더를-위한-조언">비즈니스 리더를 위한 조언</h3>
+<ol>
+  <li>AI 통합 전략 수립의 중요성</li>
+  <li>직원 AI 리터러시 교육 투자</li>
+  <li>윤리적 AI 사용 가이드라인 마련</li>
+</ol>
+
+<h2 id="마무리">마무리</h2>
+
+<p>2025년은 AI 기술이 단순한 도구에서 진정한 파트너로 진화하는 전환점이 되고 있습니다. 이러한 기술들을 올바르게 이해하고 활용한다면, 우리는 더 나은 미래를 만들어갈 수 있을 것입니다.</p>
+
+<p>지속적인 학습과 적응, 그리고 윤리적 고려사항을 잊지 않는다면, AI 시대의 승자가 될 수 있을 것입니다.</p>
+
+  </div>
+</article>
+
+<style>
+/* 포스트 전용 스타일링 - 단순하고 깔끔하게, 글 내용 최우선 */
+.post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #e1e4e8;
+}
+
+.post-title {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.post-date {
+  color: #666;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.post-categories, .post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.category-tag {
+  background: #007bff;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.tag {
+  background: #28a745;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+/* 포스트 내용 - 가독성 최우선 */
+.post-content {
+  margin-top: 50px;
+  color: #333;
+}
+
+/* 제목들 - 명확한 구분 */
+.post-content h1 {
+  font-size: 2.2em;
+  color: #2c3e50;
+  margin: 2.5em 0 1.2em 0;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #007bff;
+  font-weight: 700;
+}
+
+.post-content h2 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin: 2.2em 0 1em 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #28a745;
+  font-weight: 600;
+}
+
+.post-content h3 {
+  font-size: 1.4em;
+  color: #495057;
+  margin: 1.8em 0 0.8em 0;
+  font-weight: 600;
+}
+
+/* 단락들 - 충분한 간격 */
+.post-content p {
+  margin-bottom: 1.8em;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* 리스트들 - 깔끔한 정렬 */
+.post-content ul, .post-content ol {
+  margin: 1.8em 0;
+  padding-left: 2.5em;
+}
+
+.post-content li {
+  margin-bottom: 0.8em;
+  line-height: 1.7;
+}
+
+/* 강조 텍스트 */
+.post-content strong {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* 인용구 */
+.post-content blockquote {
+  background: #f8f9fa;
+  border-left: 5px solid #007bff;
+  padding: 25px 30px;
+  margin: 2.5em 0;
+  font-style: italic;
+  color: #495057;
+  font-size: 1.1em;
+}
+
+/* 코드 블록 */
+.post-content pre {
+  background: #f6f8fa;
+  padding: 25px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2.5em 0;
+  border: 1px solid #e1e4e8;
+  line-height: 1.5;
+}
+
+.post-content code {
+  background: #f6f8fa;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #e83e8c;
+  font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .post {
+    padding: 20px 15px;
+    font-size: 15px;
+  }
+  
+  .post-title {
+    font-size: 2em;
+  }
+  
+  .post-meta {
+    gap: 12px;
+  }
+  
+  .post-content h1 {
+    font-size: 1.8em;
+  }
+  
+  .post-content h2 {
+    font-size: 1.5em;
+  }
+  
+  .post-content h3 {
+    font-size: 1.3em;
+  }
+  
+  .post-content ul, .post-content ol {
+    padding-left: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .post {
+    padding: 15px 10px;
+    font-size: 14px;
+  }
+  
+  .post-title {
+    font-size: 1.8em;
+  }
+  
+  .post-content h1 {
+    font-size: 1.6em;
+  }
+  
+  .post-content h2 {
+    font-size: 1.4em;
+  }
+  
+  .post-content ul, .post-content ol {
+    padding-left: 1.5em;
+  }
+}
+</style>
+        </div>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 한재훈 (Jaehoon Han). All rights reserved.</p>
+        <p>Built with Jekyll & GitHub Actions</p>
+      </div>
+    </footer>
+  </body>
+</html>

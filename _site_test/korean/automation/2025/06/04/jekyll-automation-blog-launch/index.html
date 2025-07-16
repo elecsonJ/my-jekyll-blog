@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Jekyll 자동화 블로그 시작 (2025.06.04) | 재훈의 AI 자동화 블로그</title>
+    <meta name="description" content="Jekyll과 GitHub Actions를 활용한 자동화 블로그 시스템을 구축해보았습니다.">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="Jekyll 자동화 블로그 시작 (2025.06.04)">
+    <meta property="og:description" content="Jekyll과 GitHub Actions를 활용한 자동화 블로그 시스템을 구축해보았습니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elecsonj.github.io/my-jekyll-blog/korean/automation/2025/06/04/jekyll-automation-blog-launch/">
+    
+    <!-- Enhanced CSS for Better Readability -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+        line-height: 1.6; 
+        color: #333; 
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+      }
+      
+      .container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 0 20px;
+      }
+      
+      .site-header { 
+        background-color: #ffffff;
+        border-bottom: 1px solid #e1e4e8; 
+        margin-bottom: 30px; 
+        padding: 20px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .site-title { 
+        color: #0366d6; 
+        text-decoration: none; 
+        font-weight: bold; 
+        font-size: 1.5em;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      
+      .site-title:hover {
+        color: #0056b3;
+      }
+      
+      .site-nav { 
+        margin-top: 15px; 
+      }
+      
+      .site-nav a { 
+        margin-right: 25px; 
+        text-decoration: none; 
+        color: #0366d6;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+        display: inline-block;
+      }
+      
+      .site-nav a:hover {
+        background-color: #f1f8ff;
+        color: #0056b3;
+      }
+      
+      .page-content {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+      
+      .content-wrapper {
+        padding: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .site-footer { 
+        background-color: #f8f9fa;
+        border-top: 1px solid #e1e4e8; 
+        margin-top: 50px; 
+        padding: 30px 0; 
+        text-align: center; 
+        color: #666; 
+      }
+      
+      .site-footer p {
+        margin: 5px 0;
+      }
+      
+      /* 반응형 디자인 */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 15px;
+        }
+        
+        .content-wrapper {
+          padding: 20px;
+        }
+        
+        .site-nav a {
+          margin-right: 15px;
+          margin-bottom: 5px;
+          font-size: 0.9em;
+        }
+        
+        .site-title {
+          font-size: 1.3em;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 10px;
+        }
+        
+        .content-wrapper {
+          padding: 15px;
+        }
+        
+        .site-nav {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        
+        .site-nav a {
+          margin-right: 0;
+          flex: 1;
+          text-align: center;
+          min-width: calc(50% - 5px);
+        }
+      }
+      
+      /* 타이포그래피 개선 */
+      h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #2c3e50;
+      }
+      
+      h1 { font-size: 2.2em; }
+      h2 { font-size: 1.8em; }
+      h3 { font-size: 1.5em; }
+      
+      p {
+        margin-bottom: 1em;
+      }
+      
+      a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      code {
+        background-color: #f6f8fa;
+        border-radius: 3px;
+        padding: 2px 4px;
+        font-size: 0.9em;
+      }
+      
+      pre {
+        background-color: #f6f8fa;
+        border-radius: 6px;
+        padding: 16px;
+        overflow-x: auto;
+        line-height: 1.4;
+      }
+      
+      blockquote {
+        border-left: 4px solid #0366d6;
+        margin: 0;
+        padding-left: 20px;
+        color: #666;
+        font-style: italic;
+      }
+      
+      /* Latest Posts 10개 제한 - 안전장치 */
+      .recent-posts article:nth-child(n+11) {
+        display: none !important;
+      }
+      
+      /* 그리드 컨테이너에서 11번째 이후 article 숨기기 */
+      .recent-posts div[style*="grid"] > article:nth-child(n+11) {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="site-title" href="/my-jekyll-blog/">재훈의 AI 자동화 블로그</a>
+        
+        <nav class="site-nav">
+          <a href="/my-jekyll-blog/">Home</a>
+          <a href="/my-jekyll-blog/korean/">한국어</a>
+          <a href="/my-jekyll-blog/english/">English</a>
+          <a href="/my-jekyll-blog/categories/">Categories</a>
+          <a href="/my-jekyll-blog/about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <main class="page-content">
+        <div class="content-wrapper">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Jekyll 자동화 블로그 시작 (2025.06.04)</h1>
+    
+    <div class="post-meta">
+      <time class="post-date">2025년 06월 04일</time>
+      
+      
+        <div class="post-categories">
+          
+            <span class="category-tag">korean</span>
+          
+            <span class="category-tag">automation</span>
+          
+        </div>
+      
+      
+      
+        <div class="post-tags">
+          
+            <span class="tag">jekyll</span>
+          
+            <span class="tag">github-pages</span>
+          
+            <span class="tag">automation</span>
+          
+            <span class="tag">startup</span>
+          
+        </div>
+      
+    </div>
+  </header>
+
+  <div class="post-content">
+    <h2 id="-jekyll-자동화-블로그-론칭">🚀 Jekyll 자동화 블로그 론칭</h2>
+
+<p>안녕하세요! 오늘 Jekyll과 GitHub Actions를 활용한 완전 자동화 블로그 시스템을 구축해보았습니다.</p>
+
+<h2 id="-구축-목표">🎯 구축 목표</h2>
+
+<ul>
+  <li><strong>자동화</strong>: 콘텐츠 생성부터 배포까지 자동화 시스템</li>
+  <li><strong>수익화</strong>: 기술 블로그를 통한 수익 창출 기반 마련</li>
+  <li><strong>확장성</strong>: 향후 SaaS 서비스로 발전 가능한 구조</li>
+</ul>
+
+<h2 id="-기술-스택">🛠 기술 스택</h2>
+
+<ul>
+  <li><strong>정적 사이트 생성기</strong>: Jekyll</li>
+  <li><strong>호스팅</strong>: GitHub Pages</li>
+  <li><strong>자동화</strong>: GitHub Actions</li>
+  <li><strong>콘텐츠 생성</strong>: Python + GitHub API</li>
+  <li><strong>버전 관리</strong>: Git</li>
+</ul>
+
+<h2 id="-자동화-과정">📈 자동화 과정</h2>
+
+<h3 id="1-자동-콘텐츠-생성">1. 자동 콘텐츠 생성</h3>
+<ul>
+  <li>GitHub 토픽별로 프로젝트 분석</li>
+  <li>기술 트렌드 큐레이션</li>
+  <li>개인 개발자 경험</li>
+</ul>
+
+<h3 id="2-자동-배포">2. 자동 배포</h3>
+<ul>
+  <li>글 작성 시점에서 자동 시스템 실행</li>
+  <li>3분 미만으로 전체 배포 빌드</li>
+  <li>GitHub Pages 자동 배포</li>
+</ul>
+
+<h3 id="3-seo-최적화">3. SEO 최적화</h3>
+<ul>
+  <li>키워드기반 자동 SEO 생성</li>
+  <li>사이트맵 자동 업데이트</li>
+  <li>RSS 피드 자동 관리</li>
+</ul>
+
+<h2 id="-수익화-전략">🎯 수익화 전략</h2>
+
+<h3 id="단기-목표">단기 목표</h3>
+<ol>
+  <li><strong>구독자 알림 시스템</strong> 수집 및 세분화 수익</li>
+  <li><strong>정기 마케팅</strong> 프로그램 개발 운영</li>
+  <li><strong>기술 서적</strong> 리뷰 및 추천</li>
+</ol>
+
+<h3 id="중기-목표">중기 목표</h3>
+<ol>
+  <li><strong>프리미엄 콘텐츠</strong> 서비스 제공</li>
+  <li><strong>기술 컨설팅</strong> 서비스 제공</li>
+  <li><strong>온라인 강의</strong> 플랫폼 연동</li>
+</ol>
+
+<h3 id="장기-목표">장기 목표</h3>
+<ol>
+  <li><strong>SaaS 플랫폼</strong> 개발 (자동화 블로그 서비스)</li>
+  <li><strong>API 서비스</strong> 제공 (콘텐츠 생성 API)</li>
+  <li><strong>B2B 솔루션</strong> 확장</li>
+</ol>
+
+<h2 id="-기대-효과">📊 기대 효과</h2>
+
+<h3 id="jekyll의-장점">Jekyll의 장점</h3>
+<ul>
+  <li><strong>빠른 로딩</strong>: 정적 파일로 인한 빠른 로딩 시간</li>
+  <li><strong>보안</strong>: 서버 사이드 취약점 없음</li>
+  <li><strong>확장성</strong>: GitHub Pages 무료 호스팅</li>
+  <li><strong>SEO 최적화</strong>: 검색엔진 친화적 구조</li>
+</ul>
+
+<h3 id="자동화의-가치">자동화의 가치</h3>
+<ul>
+  <li><strong>일관성</strong>: 정기적으로 인한 콘텐츠 일관성</li>
+  <li><strong>효율성</strong>: 수동 작업 대비 90% 시간 단축</li>
+  <li><strong>확장성</strong>: 여러 블로그 동시 관리 가능</li>
+</ul>
+
+<h2 id="-향후-계획">🗓 향후 계획</h2>
+
+<h3 id="1주차">1주차</h3>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Jekyll 블로그 구축</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />GitHub Actions 설정</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />자동 콘텐츠 생성 시스템</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Google Analytics 연동</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Google Search Console 등록</li>
+</ul>
+
+<h3 id="1개월">1개월</h3>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />SEO 최적화 완료</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />구독자 알림 시스템 수집</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />제품 마케팅 프로그램 가입</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />구독자 100명 달성</li>
+</ul>
+
+<h3 id="3개월">3개월</h3>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />월 방문자 1,000명 달성</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />제품 콘텐츠 파트너십 투구</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />프리미엄 콘텐츠 서비스 론칭</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />구독자 1,000명 달성</li>
+</ul>
+
+<h2 id="-함께하기">🤝 함께하기</h2>
+
+<p>이 프로젝트는 <strong>오픈소스</strong>로 진행됩니다!</p>
+<ul>
+  <li><strong>GitHub</strong>: <a href="https://github.com/elecsonJ/my-jekyll-blog">my-jekyll-blog</a></li>
+  <li><strong>기여</strong>: 이슈 및 PR 환영</li>
+  <li><strong>토론</strong>: 댓글로 의견 공유</li>
+</ul>
+
+<hr />
+
+<p><strong>이 블로그는 Jekyll과 GitHub Actions를 활용한 완전 자동화 시스템으로 운영됩니다. 기술적인 질문이나 제안이 있으시면 언제든지 연락주세요!</strong> 🚀</p>
+
+  </div>
+</article>
+
+<style>
+/* 포스트 전용 스타일링 - 단순하고 깔끔하게, 글 내용 최우선 */
+.post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #e1e4e8;
+}
+
+.post-title {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.post-date {
+  color: #666;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.post-categories, .post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.category-tag {
+  background: #007bff;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.tag {
+  background: #28a745;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+/* 포스트 내용 - 가독성 최우선 */
+.post-content {
+  margin-top: 50px;
+  color: #333;
+}
+
+/* 제목들 - 명확한 구분 */
+.post-content h1 {
+  font-size: 2.2em;
+  color: #2c3e50;
+  margin: 2.5em 0 1.2em 0;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #007bff;
+  font-weight: 700;
+}
+
+.post-content h2 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin: 2.2em 0 1em 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #28a745;
+  font-weight: 600;
+}
+
+.post-content h3 {
+  font-size: 1.4em;
+  color: #495057;
+  margin: 1.8em 0 0.8em 0;
+  font-weight: 600;
+}
+
+/* 단락들 - 충분한 간격 */
+.post-content p {
+  margin-bottom: 1.8em;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* 리스트들 - 깔끔한 정렬 */
+.post-content ul, .post-content ol {
+  margin: 1.8em 0;
+  padding-left: 2.5em;
+}
+
+.post-content li {
+  margin-bottom: 0.8em;
+  line-height: 1.7;
+}
+
+/* 강조 텍스트 */
+.post-content strong {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* 인용구 */
+.post-content blockquote {
+  background: #f8f9fa;
+  border-left: 5px solid #007bff;
+  padding: 25px 30px;
+  margin: 2.5em 0;
+  font-style: italic;
+  color: #495057;
+  font-size: 1.1em;
+}
+
+/* 코드 블록 */
+.post-content pre {
+  background: #f6f8fa;
+  padding: 25px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2.5em 0;
+  border: 1px solid #e1e4e8;
+  line-height: 1.5;
+}
+
+.post-content code {
+  background: #f6f8fa;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #e83e8c;
+  font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .post {
+    padding: 20px 15px;
+    font-size: 15px;
+  }
+  
+  .post-title {
+    font-size: 2em;
+  }
+  
+  .post-meta {
+    gap: 12px;
+  }
+  
+  .post-content h1 {
+    font-size: 1.8em;
+  }
+  
+  .post-content h2 {
+    font-size: 1.5em;
+  }
+  
+  .post-content h3 {
+    font-size: 1.3em;
+  }
+  
+  .post-content ul, .post-content ol {
+    padding-left: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .post {
+    padding: 15px 10px;
+    font-size: 14px;
+  }
+  
+  .post-title {
+    font-size: 1.8em;
+  }
+  
+  .post-content h1 {
+    font-size: 1.6em;
+  }
+  
+  .post-content h2 {
+    font-size: 1.4em;
+  }
+  
+  .post-content ul, .post-content ol {
+    padding-left: 1.5em;
+  }
+}
+</style>
+        </div>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 한재훈 (Jaehoon Han). All rights reserved.</p>
+        <p>Built with Jekyll & GitHub Actions</p>
+      </div>
+    </footer>
+  </body>
+</html>

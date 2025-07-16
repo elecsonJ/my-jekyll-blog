@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>컴퓨터과학 2학년 1학기 회고: 배운 것들과 성장 기록 | 재훈의 AI 자동화 블로그</title>
+    <meta name="description" content="컴퓨터과학 2학년 1학기를 돌아보며 배운 것들과 성장한 점들을 정리해봅니다.">
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content="컴퓨터과학 2학년 1학기 회고: 배운 것들과 성장 기록">
+    <meta property="og:description" content="컴퓨터과학 2학년 1학기를 돌아보며 배운 것들과 성장한 점들을 정리해봅니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elecsonj.github.io/my-jekyll-blog/study/2025/06/18/study-reflection/">
+    
+    <!-- Enhanced CSS for Better Readability -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+        line-height: 1.6; 
+        color: #333; 
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+      }
+      
+      .container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 0 20px;
+      }
+      
+      .site-header { 
+        background-color: #ffffff;
+        border-bottom: 1px solid #e1e4e8; 
+        margin-bottom: 30px; 
+        padding: 20px 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .site-title { 
+        color: #0366d6; 
+        text-decoration: none; 
+        font-weight: bold; 
+        font-size: 1.5em;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      
+      .site-title:hover {
+        color: #0056b3;
+      }
+      
+      .site-nav { 
+        margin-top: 15px; 
+      }
+      
+      .site-nav a { 
+        margin-right: 25px; 
+        text-decoration: none; 
+        color: #0366d6;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+        display: inline-block;
+      }
+      
+      .site-nav a:hover {
+        background-color: #f1f8ff;
+        color: #0056b3;
+      }
+      
+      .page-content {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+      
+      .content-wrapper {
+        padding: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .site-footer { 
+        background-color: #f8f9fa;
+        border-top: 1px solid #e1e4e8; 
+        margin-top: 50px; 
+        padding: 30px 0; 
+        text-align: center; 
+        color: #666; 
+      }
+      
+      .site-footer p {
+        margin: 5px 0;
+      }
+      
+      /* 반응형 디자인 */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 15px;
+        }
+        
+        .content-wrapper {
+          padding: 20px;
+        }
+        
+        .site-nav a {
+          margin-right: 15px;
+          margin-bottom: 5px;
+          font-size: 0.9em;
+        }
+        
+        .site-title {
+          font-size: 1.3em;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 10px;
+        }
+        
+        .content-wrapper {
+          padding: 15px;
+        }
+        
+        .site-nav {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        
+        .site-nav a {
+          margin-right: 0;
+          flex: 1;
+          text-align: center;
+          min-width: calc(50% - 5px);
+        }
+      }
+      
+      /* 타이포그래피 개선 */
+      h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #2c3e50;
+      }
+      
+      h1 { font-size: 2.2em; }
+      h2 { font-size: 1.8em; }
+      h3 { font-size: 1.5em; }
+      
+      p {
+        margin-bottom: 1em;
+      }
+      
+      a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      code {
+        background-color: #f6f8fa;
+        border-radius: 3px;
+        padding: 2px 4px;
+        font-size: 0.9em;
+      }
+      
+      pre {
+        background-color: #f6f8fa;
+        border-radius: 6px;
+        padding: 16px;
+        overflow-x: auto;
+        line-height: 1.4;
+      }
+      
+      blockquote {
+        border-left: 4px solid #0366d6;
+        margin: 0;
+        padding-left: 20px;
+        color: #666;
+        font-style: italic;
+      }
+      
+      /* Latest Posts 10개 제한 - 안전장치 */
+      .recent-posts article:nth-child(n+11) {
+        display: none !important;
+      }
+      
+      /* 그리드 컨테이너에서 11번째 이후 article 숨기기 */
+      .recent-posts div[style*="grid"] > article:nth-child(n+11) {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="site-title" href="/my-jekyll-blog/">재훈의 AI 자동화 블로그</a>
+        
+        <nav class="site-nav">
+          <a href="/my-jekyll-blog/">Home</a>
+          <a href="/my-jekyll-blog/korean/">한국어</a>
+          <a href="/my-jekyll-blog/english/">English</a>
+          <a href="/my-jekyll-blog/categories/">Categories</a>
+          <a href="/my-jekyll-blog/about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <main class="page-content">
+        <div class="content-wrapper">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">컴퓨터과학 2학년 1학기 회고: 배운 것들과 성장 기록</h1>
+    
+    <div class="post-meta">
+      <time class="post-date">2025년 06월 18일</time>
+      
+      
+        <div class="post-categories">
+          
+            <span class="category-tag">study</span>
+          
+        </div>
+      
+      
+      
+        <div class="post-tags">
+          
+            <span class="tag">회고</span>
+          
+            <span class="tag">학습기록</span>
+          
+            <span class="tag">컴퓨터과학</span>
+          
+            <span class="tag">대학생활</span>
+          
+            <span class="tag">성장</span>
+          
+        </div>
+      
+    </div>
+  </header>
+
+  <div class="post-content">
+    <h1 id="컴퓨터과학-2학년-1학기-회고">컴퓨터과학 2학년 1학기 회고</h1>
+
+<p>2학년이 되어 본격적인 전공 수업들을 들으며 많은 것을 배웠습니다.</p>
+
+<h2 id="-이번-학기-수강-과목">📚 이번 학기 수강 과목</h2>
+
+<h3 id="1-자료구조와-알고리즘">1. 자료구조와 알고리즘</h3>
+<ul>
+  <li><strong>배운 것</strong>: 연결리스트, 스택, 큐, 트리, 그래프</li>
+  <li><strong>어려웠던 점</strong>: 트리 순회 알고리즘 구현</li>
+  <li><strong>성장한 점</strong>: 복잡도 분석 능력 향상</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1"># 이진트리 중위 순회 - 처음엔 어려웠지만 이제는!
+</span><span class="k">def</span> <span class="nf">inorder_traversal</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">root</span><span class="p">:</span>
+        <span class="nf">inorder_traversal</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="n">left</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="nf">inorder_traversal</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="2-객체지향프로그래밍-java">2. 객체지향프로그래밍 (Java)</h3>
+<ul>
+  <li><strong>배운 것</strong>: 클래스, 상속, 다형성, 추상화</li>
+  <li><strong>프로젝트</strong>: 도서관 관리 시스템 구현</li>
+  <li><strong>느낀 점</strong>: Python과는 다른 엄격함이 주는 안정감</li>
+</ul>
+
+<h3 id="3-이산수학">3. 이산수학</h3>
+<ul>
+  <li><strong>배운 것</strong>: 집합론, 그래프 이론, 조합론</li>
+  <li><strong>어려웠던 점</strong>: 수학적 증명 작성</li>
+  <li><strong>활용</strong>: 알고리즘 문제 해결에 직접 도움</li>
+</ul>
+
+<h2 id="-개인-프로젝트들">🎯 개인 프로젝트들</h2>
+
+<h3 id="discord-봇-개발">Discord 봇 개발</h3>
+<ul>
+  <li><strong>기술스택</strong>: Python, Discord.py</li>
+  <li><strong>기능</strong>: 주식 가격 알림, 일정 관리</li>
+  <li><strong>배운 것</strong>: API 활용, 비동기 프로그래밍</li>
+</ul>
+
+<h3 id="백준-알고리즘-문제풀이">백준 알고리즘 문제풀이</h3>
+<ul>
+  <li><strong>현재</strong>: 골드 5 티어</li>
+  <li><strong>해결 문제</strong>: 150개+</li>
+  <li><strong>강화된 능력</strong>: 문제 분석력, 코드 최적화</li>
+</ul>
+
+<h2 id="-깨달은-것들">💡 깨달은 것들</h2>
+
+<h3 id="1-이론과-실습의-균형">1. 이론과 실습의 균형</h3>
+<p>단순히 문법만 외우는 것이 아니라, <strong>왜 그렇게 설계되었는지</strong> 이해하는 것이 중요함을 깨달았습니다.</p>
+
+<h3 id="2-코드-품질의-중요성">2. 코드 품질의 중요성</h3>
+<ul>
+  <li>동작하는 코드 &lt; 읽기 쉬운 코드 &lt; 유지보수 가능한 코드</li>
+  <li>변수명 하나도 신중하게 짓는 습관</li>
+</ul>
+
+<h3 id="3-꾸준함의-힘">3. 꾸준함의 힘</h3>
+<ul>
+  <li>매일 1문제씩 풀기</li>
+  <li>배운 내용 정리하기</li>
+  <li>작은 프로젝트라도 끝까지 완성하기</li>
+</ul>
+
+<h2 id="-성장-지표">📈 성장 지표</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>학기 시작</th>
+      <th>현재</th>
+      <th>성장률</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>백준 티어</td>
+      <td>실버 3</td>
+      <td>골드 5</td>
+      <td>+8단계</td>
+    </tr>
+    <tr>
+      <td>GitHub 잔디</td>
+      <td>불규칙</td>
+      <td>거의 매일</td>
+      <td>+200%</td>
+    </tr>
+    <tr>
+      <td>프로젝트 완성</td>
+      <td>0개</td>
+      <td>3개</td>
+      <td>무한대</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="-다음-학기-목표">🎯 다음 학기 목표</h2>
+
+<h3 id="학습-목표">학습 목표</h3>
+<ul>
+  <li><strong>운영체제</strong>: 시스템의 내부 동작 원리 이해</li>
+  <li><strong>데이터베이스</strong>: SQL 마스터 및 정규화 완벽 이해</li>
+  <li><strong>컴퓨터구조</strong>: 하드웨어와 소프트웨어의 만남</li>
+</ul>
+
+<h3 id="개발-목표">개발 목표</h3>
+<ul>
+  <li><strong>웹 개발</strong>: React + Node.js로 풀스택 프로젝트</li>
+  <li><strong>알고리즘</strong>: 플래티넘 티어 달성</li>
+  <li><strong>오픈소스</strong>: 기여 경험 쌓기</li>
+</ul>
+
+<h3 id="진로-준비">진로 준비</h3>
+<ul>
+  <li><strong>인턴십</strong>: 여름방학 인턴 지원</li>
+  <li><strong>포트폴리오</strong>: GitHub 정리 및 README 작성</li>
+  <li><strong>네트워킹</strong>: 개발자 커뮤니티 참여</li>
+</ul>
+
+<h2 id="-반성점과-개선-방향">🤔 반성점과 개선 방향</h2>
+
+<h3 id="부족했던-점">부족했던 점</h3>
+<ol>
+  <li><strong>시간 관리</strong>: 과제 몰아서 하는 습관</li>
+  <li><strong>코드 리뷰</strong>: 혼자만 보는 코드의 한계</li>
+  <li><strong>문서화</strong>: 주석과 README 부실</li>
+</ol>
+
+<h3 id="개선-계획">개선 계획</h3>
+<ul>
+  <li><strong>주간 계획</strong>: 매주 일요일 다음 주 계획 수립</li>
+  <li><strong>스터디</strong>: 동기들과 코드 리뷰 스터디 시작</li>
+  <li><strong>블로그</strong>: 배운 내용 정리하며 문서화 연습</li>
+</ul>
+
+<h2 id="마치며">마치며</h2>
+
+<p>1학기를 돌아보니 생각보다 많이 성장했다는 생각이 듭니다. 
+특히 <strong>“왜?”</strong>라는 질문을 던지는 습관이 생긴 것이 가장 큰 변화인 것 같아요.</p>
+
+<p>앞으로도 꾸준히, 그리고 즐겁게 배워나가겠습니다! 💪</p>
+
+<blockquote>
+  <p>“학습은 마라톤이지 단거리 달리기가 아니다.”</p>
+</blockquote>
+
+  </div>
+</article>
+
+<style>
+/* 포스트 전용 스타일링 - 단순하고 깔끔하게, 글 내용 최우선 */
+.post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #e1e4e8;
+}
+
+.post-title {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.post-date {
+  color: #666;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.post-categories, .post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.category-tag {
+  background: #007bff;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.tag {
+  background: #28a745;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+/* 포스트 내용 - 가독성 최우선 */
+.post-content {
+  margin-top: 50px;
+  color: #333;
+}
+
+/* 제목들 - 명확한 구분 */
+.post-content h1 {
+  font-size: 2.2em;
+  color: #2c3e50;
+  margin: 2.5em 0 1.2em 0;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #007bff;
+  font-weight: 700;
+}
+
+.post-content h2 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin: 2.2em 0 1em 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #28a745;
+  font-weight: 600;
+}
+
+.post-content h3 {
+  font-size: 1.4em;
+  color: #495057;
+  margin: 1.8em 0 0.8em 0;
+  font-weight: 600;
+}
+
+/* 단락들 - 충분한 간격 */
+.post-content p {
+  margin-bottom: 1.8em;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* 리스트들 - 깔끔한 정렬 */
+.post-content ul, .post-content ol {
+  margin: 1.8em 0;
+  padding-left: 2.5em;
+}
+
+.post-content li {
+  margin-bottom: 0.8em;
+  line-height: 1.7;
+}
+
+/* 강조 텍스트 */
+.post-content strong {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* 인용구 */
+.post-content blockquote {
+  background: #f8f9fa;
+  border-left: 5px solid #007bff;
+  padding: 25px 30px;
+  margin: 2.5em 0;
+  font-style: italic;
+  color: #495057;
+  font-size: 1.1em;
+}
+
+/* 코드 블록 */
+.post-content pre {
+  background: #f6f8fa;
+  padding: 25px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2.5em 0;
+  border: 1px solid #e1e4e8;
+  line-height: 1.5;
+}
+
+.post-content code {
+  background: #f6f8fa;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #e83e8c;
+  font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .post {
+    padding: 20px 15px;
+    font-size: 15px;
+  }
+  
+  .post-title {
+    font-size: 2em;
+  }
+  
+  .post-meta {
+    gap: 12px;
+  }
+  
+  .post-content h1 {
+    font-size: 1.8em;
+  }
+  
+  .post-content h2 {
+    font-size: 1.5em;
+  }
+  
+  .post-content h3 {
+    font-size: 1.3em;
+  }
+  
+  .post-content ul, .post-content ol {
+    padding-left: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .post {
+    padding: 15px 10px;
+    font-size: 14px;
+  }
+  
+  .post-title {
+    font-size: 1.8em;
+  }
+  
+  .post-content h1 {
+    font-size: 1.6em;
+  }
+  
+  .post-content h2 {
+    font-size: 1.4em;
+  }
+  
+  .post-content ul, .post-content ol {
+    padding-left: 1.5em;
+  }
+}
+</style>
+        </div>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 한재훈 (Jaehoon Han). All rights reserved.</p>
+        <p>Built with Jekyll & GitHub Actions</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -2,7 +2,7 @@
 layout: post
 title: "실시간 주식 가격 알림 봇 만들기: Discord + Python 프로젝트"
 date: 2025-06-18
-categories: [project]
+categories: [projects, personal]
 tags: [Python, Discord, API, 웹스크래핑, 프로젝트, 자동화]
 lang: ko
 description: "Python과 Discord API를 활용하여 실시간 주식 가격 알림 봇을 만드는 프로젝트를 소개합니다."
