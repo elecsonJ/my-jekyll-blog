@@ -1,383 +1,304 @@
 ---
-layout: page
+layout: default
 title: "한국어 포스트"
 permalink: /korean/
-language: korean
-description: "한국어 기술 블로그 포스트를 카테고리별로 정리한 페이지입니다"
+lang: ko
 ---
 
-# 🇰🇷 한국어 포스트
+<style>
+.korean-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+}
 
-한국어 기술 블로그 포스트를 카테고리별로 정리한 페이지입니다
+.page-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 30px 0;
+}
 
-{% include post-categorizer.html language='ko' %}
+.page-title {
+  font-size: 3em;
+  margin-bottom: 15px;
+  color: white;
+}
 
-총 {{ tech_analysis_posts.size | plus: ai_news_posts.size | plus: algorithm_posts.size | plus: ai_lab_posts.size | plus: automation_posts.size | plus: programming_posts.size | plus: study_posts.size | plus: project_posts.size | plus: startup_posts.size | plus: dev_life_posts.size | plus: other_posts.size }}개의 포스트
+.page-description {
+  font-size: 1.2em;
+  opacity: 0.9;
+  color: white;
+}
 
-## 📊 카테고리별 포스트
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
 
-<div class="categories-container">
+.category-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
 
-{% if tech_analysis_posts.size > 0 %}
-<div class="category-section">
-  <h3>📈 [기술시장분석]({{ '/korean/categories/tech_analysis/' | relative_url }}) ({{ tech_analysis_posts.size }}개)</h3>
-  <p class="category-description">기술 산업 동향과 시장 분석</p>
-  <div class="posts-grid">
-    {% for post in tech_analysis_posts limit:6 %}
-      <div class="post-card">
-        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-        <p class="post-meta">
-          <time>{{ post.date | date: "%m/%d" }}</time>
-          {% if post.categories %}
-            {% for category in post.categories %}
-              <span class="category-tag">{{ category }}</span>
-            {% endfor %}
-          {% endif %}
-        </p>
-        {% if post.excerpt %}
-          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
+.category-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.category-icon {
+  font-size: 2em;
+  margin-right: 15px;
+}
+
+.category-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+}
+
+.category-description {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.category-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.post-count {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+}
+
+.view-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.recent-posts {
+  margin-top: 60px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.section-title {
+  font-size: 2em;
+  margin-bottom: 30px;
+  text-align: center;
+  color: white;
+}
+
+.posts-list {
+  display: grid;
+  gap: 20px;
+}
+
+.post-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.post-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+}
+
+.post-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.post-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.post-category {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-title {
+    font-size: 2em;
+  }
+}
+</style>
+
+<div class="korean-page-container">
+  <!-- 페이지 헤더 -->
+  <div class="page-header">
+    <h1 class="page-title">📚 한국어 포스트</h1>
+    <p class="page-description">기사, 시사통찰, 프로젝트, 프로그래밍, 학습기록 등 다양한 주제의 기술 블로그</p>
   </div>
-  {% if tech_analysis_posts.size > 6 %}
-    <div class="view-more">
-      <a href="{{ '/korean/categories/tech_analysis/' | relative_url }}" class="btn-primary">+ {{ tech_analysis_posts.size | minus: 6 }}개 더 보기</a>
-    </div>
-  {% endif %}
-</div>
-{% endif %}
 
-{% if ai_news_posts.size > 0 %}
-<div class="category-section">
-  <h3>🤖 [AI뉴스]({{ '/korean/categories/ai_news/' | relative_url }}) ({{ ai_news_posts.size }}개)</h3>
-  <p class="category-description">AI 업계 최신 뉴스와 동향 분석</p>
-  <div class="posts-grid">
-    {% for post in ai_news_posts limit:6 %}
-      <div class="post-card">
-        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-        <p class="post-meta">
-          <time>{{ post.date | date: "%m/%d" }}</time>
-          {% if post.categories %}
-            {% for category in post.categories %}
-              <span class="category-tag">{{ category }}</span>
-            {% endfor %}
+  <!-- 카테고리 그리드 -->
+  <div class="categories-grid">
+    {% assign categories = site.data.korean.categories %}
+    {% assign category_order = "news,insights,projects,programming,study,finance" | split: "," %}
+    
+    {% for cat_key in category_order %}
+      {% assign category = categories[cat_key] %}
+      {% if category %}
+        <!-- 각 카테고리별 포스트 개수 계산 -->
+        {% assign cat_posts_count = 0 %}
+        {% assign posts_to_check = site.posts | where_exp: "post", "post.lang == 'ko' or post.language == 'korean' or post.categories contains 'korean-posts' or post.name contains 'korean'" %}
+        
+        {% for post in posts_to_check %}
+          {% if post.categories contains cat_key %}
+            {% assign cat_posts_count = cat_posts_count | plus: 1 %}
+          {% elsif cat_key == "news" %}
+            <!-- 뉴스 관련 서브카테고리 포함 -->
+            {% if post.categories contains "news_ai" or post.categories contains "news_tech" or post.categories contains "ai_news" or post.categories contains "tech_analysis" %}
+              {% assign cat_posts_count = cat_posts_count | plus: 1 %}
+            {% endif %}
+          {% elsif cat_key == "projects" %}
+            <!-- 프로젝트 관련 서브카테고리 포함 -->
+            {% if post.categories contains "projects_personal" or post.categories contains "projects_external" or post.categories contains "project" %}
+              {% assign cat_posts_count = cat_posts_count | plus: 1 %}
+            {% endif %}
+          {% elsif cat_key == "programming" %}
+            <!-- 프로그래밍 관련 카테고리 포함 -->
+            {% if post.categories contains "algorithm" or post.categories contains "automation" or post.categories contains "ai_lab" %}
+              {% assign cat_posts_count = cat_posts_count | plus: 1 %}
+            {% endif %}
+          {% elsif cat_key == "insights" %}
+            <!-- 시사통찰 관련 카테고리 포함 -->
+            {% if post.categories contains "startup" or post.categories contains "dev_life" %}
+              {% assign cat_posts_count = cat_posts_count | plus: 1 %}
+            {% endif %}
           {% endif %}
-        </p>
-        {% if post.excerpt %}
-          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-  {% if ai_news_posts.size > 6 %}
-    <div class="view-more">
-      <a href="{{ '/korean/categories/ai_news/' | relative_url }}" class="btn-primary">+ {{ ai_news_posts.size | minus: 6 }}개 더 보기</a>
-    </div>
-  {% endif %}
-</div>
-{% endif %}
-
-{% if algorithm_posts.size > 0 %}
-<div class="category-section">
-  <h3>💻 [알고리즘]({{ '/korean/categories/algorithm/' | relative_url }}) ({{ algorithm_posts.size }}개)</h3>
-  <p class="category-description">알고리즘 문제 해결과 데이터 구조</p>
-  <div class="posts-grid">
-    {% for post in algorithm_posts limit:6 %}
-      <div class="post-card">
-        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-        <p class="post-meta">
-          <time>{{ post.date | date: "%m/%d" }}</time>
-          {% if post.categories %}
-            {% for category in post.categories %}
-              <span class="category-tag">{{ category }}</span>
-            {% endfor %}
-          {% endif %}
-        </p>
-        {% if post.excerpt %}
-          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-  {% if algorithm_posts.size > 6 %}
-    <div class="view-more">
-      <a href="{{ '/korean/categories/algorithm/' | relative_url }}" class="btn-primary">+ {{ algorithm_posts.size | minus: 6 }}개 더 보기</a>
-    </div>
-  {% endif %}
-</div>
-{% endif %}
-
-{% if ai_lab_posts.size > 0 %}
-<div class="category-section">
-  <h3>🧠 [AI연구실습]({{ '/korean/categories/ai_lab/' | relative_url }}) ({{ ai_lab_posts.size }}개)</h3>
-  <p class="category-description">AI 이론, 연구, 실습 프로젝트</p>
-  <div class="posts-grid">
-    {% for post in ai_lab_posts limit:6 %}
-      <div class="post-card">
-        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-        <p class="post-meta">
-          <time>{{ post.date | date: "%m/%d" }}</time>
-          {% if post.categories %}
-            {% for category in post.categories %}
-              <span class="category-tag">{{ category }}</span>
-            {% endfor %}
-          {% endif %}
-        </p>
-        {% if post.excerpt %}
-          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-  {% if ai_lab_posts.size > 6 %}
-    <div class="view-more">
-      <a href="{{ '/korean/categories/ai_lab/' | relative_url }}" class="btn-primary">+ {{ ai_lab_posts.size | minus: 6 }}개 더 보기</a>
-    </div>
-  {% endif %}
-</div>
-{% endif %}
-
-{% if automation_posts.size > 0 %}
-<div class="category-section">
-  <h3>⚙️ [자동화]({{ '/korean/categories/automation/' | relative_url }}) ({{ automation_posts.size }}개)</h3>
-  <p class="category-description">업무 자동화, 스크립트, 도구 개발</p>
-  <div class="posts-grid">
-    {% for post in automation_posts limit:6 %}
-      <div class="post-card">
-        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-        <p class="post-meta">
-          <time>{{ post.date | date: "%m/%d" }}</time>
-          {% if post.categories %}
-            {% for category in post.categories %}
-              <span class="category-tag">{{ category }}</span>
-            {% endfor %}
-          {% endif %}
-        </p>
-        {% if post.excerpt %}
-          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-  {% if automation_posts.size > 6 %}
-    <div class="view-more">
-      <a href="{{ '/korean/categories/automation/' | relative_url }}" class="btn-primary">+ {{ automation_posts.size | minus: 6 }}개 더 보기</a>
-    </div>
-  {% endif %}
-</div>
-{% endif %}
-
-{% if programming_posts.size > 0 %}
-<div class="category-section">
-  <h3>💻 [프로그래밍]({{ '/korean/categories/programming/' | relative_url }}) ({{ programming_posts.size }}개)</h3>
-  <p class="category-description">프로그래밍 언어, 개발 방법론, 소프트웨어 엔지니어링</p>
-  <div class="posts-grid">
-    {% for post in programming_posts limit:6 %}
-      <div class="post-card">
-        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-        <p class="post-meta">
-          <time>{{ post.date | date: "%m/%d" }}</time>
-          {% if post.categories %}
-            {% for category in post.categories %}
-              <span class="category-tag">{{ category }}</span>
-            {% endfor %}
-          {% endif %}
-        </p>
-        {% if post.excerpt %}
-          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-  {% if programming_posts.size > 6 %}
-    <div class="view-more">
-      <a href="{{ '/korean/categories/programming/' | relative_url }}" class="btn-primary">+ {{ programming_posts.size | minus: 6 }}개 더 보기</a>
-    </div>
-  {% endif %}
-</div>
-{% endif %}
-
-{% if study_posts.size > 0 %}
-<div class="category-section">
-  <h3>📚 [학습 기록]({{ '/korean/categories/study/' | relative_url }}) ({{ study_posts.size }}개)</h3>
-  <p class="category-description">개인 학습 과정, 회고, 성장 기록</p>
-  <div class="posts-grid">
-    {% for post in study_posts limit:6 %}
-      <div class="post-card">
-        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-        <p class="post-meta">
-          <time>{{ post.date | date: "%m/%d" }}</time>
-          {% if post.categories %}
-            {% for category in post.categories %}
-              <span class="category-tag">{{ category }}</span>
-            {% endfor %}
-          {% endif %}
-        </p>
-        {% if post.excerpt %}
-          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-  {% if study_posts.size > 6 %}
-    <div class="view-more">
-      <a href="{{ '/korean/categories/study/' | relative_url }}" class="btn-primary">+ {{ study_posts.size | minus: 6 }}개 더 보기</a>
-    </div>
-  {% endif %}
-</div>
-{% endif %}
-
-{% if project_posts.size > 0 %}
-<div class="category-section">
-  <h3>🚀 [프로젝트]({{ '/korean/categories/project/' | relative_url }}) ({{ project_posts.size }}개)</h3>
-  <p class="category-description">개인/팀 프로젝트, 오픈소스 기여, 포트폴리오</p>
-  <div class="posts-grid">
-    {% for post in project_posts limit:6 %}
-      <div class="post-card">
-        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-        <p class="post-meta">
-          <time>{{ post.date | date: "%m/%d" }}</time>
-          {% if post.categories %}
-            {% for category in post.categories %}
-              <span class="category-tag">{{ category }}</span>
-            {% endfor %}
-          {% endif %}
-        </p>
-        {% if post.excerpt %}
-          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-  {% if project_posts.size > 6 %}
-    <div class="view-more">
-      <a href="{{ '/korean/categories/project/' | relative_url }}" class="btn-primary">+ {{ project_posts.size | minus: 6 }}개 더 보기</a>
-    </div>
-  {% endif %}
-</div>
-{% endif %}
-
-{% if startup_posts.size > 0 %}
-<div class="category-section">
-  <h3>💡 [창업아이디어]({{ '/korean/categories/startup/' | relative_url }}) ({{ startup_posts.size }}개)</h3>
-  <p class="category-description">창업 아이디어, 비즈니스 모델, 스타트업 생태계</p>
-  <div class="posts-grid">
-    {% for post in startup_posts limit:6 %}
-      <div class="post-card">
-        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-        <p class="post-meta">
-          <time>{{ post.date | date: "%m/%d" }}</time>
-          {% if post.categories %}
-            {% for category in post.categories %}
-              <span class="category-tag">{{ category }}</span>
-            {% endfor %}
-          {% endif %}
-        </p>
-        {% if post.excerpt %}
-          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-  {% if startup_posts.size > 6 %}
-    <div class="view-more">
-      <a href="{{ '/korean/categories/startup/' | relative_url }}" class="btn-primary">+ {{ startup_posts.size | minus: 6 }}개 더 보기</a>
-    </div>
-  {% endif %}
-</div>
-{% endif %}
-
-{% if dev_life_posts.size > 0 %}
-<div class="category-section">
-  <h3>☕ [개발자일상]({{ '/korean/categories/dev_life/' | relative_url }}) ({{ dev_life_posts.size }}개)</h3>
-  <p class="category-description">개발자 문화, 일상, 회고, 성장 이야기</p>
-  <div class="posts-grid">
-    {% for post in dev_life_posts limit:6 %}
-      <div class="post-card">
-        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-        <p class="post-meta">
-          <time>{{ post.date | date: "%m/%d" }}</time>
-          {% if post.categories %}
-            {% for category in post.categories %}
-              <span class="category-tag">{{ category }}</span>
-            {% endfor %}
-          {% endif %}
-        </p>
-        {% if post.excerpt %}
-          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-  {% if dev_life_posts.size > 6 %}
-    <div class="view-more">
-      <a href="{{ '/korean/categories/dev_life/' | relative_url }}" class="btn-primary">+ {{ dev_life_posts.size | minus: 6 }}개 더 보기</a>
-    </div>
-  {% endif %}
-</div>
-{% endif %}
-
-{% if other_posts.size > 0 %}
-<div class="category-section">
-  <h3>📋 [기타]({{ '/korean/categories/other/' | relative_url }}) ({{ other_posts.size }}개)</h3>
-  <p class="category-description">카테고리에 속하지 않는 다양한 주제의 이야기</p>
-  <div class="posts-grid">
-    {% for post in other_posts limit:6 %}
-      <div class="post-card">
-        <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-        <p class="post-meta">
-          <time>{{ post.date | date: "%m/%d" }}</time>
-          {% if post.categories %}
-            {% for category in post.categories %}
-              <span class="category-tag">{{ category }}</span>
-            {% endfor %}
-          {% endif %}
-        </p>
-        {% if post.excerpt %}
-          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-  </div>
-  {% if other_posts.size > 6 %}
-    <div class="view-more">
-      <a href="{{ '/korean/categories/other/' | relative_url }}" class="btn-primary">+ {{ other_posts.size | minus: 6 }}개 더 보기</a>
-    </div>
-  {% endif %}
-</div>
-{% endif %}
-
-</div>
-
-## 🕒 최근 포스트
-
-<div class="posts-grid">
-  {% assign all_posts = tech_analysis_posts | concat: ai_news_posts | concat: algorithm_posts | concat: ai_lab_posts | concat: automation_posts | concat: programming_posts | concat: study_posts | concat: project_posts | concat: startup_posts | concat: dev_life_posts | concat: other_posts %}
-  {% assign recent_posts = all_posts | sort: 'date' | reverse %}
-  {% for post in recent_posts limit:6 %}
-    <article class="post-card">
-      <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-      <p class="post-meta">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y년 %m월 %d일" }}</time>
-        {% if post.categories %}
-          {% for category in post.categories %}
-            <span class="category-tag">{{ category }}</span>
-          {% endfor %}
-        {% endif %}
-      </p>
-      {% if post.excerpt %}
-        <p class="excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
-      {% elsif post.description %}
-        <p class="excerpt">{{ post.description | truncate: 150 }}</p>
+        {% endfor %}
+        
+        <a href="{{ '/korean/categories/' | append: cat_key | append: '/' | relative_url }}" class="category-card">
+          <div class="category-header">
+            <span class="category-icon">{{ category.icon }}</span>
+            <span class="category-name">{{ category.name }}</span>
+          </div>
+          <p class="category-description">{{ category.description }}</p>
+          <div class="category-stats">
+            <span class="post-count">{{ cat_posts_count }}개의 글</span>
+            <span class="view-link">보러가기 →</span>
+          </div>
+        </a>
       {% endif %}
-    </article>
-  {% endfor %}
+    {% endfor %}
+  </div>
+
+  <!-- 최신 포스트 섹션 -->
+  <div class="recent-posts">
+    <h2 class="section-title">🆕 최신 포스트</h2>
+    <div class="posts-list">
+      {% assign korean_posts = site.posts | where_exp: "post", "post.lang == 'ko' or post.language == 'korean' or post.categories contains 'korean-posts' or post.name contains 'korean'" | sort: 'date' | reverse %}
+      
+      {% for post in korean_posts limit: 10 %}
+        <div class="post-item">
+          <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
+          <div class="post-meta">
+            <span class="post-date">{{ post.date | date: "%Y년 %m월 %d일" }}</span>
+            {% if post.categories[0] %}
+              {% assign display_cat = post.categories[0] %}
+              
+              <!-- 카테고리 매핑 -->
+              {% if display_cat == "ai_news" or display_cat == "tech_analysis" or display_cat == "news_ai" or display_cat == "news_tech" %}
+                {% assign display_cat = "news" %}
+              {% elsif display_cat == "startup" or display_cat == "dev_life" %}
+                {% assign display_cat = "insights" %}
+              {% elsif display_cat == "projects_personal" or display_cat == "projects_external" or display_cat == "project" %}
+                {% assign display_cat = "projects" %}
+              {% elsif display_cat == "algorithm" or display_cat == "automation" or display_cat == "ai_lab" %}
+                {% assign display_cat = "programming" %}
+              {% endif %}
+              
+              {% if categories[display_cat] %}
+                <span class="post-category">{{ categories[display_cat].name }}</span>
+              {% else %}
+                <span class="post-category">{{ display_cat }}</span>
+              {% endif %}
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- 네비게이션 -->
+  <div style="text-align: center; margin-top: 60px; padding: 30px;">
+    <a href="{{ '/' | relative_url }}" style="display: inline-block; padding: 15px 30px; background: white; color: #667eea; border-radius: 10px; text-decoration: none; font-weight: bold; margin: 0 10px;">
+      🏠 홈으로
+    </a>
+    <a href="{{ '/english/' | relative_url }}" style="display: inline-block; padding: 15px 30px; background: white; color: #667eea; border-radius: 10px; text-decoration: none; font-weight: bold; margin: 0 10px;">
+      🇺🇸 English Posts
+    </a>
+  </div>
 </div>
 
-## 🔗 다른 페이지로 이동
-
-<div style="text-align: center; margin: 40px 0;">
-  <a href="{{ '/' | relative_url }}" class="btn-primary">🏠 홈페이지</a>
-  <a href="{{ '/english/' | relative_url }}" class="btn-secondary">🇺🇸 English Posts</a>
-</div>
+<script>
+// 부드러운 스크롤 효과
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.category-card, .post-item');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '0';
+        entry.target.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+          entry.target.style.transition = 'all 0.5s ease';
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, 100);
+        
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+  
+  cards.forEach(card => observer.observe(card));
+});
+</script>
