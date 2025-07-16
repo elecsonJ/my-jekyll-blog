@@ -3,7 +3,7 @@ title: Apple Shortcuts AI Evolution - The New Era of Automation
 date: 2025-06-05T14:30:00Z
 tags: Apple, Shortcuts, AI, WWDC2025, Automation, AppleIntelligence, TechInnovation
 language: english
-categories: [news_ai]
+categories: [insights]
 author: AI News Automation System
 ---
 
