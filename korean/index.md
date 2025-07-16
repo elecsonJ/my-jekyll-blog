@@ -12,26 +12,27 @@ description: "한국어 독자를 위한 기술 블로그 포스트들"
 
 ## 📚 카테고리
 
-### 🖥️ 기술 (Tech)
-AI, 머신러닝, 웹 개발 등 기술 관련 포스트
+### 📰 [기사 (News)]({{ '/korean/categories/news/' | relative_url }})
+AI, 기술 관련 최신 뉴스와 업계 동향 분석
+- 🤖 [AI 뉴스]({{ '/korean/categories/news/ai/' | relative_url }}) - AI 기업 동향, AI 산업 분석
+- 📊 [기술 뉴스]({{ '/korean/categories/news/tech/' | relative_url }}) - IT 업계 동향, 기술 기업 분석
 
-### 🤖 인공지능 (AI)
-인공지능과 머신러닝 연구 및 실습
+### 💡 [시사 통찰 (Insights)]({{ '/korean/categories/insights/' | relative_url }})
+개인적인 의견과 시각으로 바라본 시대적 이슈와 통찰
 
-### ⚙️ 자동화 (Automation)
-Jekyll, GitHub Actions, Claude MCP 등 자동화 도구
+### 🚀 [프로젝트 (Projects)]({{ '/korean/categories/projects/' | relative_url }})
+개인 프로젝트, 대외활동, 개발 프로젝트 경험 공유
+- ⚡ [개인 프로젝트]({{ '/korean/categories/projects/personal/' | relative_url }}) - 개인적으로 진행한 개발 프로젝트
+- 🏆 [대외활동]({{ '/korean/categories/projects/external/' | relative_url }}) - 해커톤, 공모전, 팀 프로젝트
 
-### 📖 학습 (Study)
-컴퓨터공학 학습 과정과 경험 공유
+### 💻 [프로그래밍 (Programming)]({{ '/korean/categories/programming/' | relative_url }})
+프로그래밍 언어, 알고리즘, 개발 방법론 및 기술 관련 내용
 
-### 🚀 프로젝트 (Project)
-개인 프로젝트와 포트폴리오
+### 📚 [학습 기록 (Study)]({{ '/korean/categories/study/' | relative_url }})
+개인 학습 과정, 회고, 성장 기록
 
-### 💼 창업 (Startup)
-기술 창업 관련 인사이트와 경험
-
-### 📰 기술뉴스분석 (Tech News Analysis)
-최신 기술 뉴스와 동향 분석
+### 💰 [금융 (Finance)]({{ '/korean/categories/finance/' | relative_url }})
+투자, 금융 지식, 재테크 관련 정보와 경험
 
 ---
 
@@ -42,11 +43,11 @@ Jekyll, GitHub Actions, Claude MCP 등 자동화 도구
 {% assign korean_posts = "" | split: "" %}
 
 {% for post in all_posts %}
-  {% if post.lang == 'ko' or post.lang == nil and post.categories contains 'tech-news-analysis' %}
+  {% if post.lang == 'ko' or post.lang == nil or post.lang == 'korean' %}
     {% assign korean_posts = korean_posts | push: post %}
-  {% elsif post.lang == nil and post.categories contains 'korean' %}
+  {% elsif post.language == 'korean' %}
     {% assign korean_posts = korean_posts | push: post %}
-  {% elsif post.lang != 'en' and post.categories contains 'tech-news-analysis' %}
+  {% elsif post.lang != 'en' and post.lang != 'english' %}
     {% assign korean_posts = korean_posts | push: post %}
   {% endif %}
 {% endfor %}

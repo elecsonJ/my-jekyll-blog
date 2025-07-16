@@ -2,7 +2,7 @@
 layout: post
 title: "2025년 빅테크 기업 실적 분석: FAANG vs 신흥 AI 기업"
 date: 2025-06-18
-categories: [news, tech]
+categories: [news_tech]
 tags: [기업분석, 주식, FAANG, AI기업, 실적분석]
 lang: ko
 description: "2025년 상반기 빅테크 기업들의 실적을 분석하고 AI 전환 전략을 평가해봅니다."

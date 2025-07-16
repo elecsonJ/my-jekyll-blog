@@ -3,7 +3,7 @@ title: Reddit vs Anthropic Lawsuit - New Phase in the AI Data Wars
 date: 2025-06-05T16:00:00Z
 tags: Reddit, Anthropic, AILawsuit, DataRights, Copyright, Claude, BigTech, TechLaw, DigitalSovereignty
 language: english
-categories: [news, tech]
+categories: [news_tech]
 author: AI News Automation System
 source: NYT API, TechCrunch, Reuters, CNBC
 ---

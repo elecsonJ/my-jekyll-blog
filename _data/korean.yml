@@ -1,55 +1,71 @@
 categories:
-  ai_news:
-    name: "AI뉴스분석"
+  news:
+    name: "기사"
+    icon: "📰"
+    description: "AI, 기술 관련 최신 뉴스와 업계 동향 분석"
+  
+  ai:
+    name: "AI 뉴스"
     icon: "🤖"
-    description: "최신 AI 기술 동향, 업계 뉴스, 정책 변화 분석"
+    description: "AI 기업 동향, AI 산업 분석, AI 관련 뉴스 및 신기술 소식"
   
-  tech_analysis:
-    name: "기술시장분석"
+  tech:
+    name: "기술 뉴스"
     icon: "📊"
-    description: "기업 분석, 시장 동향, 트레이딩 전략, 기술 트렌드 분석"
+    description: "IT 업계 동향, 기술 기업 분석, 최신 기술 뉴스"
   
-  ai_lab:
-    name: "AI연구실습"
-    icon: "🔬"
-    description: "AI 논문 리뷰, 모델 구현, 연구 프로젝트, 실험 결과"
+  insights:
+    name: "시사 통찰"
+    icon: "💡"
+    description: "개인적인 의견과 시각으로 바라본 시대적 이슈와 통찰"
   
-  algorithm:
-    name: "알고리즘"
-    icon: "🧮"
-    description: "알고리즘 문제 풀이, 코딩 테스트, 자료구조"
+  projects:
+    name: "프로젝트"
+    icon: "🚀"
+    description: "개인 프로젝트, 대외활동, 개발 프로젝트 경험 공유"
   
-  automation:
-    name: "자동화"
+  personal:
+    name: "개인 프로젝트"
     icon: "⚡"
-    description: "업무 자동화, 스크립팅, 도구 개발, 생산성 향상"
+    description: "개인적으로 진행한 개발 프로젝트와 경험 공유"
+  
+  external:
+    name: "대외활동"
+    icon: "🏆"
+    description: "해커톤, 공모전, 팀 프로젝트 등 대외활동 경험"
   
   programming:
     name: "프로그래밍"
     icon: "💻"
-    description: "프로그래밍 언어, 개발 방법론, 코드 최적화"
-  
-  project:
-    name: "프로젝트"
-    icon: "🚀"
-    description: "개인/팀 프로젝트, 오픈소스 기여, 포트폴리오"
-  
-  startup:
-    name: "창업아이디어"
-    icon: "💡"
-    description: "창업 아이디어, 비즈니스 모델, 스타트업 생태계"
-  
-  dev_life:
-    name: "개발자일상"
-    icon: "☕"
-    description: "개발자 문화, 일상, 회고, 성장 이야기"
+    description: "프로그래밍 언어, 알고리즘, 개발 방법론 및 기술 관련 내용"
   
   study:
-    name: "학습기록"
+    name: "학습 기록"
     icon: "📚"
-    description: "공부 기록, 강의 정리, 책 리뷰, 학습 노트"
+    description: "개인 학습 과정, 회고, 성장 기록"
   
-  other:
-    name: "기타"
-    icon: "📌"
-    description: "카테고리에 속하지 않는 다양한 주제의 이야기"
+  finance:
+    name: "금융"
+    icon: "💰"
+    description: "투자, 금융 지식, 재테크 관련 정보와 경험"
+  
+  # 서브카테고리들
+  news_ai:
+    name: "AI 뉴스"
+    icon: "🤖"
+    description: "AI 기업 동향, AI 산업 분석, AI 관련 뉴스 및 신기술 소식"
+  
+  news_tech:
+    name: "기술 뉴스"
+    icon: "📊"
+    description: "IT 업계 동향, 기술 기업 분석, 최신 기술 뉴스"
+  
+  projects_personal:
+    name: "개인 프로젝트"
+    icon: "⚡"
+    description: "개인적으로 진행한 개발 프로젝트와 경험 공유"
+  
+  projects_external:
+    name: "대외활동"
+    icon: "🏆"
+    description: "해커톤, 공모전, 팀 프로젝트 등 대외활동 경험"
