@@ -1,4 +1,5 @@
 categories:
+  # 기존 카테고리
   news:
     name: "기사"
     icon: "📰"
@@ -49,7 +50,53 @@ categories:
     icon: "💰"
     description: "투자, 금융 지식, 재테크 관련 정보와 경험"
   
-  # 서브카테고리들
+  # 새로운 카테고리 시스템
+  tech_analysis:
+    name: "기술시장분석"
+    icon: "📈"
+    description: "기업 분석, 시장 동향, 트레이딩 전략, 기술 트렌드 분석"
+  
+  ai_news:
+    name: "AI뉴스분석"
+    icon: "🤖"
+    description: "최신 AI 기술 동향, 업계 뉴스, 정책 변화 분석"
+  
+  algorithm:
+    name: "알고리즘"
+    icon: "🧮"
+    description: "알고리즘 문제 풀이, 코딩 테스트, 자료구조"
+  
+  ai_lab:
+    name: "AI연구실습"
+    icon: "🔬"
+    description: "AI 논문 리뷰, 모델 구현, 연구 프로젝트, 실험 결과"
+  
+  automation:
+    name: "자동화도구"
+    icon: "⚙️"
+    description: "업무 자동화, 스크립트, 도구 개발, 생산성 향상"
+  
+  project:
+    name: "프로젝트"
+    icon: "🚀"
+    description: "개인/팀 프로젝트, 오픈소스 기여, 포트폴리오"
+  
+  startup:
+    name: "창업아이디어"
+    icon: "💡"
+    description: "창업 아이디어, 비즈니스 모델, 스타트업 생태계"
+  
+  dev_life:
+    name: "개발자일상"
+    icon: "☕"
+    description: "개발자 문화, 일상, 회고, 성장 이야기"
+  
+  other:
+    name: "기타"
+    icon: "📋"
+    description: "카테고리에 속하지 않는 다양한 주제의 이야기"
+  
+  # 서브카테고리들 (기존 호환성을 위해 유지)
   news_ai:
     name: "AI 뉴스"
     icon: "🤖"
