@@ -2,7 +2,7 @@
 categories:
 - algorithm
 - baekjoon
-date: 2025-07-17 03:35:29 +0900
+date: 2025-07-17 03:56:22 +0900
 description: 백준 1000번 A+B 문제의 해결 방법과 코드를 설명합니다.
 difficulty: Bronze V
 layout: post
