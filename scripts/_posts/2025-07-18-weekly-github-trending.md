@@ -2,7 +2,7 @@
 categories:
 - tech
 - github
-date: 2025-07-18 01:06:37 +0900
+date: 2025-07-18 05:27:35 +0900
 description: 이번 주 가장 주목받는 GitHub 오픈소스 프로젝트들을 소개합니다.
 layout: post
 tags:
@@ -18,65 +18,65 @@ title: 이번 주 GitHub 트렌딩 프로젝트 (2025.07.18)
 
 ### 1. [DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1)
 
-**언어:** None | **⭐ Stars:** 90,576
+**언어:** None | **⭐ Stars:** 90,581
 
 None
 
 **주요 특징:**
 - 최근 주목받고 있는 None 프로젝트
-- 90,576개의 스타를 획득하며 빠른 성장세
+- 90,581개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
 
 ### 2. [system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools)
 
-**언어:** None | **⭐ Stars:** 68,885
+**언어:** None | **⭐ Stars:** 68,932
 
 FULL v0, Cursor, Manus, Same.dev, Lovable, Devin, Replit Agent, Windsurf Agent, VSCode Agent, Dia Browser, Xcode, Trae AI & Cluely (And other Open Sourced) System Prompts, Tools & AI Models.
 
 **주요 특징:**
 - 최근 주목받고 있는 None 프로젝트
-- 68,885개의 스타를 획득하며 빠른 성장세
+- 68,932개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
 
 ### 3. [gemini-cli](https://github.com/google-gemini/gemini-cli)
 
-**언어:** TypeScript | **⭐ Stars:** 60,715
+**언어:** TypeScript | **⭐ Stars:** 60,815
 
 An open-source AI agent that brings the power of Gemini directly into your terminal.
 
 **주요 특징:**
 - 최근 주목받고 있는 TypeScript 프로젝트
-- 60,715개의 스타를 획득하며 빠른 성장세
+- 60,815개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
 
 ### 4. [OpenManus](https://github.com/FoundationAgents/OpenManus)
 
-**언어:** Python | **⭐ Stars:** 48,066
+**언어:** Python | **⭐ Stars:** 48,081
 
 No fortress, purely open ground.  OpenManus is Coming.
 
 **주요 특징:**
 - 최근 주목받고 있는 Python 프로젝트
-- 48,066개의 스타를 획득하며 빠른 성장세
+- 48,081개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
 
 ### 5. [cursor-free-vip](https://github.com/yeongpin/cursor-free-vip)
 
-**언어:** Python | **⭐ Stars:** 32,424
+**언어:** Python | **⭐ Stars:** 32,437
 
 [Support 0.49.x]（Reset Cursor AI MachineID & Bypass Higher Token Limit） Cursor Ai ，自动重置机器ID ， 免费升级使用Pro功能: You've reached your trial request limit. / Too many free trial accounts used on this machine. Please upgrade to pro. We have this limit in place to prevent abuse. Please let us know if you believe this is a mistake.
 
 **주요 특징:**
 - 최근 주목받고 있는 Python 프로젝트
-- 32,424개의 스타를 획득하며 빠른 성장세
+- 32,437개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
