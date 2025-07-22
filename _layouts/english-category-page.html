@@ -1,0 +1,272 @@
+---
+layout: default
+---
+
+<style>
+.category-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+.category-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px 0;
+}
+
+.category-title {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: white !important; /* Explicitly set white color */
+}
+
+.category-icon {
+  font-size: 1.2em;
+  color: white !important; /* Icon also white */
+}
+
+.category-description {
+  font-size: 1.1em;
+  opacity: 0.9;
+  margin-top: 15px;
+  color: white !important; /* Description also white */
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.post-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: white !important; /* All card text white */
+}
+
+.post-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.post-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  color: white !important; /* Post title explicitly white */
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  opacity: 0.8;
+  color: white !important; /* Meta info also white */
+}
+
+.post-date {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.85em;
+  color: white !important; /* Date also white */
+}
+
+.post-excerpt {
+  font-size: 0.95em;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 15px;
+  color: white !important; /* Excerpt also white */
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.post-tag {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  opacity: 0.8;
+  color: white !important; /* Tags also white */
+}
+
+.no-posts {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 40px 0;
+  color: white !important; /* Empty posts message also white */
+}
+
+.navigation-buttons {
+  text-align: center;
+  margin-top: 50px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+}
+
+.navigation-buttons h3 {
+  color: white !important; /* Navigation title also white */
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 25px;
+  margin: 0 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white !important; /* Button text explicitly white */
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  color: white !important; /* Keep white on hover */
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-title {
+    flex-direction: column;
+    font-size: 2em;
+  }
+  
+  .navigation-buttons {
+    padding: 20px 10px;
+  }
+  
+  .nav-button {
+    display: block;
+    margin: 10px 0;
+  }
+}
+</style>
+
+<div class="category-page-container">
+  <!-- Category Header -->
+  <div class="category-header">
+    <h1 class="category-title">
+      <span class="category-icon">{{ site.data.english.categories[page.category].icon }}</span>
+      <span>{{ page.title | default: site.data.english.categories[page.category].name }}</span>
+    </h1>
+    <p class="category-description">{{ site.data.english.categories[page.category].description }}</p>
+  </div>
+
+  <!-- Filter posts by category -->
+  {% assign category_posts = "" | split: "" %}
+  {% for post in site.posts %}
+    {% if post.lang == "en" or post.language == "english" or post.categories contains "english-posts" or post.name contains "english" %}
+      {% if post.categories contains page.category %}
+        {% assign category_posts = category_posts | push: post %}
+      {% elsif page.category == "tech_analysis" and post.categories contains "tech_trends" %}
+        <!-- tech_trends -> tech_analysis migration -->
+        {% assign category_posts = category_posts | push: post %}
+      {% elsif page.category == "ai_lab" %}
+        <!-- ai_research, ai_practice -> ai_lab consolidation -->
+        {% if post.categories contains "ai_research" or post.categories contains "ai_practice" %}
+          {% assign category_posts = category_posts | push: post %}
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  <!-- Post cards grid -->
+  {% if category_posts.size > 0 %}
+    <div class="posts-grid">
+      {% assign sorted_posts = category_posts | sort: 'date' | reverse %}
+      {% for post in sorted_posts %}
+        <article class="post-card" onclick="location.href='{{ post.url | relative_url }}'">
+          <h2 class="post-title">{{ post.title }}</h2>
+          
+          <div class="post-meta">
+            <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+              {{ post.date | date: "%B %d, %Y" }}
+            </time>
+          </div>
+
+          {% if post.excerpt %}
+            <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+          {% elsif post.description %}
+            <p class="post-excerpt">{{ post.description | truncate: 120 }}</p>
+          {% endif %}
+
+          {% if post.tags %}
+            <div class="post-tags">
+              {% for tag in post.tags limit: 4 %}
+                <span class="post-tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="no-posts">
+      <h3>📝 No posts in this category yet</h3>
+      <p>New posts will be updated soon!</p>
+    </div>
+  {% endif %}
+
+  <!-- Navigation buttons -->
+  <div class="navigation-buttons">
+    <h3 style="margin-bottom: 20px; color: #fff;">🔗 Navigate to Other Pages</h3>
+    <div class="button-group">
+      <a href="{{ '/' | relative_url }}" class="nav-button">
+        <span style="margin-right: 8px;">🏠</span>
+        Home
+      </a>
+      <a href="{{ '/korean/' | relative_url }}" class="nav-button">
+        <span style="margin-right: 8px;">🇰🇷</span>
+        Korean Posts
+      </a>
+      <a href="{{ '/english/' | relative_url }}" class="nav-button">
+        <span style="margin-right: 8px;">📝</span>
+        English Posts
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+// Smooth transition effect on card click
+document.querySelectorAll('.post-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    if (!e.target.closest('a')) {
+      const url = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+      window.location.href = url;
+    }
+  });
+});
+</script>
