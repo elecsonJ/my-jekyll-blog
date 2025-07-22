@@ -1,10 +1,20 @@
 class BlogSearch {
     constructor() {
         this.posts = [];
+        this.tags = [];
+        this.currentResults = [];
+        this.selectedTag = null;
+        
+        // 페이지네이션
+        this.currentPage = 1;
+        this.resultsPerPage = 10;
+        
+        // DOM 요소들
         this.searchInput = document.getElementById('search-input');
         this.languageFilter = document.getElementById('language-filter');
         this.categoryFilter = document.getElementById('category-filter');
         this.sortFilter = document.getElementById('sort-filter');
+        this.clearFiltersBtn = document.getElementById('clear-filters');
         
         this.titleResults = document.getElementById('title-results');
         this.contentResults = document.getElementById('content-results');
@@ -14,8 +24,21 @@ class BlogSearch {
         this.titleCount = document.getElementById('title-count');
         this.contentCount = document.getElementById('content-count');
         this.searchStats = document.getElementById('search-stats');
+        this.resultsInfo = document.getElementById('results-info');
+        this.paginationInfo = document.getElementById('pagination-info');
         this.searchLoading = document.getElementById('search-loading');
         this.noResults = document.getElementById('no-results');
+        
+        // 태그 관련
+        this.tagCloud = document.getElementById('tag-cloud');
+        this.tagsLoading = document.getElementById('tags-loading');
+        this.popularTagsInfo = document.getElementById('popular-tags-info');
+        
+        // 페이지네이션
+        this.pagination = document.getElementById('pagination');
+        this.prevPageBtn = document.getElementById('prev-page');
+        this.nextPageBtn = document.getElementById('next-page');
+        this.pageNumbers = document.getElementById('page-numbers');
         
         this.searchHistory = this.loadSearchHistory();
         this.init();
@@ -24,7 +47,10 @@ class BlogSearch {
     async init() {
         try {
             this.showLoading(true);
-            await this.loadPosts();
+            await Promise.all([
+                this.loadPosts(),
+                this.loadTags()
+            ]);
             this.bindEvents();
             this.handleUrlParams();
             this.showLoading(false);
@@ -46,21 +72,131 @@ class BlogSearch {
         }
     }
 
+    async loadTags() {
+        try {
+            const response = await fetch('/my-jekyll-blog/tags.json');
+            if (!response.ok) throw new Error('Failed to fetch tags data');
+            const tagsData = await response.json();
+            this.tags = tagsData.all_tags || [];
+            this.renderTagCloud();
+            console.log(`Loaded ${this.tags.length} tags`);
+        } catch (error) {
+            console.error('Error loading tags data:', error);
+            this.tags = [];
+        }
+    }
+
+    renderTagCloud() {
+        this.tagsLoading.style.display = 'none';
+        
+        if (this.tags.length === 0) {
+            this.tagCloud.innerHTML = '<span style="color: #999;">태그를 불러올 수 없습니다.</span>';
+            return;
+        }
+
+        // 태그를 사용 빈도순으로 정렬
+        const sortedTags = [...this.tags].sort((a, b) => b.count - a.count);
+        
+        // 상위 20개 태그만 표시
+        const displayTags = sortedTags.slice(0, 20);
+        
+        // 최대/최소 사용 횟수
+        const maxCount = Math.max(...displayTags.map(t => t.count));
+        const minCount = Math.min(...displayTags.map(t => t.count));
+        
+        this.tagCloud.innerHTML = displayTags.map(tag => {
+            // 크기 계산 (1-5 레벨)
+            const normalizedSize = maxCount === minCount ? 3 : 
+                Math.ceil(((tag.count - minCount) / (maxCount - minCount)) * 4) + 1;
+            
+            return `
+                <span class="tag-item size-${normalizedSize}" 
+                      data-tag="${tag.name}" 
+                      title="${tag.name} (${tag.count}개 글)">
+                    ${tag.name}
+                </span>
+            `;
+        }).join('');
+
+        // 태그 클릭 이벤트
+        this.tagCloud.querySelectorAll('.tag-item').forEach(tagElement => {
+            tagElement.addEventListener('click', (e) => {
+                const tagName = e.target.dataset.tag;
+                this.selectTag(tagName);
+            });
+        });
+
+        // 인기 태그 정보 업데이트
+        this.popularTagsInfo.textContent = 
+            `총 ${this.tags.length}개 태그 중 인기 태그 ${displayTags.length}개 표시`;
+    }
+
+    selectTag(tagName) {
+        // 기존 선택 해제
+        this.tagCloud.querySelectorAll('.tag-item').forEach(el => {
+            el.classList.remove('active');
+        });
+
+        if (this.selectedTag === tagName) {
+            // 이미 선택된 태그 클릭시 선택 해제
+            this.selectedTag = null;
+            this.searchInput.value = '';
+        } else {
+            // 새 태그 선택
+            this.selectedTag = tagName;
+            this.searchInput.value = tagName;
+            
+            // 선택된 태그 하이라이트
+            const selectedElement = this.tagCloud.querySelector(`[data-tag="${tagName}"]`);
+            if (selectedElement) {
+                selectedElement.classList.add('active');
+            }
+        }
+
+        // 검색 실행
+        this.performSearch(this.searchInput.value.trim());
+    }
+
     bindEvents() {
         // 검색 입력 이벤트 (디바운싱 적용)
         let searchTimeout;
         this.searchInput.addEventListener('input', (e) => {
             clearTimeout(searchTimeout);
             searchTimeout = setTimeout(() => {
-                this.performSearch(e.target.value.trim());
+                // 태그 선택 상태 업데이트
+                const inputValue = e.target.value.trim();
+                if (this.selectedTag && inputValue !== this.selectedTag) {
+                    this.selectedTag = null;
+                    this.tagCloud.querySelectorAll('.tag-item').forEach(el => {
+                        el.classList.remove('active');
+                    });
+                }
+                this.performSearch(inputValue);
             }, 300);
         });
 
         // 필터 변경 이벤트
         [this.languageFilter, this.categoryFilter, this.sortFilter].forEach(filter => {
             filter.addEventListener('change', () => {
+                this.currentPage = 1; // 필터 변경시 첫 페이지로
                 this.performSearch(this.searchInput.value.trim());
             });
+        });
+
+        // 필터 초기화
+        this.clearFiltersBtn.addEventListener('click', () => {
+            this.languageFilter.value = 'all';
+            this.categoryFilter.value = 'all';
+            this.sortFilter.value = 'relevance';
+            this.searchInput.value = '';
+            this.selectedTag = null;
+            this.currentPage = 1;
+            
+            this.tagCloud.querySelectorAll('.tag-item').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            this.hideAllResults();
         });
 
         // 키보드 단축키 (/ 키로 검색창 포커스)
@@ -80,12 +216,32 @@ class BlogSearch {
                 }
             }
         });
+
+        // 페이지네이션 이벤트
+        this.prevPageBtn.addEventListener('click', () => {
+            if (this.currentPage > 1) {
+                this.currentPage--;
+                this.displayCurrentResults();
+            }
+        });
+
+        this.nextPageBtn.addEventListener('click', () => {
+            const totalPages = this.getTotalPages();
+            if (this.currentPage < totalPages) {
+                this.currentPage++;
+                this.displayCurrentResults();
+            }
+        });
     }
 
     handleUrlParams() {
         const urlParams = new URLSearchParams(window.location.search);
         const query = urlParams.get('q');
-        if (query) {
+        const tag = urlParams.get('tag');
+        
+        if (tag) {
+            this.selectTag(tag);
+        } else if (query) {
             this.searchInput.value = query;
             this.performSearch(query);
         }
@@ -126,6 +282,7 @@ class BlogSearch {
         }
 
         this.showLoading(true);
+        this.currentPage = 1; // 새 검색시 첫 페이지로
         
         // 필터 적용
         const filteredPosts = this.applyFilters(this.posts);
@@ -137,14 +294,77 @@ class BlogSearch {
         const sortedTitleMatches = this.sortResults(titleMatches, query);
         const sortedContentMatches = this.sortResults(contentMatches, query);
         
+        // 결과 저장
+        this.currentResults = {
+            titleMatches: sortedTitleMatches,
+            contentMatches: sortedContentMatches,
+            query: query
+        };
+        
         // 결과 표시
-        this.displayResults(sortedTitleMatches, sortedContentMatches, query);
-        this.updateStats(sortedTitleMatches.length + sortedContentMatches.length, query);
+        this.displayCurrentResults();
         
         this.showLoading(false);
         
-        // URL 업데이트 (검색 결과 공유 가능)
+        // URL 업데이트
         this.updateUrl(query);
+    }
+
+    displayCurrentResults() {
+        const { titleMatches, contentMatches, query } = this.currentResults;
+        
+        // 페이지네이션 적용
+        const startIndex = (this.currentPage - 1) * this.resultsPerPage;
+        const endIndex = startIndex + this.resultsPerPage;
+        
+        // 제목 일치 결과부터 우선 표시
+        let paginatedTitleResults = [];
+        let paginatedContentResults = [];
+        
+        if (startIndex < titleMatches.length) {
+            // 아직 제목 결과가 남아있는 경우
+            paginatedTitleResults = titleMatches.slice(startIndex, endIndex);
+            
+            if (paginatedTitleResults.length < this.resultsPerPage) {
+                // 제목 결과로 페이지가 다 차지 않으면 내용 결과로 채움
+                const remainingSlots = this.resultsPerPage - paginatedTitleResults.length;
+                const contentStartIndex = Math.max(0, startIndex - titleMatches.length);
+                paginatedContentResults = contentMatches.slice(contentStartIndex, contentStartIndex + remainingSlots);
+            }
+        } else {
+            // 제목 결과를 모두 지나친 경우
+            const contentStartIndex = startIndex - titleMatches.length;
+            paginatedContentResults = contentMatches.slice(contentStartIndex, contentStartIndex + this.resultsPerPage);
+        }
+        
+        // 결과 표시
+        if (paginatedTitleResults.length > 0) {
+            this.titleResults.style.display = 'block';
+            this.titleCount.textContent = `(${paginatedTitleResults.length}/${titleMatches.length}개)`;
+            this.titleResultsList.innerHTML = paginatedTitleResults.map(post => 
+                this.createResultHTML(post, query)).join('');
+        } else {
+            this.titleResults.style.display = 'none';
+        }
+        
+        if (paginatedContentResults.length > 0) {
+            this.contentResults.style.display = 'block';
+            this.contentCount.textContent = `(${paginatedContentResults.length}/${contentMatches.length}개)`;
+            this.contentResultsList.innerHTML = paginatedContentResults.map(post => 
+                this.createResultHTML(post, query)).join('');
+        } else {
+            this.contentResults.style.display = 'none';
+        }
+        
+        // 결과 없음 표시
+        const totalResults = titleMatches.length + contentMatches.length;
+        if (totalResults === 0) {
+            this.noResults.style.display = 'block';
+        }
+        
+        // 통계 및 페이지네이션 업데이트
+        this.updateStats(totalResults, query);
+        this.updatePagination(totalResults);
     }
 
     applyFilters(posts) {
@@ -226,15 +446,15 @@ class BlogSearch {
             score += 25;
         }
         
+        // 태그 완전 일치 보너스
+        if (this.selectedTag && post.tags && post.tags.includes(this.selectedTag)) {
+            score += 75;
+        }
+        
         // 최신글 보너스 (최근 30일)
         const postDate = new Date(post.date);
         const daysDiff = (new Date() - postDate) / (1000 * 60 * 60 * 24);
         if (daysDiff < 30) {
-            score += 10;
-        }
-        
-        // 쿼리 길이에 따른 조정
-        if (query.length > 5) {
             score += 10;
         }
         
@@ -260,35 +480,13 @@ class BlogSearch {
         });
     }
 
-    displayResults(titleMatches, contentMatches, query) {
-        // 제목 일치 결과 표시
-        if (titleMatches.length > 0) {
-            this.titleResults.style.display = 'block';
-            this.titleCount.textContent = `(${titleMatches.length}개)`;
-            this.titleResultsList.innerHTML = titleMatches.map(post => 
-                this.createResultHTML(post, query)).join('');
-        }
-        
-        // 내용 포함 결과 표시
-        if (contentMatches.length > 0) {
-            this.contentResults.style.display = 'block';
-            this.contentCount.textContent = `(${contentMatches.length}개)`;
-            this.contentResultsList.innerHTML = contentMatches.map(post => 
-                this.createResultHTML(post, query)).join('');
-        }
-        
-        // 결과 없음 표시
-        if (titleMatches.length === 0 && contentMatches.length === 0) {
-            this.noResults.style.display = 'block';
-        }
-    }
-
     createResultHTML(post, query) {
         const highlightedTitle = this.highlightText(post.title, query);
         const highlightedContent = this.highlightText(post.description || post.content, query);
         
         const tags = post.tags ? post.tags.map(tag => 
-            `<span class="tag">${tag}</span>`).join('') : '';
+            `<span class="tag" onclick="document.getElementById('search-input').value='${tag}'; 
+             new BlogSearch().performSearch('${tag}')">${tag}</span>`).join('') : '';
         
         return `
             <li class="search-result">
@@ -302,16 +500,98 @@ class BlogSearch {
         `;
     }
 
+    getTotalPages() {
+        if (!this.currentResults) return 0;
+        const totalResults = this.currentResults.titleMatches.length + this.currentResults.contentMatches.length;
+        return Math.ceil(totalResults / this.resultsPerPage);
+    }
+
     updateStats(totalResults, query) {
         if (totalResults > 0) {
-            this.searchStats.style.display = 'block';
-            this.searchStats.textContent = `"${query}"에 대한 검색 결과 ${totalResults}개`;
+            this.searchStats.style.display = 'flex';
+            this.resultsInfo.textContent = `"${query}"에 대한 검색 결과 ${totalResults}개`;
+        } else {
+            this.searchStats.style.display = 'none';
         }
+    }
+
+    updatePagination(totalResults) {
+        const totalPages = Math.ceil(totalResults / this.resultsPerPage);
+        
+        if (totalPages <= 1) {
+            this.pagination.style.display = 'none';
+            return;
+        }
+        
+        this.pagination.style.display = 'flex';
+        
+        // 이전/다음 버튼 상태
+        this.prevPageBtn.disabled = this.currentPage === 1;
+        this.nextPageBtn.disabled = this.currentPage === totalPages;
+        
+        // 페이지 번호 생성
+        const maxVisiblePages = 5;
+        let startPage = Math.max(1, this.currentPage - Math.floor(maxVisiblePages / 2));
+        let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+        
+        if (endPage - startPage + 1 < maxVisiblePages) {
+            startPage = Math.max(1, endPage - maxVisiblePages + 1);
+        }
+        
+        let pageNumbersHTML = '';
+        
+        if (startPage > 1) {
+            pageNumbersHTML += `<button onclick="window.blogSearch.goToPage(1)">1</button>`;
+            if (startPage > 2) {
+                pageNumbersHTML += `<span>...</span>`;
+            }
+        }
+        
+        for (let i = startPage; i <= endPage; i++) {
+            const activeClass = i === this.currentPage ? 'active' : '';
+            pageNumbersHTML += `<button class="${activeClass}" onclick="window.blogSearch.goToPage(${i})">${i}</button>`;
+        }
+        
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) {
+                pageNumbersHTML += `<span>...</span>`;
+            }
+            pageNumbersHTML += `<button onclick="window.blogSearch.goToPage(${totalPages})">${totalPages}</button>`;
+        }
+        
+        this.pageNumbers.innerHTML = pageNumbersHTML;
+        
+        // 페이지네이션 정보 업데이트
+        const startIndex = (this.currentPage - 1) * this.resultsPerPage + 1;
+        const endIndex = Math.min(this.currentPage * this.resultsPerPage, totalResults);
+        this.paginationInfo.textContent = `${startIndex}-${endIndex} / ${totalResults}`;
+    }
+
+    goToPage(page) {
+        this.currentPage = page;
+        this.displayCurrentResults();
+        
+        // 검색 결과 상단으로 스크롤
+        document.getElementById('search-stats').scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
     }
 
     updateUrl(query) {
         const url = new URL(window.location);
-        url.searchParams.set('q', query);
+        if (query) {
+            url.searchParams.set('q', query);
+        } else {
+            url.searchParams.delete('q');
+        }
+        
+        if (this.selectedTag) {
+            url.searchParams.set('tag', this.selectedTag);
+        } else {
+            url.searchParams.delete('tag');
+        }
+        
         window.history.pushState({}, '', url);
     }
 
@@ -320,6 +600,7 @@ class BlogSearch {
         this.contentResults.style.display = 'none';
         this.noResults.style.display = 'none';
         this.searchStats.style.display = 'none';
+        this.pagination.style.display = 'none';
     }
 
     showLoading(show) {
@@ -350,5 +631,5 @@ class BlogSearch {
 
 // 페이지 로드시 검색 시스템 초기화
 document.addEventListener('DOMContentLoaded', () => {
-    new BlogSearch();
+    window.blogSearch = new BlogSearch();
 });
