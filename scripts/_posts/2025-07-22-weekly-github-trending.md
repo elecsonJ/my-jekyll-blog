@@ -2,7 +2,7 @@
 categories:
 - tech
 - github
-date: 2025-07-22 10:36:20 +0900
+date: 2025-07-22 10:56:21 +0900
 description: 이번 주 가장 주목받는 GitHub 오픈소스 프로젝트들을 소개합니다.
 layout: post
 tags:
@@ -31,26 +31,26 @@ None
 
 ### 2. [system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools)
 
-**언어:** None | **⭐ Stars:** 70,065
+**언어:** None | **⭐ Stars:** 70,075
 
 FULL v0, Cursor, Manus, Same.dev, Lovable, Devin, Replit Agent, Windsurf Agent, VSCode Agent, Dia Browser, Xcode, Trae AI, Cluely & Orchids.app (And other Open Sourced) System Prompts, Tools & AI Models.
 
 **주요 특징:**
 - 최근 주목받고 있는 None 프로젝트
-- 70,065개의 스타를 획득하며 빠른 성장세
+- 70,075개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
 
 ### 3. [gemini-cli](https://github.com/google-gemini/gemini-cli)
 
-**언어:** TypeScript | **⭐ Stars:** 62,348
+**언어:** TypeScript | **⭐ Stars:** 62,350
 
 An open-source AI agent that brings the power of Gemini directly into your terminal.
 
 **주요 특징:**
 - 최근 주목받고 있는 TypeScript 프로젝트
-- 62,348개의 스타를 획득하며 빠른 성장세
+- 62,350개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
@@ -70,13 +70,13 @@ No fortress, purely open ground.  OpenManus is Coming.
 
 ### 5. [cursor-free-vip](https://github.com/yeongpin/cursor-free-vip)
 
-**언어:** Python | **⭐ Stars:** 32,627
+**언어:** Python | **⭐ Stars:** 32,629
 
 [Support 0.49.x]（Reset Cursor AI MachineID & Bypass Higher Token Limit） Cursor Ai ，自动重置机器ID ， 免费升级使用Pro功能: You've reached your trial request limit. / Too many free trial accounts used on this machine. Please upgrade to pro. We have this limit in place to prevent abuse. Please let us know if you believe this is a mistake.
 
 **주요 특징:**
 - 최근 주목받고 있는 Python 프로젝트
-- 32,627개의 스타를 획득하며 빠른 성장세
+- 32,629개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
