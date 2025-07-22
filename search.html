@@ -1,0 +1,242 @@
+---
+layout: default
+title: Search
+permalink: /search/
+---
+
+<style>
+.search-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.search-box:focus {
+  outline: none;
+  border-color: #007cba;
+  box-shadow: 0 0 0 3px rgba(0, 124, 186, 0.1);
+}
+
+.search-filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-group select, .filter-group input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.search-stats {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.search-section {
+  margin-bottom: 40px;
+}
+
+.search-section h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.search-section h3 .count {
+  color: #666;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.search-results {
+  list-style: none;
+  padding: 0;
+}
+
+.search-result {
+  padding: 20px;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: #fafafa;
+  transition: background-color 0.2s;
+}
+
+.search-result:hover {
+  background: #f0f0f0;
+}
+
+.search-result h4 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.search-result h4 a {
+  color: #007cba;
+  text-decoration: none;
+}
+
+.search-result h4 a:hover {
+  text-decoration: underline;
+}
+
+.search-meta {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.search-excerpt {
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.search-tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background: #e1f5fe;
+  color: #01579b;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  margin-right: 5px;
+}
+
+.no-results {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 40px 20px;
+}
+
+.loading {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+}
+
+.highlight {
+  background-color: #fff3cd;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+.keyboard-shortcut {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .search-filters {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .filter-group {
+    justify-content: space-between;
+  }
+  
+  .filter-group select, .filter-group input {
+    flex: 1;
+  }
+}
+</style>
+
+<div class="search-container">
+  <h1>🔍 검색</h1>
+  
+  <div class="search-input-container">
+    <input type="text" id="search-input" class="search-box" placeholder="검색어를 입력하세요... (제목, 내용, 태그에서 검색)" autofocus>
+    <div class="keyboard-shortcut">💡 팁: '/' 키를 눌러 검색창에 포커스하세요</div>
+  </div>
+
+  <div class="search-filters">
+    <div class="filter-group">
+      <label for="language-filter">언어:</label>
+      <select id="language-filter">
+        <option value="all">전체</option>
+        <option value="ko">한국어</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+    
+    <div class="filter-group">
+      <label for="category-filter">카테고리:</label>
+      <select id="category-filter">
+        <option value="all">전체</option>
+        <option value="news">뉴스</option>
+        <option value="insights">인사이트</option>
+        <option value="ai">AI</option>
+        <option value="automation">자동화</option>
+        <option value="tech">기술</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="sort-filter">정렬:</label>
+      <select id="sort-filter">
+        <option value="relevance">관련도</option>
+        <option value="date-desc">최신순</option>
+        <option value="date-asc">오래된순</option>
+        <option value="title">제목순</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="search-stats" class="search-stats" style="display: none;"></div>
+
+  <div id="search-loading" class="loading" style="display: none;">
+    검색 중...
+  </div>
+
+  <!-- 제목 일치 결과 -->
+  <div id="title-results" class="search-section" style="display: none;">
+    <h3>🎯 제목 일치 <span class="count" id="title-count"></span></h3>
+    <ul id="title-results-list" class="search-results"></ul>
+  </div>
+
+  <!-- 내용 포함 결과 -->
+  <div id="content-results" class="search-section" style="display: none;">
+    <h3>📄 내용 포함 <span class="count" id="content-count"></span></h3>
+    <ul id="content-results-list" class="search-results"></ul>
+  </div>
+
+  <div id="no-results" class="no-results" style="display: none;">
+    <h3>검색 결과가 없습니다</h3>
+    <p>다른 검색어를 시도해보세요.</p>
+  </div>
+</div>
+
+<script>
+// 검색 데이터와 기능은 별도 JS 파일로 분리
+</script>
+
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>
