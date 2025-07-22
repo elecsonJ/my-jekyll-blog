@@ -47,10 +47,69 @@ permalink: /search/
   font-size: 14px;
 }
 
+/* 태그 클라우드 스타일 */
+.tags-section {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.tags-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.tag-item {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #e3f2fd;
+  color: #1976d2;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.tag-item:hover {
+  background: #bbdefb;
+  transform: translateY(-1px);
+}
+
+.tag-item.active {
+  background: #1976d2;
+  color: white;
+  border-color: #1565c0;
+}
+
+.tag-item.size-1 { font-size: 11px; }
+.tag-item.size-2 { font-size: 12px; }
+.tag-item.size-3 { font-size: 13px; }
+.tag-item.size-4 { font-size: 14px; font-weight: 500; }
+.tag-item.size-5 { font-size: 15px; font-weight: 600; }
+
+.popular-tags {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #666;
+}
+
 .search-stats {
   color: #666;
   font-size: 14px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .search-section {
@@ -129,6 +188,47 @@ permalink: /search/
   margin-right: 5px;
 }
 
+/* 페이지네이션 스타일 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 30px 0;
+  padding: 20px 0;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background: white;
+  color: #333;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #f0f0f0;
+  border-color: #ccc;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination button.active {
+  background: #007cba;
+  color: white;
+  border-color: #007cba;
+}
+
+.pagination-info {
+  color: #666;
+  font-size: 14px;
+}
+
 .no-results {
   text-align: center;
   color: #666;
@@ -154,6 +254,19 @@ permalink: /search/
   margin-top: 5px;
 }
 
+.clear-filters {
+  background: none;
+  border: none;
+  color: #007cba;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.clear-filters:hover {
+  color: #0056b3;
+}
+
 @media (max-width: 768px) {
   .search-filters {
     flex-direction: column;
@@ -167,6 +280,31 @@ permalink: /search/
   .filter-group select, .filter-group input {
     flex: 1;
   }
+  
+  .search-stats {
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+  
+  .tag-cloud {
+    gap: 5px;
+  }
+  
+  .tag-item {
+    font-size: 11px !important;
+    padding: 4px 8px;
+  }
+  
+  .pagination {
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
 }
 </style>
 
@@ -175,7 +313,7 @@ permalink: /search/
   
   <div class="search-input-container">
     <input type="text" id="search-input" class="search-box" placeholder="검색어를 입력하세요... (제목, 내용, 태그에서 검색)" autofocus>
-    <div class="keyboard-shortcut">💡 팁: '/' 키를 눌러 검색창에 포커스하세요</div>
+    <div class="keyboard-shortcut">💡 팁: '/' 키를 눌러 검색창에 포커스하거나 아래 태그를 클릭하세요</div>
   </div>
 
   <div class="search-filters">
@@ -209,9 +347,27 @@ permalink: /search/
         <option value="title">제목순</option>
       </select>
     </div>
+
+    <div class="filter-group">
+      <button class="clear-filters" id="clear-filters">필터 초기화</button>
+    </div>
   </div>
 
-  <div id="search-stats" class="search-stats" style="display: none;"></div>
+  <!-- 태그 클라우드 섹션 -->
+  <div class="tags-section" id="tags-section">
+    <h3>🏷️ 인기 태그 <span id="tags-loading" style="font-size: 12px; color: #999;">(로딩 중...)</span></h3>
+    <div class="tag-cloud" id="tag-cloud">
+      <!-- 태그들이 동적으로 로드됩니다 -->
+    </div>
+    <div class="popular-tags" id="popular-tags-info">
+      태그를 클릭하면 해당 태그로 필터링됩니다
+    </div>
+  </div>
+
+  <div id="search-stats" class="search-stats" style="display: none;">
+    <span id="results-info"></span>
+    <span id="pagination-info" class="pagination-info"></span>
+  </div>
 
   <div id="search-loading" class="loading" style="display: none;">
     검색 중...
@@ -229,9 +385,16 @@ permalink: /search/
     <ul id="content-results-list" class="search-results"></ul>
   </div>
 
+  <!-- 페이지네이션 -->
+  <div id="pagination" class="pagination" style="display: none;">
+    <button id="prev-page" disabled>‹ 이전</button>
+    <div id="page-numbers"></div>
+    <button id="next-page" disabled>다음 ›</button>
+  </div>
+
   <div id="no-results" class="no-results" style="display: none;">
     <h3>검색 결과가 없습니다</h3>
-    <p>다른 검색어를 시도해보세요.</p>
+    <p>다른 검색어를 시도해보거나 필터를 조정해보세요.</p>
   </div>
 </div>
 
