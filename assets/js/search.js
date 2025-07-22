@@ -310,6 +310,34 @@ class BlogSearch {
         return text;
     }
 
+    // 텍스트를 적절한 길이로 자르는 함수
+    truncateText(text, maxLength = 150) {
+        if (!text || typeof text !== 'string') return '';
+        
+        try {
+            // HTML 태그 제거
+            text = text.replace(/<[^>]*>/g, '');
+            
+            // 너무 길면 자르기
+            if (text.length > maxLength) {
+                // 단어 경계에서 자르기
+                const truncated = text.substring(0, maxLength);
+                const lastSpaceIndex = truncated.lastIndexOf(' ');
+                
+                if (lastSpaceIndex > maxLength * 0.7) {
+                    return truncated.substring(0, lastSpaceIndex) + '...';
+                } else {
+                    return truncated + '...';
+                }
+            }
+            
+            return text;
+        } catch (error) {
+            console.warn('Error truncating text:', error);
+            return text || '';
+        }
+    }
+
     // 검색 수행 (타임아웃 추가)
     async performSearch(query) {
         console.log('Performing search for:', query);
@@ -611,8 +639,16 @@ class BlogSearch {
             }
 
             const highlightedTitle = this.highlightText(post.title || '', query);
-            const highlightedContent = this.highlightText(
-                post.description || post.content || '', query);
+            
+            // description이 있으면 우선 사용, 없으면 content 사용하되 적절히 자르기
+            let excerptText = '';
+            if (post.description && post.description.trim()) {
+                excerptText = this.truncateText(post.description, 150);
+            } else if (post.content && post.content.trim()) {
+                excerptText = this.truncateText(post.content, 150);
+            }
+            
+            const highlightedContent = this.highlightText(excerptText, query);
             
             const tags = Array.isArray(post.tags) ? 
                 post.tags.filter(tag => tag && typeof tag === 'string')
@@ -699,7 +735,7 @@ class BlogSearch {
                     if (endPage < totalPages - 1) {
                         pageNumbersHTML += `<span>...</span>`;
                     }
-                    pageNumbersHTML += `<button onclick="window.blogSearch.goToPage(${totalPages})">${totalPages}</button>`;
+                    pageNumbersHTML += `<button onclick="window.blogSearch.goToPage(${totalPages})\">${totalPages}</button>`;
                 }
                 
                 this.pageNumbers.innerHTML = pageNumbersHTML;
