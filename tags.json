@@ -1,0 +1,26 @@
+---
+layout: null
+---
+{
+  "all_tags": [
+    {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+    {% for tag in all_tags %}
+      {% if tag != '' and tag != null %}
+        {
+          "name": {{ tag | strip | jsonify }},
+          "count": {{ site.posts | where_exp: 'post', 'post.tags contains tag' | size }},
+          "posts": [
+            {% assign tag_posts = site.posts | where_exp: 'post', 'post.tags contains tag' %}
+            {% for post in tag_posts limit: 3 %}
+              {
+                "title": {{ post.title | jsonify }},
+                "url": {{ post.url | relative_url | jsonify }},
+                "date": {{ post.date | date: '%Y-%m-%d' | jsonify }}
+              }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ]
+        }{% unless forloop.last %},{% endunless %}
+      {% endif %}
+    {% endfor %}
+  ]
+}
