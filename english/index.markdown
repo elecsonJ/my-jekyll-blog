@@ -6,7 +6,7 @@ lang: en
 ---
 
 <style>
-.english-page-container {
+.language-page-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -169,7 +169,7 @@ lang: en
 }
 </style>
 
-<div class="english-page-container">
+<div class="language-page-container">
   <!-- Page Header -->
   <div class="page-header">
     <h1 class="page-title">📚 English Posts</h1>
