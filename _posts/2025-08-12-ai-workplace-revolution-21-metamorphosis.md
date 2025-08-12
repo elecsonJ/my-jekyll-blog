@@ -2,7 +2,7 @@
 layout: post
 title: "일터의 변신: AI와 함께 일하는 21가지 방식, 그리고 인간의 자리"
 date: 2025-08-12
-categories: [tech_analysis, insights]
+categories: [analysis]
 tags: [AI, 직장, 생산성, 미래일자리, 디지털전환, 업무혁신]
 lang: ko
 description: "2025년 직장인들이 AI를 활용하는 21가지 실제 사례를 통해 본 노동의 재정의. 단순한 도구 활용을 넘어 인간과 기계의 공생, 그리고 새로운 노동 철학의 탄생을 깊이 있게 탐구합니다."

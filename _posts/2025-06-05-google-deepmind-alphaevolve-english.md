@@ -2,7 +2,7 @@
 layout: post
 title: "Google DeepMind's AlphaEvolve: The Era of Self-Evolving AI"
 date: 2025-06-05 11:00:00 +0900
-categories: [ai_news]
+categories: [news]
 tags: [Google, DeepMind, AlphaEvolve, AI Evolution, Self-Improving AI]
 author: Tech News Team
 lang: en

@@ -2,7 +2,7 @@
 layout: post
 title: "2025년 최신 AI 돌파구: 차세대 인공지능 기술 동향"
 date: 2025-06-04 14:00:00 +0900
-categories: [ai_news]
+categories: [news]
 tags: [AI, 기술동향, 혁신, 2025]
 author: AI 뉴스팀
 excerpt: "2025년 AI 분야의 최신 돌파구와 혁신적인 기술들을 소개합니다. GPT-5부터 양자 AI까지."

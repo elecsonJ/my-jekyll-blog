@@ -2,7 +2,7 @@
 layout: post
 title: "차세대 AI 모델의 진화: 개발자가 알아야 할 2025년 AI 트렌드"
 date: 2025-06-30
-categories: [ai_research]
+categories: [analysis]
 tags: [AI, 머신러닝, GPT-4o, Claude, Gemini, 개발트렌드, 인공지능]
 lang: ko
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: "Apple WWDC 2025: AI 기반 Shortcuts 앱으로 개인 맞춤형 자동화 시대 열다"
 date: 2025-06-05 15:30:00 +0900
-categories: [tech_analysis]
+categories: [analysis]
 tags: [Apple, WWDC 2025, AI Shortcuts, 자동화, 개인화, iOS, macOS]
 image: https://images.unsplash.com/photo-1611532736597-de2d4265fba3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80
 author: "한재훈 (Jaehoon Han)"

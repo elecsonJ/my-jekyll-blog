@@ -2,9 +2,7 @@
 layout: post
 title: '이번 주 GitHub 트렌딩 프로젝트 (2025.06.04)'
 date: 2025-06-04 17:45:30 +0900
-categories:
-- tech
-- github
+categories: [news]
 tags:
 - trending
 - opensource

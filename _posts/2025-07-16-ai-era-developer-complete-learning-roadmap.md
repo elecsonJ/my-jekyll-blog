@@ -2,7 +2,7 @@
 layout: post
 title: "AI 시대 개발자 완전 학습 로드맵: 체계적 커리큘럼과 실무 활용 전략"
 date: 2025-07-16 15:00:00 +0900
-categories: [insights]
+categories: [analysis]
 tags: [개발자, AI, 학습로드맵, 커리큘럼, 프로그래밍, 컴퓨터과학, 커리어, 교육]
 lang: ko
 excerpt: "AI 시대에 성공하는 개발자가 되기 위한 완전한 학습 로드맵과 각 과목별 실무 활용 전략을 제시한다."

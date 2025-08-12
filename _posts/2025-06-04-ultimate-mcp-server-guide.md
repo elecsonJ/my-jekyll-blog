@@ -2,7 +2,7 @@
 layout: post
 title: "The Ultimate MCP Server Guide: From Popular Tools to Hidden Gems for Maximum Productivity"
 date: 2025-06-04 20:00:00 +0900
-categories: [english, mcp, automation]
+categories: [dev]
 tags: [mcp, model-context-protocol, claude, automation, ai-tools, productivity, claude-desktop, cursor]
 lang: en
 description: 'Comprehensive guide to Model Context Protocol (MCP) servers for practical use. From popular servers to hidden gems, with detailed implementation examples and real-world use cases.'

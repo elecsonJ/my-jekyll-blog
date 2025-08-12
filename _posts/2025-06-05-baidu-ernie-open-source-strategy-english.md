@@ -2,7 +2,7 @@
 layout: post
 title: "Baidu Ernie Model Open Source Strategy: Strategic Transformation and Global Impact of China's AI Market"
 date: 2025-06-05 16:00:00 +0900
-categories: [tech-news-analysis]
+categories: [news]
 tags: [baidu, ernie, open-source, chinese-ai, deepseek, competitive-strategy, ai-models]
 lang: en
 image: https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80

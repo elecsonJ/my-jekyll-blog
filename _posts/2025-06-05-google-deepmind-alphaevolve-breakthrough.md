@@ -2,7 +2,7 @@
 layout: post
 title: "Google DeepMind의 AlphaEvolve: AI가 스스로 진화하는 시대"
 date: 2025-06-05 11:00:00 +0900
-categories: [ai_news]
+categories: [news]
 tags: [Google, DeepMind, AlphaEvolve, AI진화, 자기개선AI]
 author: Tech News Team
 excerpt: "Google DeepMind가 발표한 AlphaEvolve는 AI가 스스로 학습하고 진화하는 새로운 패러다임을 제시합니다."

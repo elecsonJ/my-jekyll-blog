@@ -2,7 +2,7 @@
 layout: post
 title: "알고리즘 기초: 정렬 알고리즘 완전정복"
 date: 2025-06-18
-categories: [programming]
+categories: [dev]
 tags: [알고리즘, 정렬, 코딩테스트, 자료구조]
 lang: ko
 description: "기본적인 정렬 알고리즘들을 구현하고 시간복잡도를 분석해봅니다."

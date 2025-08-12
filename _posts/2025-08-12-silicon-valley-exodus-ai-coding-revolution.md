@@ -2,7 +2,7 @@
 layout: post
 title: "실리콘밸리 엑소더스: $165,000 꿈이 치폴레 현실이 되기까지"
 date: 2025-08-12
-categories: [tech_analysis, insights]
+categories: [analysis]
 tags: [AI, 개발자, 실리콘밸리, 고용시장, 미래전망, 경제분석]
 lang: ko
 description: "AI가 코딩 일자리를 잠식하면서 컴퓨터공학 전공자들이 치폴레에서 일자리를 찾는 충격적 현실. 기술 낙관주의의 종말과 새로운 시대의 서막을 철학적, 경제적 관점에서 심층 분석합니다."

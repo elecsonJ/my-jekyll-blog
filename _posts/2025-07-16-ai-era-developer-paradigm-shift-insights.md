@@ -2,7 +2,7 @@
 layout: post
 title: "AI 시대, 개발자라는 직업의 근본적 변화와 새로운 정체성 모색"
 date: 2025-07-16 14:30:00 +0900
-categories: [insights]
+categories: [analysis]
 tags: [AI, 개발자, 시사, 미래, 기술철학, 패러다임시프트, 인간과AI, 협업]
 lang: ko
 excerpt: "AI가 코딩을 할 수 있게 된 지금, 개발자라는 직업은 어떻게 변화하고 있는가? 단순한 도구 활용을 넘어서, 개발자의 정체성과 가치에 대한 근본적 성찰과 미래 비전을 제시한다."

@@ -2,7 +2,7 @@
 layout: post
 title: "바이두 Ernie 모델 오픈소스 전략: 중국 AI 시장의 전략적 변화와 글로벌 영향"
 date: 2025-06-05 16:00:00 +0900
-categories: [tech_analysis]
+categories: [analysis]
 tags: [baidu, ernie, open-source, chinese-ai, deepseek, competitive-strategy, ai-models]
 lang: ko
 image: https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80

@@ -1,57 +1,21 @@
 categories:
-  # 기사 포스트를 작성하기 위한 카테고리
+  # 새로운 4개 카테고리 시스템
   news:
-    name: "기사"
+    name: "뉴스"
     icon: "📰"
-    description: "AI, 기술 관련 최신 뉴스와 업계 동향 분석"
+    description: "기술 업계 뉴스, 기업 동향, 시의성 있는 발표 및 이슈들"
   
-  # 개인적인 의견으로 시작해 시사에 대한 통찰있는 시각을 제시하기 위한 카테고리
-  insights:
-    name: "시사 통찰"
-    icon: "💡"
-    description: "개인적인 의견과 시각으로 바라본 시대적 이슈와 통찰"
+  analysis:
+    name: "심층 분석"
+    icon: "🔍"
+    description: "기술과 사회의 교차점에서 벌어지는 현상들에 대한 깊이 있는 분석과 통찰"
   
-  # 해본 프로젝트를 다루기 위한 카테고리
-  projects:
-    name: "프로젝트"
-    icon: "🚀"
-    description: "개인 프로젝트, 대외활동, 개발 프로젝트 경험 공유"
-  
-  # 프로그래밍 전반에 대한 이야기를 할 수 있는 카테고리
-  programming:
-    name: "프로그래밍"
+  dev:
+    name: "개발"
     icon: "💻"
-    description: "프로그래밍 언어, 알고리즘, 개발 방법론 및 기술 관련 내용"
+    description: "프로그래밍, 도구, 프로젝트, 개발자 커리어 등 개발과 관련된 모든 것"
   
-  # 개인적인 학습 기록을 위한 카테고리
-  study:
-    name: "학습 기록"
-    icon: "📚"
-    description: "개인 학습 과정, 회고, 성장 기록"
-  
-  # 금융 관련 카테고리
-  finance:
-    name: "금융"
-    icon: "💰"
-    description: "투자, 금융 지식, 재테크 관련 정보와 경험"
-  
-  # 서브카테고리들
-  news_ai:
-    name: "AI 뉴스"
-    icon: "🤖"
-    description: "AI 기업 동향, AI 산업 분석, AI 관련 뉴스 및 신기술 소식"
-  
-  news_tech:
-    name: "기술 뉴스"
-    icon: "📊"
-    description: "IT 업계 동향, 기술 기업 분석, 최신 기술 뉴스"
-  
-  projects_personal:
-    name: "개인 프로젝트"
-    icon: "⚡"
-    description: "개인적으로 진행한 개발 프로젝트와 경험 공유"
-  
-  projects_external:
-    name: "대외활동"
-    icon: "🏆"
-    description: "해커톤, 공모전, 팀 프로젝트 등 대외활동 경험"
+  essay:
+    name: "에세이"
+    icon: "✍️"
+    description: "개인적 경험과 생각, 학습 기록, 회고 등 주관적 관점에서 쓴 글들"

@@ -2,7 +2,7 @@
 layout: post
 title: "Reddit vs Anthropic Lawsuit Analysis: New Frontline in AI Training Data and Copyright"
 date: 2025-06-05 15:00:00 +0900
-categories: [tech-news-analysis]
+categories: [news]
 tags: [reddit, anthropic, lawsuit, ai-training, copyright, data-privacy, legal-analysis]
 author: "Jaehoon Han"
 lang: en

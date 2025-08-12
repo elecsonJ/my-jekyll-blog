@@ -2,7 +2,7 @@
 layout: post
 title: "AI 시대의 창업 패러다임: 개발자를 위한 전략적 비즈니스 인사이트"
 date: 2025-07-16 16:00:00 +0900
-categories: [insights]
+categories: [analysis]
 tags: [창업, 스타트업, AI, 비즈니스전략, 개발자, 기업가정신, 혁신]
 lang: ko
 excerpt: "AI 혁명이 만들어낸 새로운 창업 생태계를 분석하고, 개발자가 성공적인 AI 비즈니스를 구축하기 위한 전략적 통찰을 제시한다."

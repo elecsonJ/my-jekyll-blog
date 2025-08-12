@@ -2,7 +2,7 @@
 layout: post
 title: "실무에서 바로 활용 가능한 MCP 서버 완전 가이드 - 숨겨진 보석들부터 대중적 서버까지"
 date: 2025-06-04 20:00:00 +0900
-categories: [programming]
+categories: [dev]
 tags: [mcp, model-context-protocol, claude, automation, ai-tools, productivity]
 lang: ko
 description: 'Model Context Protocol(MCP) 서버의 실전 활용 가이드입니다. 대중적인 서버부터 숨겨진 보석 같은 서버들까지, 구체적인 활용 예시와 함께 상세히 분석했습니다.'

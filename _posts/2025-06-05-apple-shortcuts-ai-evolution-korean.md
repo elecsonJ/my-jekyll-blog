@@ -2,7 +2,7 @@
 layout: post
 title: "Apple Shortcuts의 AI 진화: 8년간의 여정이 결실을 맺다"
 date: 2025-06-05 14:30:00 +0900
-categories: [tech_analysis]
+categories: [analysis]
 tags: [apple, shortcuts, ai, wwdc2025, automation, apple-intelligence, tech-analysis]
 author: "한재훈"
 lang: ko

@@ -2,7 +2,7 @@
 layout: post
 title: "디지털 순수의 종말: AI가 훔쳐간 우리 아이들의 얼굴"
 date: 2025-08-12
-categories: [tech_analysis, insights]
+categories: [analysis]
 tags: [AI, 프라이버시, 디지털윤리, 부모, 아동보호, 딥페이크]
 lang: ko
 description: "한 장의 생일 사진이 AI 학습 데이터가 되고, 딥페이크 포르노가 되는 시대. 부모의 사랑이 아이의 디지털 노예화가 되는 역설적 현실을 철학적, 기술적, 법적 관점에서 해부합니다."

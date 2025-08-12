@@ -2,7 +2,7 @@
 layout: post
 title: "Reddit vs Anthropic 소송 분석: AI 훈련 데이터와 저작권의 새로운 전선"
 date: 2025-06-05 15:00:00 +0900
-categories: [ai_news]
+categories: [news]
 tags: [reddit, anthropic, lawsuit, ai-training, copyright, data-privacy, legal-analysis]
 author: "한재훈"
 lang: ko

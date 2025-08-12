@@ -2,7 +2,7 @@
 layout: post
 title: "2025년 AI 혁신 동향 분석: 차세대 AI 기술의 전환점"
 date: 2025-06-04 10:00:00 +0900
-categories: [ai_news]
+categories: [news]
 tags: [AI, 인공지능, 기술동향, 2025]
 author: 한재훈
 excerpt: "2025년 AI 기술의 최신 동향과 혁신적인 돌파구들을 심층 분석합니다. AGI 실현 가능성부터 실생활 응용까지."

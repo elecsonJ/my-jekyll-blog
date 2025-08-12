@@ -2,7 +2,7 @@
 layout: post
 title: "콘서타 품귀 위기의 진실: ADHD 진단 폭증과 공급망 붕괴의 완벽한 폭풍"
 date: 2025-07-18
-categories: [news, health]
+categories: [analysis]
 tags: [ADHD, 콘서타, Concerta, 의료품귀, 공급망위기, 정신건강, 코로나19, 숏폼컨텐츠, 원격진료, 의료정책]
 lang: ko
 description: "2022년부터 지속되는 전 세계 콘서타 품귀 현상의 복합적 원인을 심층 분석. COVID-19, TikTok 열풍, 원격진료 급증이 만든 '완벽한 폭풍'의 실체와 해결책을 탐구한다."

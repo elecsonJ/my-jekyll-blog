@@ -2,7 +2,7 @@
 layout: post
 title: "AI 시대 개발자 완전 가이드: 생존과 성장을 위한 실전 전략"
 date: 2025-06-18
-categories: [programming]
+categories: [dev]
 tags: [AI, 개발자, 학습, 프로그래밍, 미래, ChatGPT, GitHub_Copilot, 커리어]
 lang: ko
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: "The Evolution of Next-Generation AI Models: Essential 2025 Trends for Developers"
 date: 2025-06-30
-categories: [ai_research]
+categories: [analysis]
 tags: [AI, MachineLearning, GPT-4o, Claude, Gemini, Development, ArtificialIntelligence]
 lang: en
 ---

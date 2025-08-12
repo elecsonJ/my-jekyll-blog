@@ -179,7 +179,7 @@ lang: ko
   <!-- 카테고리 그리드 -->
   <div class="categories-grid">
     {% assign categories = site.data.korean.categories %}
-    {% assign category_order = "news,insights,projects,programming,study,finance" | split: "," %}
+    {% assign category_order = "news,analysis,dev,essay" | split: "," %}
     
     {% for cat_key in category_order %}
       {% assign category = categories[cat_key] %}
@@ -191,26 +191,6 @@ lang: ko
         {% for post in posts_to_check %}
           {% if post.categories contains cat_key %}
             {% assign cat_posts_count = cat_posts_count | plus: 1 %}
-          {% elsif cat_key == "news" %}
-            <!-- 뉴스 관련 서브카테고리 포함 -->
-            {% if post.categories contains "news_ai" or post.categories contains "news_tech" or post.categories contains "ai_news" or post.categories contains "tech_analysis" %}
-              {% assign cat_posts_count = cat_posts_count | plus: 1 %}
-            {% endif %}
-          {% elsif cat_key == "projects" %}
-            <!-- 프로젝트 관련 서브카테고리 포함 -->
-            {% if post.categories contains "projects_personal" or post.categories contains "projects_external" or post.categories contains "project" %}
-              {% assign cat_posts_count = cat_posts_count | plus: 1 %}
-            {% endif %}
-          {% elsif cat_key == "programming" %}
-            <!-- 프로그래밍 관련 카테고리 포함 -->
-            {% if post.categories contains "algorithm" or post.categories contains "automation" or post.categories contains "ai_lab" %}
-              {% assign cat_posts_count = cat_posts_count | plus: 1 %}
-            {% endif %}
-          {% elsif cat_key == "insights" %}
-            <!-- 시사통찰 관련 카테고리 포함 -->
-            {% if post.categories contains "startup" or post.categories contains "dev_life" %}
-              {% assign cat_posts_count = cat_posts_count | plus: 1 %}
-            {% endif %}
           {% endif %}
         {% endfor %}
         
@@ -242,17 +222,6 @@ lang: ko
             <span class="post-date">{{ post.date | date: "%Y년 %m월 %d일" }}</span>
             {% if post.categories[0] %}
               {% assign display_cat = post.categories[0] %}
-              
-              <!-- 카테고리 매핑 -->
-              {% if display_cat == "ai_news" or display_cat == "tech_analysis" or display_cat == "news_ai" or display_cat == "news_tech" %}
-                {% assign display_cat = "news" %}
-              {% elsif display_cat == "startup" or display_cat == "dev_life" %}
-                {% assign display_cat = "insights" %}
-              {% elsif display_cat == "projects_personal" or display_cat == "projects_external" or display_cat == "project" %}
-                {% assign display_cat = "projects" %}
-              {% elsif display_cat == "algorithm" or display_cat == "automation" or display_cat == "ai_lab" %}
-                {% assign display_cat = "programming" %}
-              {% endif %}
               
               {% if categories[display_cat] %}
                 <span class="post-category">{{ categories[display_cat].name }}</span>

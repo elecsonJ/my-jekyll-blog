@@ -2,7 +2,7 @@
 layout: post
 title: "AGI 2030년 실현 가능성 분석: 전문가 예측과 안전성 과제"
 date: 2025-06-05 14:30:00 +0900
-categories: [ai_news]
+categories: [news]
 tags: [AGI, AI안전성, 미래예측, 기술분석]
 author: AI분석팀
 excerpt: "AGI(인공일반지능) 실현 시기에 대한 전문가들의 예측과 안전성 확보를 위한 과제들을 심층 분석합니다."

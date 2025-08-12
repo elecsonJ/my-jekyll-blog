@@ -52,12 +52,14 @@ description: "SEO-optimized post summary"
 ```
 
 ### Category System
-- **news**: Industry news, issue analysis, fact-checking
-- **tech**: Technical analysis, deep-dives, technology trends  
-- **programming**: Development tutorials, coding guides
-- **projects**: Personal/team project showcases
-- **insights**: Personal opinions, essays, reflections
-- **study**: Learning records, course summaries
+The blog uses a simplified 4-category system for clear content organization:
+
+- **news**: Industry news, company announcements, timely issues and trends
+- **analysis**: Deep-dive analysis, social impact of technology, philosophical insights  
+- **dev**: Programming, tools, projects, developer career - everything development-related
+- **essay**: Personal experiences, thoughts, learning records, reflections - subjective perspectives
+
+**Important**: Each post should have exactly ONE primary category. Avoid mixing categories unless absolutely necessary.
 
 ## Content Management Workflow
 

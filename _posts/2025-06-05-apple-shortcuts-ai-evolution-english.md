@@ -2,7 +2,7 @@
 layout: post
 title: "Apple Shortcuts AI Evolution: 8 Years of Innovation Bearing Fruit"
 date: 2025-06-05 14:30:00 +0900
-categories: [tech_analysis]
+categories: [analysis]
 tags: [apple, shortcuts, ai, wwdc2025, automation, apple-intelligence, tech-analysis]
 author: "Jaehoon Han"
 lang: en

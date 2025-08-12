@@ -2,7 +2,7 @@
 layout: post
 title: "Claude MCP 서버 GitHub Actions peaceiris/actions-gh-pages 권한 오류 해결 완전 가이드"
 date: 2025-06-04 13:10:00 +0900
-categories: [troubleshooting, claude-mcp]
+categories: [dev]
 tags: [claude-mcp, github-actions, peaceiris-actions-gh-pages, permission-denied, jekyll-deployment, rbenv-ruby-3.3.0, macos-m3-silicon]
 description: 'Claude MCP 서버와 Jekyll 연동 시 GitHub Actions peaceiris/actions-gh-pages에서 발생하는 Permission denied 오류의 완전한 해결 방법을 단계별로 설명합니다.'
 ---

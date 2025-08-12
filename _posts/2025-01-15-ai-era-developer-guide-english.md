@@ -2,7 +2,7 @@
 layout: post
 title: "What Skills Should Developers Learn in the AI Era?"
 date: 2025-01-15
-categories: [insights]
+categories: [analysis]
 tags: [artificial-intelligence, developer, programming, career, computer-science, undergraduate, startup, job-market]
 description: "A comprehensive analysis of changing developer roles, required competencies, and the philosophy computer science students should develop in the age of AI"
 ---

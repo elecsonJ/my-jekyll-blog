@@ -2,7 +2,7 @@
 layout: post
 title: "Apple의 조용한 혁명: Private Cloud Compute가 바꾸는 AI 생태계"
 date: 2025-07-17
-categories: [news, tech]
+categories: [analysis]
 tags: [Apple, AI, PrivateCloudCompute, AppleIntelligence, 프라이버시, 기술분석, 클라우드컴퓨팅, 데이터보안]
 lang: ko
 description: "Apple Private Cloud Compute의 혁신적 기술과 AI 생태계에 미치는 영향을 심층 분석. Apple의 프라이버시 정책 이중성과 함께 객관적으로 살펴보는 AI 시대의 새로운 패러다임."

@@ -2,7 +2,7 @@
 layout: post
 title: "클린 코드의 핵심: 가독성 높은 Python 코드 작성법"
 date: 2025-06-18
-categories: [programming]
+categories: [dev]
 tags: [Python, 클린코드, 리팩토링, 코딩규칙, PEP8]
 lang: ko
 description: "읽기 쉽고 유지보수하기 좋은 Python 코드를 작성하는 실용적인 방법들을 소개합니다."

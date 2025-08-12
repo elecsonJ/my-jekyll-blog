@@ -2,7 +2,7 @@
 layout: post
 title: "MCP 서버를 활용한 Jekyll 블로그 자동화 시스템"
 date: 2025-06-18
-categories: [automation]
+categories: [dev]
 tags: [MCP, Jekyll, 자동화, GitHub Actions]
 lang: ko
 ---

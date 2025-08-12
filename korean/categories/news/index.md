@@ -1,9 +1,9 @@
 ---
 layout: korean-category-page
-title: "기사"
+title: "뉴스"
 category_key: news
-category_display_name: "기사"
-description: "AI, 기술 관련 최신 뉴스와 업계 동향 분석"
+category_display_name: "뉴스"
+description: "기술 업계 뉴스, 기업 동향, 시의성 있는 발표 및 이슈들"
 permalink: /korean/categories/news/
 lang: ko
 ---

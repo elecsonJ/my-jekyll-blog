@@ -2,7 +2,7 @@
 layout: post
 title: "Building Automated Jekyll Blog with Claude MCP"
 date: 2025-06-04 15:30:00 +0900
-categories: [automation]
+categories: [dev]
 tags: [jekyll, automation, claude-mcp, github-actions, english]
 lang: en
 description: 'How I built a fully automated Jekyll blog system using Claude MCP and GitHub Actions for content creation and deployment.'
