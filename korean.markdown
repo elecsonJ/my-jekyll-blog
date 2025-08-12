@@ -6,7 +6,7 @@ lang: ko
 ---
 
 <style>
-.korean-page-container {
+.language-page-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -169,7 +169,7 @@ lang: ko
 }
 </style>
 
-<div class="korean-page-container">
+<div class="language-page-container">
   <!-- 페이지 헤더 -->
   <div class="page-header">
     <h1 class="page-title">📚 한국어 포스트</h1>
