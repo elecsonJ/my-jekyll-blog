@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "자기 모순의 역설: 인간을 초월한 AI를 통제하려는 우리들"
-date: 2025-01-22
+date: 2025-08-12
 categories: [analysis]
 tags: [AI, 인공지능, 기술철학, 인간지능, 존재론, 인식론, 미래기술, AI안전성, 정렬문제]
 lang: ko
