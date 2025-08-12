@@ -2,7 +2,7 @@
 categories:
 - tech
 - github
-date: 2025-08-12 07:05:43 +0900
+date: 2025-08-12 07:09:02 +0900
 description: 이번 주 가장 주목받는 GitHub 오픈소스 프로젝트들을 소개합니다.
 layout: post
 tags:
@@ -70,13 +70,13 @@ No fortress, purely open ground.  OpenManus is Coming.
 
 ### 5. [codex](https://github.com/openai/codex)
 
-**언어:** Rust | **⭐ Stars:** 34,507
+**언어:** Rust | **⭐ Stars:** 34,508
 
 Lightweight coding agent that runs in your terminal
 
 **주요 특징:**
 - 최근 주목받고 있는 Rust 프로젝트
-- 34,507개의 스타를 획득하며 빠른 성장세
+- 34,508개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
