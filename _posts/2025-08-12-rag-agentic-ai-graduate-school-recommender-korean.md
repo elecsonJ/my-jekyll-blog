@@ -16,7 +16,6 @@ description: "해커톤에서 RAG + Agentic AI 기술로 구현한 대학원 연
 
 최근 RAG(Retrieval-Augmented Generation)와 Agentic LLM에 대해 배우면서 이를 실제로 구현해보는 해커톤에 참여하게 되었습니다. 이 글에서는 **대학원 연구실 추천 시스템**을 구현한 전체 경험을 공유하고자 합니다.
 
-**🚀 배포된 서비스**: [https://team07-lab-recommender.streamlit.app](https://team07-lab-recommender.streamlit.app)  
 **📁 GitHub 저장소**: [https://github.com/elecsonJ/team07-lab-recommender](https://github.com/elecsonJ/team07-lab-recommender)
 
 <!--more-->
@@ -242,7 +241,6 @@ AI: "앞서 언급한 강건욱 교수님이 정확히 나노기술을 활용한
 ---
 
 **프로젝트 링크**:
-- 🌐 **배포 서비스**: [https://team07-lab-recommender.streamlit.app](https://team07-lab-recommender.streamlit.app)
 - 📁 **GitHub**: [https://github.com/elecsonJ/team07-lab-recommender](https://github.com/elecsonJ/team07-lab-recommender)
 - 🏷️ **기술 스택**: RAG, Agentic AI, LangChain, Streamlit, GPT-4o-mini, Vector Embeddings
 
