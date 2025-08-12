@@ -1,50 +1,21 @@
 categories:
-  ai_news:
-    name: "AI News Analysis"
-    icon: "🤖"
-    description: "Latest AI tech trends, industry news, and policy analysis"
+  # 4-category system mirroring Korean structure
+  news:
+    name: "News"
+    icon: "📰"
+    description: "Tech industry news, company trends, timely announcements and issues"
   
-  tech_analysis:
-    name: "Tech Market Analysis"
-    icon: "📊"
-    description: "Company analysis, market trends, trading strategies, and tech insights"
+  analysis:
+    name: "In-depth Analysis"
+    icon: "🔍"
+    description: "Deep analysis and insights on phenomena at the intersection of technology and society"
   
-  ai_lab:
-    name: "AI Lab & Research"
-    icon: "🔬"
-    description: "AI paper reviews, model implementation, research projects, and experiments"
-  
-  algorithm:
-    name: "Algorithms"
-    icon: "🧮"
-    description: "Algorithm problem solving, coding tests, and data structures"
-  
-  automation:
-    name: "Automation Tools"
-    icon: "⚡"
-    description: "Workflow automation, scripts, tool development, and productivity"
-  
-  programming:
-    name: "Programming"
+  dev:
+    name: "Development"
     icon: "💻"
-    description: "Programming languages, development methodologies, and code optimization"
+    description: "Programming, tools, projects, developer careers - everything development-related"
   
-  project:
-    name: "Projects"
-    icon: "🚀"
-    description: "Personal/team projects, open-source contributions, and portfolios"
-  
-  startup:
-    name: "Startup Ideas"
-    icon: "💡"
-    description: "Startup ideas, business models, and startup ecosystem insights"
-  
-  dev_life:
-    name: "Developer Life"
-    icon: "☕"
-    description: "Developer culture, daily life, retrospectives, and growth stories"
-  
-  study:
-    name: "Learning Notes"
-    icon: "📚"
-    description: "Study records, lecture notes, book reviews, and learning logs"
+  essay:
+    name: "Essays"
+    icon: "✍️"
+    description: "Personal experiences and thoughts, learning records, retrospectives written from a subjective perspective"

@@ -179,7 +179,7 @@ lang: en
   <!-- Categories Grid -->
   <div class="categories-grid">
     {% assign categories = site.data.english.categories %}
-    {% assign category_order = "ai_news,tech_analysis,ai_lab,algorithm,automation,programming,project,startup,dev_life,study,other" | split: "," %}
+    {% assign category_order = "news,analysis,dev,essay" | split: "," %}
     
     {% for cat_key in category_order %}
       {% assign category = categories[cat_key] %}
@@ -191,14 +191,6 @@ lang: en
         {% for post in posts_to_check %}
           {% if post.categories contains cat_key %}
             {% assign cat_posts_count = cat_posts_count | plus: 1 %}
-          {% elsif cat_key == "tech_analysis" and post.categories contains "tech_trends" %}
-            <!-- tech_trends -> tech_analysis migration -->
-            {% assign cat_posts_count = cat_posts_count | plus: 1 %}
-          {% elsif cat_key == "ai_lab" %}
-            <!-- ai_research, ai_practice -> ai_lab consolidation -->
-            {% if post.categories contains "ai_research" or post.categories contains "ai_practice" %}
-              {% assign cat_posts_count = cat_posts_count | plus: 1 %}
-            {% endif %}
           {% endif %}
         {% endfor %}
         
@@ -230,11 +222,6 @@ lang: en
             <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
             {% if post.categories[0] %}
               {% assign display_cat = post.categories[0] %}
-              {% if display_cat == "tech_trends" %}
-                {% assign display_cat = "tech_analysis" %}
-              {% elsif display_cat == "ai_research" or display_cat == "ai_practice" %}
-                {% assign display_cat = "ai_lab" %}
-              {% endif %}
               
               {% if categories[display_cat] %}
                 <span class="post-category">{{ categories[display_cat].name }}</span>
