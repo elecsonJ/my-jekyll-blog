@@ -2,7 +2,7 @@
 layout: post
 title: "논문 리뷰: Gemini 2.5 Pro가 IMO 2025에서 금메달을 획득할 수 있는 이유"
 date: 2025-08-12 18:00:00 +0900
-categories: paper-review
+categories: analysis
 tags: [논문리뷰, Gemini, IMO, 수학적추론, arXiv, AI]
 author: Jaehoon Han
 description: "arXiv:2507.15855 논문을 통해 살펴보는 표준 Gemini 2.5 Pro의 수학 추론 능력과 프롬프트 엔지니어링의 힘"
