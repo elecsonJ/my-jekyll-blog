@@ -1,5 +1,5 @@
 categories:
-  # 4-category system mirroring Korean structure
+  # 5-category system mirroring Korean structure
   news:
     name: "News"
     icon: "📰"
@@ -14,6 +14,11 @@ categories:
     name: "Development"
     icon: "💻"
     description: "Programming, tools, projects, developer careers - everything development-related"
+  
+  projects:
+    name: "Projects"
+    icon: "🚀"
+    description: "Experience and processes from projects I've been directly involved in, outcomes and lessons learned"
   
   essay:
     name: "Essays"
