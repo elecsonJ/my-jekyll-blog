@@ -126,26 +126,20 @@ blog:
   tech_stack: ["Python", "Jekyll", "Claude MCP", "GitHub Actions", "Ruby"]
   target_audience: "개발자, AI 연구자, 기술 데이터자"
 
-# 카테고리 시스템 설정
+# 카테고리 시스템 설정 (실제 사용 중인 5개 체계)
 categories:
-  # 한국어 카테고리
   korean:
-    tech: "기술"
-    ai: "인공지능"
-    automation: "자동화"
-    study: "학습"
-    project: "프로젝트"
-    startup: "데이터"
-    tech-news-analysis: "기술뉴스분석"
-  # 영어 카테고리  
+    news: "뉴스"
+    analysis: "심층 분석" 
+    dev: "개발"
+    projects: "프로젝트"
+    essay: "에세이"
   english:
-    tech: "Technology"
-    ai: "Artificial Intelligence" 
-    automation: "Automation"
-    study: "Study"
-    project: "Project"
-    startup: "Startup"
-    tech-news-analysis: "Tech News Analysis"
+    news: "News"
+    analysis: "Analysis"
+    dev: "Dev" 
+    projects: "Projects"
+    essay: "Essay"
 
 # 다국어 지원
 languages:
