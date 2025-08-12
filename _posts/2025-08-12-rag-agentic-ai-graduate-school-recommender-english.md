@@ -16,7 +16,6 @@ description: "Complete development experience of building a RAG + Agentic AI pow
 
 Recently, while learning about RAG (Retrieval-Augmented Generation) and Agentic LLM technologies, I participated in a hackathon to implement these concepts in practice. This article shares my complete experience of building a **graduate school lab recommender system** from concept to deployment.
 
-**🚀 Live Service**: [https://team07-lab-recommender.streamlit.app](https://team07-lab-recommender.streamlit.app)  
 **📁 GitHub Repository**: [https://github.com/elecsonJ/team07-lab-recommender](https://github.com/elecsonJ/team07-lab-recommender)
 
 <!--more-->
@@ -242,7 +241,6 @@ I look forward to continuing **practical yet technically challenging projects** 
 ---
 
 **Project Links**:
-- 🌐 **Live Service**: [https://team07-lab-recommender.streamlit.app](https://team07-lab-recommender.streamlit.app)
 - 📁 **GitHub**: [https://github.com/elecsonJ/team07-lab-recommender](https://github.com/elecsonJ/team07-lab-recommender)
 - 🏷️ **Tech Stack**: RAG, Agentic AI, LangChain, Streamlit, GPT-4o-mini, Vector Embeddings
 
