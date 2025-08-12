@@ -178,22 +178,22 @@ layout: default
   <!-- Category Header -->
   <div class="category-header">
     <h1 class="category-title">
-      <span class="category-icon">{{ site.data.english.categories[page.category].icon }}</span>
-      <span>{{ page.title | default: site.data.english.categories[page.category].name }}</span>
+      <span class="category-icon">{{ site.data.english.categories[page.category_key].icon }}</span>
+      <span>{{ page.title | default: site.data.english.categories[page.category_key].name }}</span>
     </h1>
-    <p class="category-description">{{ site.data.english.categories[page.category].description }}</p>
+    <p class="category-description">{{ site.data.english.categories[page.category_key].description }}</p>
   </div>
 
   <!-- Filter posts by category -->
   {% assign category_posts = "" | split: "" %}
   {% for post in site.posts %}
     {% if post.lang == "en" or post.language == "english" or post.categories contains "english-posts" or post.name contains "english" %}
-      {% if post.categories contains page.category %}
+      {% if post.categories contains page.category_key %}
         {% assign category_posts = category_posts | push: post %}
-      {% elsif page.category == "tech_analysis" and post.categories contains "tech_trends" %}
+      {% elsif page.category_key == "tech_analysis" and post.categories contains "tech_trends" %}
         <!-- tech_trends -> tech_analysis migration -->
         {% assign category_posts = category_posts | push: post %}
-      {% elsif page.category == "ai_lab" %}
+      {% elsif page.category_key == "ai_lab" %}
         <!-- ai_research, ai_practice -> ai_lab consolidation -->
         {% if post.categories contains "ai_research" or post.categories contains "ai_practice" %}
           {% assign category_posts = category_posts | push: post %}
