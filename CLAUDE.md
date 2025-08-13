@@ -52,11 +52,13 @@ description: "SEO-optimized post summary"
 ```
 
 ### Category System
-The blog uses a simplified 4-category system for clear content organization:
+The blog uses a 6-category system for clear content organization:
 
 - **news**: Industry news, company announcements, timely issues and trends
 - **analysis**: Deep-dive analysis, social impact of technology, philosophical insights  
+- **paper-review**: Systematic analysis and critical examination of academic papers, in-depth interpretation of research results
 - **dev**: Programming, tools, projects, developer career - everything development-related
+- **projects**: Direct project involvement experiences, processes, results and lessons learned
 - **essay**: Personal experiences, thoughts, learning records, reflections - subjective perspectives
 
 **Important**: Each post should have exactly ONE primary category. Avoid mixing categories unless absolutely necessary.
@@ -119,12 +121,32 @@ All documentation includes cross-reference links. Always check these files befor
 4. **Multiple Perspectives**: Present different viewpoints on complex issues
 5. **Actionable Conclusions**: End with practical implications or solutions
 
+### Content Writing Guidelines
+
+#### Paper Review Standards (paper-review category)
+- **Source Verification**: Always verify claims against original papers using WebFetch or direct access
+- **No Fictional Data**: Never include performance metrics, statistics, or experimental results not present in the original paper
+- **Structured Analysis**: Follow academic review format with methodology, results, limitations, and implications
+- **Critical Evaluation**: Include both strengths and weaknesses of the research
+- **Contextual Background**: Provide sufficient background for non-expert readers
+
+#### General Writing Standards
+- **Narrative Flow**: Maintain connected, flowing prose rather than fragmented bullet points
+- **Avoid Code Explanations**: Do not use code blocks or pseudo-code to explain concepts unless absolutely necessary
+- **No Simplified Lists**: Avoid reducing complex ideas to oversimplified numbered lists
+- **Contextual Depth**: Provide full context rather than abbreviated explanations
+- **Natural Language**: Use descriptive, natural language explanations instead of technical shorthand
+
 ### Avoid These Patterns
 - Simple bullet-point summaries without context
 - Generic industry overviews without unique insights  
 - Test posts or placeholder content
 - Pure translation posts without added value
 - Algorithm solutions without educational context
+- Code blocks for non-programming content
+- Line-numbered pseudo-code explanations
+- Unverified performance comparisons
+- Fictional experimental data
 
 ## Site Configuration
 

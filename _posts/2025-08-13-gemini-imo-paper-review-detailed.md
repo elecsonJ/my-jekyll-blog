@@ -2,7 +2,7 @@
 layout: post
 title: "Gemini 2.5 Pro의 IMO 2025 금메달 성취: 자체 검증 파이프라인을 통한 수학적 추론의 혁신"
 date: 2025-08-13 09:00:00 +0900
-categories: [analysis]
+categories: [paper-review]
 tags: [Gemini, DeepMind, IMO, AI, 논문분석, 수학적추론]
 author: 한재훈
 lang: ko
