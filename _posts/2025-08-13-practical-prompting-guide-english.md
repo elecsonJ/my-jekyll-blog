@@ -165,6 +165,30 @@ Additional requirements:
 - Write meta description
 ```
 
+**Email Template:**
+```
+Write an email.
+
+[Situation Description]
+Sender: [position/role]
+Recipient: [relationship with target]
+Purpose: [specific goal]
+
+[Tone and Style]
+- Formality level: [formal/semi-formal/informal]
+- Emotion: [friendly/professional/urgent]
+- Length: [brief/detailed]
+
+[Content to Include]
+1. [Key message 1]
+2. [Key message 2]
+3. [Action request]
+
+[Constraints]
+- Expressions to avoid: [list]
+- Information to include: [list]
+```
+
 ### 💻 Coding Tasks
 
 **Code Generation Template:**
@@ -190,6 +214,34 @@ Write [language] code meeting the following requirements.
 [Example]
 Input: [example input]
 Output: [example output]
+```
+
+**Code Review Template:**
+```
+Please review the following code.
+
+[Code]
+```[paste code here]```
+
+[Review Focus]
+1. Bugs and potential errors
+2. Performance optimization opportunities
+3. Readability and maintainability
+4. Security vulnerabilities
+5. Best practices compliance
+
+[Context]
+- Project type: [web app/API/library]
+- Team size: [number of people]
+- Tech stack: [technologies in use]
+
+[Output Format]
+For each issue:
+- Severity: [Critical/Major/Minor]
+- Location: [line number]
+- Problem description: [specific explanation]
+- Improvement suggestion: [corrected code]
+- Reason: [why it's important]
 ```
 
 ### 📊 Data Analysis
@@ -226,6 +278,34 @@ Analyze the following data.
 - Next step recommendations
 ```
 
+### 🎓 Learning Support
+
+**Concept Explanation Template:**
+```
+Explain [concept/topic].
+
+[Target Audience]
+- Knowledge level: [beginner/intermediate/advanced]
+- Background: [related field experience]
+- Learning purpose: [exam/practical use/curiosity]
+
+[Explanation Method]
+- Difficulty: [step-by-step from easy]
+- Examples: [real-life/practical examples]
+- Analogies: [familiar concept comparisons]
+- Visualization: [diagram descriptions]
+
+[Content to Include]
+1. Core definition
+2. How it works
+3. Real-world applications
+4. Advantages and disadvantages
+5. Differences from related concepts
+
+[Comprehension Check]
+Present 3 questions at the end to verify understanding
+```
+
 ## Model-Specific Optimization Strategies
 
 ### GPT-5 Optimization
@@ -249,6 +329,27 @@ Requirements:
 - Identify potential risk factors
 
 [Include "think hard about this" explicitly for complex problems]
+```
+
+**Code Generation Optimization:**
+```
+Utilize GPT-5's enhanced coding capabilities to develop the following:
+
+Project: [project description]
+Language/Framework: [tech stack]
+Complexity: [high/medium/low]
+
+GPT-5 Specialized Requirements:
+- Leverage 400K context for complete structural design
+- Utilize real-time router functionality (complexity-based processing)
+- Complete implementation within 128K token output limit
+- Enhanced safety and error handling
+
+Step-by-step progress:
+1. Architecture design
+2. Core module implementation
+3. Test code writing
+4. Deployment preparation
 ```
 
 ### Claude Opus 4.1 & Sonnet 4 Optimization
@@ -315,7 +416,20 @@ Step 2: "Based on the above evaluation, perform SWOT analysis."
 Step 3: "Create 6-month execution plan based on SWOT results."
 ```
 
-### 2. Self-Consistency
+### 2. Prompt Chaining with Context
+Use previous responses as input for next prompts:
+
+```
+Prompt 1: "Find outliers in this data: [data]"
+
+Prompt 2: "Analyze patterns in the outliers found above and 
+          infer possible causes."
+
+Prompt 3: "Propose an additional data collection plan 
+          to verify the inferred causes."
+```
+
+### 3. Self-Consistency
 Approach the same problem from multiple angles:
 
 ```
@@ -328,7 +442,7 @@ Method 3: Most creative approach
 Compare pros and cons of each method and suggest optimal solution."
 ```
 
-### 3. Meta-Prompting
+### 4. Meta-Prompting
 Have AI create better prompts:
 
 ```
@@ -489,8 +603,8 @@ Prompting is a new way of collaborating with AI. Through this, we can focus on m
 ---
 
 **References:**
-- OpenAI GPT-5 Documentation
-- Anthropic Claude 4.1 Guide
+- OpenAI GPT-4o Documentation
+- Anthropic Claude 3.5 Guide
 - Google Gemini 2.5 Pro Specifications
 - Prompt Engineering Guide (2025)
 - Real-world Prompting Case Studies

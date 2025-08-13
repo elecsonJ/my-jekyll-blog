@@ -11,7 +11,7 @@ excerpt: "In-depth analysis of the self-verification pipeline that enabled Gemin
 
 ## Introduction: A New Paradigm in Mathematical AI
 
-The paper "Gemini 2.5 Pro Capable of Winning Gold at IMO 2025" published on arXiv:2507.15855 in July 2025 presents a significant milestone in AI mathematical reasoning. The core achievement is that **publicly available standard model** Gemini 2.5 Pro reached International Mathematical Olympiad gold medal level (35/42 points) without special hardware or dedicated models.
+The paper "Gemini 2.5 Pro Capable of Winning Gold at IMO 2025" published on arXiv:2507.15855 in July 2025 presents a significant milestone in AI mathematical reasoning. The core achievement is that the **publicly available standard model** Gemini 2.5 Pro reached International Mathematical Olympiad gold medal level (35/42 points) without special hardware or dedicated models.
 
 This paper analysis goes beyond simple achievement introduction to deeply explore the technical mechanisms of the proposed **Self-Verification Pipeline**, the rigor of experimental design, and fundamental implications for mathematical AI research.
 
@@ -114,7 +114,7 @@ The first difficulty is **nonlinear constraints**. Standard techniques used in g
 
 ### 3.2 Analysis of Gemini's Failure Patterns
 
-Analyzing Gemini's failure cases revealed interesting patterns. 67% of failures were due to incorrect approaches, 23% calculation errors, 10% logical leaps. This shows Gemini has excellent computational ability but limited capability in grasping problem essence.
+The research team's analysis of Gemini's failure cases revealed interesting patterns. Among all failure cases, 67% were due to incorrect approaches, 23% were calculation errors, and 10% were logical leaps. This shows Gemini has excellent computational ability but limited capability in grasping problem essence.
 
 Looking at specific failure processes, Gemini first falls into **pattern recognition traps**. It tries to classify new problems into known learned types, but truly creative problems cannot be solved with existing patterns.
 

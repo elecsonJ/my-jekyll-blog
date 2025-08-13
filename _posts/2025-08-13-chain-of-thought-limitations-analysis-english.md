@@ -5,7 +5,7 @@ date: 2025-08-13
 categories: [paper-review]
 tags: [Chain-of-Thought, LLM, reasoning, paper-review, AI-limitations]
 lang: en
-description: "A deep analysis of recent papers exposing the fundamental limitations of Chain-of-Thought prompting, exploring the critical problems CoT faces in modern AI reasoning."
+description: "Deep analysis of recent papers exposing the fundamental limitations of Chain-of-Thought prompting, exploring how CoT fails in pattern-based learning and the critical problems it faces."
 ---
 
 ## Introduction
