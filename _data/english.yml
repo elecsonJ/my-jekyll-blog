@@ -1,5 +1,5 @@
 categories:
-  # 5-category system mirroring Korean structure
+  # 6-category system mirroring Korean structure
   news:
     name: "News"
     icon: "📰"
@@ -9,6 +9,11 @@ categories:
     name: "In-depth Analysis"
     icon: "🔍"
     description: "Deep analysis and insights on phenomena at the intersection of technology and society"
+  
+  paper-review:
+    name: "Paper Reviews"
+    icon: "📄"
+    description: "Systematic analysis and critical examination of academic papers, in-depth interpretation of research results"
   
   dev:
     name: "Development"

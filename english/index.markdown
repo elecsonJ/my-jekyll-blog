@@ -179,7 +179,7 @@ lang: en
   <!-- Categories Grid -->
   <div class="categories-grid">
     {% assign categories = site.data.english.categories %}
-    {% assign category_order = "news,analysis,dev,projects,essay" | split: "," %}
+    {% assign category_order = "news,analysis,paper-review,dev,projects,essay" | split: "," %}
     
     {% for cat_key in category_order %}
       {% assign category = categories[cat_key] %}
