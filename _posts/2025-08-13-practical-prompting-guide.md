@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "실전 프롬프팅 완벽 가이드: LLM별 특성과 목적별 최적화 전략"
-date: 2025-08-14
-categories: [dev]
+date: 2025-08-13
+categories: [analysis]
 tags: [프롬프팅, LLM, ChatGPT, Claude, Gemini, 실전가이드, 개발자]
 lang: ko
 description: "ChatGPT, Claude, Gemini 각 모델의 정확한 스펙과 특성을 바탕으로 실무에서 바로 활용할 수 있는 프롬프팅 기법과 템플릿을 제공합니다."
