@@ -5,6 +5,7 @@ date: 2025-08-13 09:00:00 +0900
 categories: [analysis]
 tags: [Gemini, DeepMind, IMO, AI, 논문분석, 수학적추론]
 author: 한재훈
+lang: ko
 excerpt: "Gemini 2.5 Pro가 IMO 2025에서 금메달을 달성한 핵심 기술인 자체 검증 파이프라인을 심층 분석. 알고리즘 구조부터 실패 사례까지 기술적 메커니즘을 상세히 탐구합니다."
 ---
 
