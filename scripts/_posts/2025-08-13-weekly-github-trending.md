@@ -2,7 +2,7 @@
 categories:
 - tech
 - github
-date: 2025-08-13 00:51:20 +0900
+date: 2025-08-13 01:04:06 +0900
 description: 이번 주 가장 주목받는 GitHub 오픈소스 프로젝트들을 소개합니다.
 layout: post
 tags:
@@ -18,39 +18,39 @@ title: 이번 주 GitHub 트렌딩 프로젝트 (2025.08.13)
 
 ### 1. [DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1)
 
-**언어:** None | **⭐ Stars:** 90,854
+**언어:** None | **⭐ Stars:** 90,855
 
 None
 
 **주요 특징:**
 - 최근 주목받고 있는 None 프로젝트
-- 90,854개의 스타를 획득하며 빠른 성장세
+- 90,855개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
 
 ### 2. [system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools)
 
-**언어:** None | **⭐ Stars:** 75,512
+**언어:** None | **⭐ Stars:** 75,517
 
 FULL v0, Cursor, Manus, Same.dev, Lovable, Devin, Replit Agent, Windsurf Agent, VSCode Agent, Dia Browser, Xcode, Trae AI, Cluely & Orchids.app (And other Open Sourced) System Prompts, Tools & AI Models.
 
 **주요 특징:**
 - 최근 주목받고 있는 None 프로젝트
-- 75,512개의 스타를 획득하며 빠른 성장세
+- 75,517개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
 
 ### 3. [gemini-cli](https://github.com/google-gemini/gemini-cli)
 
-**언어:** TypeScript | **⭐ Stars:** 68,946
+**언어:** TypeScript | **⭐ Stars:** 68,950
 
 An open-source AI agent that brings the power of Gemini directly into your terminal.
 
 **주요 특징:**
 - 최근 주목받고 있는 TypeScript 프로젝트
-- 68,946개의 스타를 획득하며 빠른 성장세
+- 68,950개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
@@ -70,13 +70,13 @@ No fortress, purely open ground.  OpenManus is Coming.
 
 ### 5. [codex](https://github.com/openai/codex)
 
-**언어:** Rust | **⭐ Stars:** 34,657
+**언어:** Rust | **⭐ Stars:** 34,660
 
 Lightweight coding agent that runs in your terminal
 
 **주요 특징:**
 - 최근 주목받고 있는 Rust 프로젝트
-- 34,657개의 스타를 획득하며 빠른 성장세
+- 34,660개의 스타를 획득하며 빠른 성장세
 - 실무 적용 가능성이 높은 도구
 
 ---
