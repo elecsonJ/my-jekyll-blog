@@ -24,13 +24,35 @@
 
 ## 📚 문서 체계
 
+### 🎯 중심 문서 (시작점)
+- **📖 README.md** - 프로젝트 개요 및 문서 네비게이션 (이 파일)
+- **📋 BLOG_MANAGEMENT_MANUAL.md** - 운영 가이드라인 및 워크플로우
+- **🤖 CLAUDE.md** - Claude Code 작업 가이드 및 품질 기준
+
+### 📊 분석 및 관리 문서
+- **📈 BLOG_QUALITY_ASSESSMENT.md** - 포스트 품질 분류 및 현황 보고서
+- **📂 CATEGORY_SYSTEM_GUIDE.md** - 6개 카테고리 시스템 상세 가이드
+- **🏗️ ARCHITECTURE.md** - Jekyll 블로그 시스템 구조 및 기술 스택
+
+### 📚 각 문서의 주요 내용
 ```
-📁 블로그 운영 문서
-├── 📋 BLOG_MANAGEMENT_MANUAL.md     # 메인 운영 가이드
-├── 📊 BLOG_QUALITY_ASSESSMENT.md    # 품질 분석 보고서  
-├── 🏗️ ARCHITECTURE.md               # 시스템 구조
-├── 📂 CATEGORY_SYSTEM_GUIDE.md      # 카테고리 관리
-└── 📝 WORK_LOG.md                   # 작업 기록
+📖 README.md (이 파일)
+  └── 프로젝트 개요, 문서 체계, 빠른 시작 가이드
+
+📋 BLOG_MANAGEMENT_MANUAL.md
+  └── 포스트 작성법, 품질 기준, 작업 워크플로우
+
+🤖 CLAUDE.md  
+  └── Claude Code 전용 가이드, 카테고리별 작성 기준
+
+📈 BLOG_QUALITY_ASSESSMENT.md
+  └── 44개 포스트 품질 분류, S/A/B급 기준, 개선 방향
+
+📂 CATEGORY_SYSTEM_GUIDE.md
+  └── 6개 카테고리 상세 설명, 분류 기준, 다국어 지원
+
+🏗️ ARCHITECTURE.md
+  └── Jekyll 구조, 카테고리 시스템, 확장성, 문제 해결
 ```
 
 ## 🚀 시작하기
@@ -106,4 +128,4 @@ touch _posts/YYYY-MM-DD-post-title.md
 ---
 
 *🤖 AI 기술을 활용하여 운영되는 고품질 기술 블로그입니다.*  
-*마지막 업데이트: 2025-07-17*
+*마지막 업데이트: 2025-08-13*

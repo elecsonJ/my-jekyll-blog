@@ -1,10 +1,10 @@
 # 📚 Jekyll 블로그 카테고리 시스템 가이드
 
-## 🎯 새로운 카테고리 시스템 (2025.08.12 개편)
+## 🎯 현재 카테고리 시스템 (2025.08.13 현재)
 
-기존의 복잡하고 중복된 카테고리 시스템을 단순하고 명확한 4개 카테고리로 재편했습니다.
+기존의 복잡하고 중복된 카테고리 시스템을 단순하고 명확한 6개 카테고리로 재편했습니다.
 
-## ✨ 새로운 4개 카테고리
+## ✨ 현재 6개 카테고리
 
 ### 📰 **news** - 뉴스
 - **목적**: 시의성 있는 업계 뉴스, 기업 동향, 발표 및 이슈
@@ -22,6 +22,14 @@
   - "Apple의 조용한 혁명: Private Cloud Compute가 바꾸는 AI 생태계"
 - **특징**: 5,000자 이상, 다각적 관점, 미래 전망, 철학적 성찰
 
+### 📄 **paper-review** - 논문 리뷰
+- **목적**: 학술 논문에 대한 체계적 분석과 비판적 고찰, 연구 결과의 심층 해석
+- **예시**:
+  - "Gemini 2.5 Pro의 IMO 2025 금메달 성취: 자체 검증 파이프라인을 통한 수학적 추론의 혁신"
+  - AI 관련 최신 연구논문 분석
+  - 컴퓨터 비전, 자연어처리 등 분야별 논문 리뷰
+- **특징**: 원논문 기반, 소스 검증, 객관적 분석, 학술적 엄밀성
+
 ### 💻 **dev** - 개발
 - **목적**: 프로그래밍, 도구, 프로젝트, 개발자 커리어 모든 것
 - **예시**:
@@ -30,6 +38,15 @@
   - "Python으로 일상 업무 자동화하기"
   - "실시간 주식 가격 알림 봇 만들기"
 - **특징**: 실용적, 튜토리얼, 코드 예제, 실무 활용
+
+### 🚀 **projects** - 프로젝트
+- **목적**: 직접 관여한 프로젝트들의 경험과 과정, 결과물과 배운 점들
+- **예시**:
+  - "RAG + Agentic AI로 구현한 대학원 연구실 추천 시스템"
+  - 해커톤 참가 경험과 결과
+  - 개인/팀 프로젝트 개발 과정
+  - 오픈소스 기여 경험
+- **특징**: 구체적 결과물, 기술적 도전, 협업 경험, 문제 해결 과정
 
 ### ✍️ **essay** - 에세이
 - **목적**: 개인적 경험, 생각, 학습 기록, 회고
@@ -45,7 +62,9 @@
 ### 기존 → 새 카테고리
 - `ai_news`, `news_ai`, `tech-news-analysis` → **news**
 - `tech_analysis`, `insights`, `ai_research` → **analysis**  
-- `programming`, `automation`, `projects_personal`, `mcp` → **dev**
+- (신규) → **paper-review**
+- `programming`, `automation`, `mcp` → **dev**
+- `projects_personal` → **projects**
 - (신규) → **essay**
 
 ## 📝 포스트 작성 가이드라인
@@ -67,8 +86,10 @@ description: "SEO용 요약 설명"
 
 1. **시의성이 핵심인가?** → `news`
 2. **깊이 있는 분석과 통찰인가?** → `analysis`  
-3. **개발 관련 실무 내용인가?** → `dev`
-4. **개인적 경험과 생각인가?** → `essay`
+3. **학술 논문 분석인가?** → `paper-review`
+4. **개발 관련 실무 내용인가?** → `dev`
+5. **구체적 프로젝트 경험인가?** → `projects`
+6. **개인적 경험과 생각인가?** → `essay`
 
 ### 금지사항
 - ❌ 여러 카테고리 동시 사용 (특별한 경우 제외)
@@ -80,13 +101,17 @@ description: "SEO용 요약 설명"
 ### 한국어 카테고리 페이지
 - `/korean/categories/news/` - 뉴스
 - `/korean/categories/analysis/` - 심층 분석  
+- `/korean/categories/paper-review/` - 논문 리뷰
 - `/korean/categories/dev/` - 개발
+- `/korean/categories/projects/` - 프로젝트
 - `/korean/categories/essay/` - 에세이
 
 ### 영어 카테고리 페이지  
 - `/english/categories/news/` - News
-- `/english/categories/analysis/` - Analysis
+- `/english/categories/analysis/` - In-depth Analysis
+- `/english/categories/paper-review/` - Paper Reviews
 - `/english/categories/dev/` - Development  
+- `/english/categories/projects/` - Projects
 - `/english/categories/essay/` - Essays
 
 ## 🛠 유지보수 가이드
@@ -104,19 +129,23 @@ description: "SEO용 요약 설명"
 - [ ] 기존 포스트 재분류
 - [ ] 빌드 테스트 및 배포
 
-## 📊 현재 상태 (2025.08.12 기준)
+## 📊 현재 상태 (2025.08.13 기준)
 
-### 포스트 분포
-- **news**: 15개 (41%)
-- **analysis**: 13개 (36%)  
-- **dev**: 8개 (22%)
+### 포스트 분포 (6개 카테고리)
+- **news**: 5개 (15%)
+- **analysis**: 14개 (42%)
+- **paper-review**: 1개 (3%)
+- **dev**: 4개 (12%)  
+- **projects**: 1개 (3%)
 - **essay**: 0개 (0%)
 
 ### 목표 분포 (6개월 후)
-- **news**: 25% (빠른 업데이트)
-- **analysis**: 40% (핵심 콘텐츠)
-- **dev**: 25% (실용적 가치)  
-- **essay**: 10% (개인적 터치)
+- **news**: 20% (빠른 업데이트)
+- **analysis**: 35% (핵심 콘텐츠)
+- **paper-review**: 15% (학술적 깊이)
+- **dev**: 20% (실용적 가치)  
+- **projects**: 5% (실제 경험)
+- **essay**: 5% (개인적 터치)
 
 ## 🔮 미래 확장 계획
 
